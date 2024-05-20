@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename %>"  rel="canonical" />
+</head>
+<body class="page bg-slate-950">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <%= require('html-loader!./insets/header.html').default %>
+  <main class="max-w-7xl mx-auto mt-10">
+    <div class="max-w-4xl mx-auto">
+        <p class="text-blue-800">Кто мы такие?</p>
+        <h1 class="text-4xl text-slate-400">Маркетологи. Разработчики. Дизайнеры.</h1>
+    </div>
+    <div class="max-w-4xl mx-auto">
+        <p class="text-xl text-slate-200 ">
+            Мы занимаемся интернет-маркетингом в течение 6 лет в сфере промышленности. За это время было запущено более 15
+            рекламных кампаний для фирм и производителей с географией по всей России. Фокус на промышленных малых и средних
+            фирмах позволил нам выработать <span class="font-semibold">нишевую экспертизу</span>, что в свою очередь позволяет нам найти для Вас целевого клиента там, где его не
+            найдет специалист рекламного агенства. Кстати, зная детально запросы и потребности целевой аудитории, можно и
+            сэкономить на затратах в рекламных системах.
+        </p>
+    </div>
+    
+  </main>
+
+  <!--FOOTER
+  html-loader!./insets/asides/inner-footer.html').default-->
+</body>
+</html>

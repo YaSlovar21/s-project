@@ -1,0 +1,51 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  article h2 {
+    @apply text-4xl my-2;
+  }
+  article h3 {
+    @apply text-2xl my-2;
+  }
+  article p {
+    @apply my-2;
+  }
+
+  .info__article-container table {
+    @apply text-gray-50 my-4 table-auto border-collapse;
+  }
+
+  .info__article-container table thead {
+    @apply bg-orange-dark text-base mobile:text-sm;
+  }
+
+  .info__article-container table thead tr {
+    @apply *:px-5 *:py-4 *:font-medium *:text-left divide-x divide-solid divide-[#1f1f1f];
+  }
+
+  .info__article-container table thead tr th:first-child {
+    @apply rounded-s-lg;
+  }
+
+  .info__article-container table thead tr th:last-child {
+    @apply rounded-e-lg;
+  }
+
+  .info__article-container table tbody {
+    @apply text-base relative -top-2 -z-[1] bg-[#2f2f2f]  divide-y divide-solid divide-[#1f1f1f]  mobile:text-sm;
+  }
+
+  .info__article-container table tbody tr {
+    @apply *:px-5 *:pb-3 *:pt-5  divide-x divide-solid divide-[#1f1f1f];
+  }
+}
+
+@layer components {
+  :root {
+    --head-wrap: calc(50% + 800px)
+  }
+}
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>"  rel="canonical" />
+  <meta name="verify-admitad" content="e50e22898b" />
+</head>
+<body class="page bg-primary-darker">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  
+  <header>
+    <div class="relative flex justify-between items-center bg-themewhite">
+      <a class="" href="/"><img src="<%= require('./images/svg/logo-place-header.svg')%>" alt="Логотип Станкостальконструкция"></a>
+      
+      <div class="flex">
+        <a href="mailto:info@ssk22.ru" class="font-semibold text-xl text-gray-700">info@ssk22.ru</a>
+        <a href="tel:+73852361050" class="font-semibold text-xl text-gray-700">+7 (3852)-36-10-50</a>
+      </div>
+      <nav>
+        <ul class="flex *:text-primary-darker *:p-5 *:hover:text-primary uppercase">
+          <li class="mr-8">Продукция</li>
+          <li class="mr-8">О компании</li>
+          <li class="mr-8">Проектировщикам</li>
+          <li class="mr-8">Наши ценности</li>
+          <li>Контакты</li>
+        </ul>
+      </nav>
+      
+    </div>
+  </header>
+  <main>
+
+    <img src="<%= require('./images/hero-bg.png')%>" alt="Опоры нашего производства на Чуйском тракте Алтайского края">  
+    
+    
+    <section class="bg-themewhite flex">
+      <figure class="basis-4/12">
+        <img class="mx-auto" src="<%= require('./images/main-opora.png')%>" alt="гранёная опора освещения силовая фланцевая с фундаментом и кронштейном под светильник">
+      </figure>
+      <ul class="grid basis-7/12 grid-cols-3 gap-3 mt-12">
+        <% categories.map((item) => {  %>
+          <li class="p-5 relative olpc:p-8">
+            <h3 class="font-semibold text-secondary-darker text-2xl"><%= item %></h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#27237F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </figure>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
+  
+
+</body>
+</html>
