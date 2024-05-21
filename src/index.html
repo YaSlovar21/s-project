@@ -21,12 +21,8 @@
         <a href="tel:+73852361050" class="font-semibold text-xl text-gray-700">+7 (3852)-36-10-50</a>
       </div>
       <nav>
-        <ul class="flex *:text-primary-darker *:p-5 *:hover:text-primary uppercase">
-          <li class="mr-8">Продукция</li>
-          <li class="mr-8">О компании</li>
-          <li class="mr-8">Проектировщикам</li>
-          <li class="mr-8">Наши ценности</li>
-          <li>Контакты</li>
+        <ul class="flex *:text-primary-darker *:p-5 *:hover:text-primary uppercase font-ui">
+          
         </ul>
       </nav>
       
@@ -37,23 +33,180 @@
     <img src="<%= require('./images/hero-bg.png')%>" alt="Опоры нашего производства на Чуйском тракте Алтайского края">  
     
     
-    <section class="bg-themewhite flex">
+    <section class="bg-themewhite flex px-10 py-24">
       <figure class="basis-4/12">
-        <img class="mx-auto" src="<%= require('./images/main-opora.png')%>" alt="гранёная опора освещения силовая фланцевая с фундаментом и кронштейном под светильник">
+        <img class="mx-auto sticky top-2" src="<%= require('./images/main-opora.png')%>" alt="гранёная опора освещения силовая фланцевая с фундаментом и кронштейном под светильник">
       </figure>
-      <ul class="grid basis-7/12 grid-cols-3 gap-3 mt-12">
-        <% categories.map((item) => {  %>
-          <li class="p-5 relative olpc:p-8">
-            <h3 class="font-semibold text-secondary-darker text-2xl"><%= item %></h3>
+      <ul class="grid basis-7/12 grid-cols-3 mt-12">
+        
+        <li class="col-span-2 border-r-2 border-b-2 ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Кронштейны под светильники</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#27237F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </figure>
-          </li>
-        <% }) %>
-      </ul>
+              <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="col-span-2 border-r-2 border-b-2 ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры освещения</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">           
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="border-b-2 ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры силовые фланцевые граненые</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="border-b-2  border-r-2">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры силовые прямостоячные граненые НФГ</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="border-b-2  border-r-2">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры несиловые фланцевые граненые НФГ</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="border-b-2  ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры силовые фланцевые граненые</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="col-span-2 border-r-2 border-b-2 ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Высокомачтовые опоры</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class=" ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Мачты со стационарной короной</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="border-r-2">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Мачты с мобильной короной</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class=" ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Молниеотводы на базе граненых мачт</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="col-span-2 border-r-2  ">
+          <a class="main-product-link" href="#">
+            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Фундаменты под опоры</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+    </ul>
+    </section>
+    <section class="bg-primary-darker py-7 relative flex justify-end px-10">
+      <figure class="absolute top-0 left-0">
+        <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
+      </figure>
+      <span class="block up-title text-themewhite basis-3/12">О компании</span><!-- pl-[calc(8.34%+20px)]-->
+      <div class="basis-4/12 flex flex-col justify-between">
+        <h2 class="section-title text-themewhite mb-8">Завод по производству металлических опор</h2>
+        <div>
+          <p class="text-lg text-themewhite max-w-[524px]">
+            ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания
+            «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
+            металлоконструкций.
+          </p>
+          <p class="text-lg text-themewhite mt-5 max-w-[524px]">
+            Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также,
+            комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
+          </p>
+        </div>
+        <a class="text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center" href="/about/">Узнать больше</a>
+      </div>
+      <img class="basis-4/12 min-h-[485px]" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+    </section>
+    <section class="bg-themewhite py-7 relative flex justify-end px-10">
+      <figure class="absolute top-0 left-0">
+        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
+      </figure>
+      <h2 class="block up-title text-primary-darker basis-3/12">События</h2>
+      <div class="basis-4/12">
+        <figure class="w-[444px] h-[444px]">
+          <img class="w-full h-full object-cover object-center" src="<%= require('./images/blog/modernization.png')%>" alt="строительство дополнительного цеха для производства опор освещения">
+        </figure>
+        <h3 class="text-xl mt-5 max-w-[400px]">Расширение производственного помещения предприятия</p>
+      </div>
+      <div class="basis-2/12 mr-5">
+        <figure class="w-[290px] h-[290px]">
+          <img class="w-full h-full object-cover object-center" src="<%= require('./images/blog/conkurs-luch-1.png')%>" alt="участие в конкурсе лучший по профессии">
+        </figure>
+        <h3 class="text-xl mt-2 max-w-[265px]">Приняли участие в конкурсе лучший по профессии</p>
+      </div>
+      <div class="basis-2/12">
+        <figure class="w-[290px] h-[290px]">
+          <img class="w-full h-full object-cover object-center" src="<%= require('./images/blog/neftegaz2023.png')%>" alt="участие в конкурсе лучший по профессии">
+        </figure>
+        <h3 class="text-xl mt-2 max-w-[265px]">Принимаем участие в выставке Нефтегаз - 2023</p>
+      </div>
+      <nav class="absolute bottom-7 right-10">
+        <button class="">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>          
+        </button>
+        <button class="">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>          
+        </button>
+      </nav>
     </section>
   </main>
   

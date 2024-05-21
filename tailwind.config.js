@@ -82,6 +82,9 @@ module.exports = {
       themewhite: {
         DEFAULT: '#E8F5FF',
       },
+    },
+    fontFamily: {
+      ui: 'GolosUIWeb', 
     }
   }
 },

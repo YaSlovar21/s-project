@@ -43,9 +43,16 @@
 }
 
 @layer components {
-  :root {
-    --head-wrap: calc(50% + 800px)
+  .up-title {
+    @apply text-lg font-semibold uppercase;
   }
+  .section-title {
+    @apply text-4xl font-ui font-semibold;
+  }
+
+  .main-product-link {
+    @apply block p-5 relative pr-10 hover:bg-primary-lighter;
+  } 
 }
 
 
