@@ -1,0 +1,121 @@
+@import url(./__link/nav__link.css);
+@import url(./__mobile-icon/nav__mobile-icon.css);
+
+.nav {
+    margin: 0;
+    display: flex;
+    width: 100%;
+}
+
+.nav__menu-links {
+  @apply flex list-none justify-between w-full laptop:hidden;
+}
+
+
+.nav__ul-item {
+    position: relative;
+}
+
+.nav__ul-item::after {
+  position: absolute;
+  content: '';
+  height: 4px;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background-color: #FF5E3A;
+  transition: visibility .3s ease-in, opacity .3s linear, height .3s linear, bottom .3s linear;
+  visibility: hidden;
+
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.nav__ul-item:hover::after {
+  visibility: visible;
+  opacity: 0.5  ;
+  /*transition: visibility .0s ease-in;
+  transition-delay: 0;*//*Дает резкий отскок, в это состояние элемент не анимируется*/
+  height: 9px;
+  left: 0;
+  bottom: 3px;
+}
+
+
+.nav__submenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: -16px;
+    width: 210%;
+    z-index: 10;
+    transition: opacity 0.5s ease-in-out, color .2s ease-in;
+    transition: all .4s ease-in;
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+
+@media screen and (max-width:768px) {
+  .nav__submenu {
+    position: relative;
+    display: none;
+    width: 100%;
+  }
+  .nav__ul-item:hover .nav__submenu {
+    display: flex;
+  }
+}
+
+.nav__ul-item:hover .nav__submenu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.nav__sub-ul-item {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+
+ 
+  
+  .nav__sub-ul-item:hover
+  {
+
+    /*font-weight: 500;*/
+    background-color: #f2f2f210;
+    background-color: var(--bg-darker-color);
+  }
+  .nav__sub-ul-item:hover .nav__sub-link
+  {
+    color: #FF5E3A;
+    color: #6d6d6d;
+    /*font-weight: 500;*/
+  }
+
+  .nav__sub-ul-item_cat:hover {
+    background-color: #ff5e3af7;
+  }
+
+  .nav__sub-link {
+    @apply text-base text-themewhite font-medium no-underline text-left olpc:text-sm;
+
+    width: 100%;
+    height: 100%;
+    padding: 12px 10px;
+    transition: all .2s linear;
+  }
+
+  .nav__sub-link_subb {
+    font-size: 16px;
+  }
+
+
+  .nav__ul-item_sub:hover::after {
+    opacity: 0.4;
+  }
+
+
+
