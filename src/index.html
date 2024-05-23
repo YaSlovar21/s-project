@@ -15,30 +15,27 @@
  
   <main>
     
-    <div class="grid grid-cols-12 px-10 pb-24 bg-[url('../images/main-hero-test-bg.png')] hero relative overflow-hidden">
-    <div class="header flex col-span-12 mb-24">
-      <img src="<%= require('./images/svg/logo-place-header.svg')%>">
-      
-      <%= require('html-loader!./insets/inner-header.html').default %>
-      
-    </div>
-     <!--<img class="absolute inset-0 z-0" src="<%= require('./images/hero-bg.png')%>" alt="Опоры нашего производства на Чуйском тракте Алтайского края">  
-      <figure class="absolute z-[1]">
-        <img class="" src="<%= require('./images/svg/page-main-hero-lightning.svg')%>" alt="фоновое изображение">
-      </figure>--> 
-      <h1 class="col-start-4 col-span-4 w-full text-left relative z-[2] text-5xl text-primary-darker font-ui font-medium">Мы любим свою работу поэтому выполняем ее качественно!</h1>
-      <p class="col-start-4 row-start-3 col-span-3 relative z-[2]  text-themewhite text-2xl">СтанкоСтальКонструкция - завод по производству опор освещения</p>
-      <ul class="row-start-4 col-start-2 col-span-7 flex mt-36">
-        <li class="flex flex-wrap basis-[41.69%] p-5 mr-5 bg-themewhite">
-          <h3 class="text-2xl font-semibold font-ui text-primary-darker basis-full">Высочайшее качество производимых изделий</h3>
-          <a class="text-sm basis-1/2 mt-10" href="#" download>Скачать каталог</a>
-          <a class="text-sm basis-1/2 mt-10" href="#" download>Смотреть каталог на сайте</a>
-        </li>
-        <li class="flex flex-wrap basis-[20.85%] p-5 bg-themewhite">
-          <h3 class="text-2xl font-semibold font-ui text-primary-darker basis-full">Выгодные цены</h3>
-          <a class="text-sm basis-1/2 mt-10" href="#" download>Скачать прайс</a>
-        </li>
-      </ul>
+    <div class="grid grid-cols-12 px-10 pb-24 bg-[url('../images/main-hero-test-bg.png')] bg-top hero relative overflow-hidden">
+      <div class="header flex col-span-12 mb-12">
+        <%= require('html-loader!./insets/inner-header.html').default %>
+      </div>
+      <!--<img class="absolute inset-0 z-0" src="<%= require('./images/hero-bg.png')%>" alt="Опоры нашего производства на Чуйском тракте Алтайского края">  
+        <figure class="absolute z-[1]">
+          <img class="" src="<%= require('./images/svg/page-main-hero-lightning.svg')%>" alt="фоновое изображение">
+        </figure>--> 
+        <h1 class="col-start-4 col-span-4 w-full text-left relative z-[2] text-5xl text-primary-darker font-ui font-medium">Мы любим свою работу поэтому выполняем ее качественно!</h1>
+        <p class="col-start-4 row-start-3 col-span-3 relative z-[2]  text-themewhite text-2xl">СтанкоСтальКонструкция - завод по производству опор освещения</p>
+        <ul class="row-start-4 col-start-2 col-span-7 flex mt-44">
+          <li class="flex flex-wrap basis-[41.69%] p-5 mr-5 bg-themewhite">
+            <h3 class="text-2xl font-semibold font-ui text-primary-darker basis-full">Высочайшее качество производимых изделий</h3>
+            <a class="text-sm basis-1/2 mt-10" href="#" download>Скачать каталог</a>
+            <a class="text-sm basis-1/2 mt-10" href="#" download>Смотреть каталог на сайте</a>
+          </li>
+          <li class="flex flex-wrap basis-[20.85%] p-5 bg-themewhite">
+            <h3 class="text-2xl font-semibold font-ui text-primary-darker basis-full">Выгодные цены</h3>
+            <a class="text-sm basis-1/2 mt-10" href="#" download>Скачать прайс</a>
+          </li>
+        </ul>
     </div>
     
     <section class="bg-themewhite grid grid-cols-12 px-10 py-24">
@@ -176,7 +173,7 @@
             комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
           </p>
         </div>
-        <a class="text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center" href="/about/">Узнать больше</a>
+        <a class="mt-4 text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center" href="/about/">Узнать больше</a>
       </div>
       <img class="col-start-9 col-span-4" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
     </section>
@@ -215,6 +212,52 @@
           </svg>          
         </button>
       </nav>
+    </section>
+    <section class="grid grid-cols-12 gap-x-5 pt-7 pb-16 relative px-10">
+      <figure class="absolute top-0 left-0">
+        <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
+      </figure>
+      <h2 class="block up-title text-themewhite col-start-2">Наши реимущества</h2>
+    </section>
+    <section class="grid grid-cols-12 gap-x-5 py-24 relative bg-themewhite max-w-[calc(100%-80px)] mx-auto my-40 rounded-lg">
+      <h2 class="col-start-2 col-span-10 mb-20 text-5xl font-ui font-semibold text-primary-darker">Остались вопросы? Свяжитесь с нами!</h2>
+      <div class="col-start-2 col-span-2 ">
+        <p class="text-lg text-primary-darker">Заполните форму или отправьте Вашу заявку на почту:</p>
+        <a class="text-3xl text-primary-darker mt-8" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
+      </div>
+      <form class="col-span-7">
+        <div class="flex">
+          <label class="form__field form__field_rasch">
+            <span class="form__label-title form__label-title_rasch span-mobile-hidden">Как к Вам обращаться?</span>
+            <span class="form__label-title form__label-title_rasch span-mobile-show">Как к Вам обращаться?</span>
+            <input class="form__input raschet-bem__input_type_flex" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
+            <span class="form__input-error name-input-error"></span>
+          </label>
+          <label class="form__field form__field_rasch">
+            <span class="form__label-title form__label-title_rasch span-mobile-hidden">Email, куда отправить расчёт</span>
+            <span class="form__label-title form__label-title_rasch span-mobile-show">Email</span>
+            <input data-alias="Email" type="email" name="emailof" id="email-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
+            <span class="form__input-error email-input-error"></span>
+          </label>
+          <label class="form__field form__field_rasch">
+            <span class="form__label-title form__label-title_rasch span-mobile-hidden">Ваш телефон</span>
+            <span class="form__label-title form__label-title_rasch span-mobile-show">Телефон</span>
+            <input data-alias="Телефон" type="tel" name="telof" id="tel-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
+            <span class="form__input-error tel-input-error"></span>
+          </label>
+        </div>
+        <div class="raschet-form__textarea">
+          <label class="form__field form__field_rasch form__field_type_textarea">
+            <span class="form__label-title form__label-title_rasch">Опишите Вашу задачу</span>
+            <textarea data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"  class="form__input" novalidate></textarea>
+            <span class="form__input-error comment-pto-free-input-error"></span>
+          </label>
+          <button class="bem__button form__submit-button form__submit-button_rasch" type="submit">Отправить</button>
+        </div>
+      </form>
+      <figure class="absolute right-0 bottom-0">
+        <img src="<%= require('./images/svg/form-feedback-right-bottom-dec.svg')%>" alt="декоративный элемент">
+      </figure>
     </section>
   </main>
   

@@ -1,7 +1,8 @@
 .nav__link {
-  @apply text-base font-ui uppercase no-underline; 
+  @apply text-base font-ui uppercase no-underline py-5 block px-2; 
 
   transition: .5s linear;
   position: relative;
   z-index: 1;
+
 }

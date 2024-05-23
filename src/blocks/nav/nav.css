@@ -2,20 +2,18 @@
 @import url(./__mobile-icon/nav__mobile-icon.css);
 
 .nav {
-    margin: 0;
-    display: flex;
-    width: 100%;
+
 }
 
 .nav__menu-links {
   @apply flex list-none justify-between w-full laptop:hidden;
 }
 
-
 .nav__ul-item {
-    position: relative;
+    @apply relative hover:bg-primary-light w-full hover:bg-opacity-50;
 }
 
+/*
 .nav__ul-item::after {
   position: absolute;
   content: '';
@@ -33,14 +31,12 @@
 
 .nav__ul-item:hover::after {
   visibility: visible;
-  opacity: 0.5  ;
-  /*transition: visibility .0s ease-in;
-  transition-delay: 0;*//*Дает резкий отскок, в это состояние элемент не анимируется*/
+  opacity: 0.5;
   height: 9px;
   left: 0;
   bottom: 3px;
 }
-
+*/
 
 .nav__submenu {
     position: absolute;
