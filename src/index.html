@@ -42,7 +42,7 @@
       <figure class="col-span-4">
         <img class="mx-auto sticky top-2" src="<%= require('./images/main-opora.png')%>" alt="гранёная опора освещения силовая фланцевая с фундаментом и кронштейном под светильник">
       </figure>
-      <ul class="col-span-8 grid grid-cols-3 mt-12 *:border-primary-light">
+      <ul class="col-span-8 grid grid-cols-3 mt-12 *:border-primary-lighter">
         
         <li class="col-span-2 border-r-2 border-b-2">
           <a class="main-product-link" href="#">
@@ -217,42 +217,43 @@
       <figure class="absolute top-0 left-0">
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
-      <h2 class="block up-title text-themewhite col-start-2">Наши реимущества</h2>
+      <h2 class="block up-title text-themewhite col-start-2 col-span-2">Наши преимущества</h2>
+      <img class="col-start-5 col-span-8" src="<%= require('./images/test-pluses.png')%>">
     </section>
-    <section class="grid grid-cols-12 gap-x-5 py-24 relative bg-themewhite max-w-[calc(100%-80px)] mx-auto my-40 rounded-lg">
+    <section class="grid grid-cols-12 gap-x-5 py-24 relative bg-themewhite max-w-[calc(100%-80px)] mx-auto mb-4 rounded-lg">
       <h2 class="col-start-2 col-span-10 mb-20 text-5xl font-ui font-semibold text-primary-darker">Остались вопросы? Свяжитесь с нами!</h2>
       <div class="col-start-2 col-span-2 ">
         <p class="text-lg text-primary-darker">Заполните форму или отправьте Вашу заявку на почту:</p>
-        <a class="text-3xl text-primary-darker mt-8" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
+        <a class="text-2xl font-ui font-semibold text-primary-darker block mt-6" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
       </div>
-      <form class="col-span-7">
+      <form class="col-span-9">
         <div class="flex">
           <label class="form__field form__field_rasch">
-            <span class="form__label-title form__label-title_rasch span-mobile-hidden">Как к Вам обращаться?</span>
-            <span class="form__label-title form__label-title_rasch span-mobile-show">Как к Вам обращаться?</span>
+            <span class="form__label-title mobile:hidden">Как к Вам обращаться?</span>
+            <span class="form__label-title hidden mobile:block">Как к Вам обращаться?</span>
             <input class="form__input raschet-bem__input_type_flex" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
             <span class="form__input-error name-input-error"></span>
           </label>
           <label class="form__field form__field_rasch">
-            <span class="form__label-title form__label-title_rasch span-mobile-hidden">Email, куда отправить расчёт</span>
-            <span class="form__label-title form__label-title_rasch span-mobile-show">Email</span>
+            <span class="form__label-title mobile:hidden">Email, куда отправить расчёт</span>
+            <span class="form__label-title hidden mobile:block">Email</span>
             <input data-alias="Email" type="email" name="emailof" id="email-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
             <span class="form__input-error email-input-error"></span>
           </label>
           <label class="form__field form__field_rasch">
-            <span class="form__label-title form__label-title_rasch span-mobile-hidden">Ваш телефон</span>
-            <span class="form__label-title form__label-title_rasch span-mobile-show">Телефон</span>
+            <span class="form__label-title mobile:hidden">Ваш телефон</span>
+            <span class="form__label-title hidden mobile:block">Телефон</span>
             <input data-alias="Телефон" type="tel" name="telof" id="tel-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
             <span class="form__input-error tel-input-error"></span>
           </label>
         </div>
-        <div class="raschet-form__textarea">
+        <div class="mt-8 w-1/2">
           <label class="form__field form__field_rasch form__field_type_textarea">
-            <span class="form__label-title form__label-title_rasch">Опишите Вашу задачу</span>
-            <textarea data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"  class="form__input" novalidate></textarea>
+            <span class="form__label-title">Опишите Вашу задачу</span>
+            <textarea data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"  class="form__input form__textarea" novalidate></textarea>
             <span class="form__input-error comment-pto-free-input-error"></span>
           </label>
-          <button class="bem__button form__submit-button form__submit-button_rasch" type="submit">Отправить</button>
+          <button class="form__submit-button" type="submit">Отправить</button>
         </div>
       </form>
       <figure class="absolute right-0 bottom-0">
@@ -260,7 +261,33 @@
       </figure>
     </section>
   </main>
-  
+  <footer class="py-24 grid grid-cols-12 gap-x-5 px-10">
+    <div class="col-span-2 col-start-1 content-between">
+      <a class="" href="/"><img src="<%= require('./images/svg/logo-place-footer.svg')%>"></a>
+      <p class="text-sm text-primary-lighter">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
+    </div>
+    <ul class="col-start-4 col-span-5">
+      <li class=" grid grid-cols-4 gap-x-5 pb-5 border-b-2 border-primary">
+        <h2 class="text-xl text-themewhite font-ui font-medium">Отдел продаж</h2>
+        <div class="pt-[0.35rem]">
+          <h3 class="text-sm text-themewhite font-ui font-medium uppercase">Почта</h3>
+          <a class="block mt-4 text-lg text-themewhite  font-ui font-medium  col-span-2 justify-self-start" href="mailto:info@ssk.ru">info@ssk.ru</a>
+        </div>
+        <div class="pt-[0.35rem]">
+          <h3 class="text-sm text-themewhite font-ui font-medium uppercase">Номер телефона</h3>
+          <a class="text-lg block mt-4  text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
+          <a class="text-lg block mt-2  text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
+        </div>
+      </li>
+      <li class="grid grid-cols-4 gap-x-5 pt-5">
+        <h2 class="text-xl  text-themewhite font-ui font-medium">Приемная</h2>
+        <div class="pt-[0.35rem] col-start-3">
+          <h3 class="text-sm  text-themewhite font-ui font-medium uppercase">Номер телефона</h3>
+          <a class="text-lg block mt-4 text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
+        </div>
+      </li>
+    </ul>
+  </footer>
 
 </body>
 </html>

@@ -1,0 +1,23 @@
+.form__field {
+    @apply border border-primary mr-4;
+}
+
+.form__field_type_textarea {
+    @apply block h-40;
+}
+
+.form__label-title {
+    @apply px-5 py-2 text-base text-primary-dark;
+}
+
+.form__input {
+    @apply w-full px-5 py-3 text-2xl bg-themewhite;
+}
+
+.form__textarea {
+    
+}
+
+.form__submit-button {
+    @apply bg-primary hover:bg-primary-dark p-5 w-1/2 uppercase font-ui text-themewhite mt-8;
+}
