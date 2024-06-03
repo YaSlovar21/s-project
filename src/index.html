@@ -7,17 +7,13 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link href="<%= canonicalURL %>"  rel="canonical" />
-  <meta name="verify-admitad" content="e50e22898b" />
 </head>
 <body class="page bg-primary-darker">
   <%= require('html-loader!./inner-metrika.html').default %>
-  
- 
   <main>
-    
     <div class="grid grid-cols-12 px-10 pb-24 bg-[url('../images/main-hero-test-bg.png')] bg-top hero relative overflow-hidden">
       <div class="header flex col-span-12 mb-12">
-        <%= require('html-loader!./insets/inner-header.html').default %>
+        <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent'}) %>
       </div>
       <!--<img class="absolute inset-0 z-0" src="<%= require('./images/hero-bg.png')%>" alt="Опоры нашего производства на Чуйском тракте Алтайского края">  
         <figure class="absolute z-[1]">
@@ -44,29 +40,29 @@
       </figure>
       <ul class="col-span-8 grid grid-cols-3 mt-12 *:border-primary-lighter">
         
-        <li class="col-span-2 border-r-2 border-b-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Кронштейны под светильники</h3>
-            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+        <li class="col-span-2 border-r border-b">
+          <a class="main-product-link pb-11" href="<%= ROUTES.brackets %>">
+            <h3 class="main-product-link__title main-product-link__title_category">Кронштейны под светильники</h3>
+            <p class="mt-8 text-base text-secondary-darker  max-w-[450px]">Кронштейны под консольные светильнии. Изготавливаются как на железобетонные опоры, так и на многогранные и круглые металлические</p>
             <figure class="absolute top-5 right-5">
               <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
             </figure> 
           </a>
         </li>
       
-        <li class="col-span-2 border-r-2 border-b-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры освещения</h3>
-            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+        <li class="col-span-2 border-r border-b">
+          <a class="main-product-link pb-11" href="<%= ROUTES.oporyMain %>">
+            <h3 class="main-product-link__title main-product-link__title_category">Опоры освещения</h3>
+            <p class="mt-8 text-base text-secondary-darker  max-w-[450px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">           
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
             </figure> 
           </a>
         </li>
       
-        <li class="border-b-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры силовые фланцевые граненые</h3>
+        <li class="border-b">
+          <a class="main-product-link" href="<%= ROUTES.sfg %>">
+            <h3 class="main-product-link__title">Опоры силовые фланцевые граненые</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
@@ -74,9 +70,9 @@
           </a>
         </li>
       
-        <li class="border-b-2  border-r-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры силовые прямостоячные граненые НФГ</h3>
+        <li class="border-b  border-r">
+          <a class="main-product-link" href="<%= ROUTES.spg %>">
+            <h3 class="main-product-link__title">Опоры силовые прямостоячные граненые НФГ</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
@@ -84,9 +80,9 @@
           </a>
         </li>
       
-        <li class="border-b-2  border-r-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры несиловые фланцевые граненые НФГ</h3>
+        <li class="border-b  border-r">
+          <a class="main-product-link" href="<%= ROUTES.nfg %>">
+            <h3 class="main-product-link__title">Опоры несиловые фланцевые граненые НФГ</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
@@ -94,9 +90,9 @@
           </a>
         </li>
       
-        <li class="border-b-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Опоры силовые фланцевые граненые</h3>
+        <li class="border-b">
+          <a class="main-product-link" href="<%= ROUTES.nfg %>">
+            <h3 class="main-product-link__title">Опоры несиловые прямостоячные граненые</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
@@ -104,30 +100,10 @@
           </a>
         </li>
       
-        <li class="col-span-2 border-r-2 border-b-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Высокомачтовые опоры</h3>
-            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-      
-        <li class="">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Мачты со стационарной короной</h3>
-            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-      
-        <li class="border-r-2">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Мачты с мобильной короной</h3>
-            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+        <li class="col-span-2 border-r border-b">
+          <a class="main-product-link pb-11" href="<%= ROUTES.machty %>">
+            <h3 class="main-product-link__title main-product-link__title_category">Высокомачтовые опоры</h3>
+            <p class="mt-8 text-base text-secondary-darker  max-w-[450px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
             </figure> 
@@ -135,8 +111,8 @@
         </li>
       
         <li class="">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Молниеотводы на базе граненых мачт</h3>
+          <a class="main-product-link" href="<%= ROUTES.machty %>">
+            <h3 class="main-product-link__title">Мачты со стационарной короной</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
@@ -144,10 +120,30 @@
           </a>
         </li>
       
-        <li class="col-span-2 border-r-2 ">
-          <a class="main-product-link" href="#">
-            <h3 class="h-24 font-semibold font-ui text-secondary-darker text-2xl">Фундаменты под опоры</h3>
+        <li class="border-r">
+          <a class="main-product-link" href="<%= ROUTES.machty %>">
+            <h3 class="main-product-link__title">Мачты с мобильной короной</h3>
             <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="border-r">
+          <a class="main-product-link" href="<%= ROUTES.machty %>">
+            <h3 class="main-product-link__title">Молниеотводы на базе граненых мачт</h3>
+            <p class=" mt-7 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+            <figure class="absolute top-5 right-5">
+                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+            </figure> 
+          </a>
+        </li>
+      
+        <li class="col-span-2 border-r border-t">
+          <a class="main-product-link  pb-11" href="<%= ROUTES.fundamenty %>">
+            <h3 class="main-product-link__title main-product-link__title_category">Фундаменты под опоры</h3>
+            <p class="mt-8 text-base text-secondary-darker  max-w-[450px]">Производим все виды фундаментов и закладных элементов под разные типы силовых и несиловых фланцевых круглых и граненых опор. Прямые и Г-образные.</p>
             <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
             </figure> 
@@ -261,33 +257,6 @@
       </figure>
     </section>
   </main>
-  <footer class="py-24 grid grid-cols-12 gap-x-5 px-10">
-    <div class="col-span-2 col-start-1 content-between">
-      <a class="" href="/"><img src="<%= require('./images/svg/logo-place-footer.svg')%>"></a>
-      <p class="text-sm text-primary-lighter">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
-    </div>
-    <ul class="col-start-4 col-span-5">
-      <li class=" grid grid-cols-4 gap-x-5 pb-5 border-b-2 border-primary">
-        <h2 class="text-xl text-themewhite font-ui font-medium">Отдел продаж</h2>
-        <div class="pt-[0.35rem]">
-          <h3 class="text-sm text-themewhite font-ui font-medium uppercase">Почта</h3>
-          <a class="block mt-4 text-lg text-themewhite  font-ui font-medium  col-span-2 justify-self-start" href="mailto:info@ssk.ru">info@ssk.ru</a>
-        </div>
-        <div class="pt-[0.35rem]">
-          <h3 class="text-sm text-themewhite font-ui font-medium uppercase">Номер телефона</h3>
-          <a class="text-lg block mt-4  text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
-          <a class="text-lg block mt-2  text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
-        </div>
-      </li>
-      <li class="grid grid-cols-4 gap-x-5 pt-5">
-        <h2 class="text-xl  text-themewhite font-ui font-medium">Приемная</h2>
-        <div class="pt-[0.35rem] col-start-3">
-          <h3 class="text-sm  text-themewhite font-ui font-medium uppercase">Номер телефона</h3>
-          <a class="text-lg block mt-4 text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
-        </div>
-      </li>
-    </ul>
-  </footer>
-
+  <%= require('html-loader!./insets/inner-footer.html').default %>
 </body>
 </html>

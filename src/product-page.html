@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-primary-darker">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="px-10 pb-20">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'dark'}) %>
+  </header>
+  <div class="relative bg-themewhite flex items-center">
+    <figure class="">
+        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
+    </figure>
+    <ul class="breadcrumbs flex">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опоры СФГ</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">МСО-ФГ-4</a></li>
+    </ul>
+  </div>
+  <main class="">
+    <div class="flex bg-themewhite py-10">
+      <div class="">
+          <img src="<%= require('./images/opora-page-product.png')%>" alt="опора освещения"> 
+      </div>
+      <div class="">
+        <h1 class="text-6xl text-primary-darker font-ui font-medium uppercase max-w-[1065px]">МСО-ФГ-4 | Опора силовая фланцевая граненая С-ФГ-400 Ц</h1>
+        <ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
+          <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
+          <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>
+          <li><h3 class="bg-themewhite relative top-2">Вид опоры</h3>  <span class="bg-themewhite relative top-2">силовая</span></li>
+          <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <span class="bg-themewhite relative top-2">150 мм</span></li>
+          <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <span class="bg-themewhite relative top-2">250 мм</span></li>
+          <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <span class="bg-themewhite relative top-2">да</span></li>
+        </ul>
+        <button class="text-xl mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-full" href="/about/">Оставить заявку на С-ФГ-400 Ц</button>
+        <div class="mt-20">
+          <h2 class="text-3xl font-ui font-semibold text-primary-darker">Дополнительные характеристики</h2>
+          <ul class="max-w-[445px] mt-5 text-xl w-full *:mb-5 *:pb-5 *:border-b *:border-primary-lighter *:w-full *:flex *:justify-between">
+            <li>Размер фланца: <span>495мм</span></li>
+            <li>Межцентровое расстояние: <span>425мм</span></li>
+            <li>Количество отверстий: <span>6шт</span></li>
+            <li>Диаметр отверстий: <span>35мм</span></li>
+            <li>Возможность покраски: <span>да</span></li>
+            <li>Покрытие: <span>горячее цинкование</span></li>
+            <li>Срок службы: <span>30 лет</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <section class="grid grid-cols-12 gap-x-5 gap-y-12 py-8 relative px-10 mb-20">
+      <figure class="absolute top-0 left-0">
+        <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
+      </figure>
+      <h2 class="col-start-2 col-span-2 up-title text-themewhite  text-base ">Документация</h2>
+      <h3 class="section-title col-start-5 col-span-7 text-themewhite mb-8">Может пригодиться</h3>
+      <img class="col-span-3 col-start-5 w-full" src="<%= require('./images/test-drawing.png')%>" alt="Чертёж опоры сфг">
+      <div class="flex flex-col justify-between col-span-4">
+        <div class="text-themewhite text-xl">
+          <p>
+            Металлическая силовая опора фланцевая граненая. Максимальная допустимая боковая статическая нагрузка 4 kH (409 кг).
+          </p>
+          <h4 class="font-ui font-medium mt-20 mb-3">Опоры изготавливаются в различных модификациях:</h4>
+          <ul>
+            <li>8, 9 или 10 метров (высота над поверхностью земли)</li>
+            <li>подводом к верхней части опоры или внутренним подводом с обслуживанием через боковой лючок в нижней части опоры</li>
+          </ul>
+        </div>
+        <div class="flex">
+          <a class="mt-4 mr-4 text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center w-full" href="/about/">Скачать чертёж</a>
+          <a class="mt-4 text-themewhite  uppercase p-5 w-1/2 text-center w-full" href="/about/">Нужна консультация</a>
+        </div>
+      </div>
+    </section>
+    <section class="grid grid-cols-12 gap-x-5 py-24 relative bg-themewhite max-w-[calc(100%-80px)] mx-auto mb-4 rounded-lg">
+      <h2 class="col-start-2 col-span-10 mb-20 text-5xl font-ui font-semibold text-primary-darker">Остались вопросы? Свяжитесь с нами!</h2>
+      <div class="col-start-2 col-span-2 ">
+        <p class="text-lg text-primary-darker">Заполните форму или отправьте Вашу заявку на почту:</p>
+        <a class="text-2xl font-ui font-semibold text-primary-darker block mt-6" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
+      </div>
+      <form class="col-span-9">
+        <div class="flex">
+          <label class="form__field form__field_rasch">
+            <span class="form__label-title mobile:hidden">Как к Вам обращаться?</span>
+            <span class="form__label-title hidden mobile:block">Как к Вам обращаться?</span>
+            <input class="form__input raschet-bem__input_type_flex" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
+            <span class="form__input-error name-input-error"></span>
+          </label>
+          <label class="form__field form__field_rasch">
+            <span class="form__label-title mobile:hidden">Email, куда отправить расчёт</span>
+            <span class="form__label-title hidden mobile:block">Email</span>
+            <input data-alias="Email" type="email" name="emailof" id="email-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
+            <span class="form__input-error email-input-error"></span>
+          </label>
+          <label class="form__field form__field_rasch">
+            <span class="form__label-title mobile:hidden">Ваш телефон</span>
+            <span class="form__label-title hidden mobile:block">Телефон</span>
+            <input data-alias="Телефон" type="tel" name="telof" id="tel-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
+            <span class="form__input-error tel-input-error"></span>
+          </label>
+        </div>
+        <div class="mt-8 w-1/2">
+          <label class="form__field form__field_rasch form__field_type_textarea">
+            <span class="form__label-title">Опишите Вашу задачу</span>
+            <textarea data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"  class="form__input form__textarea" novalidate></textarea>
+            <span class="form__input-error comment-pto-free-input-error"></span>
+          </label>
+          <button class="form__submit-button" type="submit">Отправить</button>
+        </div>
+      </form>
+      <figure class="absolute right-0 bottom-0">
+        <img src="<%= require('./images/svg/form-feedback-right-bottom-dec.svg')%>" alt="декоративный элемент">
+      </figure>
+    </section>
+  </main>
+
+  <!--FOOTER-->
+   <%= require('html-loader!./insets/inner-footer.html').default %>
+</body>
+</html>

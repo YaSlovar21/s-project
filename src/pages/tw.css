@@ -51,8 +51,15 @@
   }
 
   .main-product-link {
-    @apply block p-5 relative pr-10 hover:bg-primary-lighter;
+    @apply block h-full p-5 relative pr-14 hover:bg-primary-lighter;
   } 
+  .main-product-link__title {
+    @apply h-24 font-medium font-ui text-primary-darker text-2xl
+  }
+  .main-product-link__title_category {
+    @apply font-semibold text-3xl; 
+  }
+ 
 }
 
 

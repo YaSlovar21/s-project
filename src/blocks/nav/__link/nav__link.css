@@ -4,5 +4,8 @@
   transition: .5s linear;
   position: relative;
   z-index: 1;
+}
 
+.nav__menu-links_theme_dark .nav__link {
+  @apply text-themewhite;
 }

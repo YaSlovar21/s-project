@@ -30,6 +30,28 @@ function generateArticleHtmlPlugins() {
 
 const htmlArticlePlugins = generateArticleHtmlPlugins();
 */
+
+const ROUTES = {
+  brackets: '/kronshtejny-pod-svetilniki/',
+
+  oporyMain: '/opory-osveshcheniya/',
+  sfg: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/',
+  sfg400: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-4-sfg-400-c/',
+  sfg700: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-7-sfg-700-c/',
+  sfg1000: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-10-sfg-1000-c/',
+  sfg1300: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-13-sfg-1300-c/',
+
+  spg: '/opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/',
+  nfg: '/opory-osveshcheniya/opory-nesilovye-flancevye-granenye/',
+  npg: '/opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/',
+
+  machty: '/vysokomachtovye-opory/',
+
+  fundamenty: '/fundamenty-pod-opory/',
+
+  about: '/about/'
+};
+
 module.exports = {
   entry: { 
     index: './src/pages/index.js', 
@@ -102,21 +124,33 @@ module.exports = {
     new HtmlWebpackPlugin({
       templateParameters: {
         canonicalURL,
-        categories
+        categories,
+        ROUTES
       },
       title: "СтанкоСтальКонструкция | Производство гранёных опор освещения",
       template: './src/index.html', // путь к файлу index.html
       chunks: ['index'],
     }),
-    /*new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       templateParameters: {
         canonicalURL,
+        ROUTES
       },
-      title: "О Купцове",
+      title: "О производстве",
       template: './src/about.html', // путь к файлу index.html
       filename: 'about/index.html',
-      chunks: ['index', 'all'],
-    }),*/
+      chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      templateParameters: {
+        canonicalURL,
+        ROUTES
+      },
+      title: "Опора МСО-ФГ-4",
+      template: './src/product-page.html', // путь к файлу index.html
+      filename: 'opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-4-sfg-400-c/index.html',
+      chunks: ['index'],
+    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css'

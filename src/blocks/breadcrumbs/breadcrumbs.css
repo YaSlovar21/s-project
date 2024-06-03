@@ -1,0 +1,23 @@
+.breadcrumbs {
+    @apply flex;
+}
+
+.breadcrumbs__link {
+    @apply text-gray-800 text-xl font-ui font-semibold uppercase;
+}
+
+.breadcrumbs__list-item {
+    display: inline-flex;
+    align-items: center;
+    
+}
+.breadcrumbs__list-item::after {
+    content: url(../../images/svg/breadcrumb-splitter.svg);
+    width: 1em;
+    height: 1em;
+    margin: 0 5px;
+}
+
+.breadcrumbs__list-item:last-of-type::after {
+    content: '';
+}

@@ -1,34 +1,78 @@
 <!DOCTYPE html>
-<html lang="ru" class="light">
-
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename %>"  rel="canonical" />
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
 </head>
-<body class="page bg-slate-950">
+
+<body class="page bg-primary-darker">
   <%= require('html-loader!./inner-metrika.html').default %>
-  <%= require('html-loader!./insets/header.html').default %>
-  <main class="max-w-7xl mx-auto mt-10">
-    <div class="max-w-4xl mx-auto">
-        <p class="text-blue-800">Кто мы такие?</p>
-        <h1 class="text-4xl text-slate-400">Маркетологи. Разработчики. Дизайнеры.</h1>
-    </div>
-    <div class="max-w-4xl mx-auto">
-        <p class="text-xl text-slate-200 ">
-            Мы занимаемся интернет-маркетингом в течение 6 лет в сфере промышленности. За это время было запущено более 15
-            рекламных кампаний для фирм и производителей с географией по всей России. Фокус на промышленных малых и средних
-            фирмах позволил нам выработать <span class="font-semibold">нишевую экспертизу</span>, что в свою очередь позволяет нам найти для Вас целевого клиента там, где его не
-            найдет специалист рекламного агенства. Кстати, зная детально запросы и потребности целевой аудитории, можно и
-            сэкономить на затратах в рекламных системах.
-        </p>
-    </div>
+  <header class="px-10">
+    <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'dark'}) %>
+  </header>
+
+  <main>
     
+    <section>
+      <h2 class="section-title pl-10 text-themewhite">Производственные процессы</h2>
+      <ul class="workflow">
+        <li class="workflow__card">
+          <span class="workflow__card-span">01/</span>
+          <h3 class="workflow__card-title">Плазменная резка металла</h3>
+          <p class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</p>
+          <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+        </li>
+        <li class="workflow__card">
+          <span class="workflow__card-span">02/</span>
+          <h3 class="workflow__card-title">Листогиб</h3>
+          <p class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</p>
+          <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+        </li>
+        <li class="workflow__card">
+          <span class="workflow__card-span">03/</span>
+          <h3 class="workflow__card-title">Сварка</h3>
+          <p class="workflow__card-subhead">Сварочные посты</p>
+          <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
+        </li>
+        <li class="workflow__card">
+          <span class="workflow__card-span">04/</span>
+          <h3 class="workflow__card-title">Сварка продольного шва</h3>
+          <p class="workflow__card-subhead">Автоматизированная портальная установка</p>
+          <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="bg-primary-dark mt-20 grid grid-cols-12 gap-x-5 py-8 relative px-10">
+      <figure class="absolute top-0 left-0">
+        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
+      </figure>
+      <span class="flex col-start-2 col-span-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 mr-2 fill-primary-darker">
+          <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+        </svg>        
+        <span class="up-title text-themewhite  text-base ">Наша команда</span>
+      </span>
+      <!-- pl-[calc(8.34%+20px)]-->
+      <div class="col-start-5 col-span-4 flex flex-col justify-between">
+        <h2 class="section-title text-themewhite mb-8">Стремимся к цели вместе</h2>
+        <div>
+          <p class="text-lg text-themewhite max-w-[524px] mt-32">
+            ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания
+            «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
+            металлоконструкций.
+          </p>
+          
+        </div>
+        <a class="mt-4 text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center w-full" href="/about/">Наши ценности</a>
+      </div>
+      <img class="col-start-9 col-span-4" src="<%= require('./images/comt.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+    </section>
   </main>
 
-  <!--FOOTER
-  html-loader!./insets/asides/inner-footer.html').default-->
+  <!--FOOTER-->
+   <%= require('html-loader!./insets/inner-footer.html').default %>
 </body>
 </html>
