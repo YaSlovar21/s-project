@@ -216,46 +216,7 @@
       <h2 class="block up-title text-themewhite col-start-2 col-span-2">Наши преимущества</h2>
       <img class="col-start-5 col-span-8" src="<%= require('./images/test-pluses.png')%>">
     </section>
-    <section class="grid grid-cols-12 gap-x-5 py-24 relative bg-themewhite max-w-[calc(100%-80px)] mx-auto mb-4 rounded-lg">
-      <h2 class="col-start-2 col-span-10 mb-20 text-5xl font-ui font-semibold text-primary-darker">Остались вопросы? Свяжитесь с нами!</h2>
-      <div class="col-start-2 col-span-2 ">
-        <p class="text-lg text-primary-darker">Заполните форму или отправьте Вашу заявку на почту:</p>
-        <a class="text-2xl font-ui font-semibold text-primary-darker block mt-6" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
-      </div>
-      <form class="col-span-9">
-        <div class="flex">
-          <label class="form__field form__field_rasch">
-            <span class="form__label-title mobile:hidden">Как к Вам обращаться?</span>
-            <span class="form__label-title hidden mobile:block">Как к Вам обращаться?</span>
-            <input class="form__input raschet-bem__input_type_flex" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
-            <span class="form__input-error name-input-error"></span>
-          </label>
-          <label class="form__field form__field_rasch">
-            <span class="form__label-title mobile:hidden">Email, куда отправить расчёт</span>
-            <span class="form__label-title hidden mobile:block">Email</span>
-            <input data-alias="Email" type="email" name="emailof" id="email-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
-            <span class="form__input-error email-input-error"></span>
-          </label>
-          <label class="form__field form__field_rasch">
-            <span class="form__label-title mobile:hidden">Ваш телефон</span>
-            <span class="form__label-title hidden mobile:block">Телефон</span>
-            <input data-alias="Телефон" type="tel" name="telof" id="tel-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
-            <span class="form__input-error tel-input-error"></span>
-          </label>
-        </div>
-        <div class="mt-8 w-1/2">
-          <label class="form__field form__field_rasch form__field_type_textarea">
-            <span class="form__label-title">Опишите Вашу задачу</span>
-            <textarea data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"  class="form__input form__textarea" novalidate></textarea>
-            <span class="form__input-error comment-pto-free-input-error"></span>
-          </label>
-          <button class="form__submit-button" type="submit">Отправить</button>
-        </div>
-      </form>
-      <figure class="absolute right-0 bottom-0">
-        <img src="<%= require('./images/svg/form-feedback-right-bottom-dec.svg')%>" alt="декоративный элемент">
-      </figure>
-    </section>
+    <%= require('html-loader!./insets/form-section.html').default %>
   </main>
   <%= require('html-loader!./insets/inner-footer.html').default %>
 </body>

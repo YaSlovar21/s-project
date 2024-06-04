@@ -1,21 +1,25 @@
 .form__field {
-    @apply border border-primary mr-4;
+    @apply border border-primary mr-4 basis-full rounded-sm;
+}
+
+.form__field:last-child {
+    @apply mr-0;
 }
 
 .form__field_type_textarea {
-    @apply block h-40;
+    @apply flex flex-col h-40;
 }
 
 .form__label-title {
-    @apply px-5 py-2 text-base text-primary-dark;
+    @apply px-5 py-1 text-base text-primary-dark;
 }
 
 .form__input {
-    @apply w-full px-5 py-3 text-2xl bg-themewhite;
+    @apply w-full px-5 py-2 text-xl bg-themewhite text-gray-800 outline-none border-none;
 }
 
-.form__textarea {
-    
+.form__input_type_textarea {
+    @apply block basis-full pt-1 pb-3;
 }
 
 .form__submit-button {
