@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const {categories} = require('./categories')
 
-const canonicalURL = 'http://станкостальконструкция.рф.website.yandexcloud.net'
+const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
 
 const HttpsProxyAgent = require('https-proxy-agent');
 const fetch1 = require('node-fetch');
