@@ -11,7 +11,7 @@ module.exports = {
         ssk: {
           css: {
             '--tw-prose-body' : '#f2f2f2',
-            '--tw-prose-headings' : '#7861C1',
+            '--tw-prose-headings' : '#7E7BC4',
             '--tw-prose-lead' : '#525252',
             '--tw-prose-links' : '#5F4D96',
             '--tw-prose-bold' : '#171717',
@@ -66,11 +66,15 @@ module.exports = {
     },
     colors: {
       primary: {
+        white: '#D1E2F1',
+        lighterdouble: '#9FBCD9',
         lighter: '#6F97BA',
         light: '#46739C',
         DEFAULT: '#2D5F8B',
         dark: '#194A75',
         darker: '#0A365D',
+        darkerdouble: '#042645',
+        black: '#01172A'
       },
       secondary: {
         lighter: '#7E7BC4',
@@ -78,6 +82,7 @@ module.exports = {
         DEFAULT: '#3C3996',
         dark: '#27237F',
         darker: '#151264',
+        
       },
       themewhite: {
         DEFAULT: '#E8F5FF',

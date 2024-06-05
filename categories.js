@@ -1,24 +1,44 @@
+const { ROUTES } = require("./constants");
+
+
 module.exports.categories = [
   {
-    name: "Кронштейны под светильники",
-    modClass: 'col-span-2 border-r-2 border-b-2'
+    title: "Опоры силовые фланцевые граненые СФГ",
+    h1: "Опоры силовые фланцевые граненые",
+    staticData: {
+      crumbName: "Опоры сфг",
+    },
+    type: 'sfg',
+    filename: `${ROUTES['sfg'].substr(1)}index.html`
   },
   {
-    name: "Опоры освещения",
-    modClass: 'col-span-2 border-r-2 border-b-2'
+    title: "Опоры силовые прямостоячные граненые СПГ",
+    h1: "Опоры силовые прямостоячные граненые",
+    staticData: {
+      crumbName: "Опоры спг",
+    },
+    type: 'spg',
+    filename: `${ROUTES['spg'].substr(1)}index.html`
   },
   {
-    name: "Опоры силовые фланцевые граненые",
+    title: "Опоры несиловые фланцевые граненые НФГ",
+    h1: "Опоры несиловые фланцевые граненые",
+    staticData: {
+      crumbName: "Опоры нфг",
+    },
+    type: 'nfg',
+    filename: `${ROUTES['nfg'].substr(1)}index.html`
   },
   {
-    name: "Опоры силовые прямостоячные граненые НФГ",
+    title: "Опоры несиловые прямостоячные граненые НПГ",
+    h1: "Опоры несиловые прямостоячные граненые",
+    staticData: {
+      crumbName: "Опоры нпг",
+    },
+    type: 'npg',
+    filename: `${ROUTES['npg'].substr(1)}index.html`
   },
-  {
-    name: "Опоры несиловые фланцевые граненые НФГ",
-  },
-  {
-    name: "Опоры силовые фланцевые граненые",
-  },
+  /*
   {
     name: "Высокомачтовые опоры",
     modClass: 'col-span-2 border-r-2 border-b-2'
@@ -35,5 +55,5 @@ module.exports.categories = [
   {
     name: "Фундаменты под опоры",
     modClass: 'col-span-2 border-r-2 border-b-2'
-  },
+  },*/
 ];

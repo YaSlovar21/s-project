@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-primary-darker">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="px-10 pb-20">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'dark'}) %>
+  </header>
+  <div class="relative bg-themewhite flex items-center">
+    <figure class="">
+        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
+    </figure>
+    <ul class="breadcrumbs flex">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Проектировщикам</a></li>
+    </ul>
+  </div>
+  <main class="py-14 px-10 bg-themewhite grid grid-cols-12 gap-x-5">
+
+    <div class="col-start-5 col-span-7">
+        <h1 class="font-ui text-5xl font-medium uppercase text-primary-darker">Проектировщикам</h1>
+        <p class="mt-5 mb-6 max-w-[57%] text-primary-darker text-lg">Опоры металлические для стационарного наружного электрического освещения и подвески кабелей электрической сети наружного освещения</p>
+        <div class="flex items-end h-auto">
+            <img class="min-w-0 basis-[calc(57%-10px)] object-left-top object-cover mr-5" src="<%= require('./images/machta-tech.png')%>" alt="мачта со стационарной короной">
+            <img class="h-60 min-w-0 basis-[calc(43%-10px)] object-left-top object-cover" src="<%= require('./images/about-view-test.png')%>"  alt="сск">
+        </div>
+        <ul class="mt-10">
+            <li>
+                <a href="/f/sto_stankostalkonstrukciya_akt.pdf" class="flex w-full text-xl justify-between border-b border-primary-darker pt-7 pb-4" download>
+                    СТО для проектных организаций
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+  </main>
+  
+  <!--FOOTER-->
+   <%= require('html-loader!./insets/inner-footer.html').default %>
+</body>
+</html>

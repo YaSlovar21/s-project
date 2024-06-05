@@ -1,0 +1,32 @@
+.news {
+
+}
+
+.news-section-mainpage {
+    @apply grid grid-cols-8 col-start-5 col-span-8 gap-x-5 items-start;
+}
+
+.news-section-mainpage__list-item {
+    @apply relative;
+}
+
+
+.news-section-mainpage__list-item:nth-child(1) {
+    @apply col-span-3;
+}
+
+.news-section-mainpage__list-item:nth-child(2) {
+    @apply col-start-5 col-span-2;
+}
+
+.news-section-mainpage__list-item:nth-child(3) {
+    @apply col-start-7 col-span-2;
+}
+
+.news-section-mainpage__image {
+    @apply w-[290px] h-[290px];
+}
+
+.news-section-mainpage__list-item:nth-child(1) .news-section-mainpage__image {
+    @apply w-[444px] h-[444px];
+}

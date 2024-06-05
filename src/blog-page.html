@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-primary-darker">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="px-10 pb-20">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'dark'}) %>
+  </header>
+  <div class="relative bg-themewhite flex items-center">
+    <figure class="">
+        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
+    </figure>
+    <ul class="breadcrumbs flex">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Новости производства</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link"><%= h1Title %></a></li>
+    </ul>
+  </div>
+  <main class="py-10 grid grid-cols-4 gap-x-5 ">
+    <article class="col-start-2 col-span-3 prose prose-lg prose-ssk olpc:prose-lg pc:prose-xl ">
+      
+      <h1 class="font-ui"><%= h1Title %></h1>
+      <img src="<%= `${canonicalURL}/api-images/${textArticleId}/poster.png` %>" alt="<%= staticData.title%>">
+      <%= require(`html-loader!./articles/${textArticleId}.html`).default %>
+    </article>
+    
+  </main>
+  <h2 class="text-3xl font-ui">Читайте также</h2>
+  <ul>
+    <% newsData.filter(i => i.id !== staticData.id).map((i) => { %>
+      <li class="p-10 h-96 mb-5 relative rounded-sm flex bg-themewhite hover:bg-secondary-lighter group">
+        <figure class="basis-80 mr-10 h-full shrink-0 overflow-hidden group-hover:opacity-80">
+          <img class="w-full h-full object-cover object-center group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
+        </figure>
+        <div class="flex flex-col justify-between">
+          <h3 class="text-xl mt-2 max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
+          <p class="text-base max-w-2xl"><%= i.desc %></p>
+          <a href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+  <%= require('html-loader!./insets/form-section.html').default %>
+  <!--FOOTER-->
+   <%= require('html-loader!./insets/inner-footer.html').default %>
+</body>
+</html>

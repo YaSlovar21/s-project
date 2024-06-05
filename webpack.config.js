@@ -5,56 +5,65 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const {categories} = require('./categories')
 
-const canonicalURL = 'https://www.ssk22.ru'
+const canonicalURL = 'http://станкостальконструкция.рф.website.yandexcloud.net'
 
 const HttpsProxyAgent = require('https-proxy-agent');
 const fetch1 = require('node-fetch');
 
-/*
-function generateArticleHtmlPlugins() {
-  return bpages.map(articleData => {
+const {
+  ROUTES,
+  techNames
+} = require('./constants');
+console.log(ROUTES);
+
+
+function generateCategoriesHtmlPlugins(oporyData) {
+  return categories.map(category => {
     return new HtmlWebpackPlugin({
       templateParameters: {
-        canonicalURL: canonicalURL,
-        articleId: articleData.articleId,
+        canonicalURL,
+        ROUTES,
+        tableData: oporyData.filter(i => i.type === category.type),
+        h1Title: category.h1,
+        staticData: category.staticData,
+        techNames
       },
-      title: articleData.title,
-      heading: articleData.h1,
-      meta: {
-        keywords: articleData.keywords,
-        description: articleData.description,
-      },
-      template: "./src/abstract-blog-page.html",
-      filename: articleData.fileName,
-      chunks: ["blogpage", "aside", 'all'],
+      title: category.title,
+      template: './src/category-page.html', // путь к файлу index.html
+      filename: category.filename,
+      chunks: ['index'],
     })
   })
 };
 
-const htmlArticlePlugins = generateArticleHtmlPlugins();
-*/
-
-const ROUTES = {
-  brackets: '/kronshtejny-pod-svetilniki/',
-
-  oporyMain: '/opory-osveshcheniya/',
-  sfg: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/',
-  sfg400: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-4-sfg-400-c/',
-  sfg700: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-7-sfg-700-c/',
-  sfg1000: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-10-sfg-1000-c/',
-  sfg1300: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-13-sfg-1300-c/',
-
-  spg: '/opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/',
-  nfg: '/opory-osveshcheniya/opory-nesilovye-flancevye-granenye/',
-  npg: '/opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/',
-
-  machty: '/vysokomachtovye-opory/',
-
-  fundamenty: '/fundamenty-pod-opory/',
-
-  about: '/about/'
+function generateArticlesHtmlPlugins(newsData) {
+  console.log(newsData);
+  return newsData.sort((a,b) => b.id - a.id).map(post => {
+    console.log(post.isStaticPage.substr(1));
+    return new HtmlWebpackPlugin({
+      templateParameters: {
+        canonicalURL,
+        ROUTES,
+        textArticleId: post.textId,
+        h1Title: post.title,
+        staticData: {
+          ...post
+        },
+        newsData,
+      },
+      title: post.title,
+      template: './src/blog-page.html', // путь к файлу index.html
+      filename: post.isStaticPage.substr(1),
+      chunks: ['index'],
+    })
+  })
 };
-function generateConfig(oporyData) {
+
+function generateConfig(oporyData, newsData) {
+
+  const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
+  const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
+
   return {
     entry: { 
       index: './src/pages/index.js', 
@@ -119,8 +128,8 @@ function generateConfig(oporyData) {
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
-          categories,
-          ROUTES
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
         },
         title: "СтанкоСтальКонструкция | Производство гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
@@ -140,29 +149,50 @@ function generateConfig(oporyData) {
         templateParameters: {
           canonicalURL,
           ROUTES,
-          tableData: oporyData.filter(i => i.type === 'sfg')
+          newsData: newsData.sort((a,b) => b.id - a.id),
         },
-        title: "Опоры силовые фланцевые граненые",
-        template: './src/category-page.html', // путь к файлу index.html
-        filename: 'opory-osveshcheniya/opory-silovye-flancevye-granenye/index.html',
+        title: "Проектировщикам",
+        template: './src/proektirovshchikam.html', // путь к файлу index.html
+        filename: 'proektirovshchikam/index.html',
         chunks: ['index'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
-         
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
+        title: "Новости производства",
+        template: './src/news-page.html', // путь к файлу index.html
+        filename: 'novosti-proizvodstva/index.html',
+        chunks: ['index'],
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
         },
         title: "Опора МСО-ФГ-4",
         template: './src/product-page.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-4-sfg-400-c/index.html',
         chunks: ['index'],
       }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
+        title: "Контакты ООО «Станкостальконструкция»",
+        template: './src/contacts.html', // путь к файлу index.html
+        filename: 'contacts/index.html',
+        chunks: ['index'],
+      }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: '[name].css'
       })
-    ], 
+    ].concat(htmlCategoriesPlugins,htmlArticlesPlugins), 
   }
 }
 const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
@@ -171,9 +201,10 @@ module.exports = () => {
   return new Promise((resolve, reject) => {
       Promise.all([
           fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4', { agent: proxyAgent}).then(res => res.json()), 
+          fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=news', { agent: proxyAgent}).then(res => res.json()), 
         ])
         .then((data) => {
-          resolve(generateConfig(data[0]));
+          resolve(generateConfig(data[0], data[1]));
         })
      
   });

@@ -1,29 +1,31 @@
-.workflow {
-    @apply px-10 grid grid-cols-4 gap-5 h-screen;
-    background-image: url(../../images/bg-filled.png);
-    background-position: top left;
-    background-size: cover;
-    max-height: 800px;
+@layer {
+
+    .workflow {
+        @apply px-10 grid grid-cols-4 gap-5 h-screen;
+        background-image: url(../../images/bg-filled.png);
+        background-position: top left;
+        background-size: cover;
+        max-height: 800px;
+    }
+
+    .workflow__card {
+        @apply p-5 bg-primary-lighter bg-opacity-50 flex flex-col justify-start;
+    }
+
+    .workflow__card-span {
+        @apply block basis-1/3 text-2xl;
+    }
+
+    .workflow__card-title {
+        @apply first-line:text-base text-secondary font-ui uppercase;
+    }
+
+    .workflow__card-subhead {
+        @apply text-3xl text-primary-darker basis-48 mt-8;
+    }
+
+    .workflow__card-desc {
+        @apply text-lg text-gray-700 mt-8;
+    }
+
 }
-
-.workflow__card {
-    @apply p-5 bg-primary-lighter bg-opacity-50 flex flex-col justify-start;
-}
-
-.workflow__card-span {
-    @apply block basis-1/3 text-2xl;
-}
-
-.workflow__card-title {
-    @apply first-line:text-base text-secondary font-ui uppercase;
-}
-
-.workflow__card-subhead {
-    @apply text-3xl text-primary-darker basis-48 mt-8;
-}
-
-.workflow__card-desc {
-    @apply text-lg text-gray-700 mt-8;
-}
-
-

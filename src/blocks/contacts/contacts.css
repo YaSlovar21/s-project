@@ -1,0 +1,19 @@
+.contacts {
+
+}
+
+.contacts__subtitle {
+    @apply text-lg font-ui font-medium uppercase text-primary-darker pb-1 border-b border-primary-darker;
+}
+
+.contacts__numb {
+    @apply mt-4 text-base text-primary-darker;
+}
+
+.contacts__ya-map {
+    @apply col-start-5 border border-primary-dark col-span-8 rounded-sm overflow-hidden;
+
+    min-height: 400px;
+ 
+    box-shadow: 0 1px 1px rgb(0 0 0 / 22%);
+}

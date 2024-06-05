@@ -18,8 +18,8 @@
         <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
     </figure>
     <ul class="breadcrumbs flex">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опоры СФГ</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">МСО-ФГ-4</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опоры освещения</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link"><%= staticData.crumbName %></a></li>
     </ul>
   </div>
   <main class="product-container">
@@ -28,7 +28,7 @@
           <img src="<%= require('./images/opora-page-product.png')%>" alt="опора освещения"> 
       </div>
       <div class="">
-        <h1 class="text-6xl text-primary-darker font-ui font-medium max-w-[930px]">Опоры силовые фланцевые граненые</h1>
+        <h1 class="text-6xl text-primary-darker font-ui font-medium max-w-[930px]"><%= h1Title %></h1>
         <p class="text-lg text-gray-800 max-w-4xl">
           Опоры силовые фланцевые граненые на сегодняшний день являются оптимальным вариантом опор стационарного электрического
           освещения. Они применяются в освещении дорог, площадок и прочих территорий.
@@ -42,7 +42,7 @@
         <table>
           <thead>
             <% Object.keys(tableData[0]).map((i)=> { %>
-              <th><%= i %></th>
+              <th><%= techNames[i] %></th>
             <%}) %>
           </thead>
           <tbody>
