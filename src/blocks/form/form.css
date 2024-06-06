@@ -1,5 +1,5 @@
 .form__field {
-    @apply border border-primary mr-4 basis-full rounded-sm;
+    @apply border border-primary mr-4 basis-full rounded-sm relative;
 }
 
 .form__field:last-child {
@@ -25,3 +25,23 @@
 .form__submit-button {
     @apply bg-primary hover:bg-primary-dark p-5 w-1/2 uppercase font-ui text-themewhite mt-8;
 }
+
+.form__submit-button_disabled {
+    @apply bg-gray-700 hover:bg-gray-700 cursor-not-allowed;
+}
+
+.form__input-error {
+    font-size: 10px;
+    letter-spacing: .04em;
+    color: var(--theme-main-color);
+    opacity: 0;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    transition: 0.3s;
+    width: 100%;
+  }
+  
+  .form__input-error_visible {
+    opacity: 1;
+  }

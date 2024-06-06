@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {categories} = require('./categories')
 
 const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
+//const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net'
 
 const HttpsProxyAgent = require('https-proxy-agent');
 const fetch1 = require('node-fetch');
@@ -31,7 +32,7 @@ function generateCategoriesHtmlPlugins(oporyData) {
       title: category.title,
       template: './src/category-page.html', // путь к файлу index.html
       filename: category.filename,
-      chunks: ['index'],
+      chunks: ['index', 'form'],
     })
   })
 };
@@ -54,7 +55,7 @@ function generateArticlesHtmlPlugins(newsData) {
       title: post.title,
       template: './src/blog-page.html', // путь к файлу index.html
       filename: post.isStaticPage.substr(1),
-      chunks: ['index'],
+      chunks: ['index', 'form'],
     })
   })
 };
@@ -67,6 +68,7 @@ function generateConfig(oporyData, newsData) {
   return {
     entry: { 
       index: './src/pages/index.js', 
+      form: './src/pages/form.js',
       blogpage: './src/pages/blog-page.js',
     },
     output: {
@@ -133,7 +135,7 @@ function generateConfig(oporyData, newsData) {
         },
         title: "СтанкоСтальКонструкция | Производство гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
-        chunks: ['index'],
+        chunks: ['index', 'form'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
@@ -165,7 +167,7 @@ function generateConfig(oporyData, newsData) {
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
         filename: 'novosti-proizvodstva/index.html',
-        chunks: ['index'],
+        chunks: ['index', 'form'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
