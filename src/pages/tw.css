@@ -18,7 +18,7 @@
   }
 
   .product-container table thead {
-    @apply bg-primary-lighter text-base mobile:text-sm;
+    @apply bg-primary-white text-gray-800 text-base mobile:text-sm;
   }
 
   .product-container table thead tr {
@@ -34,7 +34,7 @@
   }
 
   .product-container table tbody {
-    @apply text-base  bg-primary-lighter  divide-y divide-solid divide-[#1f1f1f]  mobile:text-sm;
+    @apply text-base  bg-primary-white  divide-y divide-solid divide-[#1f1f1f]  mobile:text-sm;
   }
 
   .product-container table tbody tr {
@@ -48,6 +48,10 @@
   }
   .section-title {
     @apply text-5xl font-ui font-semibold;
+  }
+
+  .ui-button {
+    @apply text-primary-darker p-5 uppercase text-lg border border-primary-darker;
   }
 
   .main-product-link {

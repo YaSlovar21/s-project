@@ -23,7 +23,7 @@
 }
 
 .form__submit-button {
-    @apply bg-primary hover:bg-primary-dark p-5 w-1/2 uppercase font-ui text-themewhite mt-8;
+    @apply bg-primary hover:bg-primary-dark p-5 w-4/6 uppercase font-ui text-themewhite mt-8;
 }
 
 .form__submit-button_disabled {

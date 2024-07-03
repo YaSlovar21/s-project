@@ -90,6 +90,10 @@ module.exports = {
     },
     fontFamily: {
       ui: 'GolosUIWeb', 
+      circe: 'Circe',
+    },
+    transitionDuration: {
+      '500': '500ms',
     }
   }
 },
