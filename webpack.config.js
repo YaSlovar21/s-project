@@ -27,7 +27,8 @@ function generateCategoriesHtmlPlugins(oporyData) {
         tableData: oporyData.filter(i => i.type === category.type),
         h1Title: category.h1,
         staticData: category.staticData,
-        techNames
+        techNames,
+        categoryType: category.type,
       },
       title: category.title,
       template: './src/category-page.html', // путь к файлу index.html
@@ -164,6 +165,17 @@ function generateConfig(oporyData, newsData) {
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
         },
+        title: "Опоры освещения",
+        template: './src/lpopory.html', // путь к файлу index.html
+        filename: 'opory-osveshcheniya/index.html',
+        chunks: ['index'],
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
         filename: 'novosti-proizvodstva/index.html',
@@ -199,6 +211,23 @@ function generateConfig(oporyData, newsData) {
 }
 const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
 
+/*
+  const date = new Date(dateTime);
+  const month = date.getMonth() + 1;
+  this._dateString = `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`
+*/
+
+function articleDateMapper(newsArr) {
+  return newsArr.map((item) => {
+    const date = new Date(item.dateTime);
+    const month = date.getMonth() + 1;
+    return {
+      ...item,
+      formattedDate: `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`
+    }
+  })
+}
+
 module.exports = () => {
   return new Promise((resolve, reject) => {
       Promise.all([
@@ -206,7 +235,7 @@ module.exports = () => {
           fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=news', { agent: proxyAgent}).then(res => res.json()), 
         ])
         .then((data) => {
-          resolve(generateConfig(data[0], data[1]));
+          resolve(generateConfig(data[0], articleDateMapper(data[1])));
         })
      
   });

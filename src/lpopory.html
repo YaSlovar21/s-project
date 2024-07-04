@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-primary-white">
+    <%= require('html-loader!./inner-metrika.html').default %>
+    <header class="border-b border-primary-lighterdouble">
+        <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
+    </header>
+    <div class="relative flex ">
+        <ul class="breadcrumbs flex items-center p-10">
+            <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
+            <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опоры освещения</a></li>
+        </ul>
+    </div>
+  
+    <!--new-->
+    <div class="py-[78px]">
+        <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto">Опоры освещения</h1>
+        <p class="mt-6 mb-[78px] text-xl text-center w-[calc(50%-12px)] flex ml-auto">от завода производителя</p>
+        <ul class="lpopory-grid content *:border *:border-white *:h-full">
+            <li class="relative flex flex-col items-center">
+                <img class="min-h-0" src="<%= require('./images/lpopory/sfg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8">Опоры силовые фланцевые граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры СФГ</p>
+                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4" href="<%= ROUTES.sfg %>">
+                        <span class="absolute inset-0"></span>
+                        Перейти
+                    </a>    
+                </div>
+            </li>
+            <li class="relative flex flex-col items-center">
+                <img class="min-h-0" src="<%= require('./images/lpopory/nfg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8">Опоры несиловые фланцевые граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры НФГ</p>
+                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4" href="<%= ROUTES.nfg %>">
+                        <span class="absolute inset-0"></span>
+                        Перейти
+                    </a>    
+                </div>
+            </li>
+            <li class="relative flex flex-col items-center">
+                <img class="min-h-0" src="<%= require('./images/lpopory/spg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8">Опоры силовые прямостоячные граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры СПГ</p>
+                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4" href="<%= ROUTES.spg %>">
+                        <span class="absolute inset-0"></span>
+                        Перейти
+                    </a>    
+                </div>
+            </li>
+            <li class="relative flex flex-col items-center">
+                <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8">Опоры несиловые прямостоячные граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры НПГ</p>
+                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4" href="<%= ROUTES.npg %>">
+                        <span class="absolute inset-0"></span>
+                        Перейти
+                    </a>    
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--   -->
+    <section class="content flex justify-between mt-24">
+        <h2 class="text-4xl uppercase font-bold text-primary-darker">Собственное производство</h2>
+        <div class="basis-1/2 text-primary-black text-xl divide-y-8 divide-transparent">
+            <p>
+                Наша компания изготавливает многогранные опоры освещения, многогранные опоры ЛЭП, гранёные опоры контактных сетей
+                электрифицированного транспорта и мачты освещения.
+            </p>
+            <p>
+                С учетом производственных возможностей граненые опоры могут быть <span class="font-extrabold">до 12 метров высотой</span> и 1200 мм в диаметре.
+            </p>
+            <p>
+                Для изготовления продукции используется качественное сертифицированное сырье, <span class="font-extrabold">толщина
+                    металла – от 4 до 12 мм</span>. Цена на металлические опоры наружного освещения, предложенная нашей компанией -
+                наиболее выгодная в своем сегменте рынка.
+            </p>
+            <p>
+                Наша компания изготавливает многогранные опоры освещения. Уточнить стоимость и вариант доставки можно, позвонив по
+                номерам телефонов, указанным на сайте, или заполнив форму обратной связи.
+            </p>
+            <p>
+                У нас есть собственный автопарк для доставки, в том числе железнодорожный тупик.
+            </p>
+        </div>
+    </section>
+    <section class="content flex mt-44">
+        <h2 class="basis-1/4 w-full up-title text-primary-darker">Цикл производства</h2>
+        <ol class="basis-[686px] pr-5">
+            <li class="pb-7">
+                <h3 class="text-primary-darker text-xl mb-6 uppercase font-bold">Поступление материалов</h3>
+                <p class="text-xl max-w-[492px]">Поступление материалов: листовая сталь или готовые трубы с идеальным круглымпоперечным сечением.</p>
+            </li>
+            <li class="py-7">
+                <h3 class="text-primary-darker text-xl mb-6 uppercase font-bold">Cоздание выкройки</h3>
+                <p class="text-xl max-w-[492px]">Вырезание заготовок на станке лазерной резки под контролем оператора.</p>
+            </li>
+            <li class="py-7">
+                <h3 class="text-primary-darker text-xl mb-6 uppercase font-bold">Формовка заготовок</h3>
+                <p class="text-xl max-w-[492px]">Использование листогибочного оборудования для придания заготовкам нужной формы</p>
+            </li>
+        </ol>
+        <div class="basis-[calc(75%-686px)]">
+            <img class="min-w-0" src="<%= require('./images/test-cycle.png')%>">
+        </div>
+    </section>
+  <main class="product-container">
+    <section class="relative bg-primary-darker">
+      <figure class="absolute top-0 left-0">
+        <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
+      </figure>
+      <div class="content flex pt-32 mb-24 justify-end">
+        <div class="basis-3/4">
+            <h2 class="text-4xl uppercase text-primary-white mb-16">Как мы работаем?</h2>
+            <ul class="frequently__questions">
+                <li class="group frequently__item relative border-b py-6 border-b-primary-lighter">
+                    <h3 class="frequently__question font-bold text-xl uppercase text-primary-lighter hover:text-white cursor-pointer">Материалы</h3>
+                    <p class="frequently__answer mt-5 text-base olpc:text-lg text-primary-lighter">
+                    
+                    </p>
+                </li>
+                <li class="group frequently__item relative border-b py-6 border-b-primary-lighter">
+                    <h3 class="frequently__question font-bold text-xl uppercase text-primary-lighter hover:text-white cursor-pointer">Срок изготовления</h3>
+                    <p class="frequently__answer mt-5 text-base olpc:text-lg text-primary-lighter">
+                     
+                    </p>
+                </li>
+                <li class="group frequently__item relative border-b py-6 border-b-primary-lighter">
+                    <h3 class="frequently__question font-bold text-xl uppercase text-primary-lighter hover:text-white cursor-pointer">География работы</h3>
+                    <p class="frequently__answer mt-5 text-base olpc:text-lg text-primary-lighter">
+                    
+                    </p>
+                </li>
+                <li class="group frequently__item relative border-b py-6 border-b-primary-lighter">
+                    <h3 class="frequently__question font-bold text-xl uppercase text-primary-lighter hover:text-white cursor-pointer">Оперативный расчёт</h3>
+                    <p class="frequently__answer mt-5 text-base olpc:text-lg text-primary-lighter">
+                     
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+      </div>
+      <div class="content flex pb-32">
+        <h2 class="basis-1/4 up-title text-themewhite text-base">Сертификаты</h2>
+        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite ">
+          
+          <li class="min-h-40 rounded-sm">
+            <img class="w-full" src="<%= require('./images/sert-opory-1.png')%>" alt="">
+          </li>
+          <li class="min-h-40 rounded-sm">
+            <img class="w-full" src="<%= require('./images/sert-opory-2.png')%>" alt="">
+          </li>
+        </ul>
+      </div>
+    </section>
+    <%= require('html-loader!./insets/form-section.html').default %>
+  </main>
+
+  <!--FOOTER-->
+   <%= require('html-loader!./insets/inner-footer.html').default %>
+</body>
+</html>

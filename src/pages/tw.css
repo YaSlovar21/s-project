@@ -47,7 +47,7 @@
     @apply text-lg font-semibold uppercase;
   }
   .section-title {
-    @apply text-5xl font-ui font-semibold;
+    @apply text-4xl font-bold uppercase text-primary-white mb-16;
   }
 
   .ui-button {
@@ -58,10 +58,17 @@
     @apply block h-full p-5 relative pr-14 hover:bg-primary-lighter;
   } 
   .main-product-link__title {
-    @apply h-24 font-medium font-ui text-primary-darker text-2xl
+    @apply h-24 font-medium text-primary-darker text-2xl
   }
   .main-product-link__title_category {
-    @apply font-semibold text-3xl; 
+    @apply font-bold; 
+  }
+
+  .main-product-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr 1fr 1fr;
+    grid-template-rows: 239px;
+    grid-auto-rows: 239px;
   }
  
 }

@@ -1,0 +1,6 @@
+.lpopory-grid {
+    @apply grid grid-cols-4 gap-6;
+    grid-template-rows: 1000px;
+    align-items: flex-end;
+
+}

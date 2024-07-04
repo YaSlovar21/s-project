@@ -10,8 +10,8 @@
 
 <body class="page bg-primary-lighterdouble">
   <%= require('html-loader!./inner-metrika.html').default %>
-  <header class="px-10 pb-20">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'dark'}) %>
+  <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
   </header>
   <div class="relative bg-themewhite flex items-center">
     <figure class="">

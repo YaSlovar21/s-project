@@ -3,7 +3,7 @@
 }
 
 .breadcrumbs__link {
-    @apply text-gray-800 text-xl font-ui font-semibold uppercase;
+    @apply text-gray-800 text-lg font-bold;
 }
 
 .breadcrumbs__list-item {
@@ -12,10 +12,15 @@
     
 }
 .breadcrumbs__list-item::after {
-    content: url(../../images/svg/breadcrumb-splitter.svg);
+    content: '/';
+    /*content: url(../../images/svg/breadcrumb-splitter.svg);*/
     width: 1em;
-    height: 1em;
-    margin: 0 5px;
+    height: .6em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
 }
 
 .breadcrumbs__list-item:last-of-type::after {

@@ -1,5 +1,5 @@
 .form__field {
-    @apply border border-primary mr-4 basis-full rounded-sm relative;
+    @apply  mr-4 basis-full rounded-sm relative;
 }
 
 .form__field:last-child {
@@ -7,7 +7,7 @@
 }
 
 .form__field_type_textarea {
-    @apply flex flex-col h-40;
+    @apply flex flex-col h-40 mr-0;
 }
 
 .form__label-title {
@@ -15,7 +15,7 @@
 }
 
 .form__input {
-    @apply w-full px-5 py-2 text-xl bg-themewhite text-gray-800 outline-none border-none;
+    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2] border border-primary-lighter text-gray-800 outline-none;
 }
 
 .form__input_type_textarea {
@@ -23,7 +23,7 @@
 }
 
 .form__submit-button {
-    @apply bg-primary hover:bg-primary-dark p-5 w-4/6 uppercase font-ui text-themewhite mt-8;
+    @apply bg-primary hover:bg-primary-dark p-5 uppercase font-extrabold text-themewhite mt-8;
 }
 
 .form__submit-button_disabled {

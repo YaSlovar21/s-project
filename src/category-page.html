@@ -10,7 +10,7 @@
 
 <body class="page bg-primary-white">
   <%= require('html-loader!./inner-metrika.html').default %>
-  <header class="px-10 pb-20">
+  <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
   </header>
   <div class="relative bg-themewhite flex items-center">
@@ -33,24 +33,13 @@
 
   <!--   -->
   <main class="product-container">
-    <div class="content flex bg-themewhite py-10">
+    <div class="content flex py-10">
       <div class="shrink-0 basis-1/2">
           <img src="<%= require('./images/opora-page-product.png')%>" alt="опора освещения"> 
       </div>
       <div class="basis-1/2">
+        <%= require(`html-loader!./insets/cats/${categoryType}.html`).default %>
         
-        <p class="text-2xl text-gray-800 max-w-4xl">
-          Опоры силовые фланцевые граненые на сегодняшний день являются оптимальным вариантом опор стационарного электрического
-          освещения. Они применяются в освещении дорог, площадок и прочих территорий.
-          
-        </p>
-        <img class="w-full" src="<%= require('./images/test-trassa-mini.png')%>" alt="опора освещения"> 
-        <p class="text-2xl text-gray-800 max-w-4xl mt-4">
-          Горячее цинкование является обязательным согласно ГОСТ. Цинкование обеспечивает долговечность изделия благодаря
-          приданию тем самым антикоррозийных свойств. Помимо этого улучшается внешний вид опоры. Таким образом, граненая
-          коническая структура обеспечивает высокие стандарты как прочности, так и визуальной эстетичности. Толщина металла
-          зависит от рассчитанной нагрузки.
-        </p>
         <button class="ui-button">Запросить КП на изготовление опоры</button>
         <!--<ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
           <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>

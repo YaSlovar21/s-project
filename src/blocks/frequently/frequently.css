@@ -1,0 +1,29 @@
+/*.frequently__item_active .frequently__question::after {
+  content: url(../../images/2024content/minus.svg);
+  color: rgb(71, 86, 255);
+}*/
+.frequently__question::after {
+    font-weight: 200;
+    width: 30px;
+    flex-shrink: 0;
+    height: 30px;
+    /*content: url(../../images/2024content/plus.svg);*/
+    color: tomato;
+  }
+  
+  .frequently__answer {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 2s, visibility 1s linear 1s;
+    transition-delay: 2s, 0s;
+    transition-duration: 2s, 0.5s;
+  }
+  
+  .frequently__item_active .frequently__answer {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  

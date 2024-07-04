@@ -2,15 +2,16 @@
 @import url(./__mobile-icon/nav__mobile-icon.css);
 
 .nav {
-
+  @apply px-10 flex justify-between items-center py-4;
 }
 
 .nav__menu-links {
   @apply flex list-none justify-between w-full laptop:hidden;
+  max-width: 760px ;
 }
 
 .nav__ul-item {
-  @apply relative basis-full text-center px-2 hover:bg-primary-light hover:bg-opacity-50;
+  @apply relative;
 }
 
 .nav__submenu {
