@@ -26,7 +26,7 @@
 
   <div class="content">
     <div class="py-[78px]">
-      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto"><%= h1Title %></h1>
+      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl"><%= h1Title %></h1>
       <p class="mx-auto max-w-[836px] text-center mt-6">Общепринятые обозначения: опоры сфг, опоры огк, опоры огкс</p>
     </div>
   </div>
@@ -102,9 +102,9 @@
       <figure class="absolute top-0 left-0">
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
-      <div class="content flex pt-32 mb-24">
-        <h2 class="basis-1/4 up-title text-themewhite  text-base ">Наши преимущества</h2>
-        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite ">
+      <div class="content flex pt-32 mb-24 laptop:flex-col laptop:*:basis-auto laptop:px-10">
+        <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Наши преимущества</h2>
+        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite mobile:grid-cols-2 ">
           <% [1,2,3,4,5].map((item)=> { %>
           <li class="flex flex-col justify-between min-h-40 rounded-sm">
             <h3 class="text-lg font-bold">Изготовление по ГОСТ</h3>
@@ -113,10 +113,9 @@
           <% }) %>
         </ul>
       </div>
-      <div class="content flex pb-32">
-        <h2 class="basis-1/4 up-title text-themewhite text-base">Сертификаты</h2>
-        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite ">
-          
+      <div class="content flex pb-32  laptop:flex-col laptop:*:basis-auto laptop:px-10">
+        <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
+        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite  mobile:grid-cols-2">
           <li class="min-h-40 rounded-sm">
             <img class="w-full" src="<%= require('./images/sert-opory-1.png')%>" alt="">
           </li>

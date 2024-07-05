@@ -15,10 +15,10 @@
       <div>
         <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent'}) %>
       </div>
-      <div class="content">
-        <span class="block text-[90px] mt-72 uppercase font-bold text-white"><span class="text-8xl">С</span>танко<span class="text-8xl">С</span>таль<span class="text-8xl">К</span>онструкция</span>
-        <h1 class="w-1/2 ml-[50%] mb-40 mt-5 text-4xl lowercase text-primary-white max-w-xs">Завод по производству опор освещения</h1>
-        <ul class="flex w-1/2">
+      <div class="content mobile:px-5">
+        <span class="block text-[90px] mt-72 uppercase font-bold text-white mobile:text-2xl mobile:*:text-3xl"><span class="text-8xl">С</span>танко<span class="text-8xl">С</span>таль<span class="text-8xl">К</span>онструкция</span>
+        <h1 class="w-1/2 ml-[50%] mb-40 mt-5 text-4xl lowercase text-primary-white max-w-xs mobile:w-full mobile:ml-0 mobile:text-3xl">Завод по производству опор освещения</h1>
+        <ul class="flex w-1/2 mobile:w-full">
           <li class="basis-1/2 w-full">
             <a class="block text-center text-base py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979]" href="#">Скачать прайс</a>
           </li>
@@ -29,144 +29,147 @@
       </div>
     </div>
     
-    <section class="bg-themewhite flex justify-end px-10 py-24">
-      <figure class="basis-1/4">
-        <img class="mx-auto sticky top-2" src="<%= require('./images/main-opora.png')%>" alt="гранёная опора освещения силовая фланцевая с фундаментом и кронштейном под светильник">
-      </figure>
-      <ul class="basis-[calc(50%+380px)] main-product-grid *:border-primary-lighter">
-        <li class="border-r border-b">
-          <a class="main-product-link pb-11" href="<%= ROUTES.brackets %>">
-            <h3 class="main-product-link__title main-product-link__title_category">Кронштейны под светильники</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">Кронштейны под консольные светильнии. Изготавливаются как на железобетонные опоры, так и на многогранные и круглые металлические</p>
-            <figure class="absolute top-5 right-5">
-              <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-2 row-span-2 border-r border-b">
-          <a class="main-product-link pb-11" href="<%= ROUTES.oporyMain %>">
-            <h3 class="main-product-link__title main-product-link__title_category">Опоры силовые</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">С возможностью подвески СИП, усиленным фланцем и повышенной толщиной металла опоры</p>
-            <figure class="absolute top-5 right-5">           
+    <section class="bg-themewhite ">
+      <h2 class="section-title text-center mt-16 mb-5 text-primary-darker">Наша продукция</h2>
+      <div class="flex justify-end px-10 py-24 mobile:px-5">
+        <figure class="basis-1/4">
+          <img class="mx-auto sticky top-2" src="<%= require('./images/main-opora.png')%>" alt="гранёная опора освещения силовая фланцевая с фундаментом и кронштейном под светильник">
+        </figure>
+        <ul class="basis-[calc(50%+380px)] main-product-grid *:border-primary-lighter mobile:grid-cols-1 mobile:*:row-start-auto mobile:*:col-start-auto">
+          <li class="border-r border-b">
+            <a class="main-product-link pb-11" href="<%= ROUTES.brackets %>">
+              <h3 class="main-product-link__title main-product-link__title_category">Кронштейны под светильники</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">Кронштейны под консольные светильнии. Изготавливаются как на железобетонные опоры, так и на многогранные и круглые металлические</p>
+              <figure class="absolute top-5 right-5">
                 <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-2 col-start-2 border-r border-t border-b">
-          <a class="main-product-link" href="<%= ROUTES.sfg %>">
-            <h3 class="main-product-link__title">Опоры СФГ</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры силовые фланцевые граненые с закладным фундаментом</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-2 col-start-3 border-b">
-          <a class="main-product-link" href="<%= ROUTES.spg %>">
-            <h3 class="main-product-link__title">Опоры СПГ</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры силовые прямостоячные граненые без закладного фундамента</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-3 col-start-2 border-b  border-r">
-          <a class="main-product-link" href="<%= ROUTES.nfg %>">
-            <h3 class="main-product-link__title">Опоры граненые ОГКС</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Силовая модификация опоры ОГК</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-4 row-span-2 border-r border-b">
-          <a class="main-product-link pb-11" href="<%= ROUTES.oporyMain %>">
-            <h3 class="main-product-link__title main-product-link__title_category">Опоры несиловые</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">С возможностью подвески СИП, усиленным фланцем и повышенной толщиной металла опоры</p>
-            <figure class="absolute top-5 right-5">           
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-4 border-r border-b">
-          <a class="main-product-link" href="<%= ROUTES.nfg %>">
-            <h3 class="main-product-link__title">Опоры НФГ</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые фланцевые граненые</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-4 border-b">
-          <a class="main-product-link" href="<%= ROUTES.nfg %>">
-            <h3 class="main-product-link__title">Опоры НПГ</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые прямостоячные граненые</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="row-start-5 ">
-          <a class="main-product-link" href="<%= ROUTES.nfg %>">
-            <h3 class="main-product-link__title">Опоры ОГК</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые граненые конические</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <!--<li class="col-span-2 border-r border-b">
-          <a class="main-product-link pb-11" href="<%= ROUTES.machty %>">
-            <h3 class="main-product-link__title main-product-link__title_category">Высокомачтовые опоры</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="">
-          <a class="main-product-link" href="<%= ROUTES.machty %>">
-            <h3 class="main-product-link__title">Мачты со стационарной короной</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="border-r">
-          <a class="main-product-link" href="<%= ROUTES.machty %>">
-            <h3 class="main-product-link__title">Мачты с мобильной короной</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-        <li class="border-r">
-          <a class="main-product-link" href="<%= ROUTES.machty %>">
-            <h3 class="main-product-link__title">Молниеотводы на базе граненых мачт</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>-->
-        <li class="row-start-6 border-r border-t">
-          <a class="main-product-link  pb-11" href="<%= ROUTES.fundamenty %>">
-            <h3 class="main-product-link__title main-product-link__title_category">Фундаменты под опоры</h3>
-            <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">Производим все виды фундаментов и закладных элементов под разные типы силовых и несиловых фланцевых круглых и граненых опор. Прямые и Г-образные.</p>
-            <figure class="absolute top-5 right-5">
-                <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
-            </figure> 
-          </a>
-        </li>
-    </ul>
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-2 row-span-2 border-r border-b">
+            <a class="main-product-link pb-11" href="<%= ROUTES.oporyMain %>">
+              <h3 class="main-product-link__title main-product-link__title_category">Опоры силовые</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">С возможностью подвески СИП, усиленным фланцем и повышенной толщиной металла опоры</p>
+              <figure class="absolute top-5 right-5">           
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-2 col-start-2 border-r border-t border-b">
+            <a class="main-product-link" href="<%= ROUTES.sfg %>">
+              <h3 class="main-product-link__title">Опоры СФГ</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры силовые фланцевые граненые с закладным фундаментом</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-2 col-start-3 border-b">
+            <a class="main-product-link" href="<%= ROUTES.spg %>">
+              <h3 class="main-product-link__title">Опоры СПГ</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры силовые прямостоячные граненые без закладного фундамента</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-3 col-start-2 border-b  border-r">
+            <a class="main-product-link" href="<%= ROUTES.nfg %>">
+              <h3 class="main-product-link__title">Опоры граненые ОГКС</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Силовая модификация опоры ОГК</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-4 row-span-2 border-r border-b">
+            <a class="main-product-link pb-11" href="<%= ROUTES.oporyMain %>">
+              <h3 class="main-product-link__title main-product-link__title_category">Опоры несиловые</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">С возможностью подвески СИП, усиленным фланцем и повышенной толщиной металла опоры</p>
+              <figure class="absolute top-5 right-5">           
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-4 border-r border-b">
+            <a class="main-product-link" href="<%= ROUTES.nfg %>">
+              <h3 class="main-product-link__title">Опоры НФГ</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые фланцевые граненые</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-4 border-b">
+            <a class="main-product-link" href="<%= ROUTES.nfg %>">
+              <h3 class="main-product-link__title">Опоры НПГ</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые прямостоячные граненые</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="row-start-5 ">
+            <a class="main-product-link" href="<%= ROUTES.nfg %>">
+              <h3 class="main-product-link__title">Опоры ОГК</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые граненые конические</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <!--<li class="col-span-2 border-r border-b">
+            <a class="main-product-link pb-11" href="<%= ROUTES.machty %>">
+              <h3 class="main-product-link__title main-product-link__title_category">Высокомачтовые опоры</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="">
+            <a class="main-product-link" href="<%= ROUTES.machty %>">
+              <h3 class="main-product-link__title">Мачты со стационарной короной</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="border-r">
+            <a class="main-product-link" href="<%= ROUTES.machty %>">
+              <h3 class="main-product-link__title">Мачты с мобильной короной</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+          <li class="border-r">
+            <a class="main-product-link" href="<%= ROUTES.machty %>">
+              <h3 class="main-product-link__title">Молниеотводы на базе граненых мачт</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Lorem ipsum dolor sit amet consectetur. At cursus donec at odio tellus eget rhoncus tristique.</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>-->
+          <li class="row-start-6 border-r border-t">
+            <a class="main-product-link  pb-11" href="<%= ROUTES.fundamenty %>">
+              <h3 class="main-product-link__title main-product-link__title_category">Фундаменты под опоры</h3>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[450px]">Производим все виды фундаментов и закладных элементов под разные типы силовых и несиловых фланцевых круглых и граненых опор. Прямые и Г-образные.</p>
+              <figure class="absolute top-5 right-5">
+                  <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
+              </figure> 
+            </a>
+          </li>
+      </ul>
+    </div>
     </section>
-    <section class="bg-primary-darker relative pl-10">
+    <section class="bg-primary-darker relative pl-10 mobile:px-5 mobile:py-10">
       <figure class="absolute top-0 left-0">
         <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
       </figure>
-      <div class="content content_right-orient flex">
+      <div class="content content_right-orient flex mobile:flex-col mobile:max-w-full mobile:*:basis-auto ">
         <span class="block up-title text-themewhite basis-[380px] shrink-0 mt-20">О компании</span>
         <div class="basis-[582px]  pt-20 pb-16 flex flex-col justify-between">
           <h2 class="section-title text-themewhite mb-8">Завод по производству металлических опор</h2>
@@ -186,10 +189,10 @@
         <img class="basis-[689px] ml-auto" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
       </div>
     </section>
-    <section class="relative content content_right-orient flex my-20 pr-10">
+    <section class="relative content content_right-orient flex my-20 pr-10 mobile:flex-col mobile:px-5 mobile:*:basis-auto mobile:overflow-hidden">
       <span class="block up-title text-primary-darker basis-[380px] shrink-0">События</span>
       <div class="basis-full">
-      <h2 class="section-title text-primary-darker">Новости производства</h2>
+        <h2 class="section-title text-primary-darker">Новости производства</h2>
         <ul class="news-section-mainpage">
           <% newsData.slice(0,3).map((i, index) => { %>
             <li class="news-section-mainpage__list-item group">
@@ -207,12 +210,12 @@
         </ul>
       </div>
       <nav class="absolute bottom-7 right-10">
-        <button class="mr-2">
-          <svg class="w-9 h-9 stroke-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <button class="mr-2 news-section__button-left">
+          <svg class="w-9 h-9 stroke-secondary-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>          
         </button>
-        <button class="">
+        <button class="news-section__button-right">
           <svg class="w-9 h-9 stroke-secondary-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>          
@@ -223,9 +226,9 @@
       <figure class="absolute top-0 left-0">
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
-      <div class="content flex py-24 justify-end">
-        <div class="basis-3/4">
-            <h2 class="text-4xl uppercase text-primary-white mb-16">Наши преимущества</h2>
+      <div class="content flex py-24 justify-end mobile:px-5">
+        <div class="basis-3/4 mobile:basis-full">
+            <h2 class="section-title mb-16">Наши преимущества</h2>
             <img class="col-start-5 col-span-8" src="<%= require('./images/test-pluses.png')%>">
         </div>
       </div>
@@ -233,5 +236,18 @@
     <%= require('html-loader!./insets/form-section.html').default %>
   </main>
   <%= require('html-loader!./insets/inner-footer.html').default %>
+  <template id="news-template">
+    <li class="news-card news-section-mainpage__list-item group ">
+      <figure class="news-section-mainpage__image overflow-hidden group-hover:opacity-80">
+        <img class="news-card__image w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-110" src="" alt="участие в конкурсе лучший по профессии">
+      </figure>
+      <div class="pr-24 relative mt-3  h-32">
+        <h3 class="news-card__title text-primary-black max-w-[400px] group-hover:text-secondary-darker">title</h3>
+        <p class="news-card__intro text-base mt-1">intro</p>
+        <p class="news-card__date text-base absolute top-0 right-0">formattedDate</p>
+      </div>
+      <a class="news-card__link" href="#"><span class="absolute inset-0"></span></a>
+    </li>
+  </template>
 </body>
 </html>

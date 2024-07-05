@@ -10,8 +10,8 @@ module.exports = {
       typography: ({ theme }) => ({
         ssk: {
           css: {
-            '--tw-prose-body' : '#f2f2f2',
-            '--tw-prose-headings' : '#7E7BC4',
+            '--tw-prose-body' : '#1a1a1a',
+            '--tw-prose-headings' : '#1f1f1f',
             '--tw-prose-lead' : '#525252',
             '--tw-prose-links' : '#5F4D96',
             '--tw-prose-bold' : '#171717',

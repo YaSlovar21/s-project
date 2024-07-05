@@ -1,9 +1,9 @@
 .breadcrumbs {
-    @apply flex;
+    @apply flex items-center p-10 mobile:px-5;
 }
 
 .breadcrumbs__link {
-    @apply text-gray-800 text-lg font-bold;
+    @apply text-gray-800 text-lg font-bold mobile:text-sm mobile:font-normal;
 }
 
 .breadcrumbs__list-item {

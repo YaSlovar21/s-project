@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const {categories} = require('./categories')
 
-const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
-//const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net'
+//const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
+const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net'
 
 const HttpsProxyAgent = require('https-proxy-agent');
 const fetch1 = require('node-fetch');
@@ -71,6 +71,7 @@ function generateConfig(oporyData, newsData) {
       index: './src/pages/index.js', 
       form: './src/pages/form.js',
       blogpage: './src/pages/blog-page.js',
+      slider: './src/pages/mainPageSlider.js',
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -136,7 +137,7 @@ function generateConfig(oporyData, newsData) {
         },
         title: "СтанкоСтальКонструкция | Производство гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
-        chunks: ['index', 'form'],
+        chunks: ['index', 'form', 'slider'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

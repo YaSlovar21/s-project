@@ -4,6 +4,14 @@
 
 @import url(../blocks/content/content.css);
 
+@import url(../blocks/animatecss/_base.css);
+@import url(../blocks/animatecss/_vars.css);
+@import url(../blocks/animatecss/fading_entrances/fadeInRight.css);
+@import url(../blocks/animatecss/fading_entrances/fadeInUp.css);
+@import url(../blocks/animatecss/fading_entrances/fadeIn.css);
+@import url(../blocks/animatecss/fading_entrances/fadeInLeft.css);
+@import url(../blocks/animatecss/attention_seekers/pulse.css);
+
 @import url(../blocks/breadcrumbs/breadcrumbs.css);
 @import url(../blocks/nav/nav.css);
 @import url(../blocks/form/form.css);

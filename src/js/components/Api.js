@@ -12,15 +12,15 @@ export default class Api {
         }
     }
 
- /*   getInitialCards() {
-        return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers,
-        })
-        .then((response) => {
-            return this._isResponseOk(response);
-        })
-    }
-*/
+    getInitialNews() {
+        return fetch(`https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=news`, {
+              headers: this._headers,
+          })
+          .then((response) => {
+              return this._isResponseOk(response);
+          })
+      }
+
     sendCallForm(formDataJson) {
         return fetch(`${this._baseUrl}`, {
             method : 'POST',

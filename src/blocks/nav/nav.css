@@ -2,7 +2,7 @@
 @import url(./__mobile-icon/nav__mobile-icon.css);
 
 .nav {
-  @apply px-10 flex justify-between items-center py-4;
+  @apply px-10 flex justify-between items-center py-4 mobile:px-5;
 }
 
 .nav__menu-links {

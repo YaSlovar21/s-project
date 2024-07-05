@@ -1,5 +1,5 @@
 .form__field {
-    @apply  mr-4 basis-full rounded-sm relative;
+    @apply  mr-4 basis-full rounded-sm relative mobile:mr-0 mobile:mb-4;
 }
 
 .form__field:last-child {
@@ -15,11 +15,11 @@
 }
 
 .form__input {
-    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2] border border-primary-lighter text-gray-800 outline-none;
+    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2] border border-primary-lighter text-gray-800 outline-none mobile:text-base mobile:p-3;
 }
 
 .form__input_type_textarea {
-    @apply block basis-full pt-1 pb-3;
+    @apply block basis-full  py-5;
 }
 
 .form__submit-button {

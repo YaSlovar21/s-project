@@ -10,9 +10,23 @@
     @apply relative;
 }
 
+.news-card__intro {
+    display: none;
+}
+
+.news-card__title {
+    @apply text-lg;
+}
 
 .news-section-mainpage__list-item:nth-child(1) {
     @apply basis-[582px];
+}
+
+.news-section-mainpage__list-item:nth-child(1) .news-card__intro {
+    display: block;
+}
+.news-section-mainpage__list-item:nth-child(1) .news-card__title {
+    @apply text-2xl font-bold;
 }
 
 .news-section-mainpage__list-item:nth-child(2) {

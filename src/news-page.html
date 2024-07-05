@@ -8,32 +8,30 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
 </head>
 
-<body class="page bg-primary-darker">
+<body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
-  <header class="px-10 pb-20">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'dark'}) %>
+  <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
   </header>
-  <div class="relative bg-themewhite flex items-center">
-    <figure class="">
-        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
-    </figure>
-    <ul class="breadcrumbs flex">
+  <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Новости производства</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link"> </a></li>
     </ul>
-  </div>
-  <main class="px-10 my-10">
-    <h1 class="font-ui">Новости производства</h1>
-    <ul class="">
+</div>
+  <main class="px-10 my-10 mobile:px-5">
+    <h1 class="section-title text-primary-darker">Новости производства</h1>
+    <ul class="grid grid-cols-3 gap-x-5 olpc:grid-cols-2 laptop:grid-cols-1">
       <% newsData.map((i) => { %>
-        <li class="p-10 h-96 mb-5 relative rounded-sm flex bg-themewhite hover:bg-secondary-lighter group">
-          <figure class="basis-80 mr-10 h-full shrink-0 overflow-hidden group-hover:opacity-80">
+        <li class="p-10  mb-5 relative rounded-sm flex flex-col bg-primary-white hover:bg-secondary-light group mobile:p-5">
+          <span class="block font-sm mb-2"><%= i.formattedDate %></span>
+          <figure class="basis-80 h-full shrink-0 overflow-hidden group-hover:opacity-80">
             <img class="w-full h-full object-cover object-center group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
           </figure>
           <div class="flex flex-col justify-between">
-            <span class="block font-sm mb-2"><%= i.formattedDate %></span>
+           
             <h3 class="text-xl mt-2 mb-auto max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
-            <p class="text-base max-w-2xl"><%= i.desc %></p>
+            <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
             <a href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
           </div>
         </li>

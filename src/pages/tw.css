@@ -44,10 +44,10 @@
 
 @layer components {
   .up-title {
-    @apply text-lg font-semibold uppercase;
+    @apply text-lg font-semibold uppercase mobile:text-base;
   }
   .section-title {
-    @apply text-4xl font-bold uppercase text-primary-white mb-16;
+    @apply text-4xl font-bold uppercase text-primary-white mb-16 mobile:text-2xl;
   }
 
   .ui-button {
@@ -55,7 +55,8 @@
   }
 
   .main-product-link {
-    @apply block h-full p-5 relative pr-14 hover:bg-primary-lighter;
+    @apply block h-full p-5 relative pr-14 transition-all duration-300 hover:bg-primary-white;
+    
   } 
   .main-product-link__title {
     @apply h-24 font-medium text-primary-darker text-2xl
@@ -71,6 +72,18 @@
     grid-auto-rows: 239px;
   }
  
+  .content {
+    max-width: 1520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content_right-orient {
+    max-width: calc(760px + 50%);
+    margin-left: auto;
+    margin-right: 0;
+}
+
 }
 
 

@@ -4,3 +4,11 @@
     align-items: flex-end;
 
 }
+
+@media screen and (max-width: 638px) {
+        .lpopory-grid {
+            gap: 12px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 500px 500px;
+        }
+}
