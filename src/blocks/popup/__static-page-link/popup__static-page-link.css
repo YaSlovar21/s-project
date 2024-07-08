@@ -1,0 +1,3 @@
+.popup__static-page-link{
+  @apply p-3 mt-6 w-full bg-[#111111] text-xl text-gray-200 text-center justify-center hover:text-orange-600;
+}

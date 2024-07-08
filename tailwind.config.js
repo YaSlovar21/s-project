@@ -62,6 +62,7 @@ module.exports = {
         // => @media (max-width: 1024px) { ... }
   
         'mobile': {'max': '639px'},
+        'mobilesm': {'max': '343px'},
         // => @media (max-width: 639px) { ... }
     },
     colors: {

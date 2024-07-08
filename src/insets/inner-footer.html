@@ -25,3 +25,33 @@
       </li>
     </ul>
 </footer>
+
+<!--Всплывающее меню-->
+<div class="popup popup_closed popup_type_menu popup-menu">
+  <div class="popup__container popup__container_menu">
+    <button class="popup__button-close popupmenu__button-close"></button>
+    <nav class="popup__menu">
+      <a class="popup__navlink" href="/">Главная</a>
+      <div class="dropdown popup__navlink">
+        <input type="checkbox" class="dropdown__checkbox" id="menu-checkbox">
+        <label class="dropdown__label" for="menu-checkbox">Продукция</label>
+        <ul class="dropdown__list">
+          <li class="dropdown__list-item"><a class="popup__navlink popup__navlink_sub" href="<%= ROUTES.sfg %>">Опоры силовые фланцевые граненые</a></li>
+          <li class="dropdown__list-item"><a class="popup__navlink popup__navlink_sub" href="<%= ROUTES.spg %>">Опоры силовые прямостоячные граненые</a></li>
+          <li class="dropdown__list-item"><a class="popup__navlink popup__navlink_sub" href="<%= ROUTES.nfg %>">Опоры несиловые фланцевые граненые</a></li>
+          <li class="dropdown__list-item"><a class="popup__navlink popup__navlink_sub" href="<%= ROUTES.npg %>">Опоры несиловые прямостоячные граненые</a></li>
+        </ul>
+      </div>
+      <a class="popup__navlink" href="<%= ROUTES.about %>">О компании</a>
+      <div class="dropdown popup__navlink">
+        <input type="checkbox" class="dropdown__checkbox" id="menu-checkbox-1">
+        <label class="dropdown__label" for="menu-checkbox-1">Документация</label>
+        <ul class="dropdown__list">
+          <li class="dropdown__list-item"><a class="popup__navlink popup__navlink_sub" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
+        </ul>
+      </div>
+      <a class="popup__navlink" href="<%= ROUTES.contacts %">Контакты</a>
+    </nav>
+   
+  </div>
+</div>

@@ -8,18 +8,15 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
 </head>
 
-<body class="page bg-primary-lighterdouble">
+<body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
   </header>
-  <div class="relative bg-themewhite flex items-center">
-    <figure class="">
-        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
-    </figure>
-    <ul class="breadcrumbs flex">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опоры СФГ</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">МСО-ФГ-4</a></li>
+  <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опора МСО-ФГ-4</a></li>
     </ul>
   </div>
   <main class="">
@@ -31,26 +28,28 @@
             <img class="w-full" src="<%= require('./images/opora-page-product.png')%>" alt="опора освещения"> 
           </div>
           <div class="basis-3/4">
-            <h1 class="text-primary-darker font-circe font-bold text-[60px] uppercase max-w-[906px]">МСО-ФГ-4 | Опора силовая фланцевая граненая С-ФГ-400 Ц</h1>
+            <h1 class="text-primary-darker font-bold text-5xl uppercase max-w-[906px]"><%= htmlWebpackPlugin.options.title %></h1>
             <ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
-              <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
-              <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>
-              <li><h3 class="bg-themewhite relative top-2">Вид опоры</h3>  <span class="bg-themewhite relative top-2">силовая</span></li>
-              <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <span class="bg-themewhite relative top-2">150 мм</span></li>
-              <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <span class="bg-themewhite relative top-2">250 мм</span></li>
-              <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <span class="bg-themewhite relative top-2">да</span></li>
+              <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2"><%= Number(oporaData['H'])/1000 %> метров</span></li>
+              <% if (type === 'силовая') {%>
+                <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2"><%= Number(oporaData['P'])/100 %> kH (<%= oporaData['P'] %> кг)</span></li>
+              <% } %>
+              <li><h3 class="bg-themewhite relative top-2">Тип опоры</h3>  <span class="bg-themewhite relative top-2"><%= type %></span></li>
+              <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <span class="bg-themewhite relative top-2"><%= oporaData['Db'] %></span></li>
+              <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <span class="bg-themewhite relative top-2"><%= oporaData['Dh']%></span></li>
+              <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <span class="bg-themewhite relative top-2"><%= type === 'силовая' ? 'да' : 'нет' %></span></li>
             </ul>
-            <button class="text-xl mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-full" href="/about/">Оставить заявку на С-ФГ-400 Ц</button>
+            <button class="text-xl mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-1/2  transition-all duration-300 hover:bg-primary-white" href="/about/">Оставить заявку на опору</button>
             <div class="mt-20">
-              <h2 class="text-3xl font-ui font-semibold text-primary-darker">Дополнительные характеристики</h2>
-              <ul class="max-w-[445px] mt-5 text-xl w-full *:mb-5 *:pb-5 *:border-b *:border-primary-lighter *:w-full *:flex *:justify-between">
-                <li>Размер фланца: <span>495мм</span></li>
-                <li>Межцентровое расстояние: <span>425мм</span></li>
-                <li>Количество отверстий: <span>6шт</span></li>
-                <li>Диаметр отверстий: <span>35мм</span></li>
+              <h2 class="text-2xl font-bold text-primary-darker">Дополнительные характеристики</h2>
+              <ul class="max-w-[445px] mt-7 text-xl w-full *:mb-5 *:pb-5 *:border-b *:border-primary-white *:w-full *:flex *:justify-between">
+                <li>Размер фланца: <span><%= oporaData['A']%>мм</span></li>
+                <li>Межцентровое расстояние: <span><%= oporaData['B']%> мм</span></li>
+                <li>Количество отверстий: <span><%= oporaData['n']%> шт</span></li>
+                <li>Диаметр отверстий: <span><%= oporaData['d']%></span></li>
                 <li>Возможность покраски: <span>да</span></li>
                 <li>Покрытие: <span>горячее цинкование</span></li>
-                <li>Срок службы: <span>30 лет</span></li>
+                <li>Срок службы: <span>25-30 лет</span></li>
               </ul>
             </div>
         </div>
@@ -70,7 +69,7 @@
               <p>
                 Металлическая силовая опора фланцевая граненая. Максимальная допустимая боковая статическая нагрузка 4 kH (409 кг).
               </p>
-              <h4 class="font-ui font-medium mt-20 mb-3">Опоры изготавливаются в различных модификациях:</h4>
+              <h4 class="font-bold mt-20 mb-3">Опоры изготавливаются в различных модификациях:</h4>
               <ul>
                 <li>8, 9 или 10 метров (высота над поверхностью земли)</li>
                 <li>подводом к верхней части опоры или внутренним подводом с обслуживанием через боковой лючок в нижней части опоры</li>

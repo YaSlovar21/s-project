@@ -19,6 +19,7 @@ console.log(ROUTES);
 
 
 function generateCategoriesHtmlPlugins(oporyData) {
+  console.log(oporyData);
   return categories.map(category => {
     return new HtmlWebpackPlugin({
       templateParameters: {
@@ -29,6 +30,9 @@ function generateCategoriesHtmlPlugins(oporyData) {
         staticData: category.staticData,
         techNames,
         categoryType: category.type,
+
+        itemAlias: category.itemName,
+        gost1: category.gost1
       },
       title: category.title,
       template: './src/category-page.html', // путь к файлу index.html
@@ -37,6 +41,49 @@ function generateCategoriesHtmlPlugins(oporyData) {
     })
   })
 };
+
+function generateProductsHtmlPlugins(oporyData) {
+  return oporyData.map((item) => {
+    let itemRoute;
+    let itemTitle;
+    let type;
+    switch (item.type) {
+      case 'sfg':
+        itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg/index.html`;
+        itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100} | СФГ-${item['H']} (${item['Db']})`;
+        type = 'силовая';
+        break;
+      case 'spg':
+        itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg/index.html`;
+        itemTitle = `Опора МСО-ПГ-${Number(item['P'])/100} | СПГ-${item['H']} (${item['Db']})`;
+        type = 'силовая';
+        break;
+      case 'nfg':
+        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}/index.html`;
+        itemTitle = `Опора МНО-ФГ-${item['H']} НФГ-${item['H']} (${item['Db']})`
+        type = 'несиловая';
+        break;
+      case 'npg':
+        itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}/index.html`;
+        itemTitle = `Опора МНО-ПГ-${item['H']} НФГ-${item['H']} (${item['Db']})`;
+        type = 'несиловая';
+        break;
+    }
+    console.log(itemRoute);
+    return new HtmlWebpackPlugin({
+      templateParameters: {
+        canonicalURL,
+        ROUTES,
+        oporaData: item,
+        type
+      },
+      title: itemTitle,
+      template: './src/product-page.html', // путь к файлу index.html
+      filename: itemRoute,
+      chunks: ['index'],
+    })
+  })
+}
 
 function generateArticlesHtmlPlugins(newsData) {
   console.log(newsData);
@@ -65,6 +112,7 @@ function generateConfig(oporyData, newsData) {
 
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
+  const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
 
   return {
     entry: { 
@@ -182,16 +230,7 @@ function generateConfig(oporyData, newsData) {
         filename: 'novosti-proizvodstva/index.html',
         chunks: ['index', 'form'],
       }),
-      new HtmlWebpackPlugin({
-        templateParameters: {
-          canonicalURL,
-          ROUTES,
-        },
-        title: "Опора МСО-ФГ-4",
-        template: './src/product-page.html', // путь к файлу index.html
-        filename: 'opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-4-sfg-400-c/index.html',
-        chunks: ['index'],
-      }),
+      
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
@@ -207,7 +246,7 @@ function generateConfig(oporyData, newsData) {
       new MiniCssExtractPlugin({
         filename: '[name].css'
       })
-    ].concat(htmlCategoriesPlugins,htmlArticlesPlugins), 
+    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins), 
   }
 }
 const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');

@@ -1,0 +1,104 @@
+.popup {
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.7s, visibility 0s linear 0.6s;
+    display: flex;
+    position: fixed;
+    top:0;
+    left: 0;
+
+    width: calc(100% - var(--aside-width));
+    height: 100%;
+
+    background-color: rgba(0,0,0, .5);
+    background-color: #242424f3;
+    background-color: #1f1f1f;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 22;
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .popup {
+    width: 100%;
+  }
+}
+
+.popup_closed {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+.popup_type_menu {
+  @apply bg-primary-darker;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 22;
+
+  align-items: flex-end;
+}
+
+
+.popup__reference-section {
+  /*max-width: calc(100% - var(--aside-width));
+  max-width: 100%;*/
+  grid-template-columns: repeat(auto-fill , minmax(386px, 1fr));
+  display: grid;
+
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+
+  box-sizing: border-box;
+  padding-right: 20px;
+  /*-ms-overflow-style: none;  /* Internet Explorer 10+ */
+  /*scrollbar-width: 2px;  /* Firefox */
+
+}
+
+.popup__reference-section::-webkit-scrollbar {
+    width: 7px;
+    background-color: #000000;
+}
+.popup__reference-section::-webkit-scrollbar-thumb {
+  background-color: var(--theme-main-color);
+  background-color: #121212;
+}
+
+.popup__reference-section::-webkit-scrollbar-thumb:hover {
+  opacity: .8;
+}
+
+.popup__reference-section::-webkit-scrollbar-track {
+  box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #2f2f2f;
+}
+
+
+
+.popup__newcontainer::-webkit-scrollbar {
+  width: 6px;
+  background-color: #000000;
+}
+.popup__newcontainer::-webkit-scrollbar-thumb {
+background-color: var(--theme-main-color);
+width: 6px;
+}
+
+
+.popup__newcontainer::-webkit-scrollbar-track {
+box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+background-color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__reference-section {
+    grid-template-columns: repeat(auto-fill , minmax(310px, 1fr));
+  }
+}

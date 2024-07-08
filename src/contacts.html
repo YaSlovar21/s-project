@@ -8,16 +8,13 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
 </head>
 
-<body class="page bg-primary-darker">
+<body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
   </header>
-  <div class="relative bg-themewhite flex items-center">
-    <figure class="">
-        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
-    </figure>
-    <ul class="breadcrumbs flex">
+  <div class="relative flex ">
+    <ul class="breadcrumbs">
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Контакты</a></li>
     </ul>

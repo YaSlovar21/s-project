@@ -38,7 +38,16 @@
 }
 
 .news-section-mainpage__image {
-    @apply w-[310px] h-[310px] transition-all duration-300;
+    @apply relative w-[310px] h-[310px] transition-all duration-300;
+}
+
+.news-section-mainpage__image::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @apply bg-primary-lighter bg-opacity-20;
+    z-index: 3;
 }
 
 .news-section-mainpage__list-item:nth-child(1) .news-section-mainpage__image {
