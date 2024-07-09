@@ -1,5 +1,5 @@
 .nav__link {
-  @apply text-base uppercase no-underline py-1 block px-1 text-primary-black hover:text-primary-darker; 
+  @apply text-base uppercase no-underline py-1 block px-1 text-primary-black hover:text-primary-darker mvpc:text-[15px]; 
 
   transition: .5s linear;
   position: relative;

@@ -1,0 +1,21 @@
+.bem__link {
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.bem__link:hover {
+  @apply text-secondary;
+}
+
+.bem__link::before {
+  transition: all .3s ease-in;
+}
+.bem__link:hover::before {
+  transform: translateY(-3px);
+}

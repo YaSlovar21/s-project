@@ -11,7 +11,7 @@
 <body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent'}) %>
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
@@ -31,9 +31,14 @@
 
   <!--   -->
   <main class="product-container">
-    <div class="content flex py-10">
-      <div class="shrink-0 basis-1/2">
-          <img src="<%= require(`./images/${`sfg-cat`}.png`)%>" alt="опора освещения"> 
+    <div class="content flex py-10 justify-between mobile:flex-col mobile:*:basis-auto">
+      <div class="shrink-0 basis-auto relative">
+          <img src="<%= require(`./images/opora-abstract-w-lines.png`)%>" alt="опора освещения">
+          <ul class="absolute py-28 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-xl *:font-bold  *:text-primary-darkerdouble">
+            <li class="max-w-[140px]">Возможность подвески СИП</li>
+            <li class="">Повышенная толщина металла</li>
+            <li class="max-w-[230px]">Усиленный фланец для крепления к фундаменту</li>
+          </ul>
       </div>
       <div class="basis-1/2">
         <%= require(`html-loader!./insets/cats/${categoryType}.html`).default %>
@@ -64,8 +69,8 @@
     </div>
 
     <section class="p-10 pb-20">
-      <h2 class="section-title text-[2.5rem] text-center text-primary-darker">Производимая номенклатура</h2>
-      <ul class="grid grid-cols-2 gap-4 content">
+      <h2 class="section-title section-title_cat text-center text-primary-darker">Производимая номенклатура</h2>
+      <ul class="grid grid-cols-2 gap-4 content mobile:grid-cols-1">
         <% tableData.map((oporaData) => { %>
           <li class="relative p-3 bg-primary-white">
             <h3 class="basis-full text-xl mb-3"><%= itemAlias %> <%= oporaData["Name"] %></h3>
@@ -80,7 +85,7 @@
                 <p class="font-bold my-4"><%= `${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}` %></p>
               </li>
             </ul>
-            <a href="<%= `${ROUTES[categoryType]}${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}`%>">
+            <a href="<%= `${ROUTES[categoryType]}${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}`%>.html">
               <span class="absolute inset-0 transition-all duration-500 hover:bg-primary-lighterdouble hover:bg-opacity-45"></span>
             </a>
           </li>
@@ -134,6 +139,6 @@
   </main>
 
   <!--FOOTER-->
-   <%= require('html-loader!./insets/inner-footer.html').default %>
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>
 </html>

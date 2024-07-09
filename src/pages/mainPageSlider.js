@@ -103,10 +103,10 @@ async function getInitialNews() {
     initialCards = newsCards;
     updateSlidesAndPags();
 
-    setInterval(()=>{
+    /*setInterval(()=>{
         step = upStep(step);
         updateSlidesAndPags();
-    }, 4000);
+    }, 4000);*/
 }
 
 getInitialNews();

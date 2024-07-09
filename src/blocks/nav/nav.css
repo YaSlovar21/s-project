@@ -5,9 +5,12 @@
   @apply px-10 flex justify-between items-center py-4 mobile:px-5;
 }
 
+.nav_page_main {
+  @apply pt-2 px-8;
+}
+
 .nav__menu-links {
-  @apply flex list-none justify-between w-full laptop:hidden;
-  max-width: 760px ;
+  @apply flex list-none justify-between w-full max-w-[760px] pc:max-w-[683px] mvpc:max-w-[640px] laptop:hidden;
 }
 
 .nav__ul-item {
@@ -15,10 +18,12 @@
 }
 
 .nav__submenu {
+    @apply bg-primary-lighterdouble border border-primary-lighter;
+
     position: absolute;
-    top: calc(100%);
+    top: calc(100%+21px);
     left: 0;
-    width: 210%;
+    width: 380px;
     z-index: 10;
     transition: opacity 0.5s ease-in-out, color .2s ease-in;
     transition: all .4s ease-in;
@@ -60,9 +65,6 @@
   /*font-weight: 500;*/
 }
 
-.nav__sub-ul-item_cat:hover {
-  background-color: #ff5e3af7;
-}
 
 .nav__sub-link {
   @apply text-base text-themewhite font-medium no-underline text-left olpc:text-sm;

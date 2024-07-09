@@ -2,6 +2,7 @@ const path = require('path'); // подключаем path к конфигу в�
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
 const {categories} = require('./categories')
 
@@ -15,6 +16,8 @@ const {
   ROUTES,
   techNames
 } = require('./constants');
+const { paths } = require('./sitemap');
+
 console.log(ROUTES);
 
 
@@ -42,40 +45,57 @@ function generateCategoriesHtmlPlugins(oporyData) {
   })
 };
 
+const dateNow = (new Date()).toString();
+let generatedPaths = [];
+
 function generateProductsHtmlPlugins(oporyData) {
   return oporyData.map((item) => {
     let itemRoute;
     let itemTitle;
     let type;
+    let desc;
     switch (item.type) {
       case 'sfg':
-        itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg/index.html`;
+        itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
         itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100} | СФГ-${item['H']} (${item['Db']})`;
         type = 'силовая';
+        desc = `Опора силовая фланцевая граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
         break;
       case 'spg':
-        itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg/index.html`;
+        itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
         itemTitle = `Опора МСО-ПГ-${Number(item['P'])/100} | СПГ-${item['H']} (${item['Db']})`;
         type = 'силовая';
+        desc = `Опора силовая прямостоечная граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм.`
         break;
       case 'nfg':
-        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}/index.html`;
+        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
         itemTitle = `Опора МНО-ФГ-${item['H']} НФГ-${item['H']} (${item['Db']})`
         type = 'несиловая';
+        desc = `Опора несиловая фланцевая граненая без возможностиподвески СИП. Крепление к поверхности через фланец.`
         break;
       case 'npg':
-        itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}/index.html`;
+        itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}.html`;
         itemTitle = `Опора МНО-ПГ-${item['H']} НФГ-${item['H']} (${item['Db']})`;
+        desc = `Опора несиловая прямостоечная граненая без возможностиподвески СИП.`
         type = 'несиловая';
         break;
     }
     console.log(itemRoute);
+    generatedPaths.push(
+      {
+        path: `/${itemRoute}`,
+        lastmod: dateNow,
+        priority: 1,
+        changefreq: 'monthly'
+      }
+    )
     return new HtmlWebpackPlugin({
       templateParameters: {
         canonicalURL,
         ROUTES,
         oporaData: item,
-        type
+        type,
+        desc
       },
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
@@ -113,7 +133,7 @@ function generateConfig(oporyData, newsData) {
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
   const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
-
+  console.log(htmlArticlesPlugins.length + htmlCategoriesPlugins.length + htmlProductsPlugins.length)
   return {
     entry: { 
       index: './src/pages/index.js', 
@@ -245,7 +265,8 @@ function generateConfig(oporyData, newsData) {
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: '[name].css'
-      })
+      }),
+      new SitemapPlugin({ base: canonicalURL, paths: paths.concat(generatedPaths) }),
     ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins), 
   }
 }

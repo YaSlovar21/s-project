@@ -15,7 +15,9 @@
 
 @import url(../blocks/popupmenu/popupmenu.css);
 
-
+@import url(../blocks/bem/__link/bem__link.css);
+@import url(../blocks/bem/__link/_download/bem__link_download.css);
+@import url(../blocks/bem/__link/_newwindow/bem__link_newwindow.css);
 
 @import url(../blocks/breadcrumbs/breadcrumbs.css);
 @import url(../blocks/nav/nav.css);

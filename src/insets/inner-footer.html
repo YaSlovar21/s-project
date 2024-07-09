@@ -1,29 +1,47 @@
-<footer class="py-24 grid grid-cols-12 gap-x-5 px-10">
-    <div class="col-span-2 col-start-1 content-between">
-      <a class="" href="/"><img src="../images/svg/logo-place-footer.svg"></a>
-      <p class="text-sm text-primary-lighter">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
+
+<footer class="py-16 px-10 bg-primary-darker mobile:px-2">
+    <div class="flex mobile:flex-col mobile:*:basis-auto">
+      <div class="basis-1/2 w-full mr-10 mb-10">
+        <a class="" href="/"><img src="../images/svg/logo-place-footer.svg" alt="Станкостальконструкция"></a>
+        <p class="text-sm text-primary-lighter mt-5">Завод по производству опор освещения</p>
+      </div>
+      <div class="basis-[760px] w-full grid grid-cols-3 gap-y-20 content-stretch olpc:grid-cols-2">
+        <nav>
+          <h2 class="text-xl mb-10 text-themewhite font-bold">Навигация</h2>
+          <ul>
+            <li class="mb-5"><a class="footer-link" href="/">Продукция</a></li>
+            <li class="mb-5"><a class="footer-link" href="<%= ROUTES.about %>">О компании</a></li>
+            <li class="mb-5"><a class="footer-link" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
+            <li class="mb-5"><a class="footer-link" href="/">Наши ценности</a></li>
+            <li><a class="footer-link" href="<%= ROUTES.contacts %>">Контакты</a></li>
+          </ul>
+        </nav>
+          <ul class="flex flex-col justify-between">
+            <li class="mb-10">
+              <h3 class="text-xl mb-10 text-themewhite font-bold">Отдел продаж</h3>
+              <ul>
+                <li class="mb-5"><a class="footer-link" href="tel:+79965423106">+7 (996)-542-31-06</a></li>
+                <li><a class="footer-link" href="tel:+79965423106">+7 (996)-542-31-06</a></li>
+              </ul>
+            </li>
+            <li>
+              <h3 class="text-xl mb-10 text-themewhite font-bold">Приемная</h3>
+              <a class="footer-link" href="tel:+73852361050">+7 (3852) 36 10 50</a></li>
+            </li>
+          </ul>
+        <div>
+          <h3 class="text-xl mb-10 text-themewhite font-bold">Наш адрес</h3>
+          <p class="footer-link">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
+        </div>
+      </div>
     </div>
-    <ul class="col-start-4 col-span-5">
-      <li class=" grid grid-cols-4 gap-x-5 pb-5 border-b border-primary">
-        <h2 class="text-xl text-themewhite font-ui font-medium">Отдел продаж</h2>
-        <div class="pt-[0.35rem]">
-          <h3 class="text-sm text-themewhite font-ui font-medium uppercase">Почта</h3>
-          <a class="block mt-4 text-lg text-themewhite  font-ui font-medium  col-span-2 justify-self-start" href="mailto:info@ssk.ru">info@ssk.ru</a>
-        </div>
-        <div class="pt-[0.35rem]">
-          <h3 class="text-sm text-themewhite font-ui font-medium uppercase">Номер телефона</h3>
-          <a class="text-lg block mt-4  text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
-          <a class="text-lg block mt-2  text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
-        </div>
-      </li>
-      <li class="grid grid-cols-4 gap-x-5 pt-5">
-        <h2 class="text-xl  text-themewhite font-ui font-medium">Приемная</h2>
-        <div class="pt-[0.35rem] col-start-3">
-          <h3 class="text-sm  text-themewhite font-ui font-medium uppercase">Номер телефона</h3>
-          <a class="text-lg block mt-4 text-themewhite  font-ui font-medium col-span-2 justify-self-start" href="tel:+73852361050">+7 (3852) 36 10 50</a>
-        </div>
-      </li>
-    </ul>
+    <div class="flex justify-between w-full mt-44 footer__down relative ">
+      <a href="mailto:ssk@sskbsz.ru" class="relative z-[1] text-6xl text-primary-lighterdouble bg-primary-darker pr-10 laptop:text-4xl mobile:text-2xl">ssk@sskbsz.ru</a>
+      <ul class="flex relative z-[1] text-4xl items-center pl-10 bg-primary-darker laptop:text-2xl mobile:text-lg">
+        <li class="mr-20 mobile:mr-4"><a class="text-primary-lighterdouble">ВК</a></li>
+        <li><a class="text-primary-lighterdouble">ТГ</a></li>
+      </ul>
+    </div>
 </footer>
 
 <!--Всплывающее меню-->
@@ -50,7 +68,7 @@
           <li class="dropdown__list-item"><a class="popup__navlink popup__navlink_sub" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
         </ul>
       </div>
-      <a class="popup__navlink" href="<%= ROUTES.contacts %">Контакты</a>
+      <a class="popup__navlink" href="<%= ROUTES.contacts %>">Контакты</a>
     </nav>
    
   </div>

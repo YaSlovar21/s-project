@@ -1,0 +1,27 @@
+
+  .bem__link_email {
+    transition: all .3s ease-in;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .bem__link_email::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-image: url(../../../../../images/svg-elems/i-mail.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 9px;
+    transition: all .3s ease-in;
+  }
+
+  .bem__link_email:hover {
+    color: var(--theme-main-color);
+  }
+
+  .bem__link_email:hover::before {
+    transform: translateY(-5px);
+  }

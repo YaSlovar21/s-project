@@ -1,0 +1,19 @@
+.bem__link_download {
+  transition: all .3s ease-in;
+  padding-right: calc(1em+9px);
+}
+
+.bem__link_download::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  background-image: url(../../../../images/svg/i-download.svg);
+  background-size: contain;
+  background-position: center;
+  margin-right: 9px;
+  transition: all .3s ease-in;
+
+  flex-shrink: 0;
+}
+
+

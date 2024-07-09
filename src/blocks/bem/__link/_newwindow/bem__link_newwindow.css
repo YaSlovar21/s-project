@@ -1,0 +1,15 @@
+.bem__link_newwindow {
+  transition: all .3s linear;
+  padding-right: calc(1em+9px);
+}
+
+.bem__link_newwindow::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  background-image: url(../../../../images/svg/i-newwindow.svg);
+  background-size: contain;
+  margin-right: 9px;
+  flex-shrink: 0;
+}
+

@@ -1,0 +1,15 @@
+.bem__link_page_proekt {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1025px) {
+  .bem__link_page_proekt {
+    font-size: var(--p-size);
+  }
+  .bem__link_page_proekt::before {
+    background-repeat: no-repeat;
+    height: 1.5em;
+    width: 1.5em;
+    flex-shrink: 0;
+  }
+}

@@ -11,19 +11,22 @@
 <body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
   <main>
-    <div class="bg-[url('../images/hero-bg.png')] bg-top relative h-screen">
-      <div>
-        <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent'}) %>
+    <div class="bg-[url('../images/hero-bg.png')] bg-top relative h-screen border-themewhite border-8">
+      <div class="relative">
+        <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent' , page: 'main'}) %>
+        <figure class="absolute -top-3 right-0 left-[50%] -translate-x-1/2 mx-auto">
+          <img src="<%= require('././images/svg/bg-header-page-main.svg')%>" alt="Декор">
+        </figure>
       </div>
       <div class="content mobile:px-5 mobilesm:px-1">
         <span class="block text-[90px] mt-72 uppercase font-bold text-white mobile:mt-32 mobile:*:text-2xl mobile:text-xl mobilesm:*:text-xl mobilesm:text-lg"><span class="text-8xl">С</span>танко<span class="text-8xl">С</span>таль<span class="text-8xl">К</span>онструкция</span>
         <h1 class="w-1/2 ml-[50%] mb-40 mt-5 text-4xl lowercase text-primary-white max-w-xs mobile:w-full mobile:ml-0 mobile:text-2xl">Завод по производству опор освещения</h1>
         <ul class="flex w-1/2 mobile:w-full">
           <li class="basis-1/2 w-full">
-            <a class="block text-center text-base py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Скачать прайс</a>
+            <a class="bem__link bem__link_download block text-center text-lg py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Скачать прайс</a>
           </li>
           <li class="basis-1/2 w-full ml-5 mobile:ml-2">
-            <a class="block text-center text-base py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Смотреть каталог</a>
+            <a class="bem__link bem__link_newwindow block text-center text-lg py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Смотреть каталог</a>
           </li>
         </ul>
       </div>
@@ -238,7 +241,7 @@
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
   <template id="news-template">
     <li class="news-card news-section-mainpage__list-item group ">
-      <figure class="news-section-mainpage__image overflow-hidden group-hover:opacity-80">
+      <figure class="news-section-mainpage__image overflow-hidden group-hover:opacity-95">
         <img class="news-card__image w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-110" src="" alt="участие в конкурсе лучший по профессии">
       </figure>
       <div class="pr-24 relative mt-3  h-32">
