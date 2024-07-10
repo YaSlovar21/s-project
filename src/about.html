@@ -15,42 +15,61 @@
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Опора МСО-ФГ-4</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.about %>">О компании</a></li>
     </ul>
   </div>
 
   <main>
     
-    <section>
-      <h2 class="section-title pl-10 text-themewhite">Производственные процессы</h2>
-      <ul class="workflow px-10">
-        <li class="workflow__card ">
-          <span class="workflow__card-span">01/</span>
-          <h3 class="workflow__card-title">Плазменная резка металла</h3>
-          <p class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</p>
-          <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
-        </li>
-        <li class="workflow__card bg-themewhite bg-opacity-90">
-          <span class="workflow__card-span">02/</span>
-          <h3 class="workflow__card-title">Листогиб</h3>
-          <p class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</p>
-          <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
-        </li>
-        <li class="workflow__card">
-          <span class="workflow__card-span">03/</span>
-          <h3 class="workflow__card-title">Сварка</h3>
-          <p class="workflow__card-subhead">Сварочные посты</p>
-          <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
-        </li>
-        <li class="workflow__card">
-          <span class="workflow__card-span">04/</span>
-          <h3 class="workflow__card-title">Сварка продольного шва</h3>
-          <p class="workflow__card-subhead">Автоматизированная портальная установка</p>
-          <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
-        </li>
-      </ul>
+    <section class="workflow">
+      <div class="content py-20">
+        <h2 class="section-title ml-[25%] text-themewhite mobile:ml-0">Производственные процессы</h2>
+        <ul class="workflow__list">
+          <li class="workflow__card">
+            <span class="workflow__card-span">01/</span>
+            <h3 class="workflow__card-title">Плазменная резка металла</h3>
+            <p class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</p>
+            <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+          </li>
+          <li class="workflow__card ">
+            <span class="workflow__card-span">02/</span>
+            <h3 class="workflow__card-title">Листогиб</h3>
+            <p class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</p>
+            <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+          </li>
+          <li class="workflow__card">
+            <span class="workflow__card-span">03/</span>
+            <h3 class="workflow__card-title">Сварка</h3>
+            <p class="workflow__card-subhead">Сварочные посты</p>
+            <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
+          </li>
+          <li class="workflow__card">
+            <span class="workflow__card-span">04/</span>
+            <h3 class="workflow__card-title">Сварка продольного шва</h3>
+            <p class="workflow__card-subhead">Автоматизированная портальная установка</p>
+            <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
+          </li>
+        </ul>
+      </div>
     </section>
+    <section class="content py-20">
+      <h2 class="ml-[50%] font-bold uppercase text-primary-darker text-[32px] max-w-[380px]">Мы - производитель <span class="block text-2xl font-normal uppercase">гранёных опор освещения</span></h2>
+      <p class="w-[50%] mx-auto mt-6 text-xl indent-[25%] leading-snug">
+        Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники. 
+      </p>
+      <p class="w-[50%] mx-auto text-xl indent-[25%] leading-snug">
+        Станкостальконструкция создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания «Барнаульский
+        Станкостроительный Завод». Наше предприятие специализируется на производстве строительных металлоконструкций.
+      </p>
+    </section>
+    <h2 class="max-w-[760px] mx-auto font-bold uppercase text-primary-darker text-[32px]">Наши ценности</h2>
+    <ul class="cennosti max-w-[760px] mx-auto flex flex-col items-center">
+      <li class="cennosti__list-item">Уважение Сотрудников</li>
+      <li class="cennosti__list-item">Уважение Партнёров</li>
+      <li class="cennosti__list-item">Стремление к совершенствованию и созданию нового</li>
+      <li class="cennosti__list-item">Любовь к своему делу</li>
+    </ul>
     <section class="bg-primary-dark mt-20 grid grid-cols-12 gap-x-5 py-8 relative px-10">
       <figure class="absolute top-0 left-0">
         <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">

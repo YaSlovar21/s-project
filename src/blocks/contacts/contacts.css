@@ -3,15 +3,15 @@
 }
 
 .contacts__subtitle {
-    @apply text-lg font-bold uppercase text-primary pb-1 border-b border-primary-lighter;
+    @apply text-lg font-bold uppercase text-primary pb-1 border-b border-primary-lighter mobile:text-base;
 }
 
 .contacts__numb {
-    @apply mt-4 text-base text-primary-darker;
+    @apply mt-4 text-base text-primary-darker mobile:text-sm;
 }
 
 .contacts__numb_email {
-    @apply text-xl;
+    @apply text-xl mobile:text-base;
 }
 
 .contacts__ya-map {

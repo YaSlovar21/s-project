@@ -15,8 +15,9 @@
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link"><%= h1Title %></a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"><%= h1Title %></a></li>
     </ul>
   </div>
 
@@ -127,17 +128,18 @@
         <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
         <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite  mobile:grid-cols-2">
           <li class="min-h-32 rounded-sm">
-            <img class="w-full" src="<%= require('./images/sert-opory-1.png')%>" alt="">
+            <img class="popup-image-item w-full cursor-pointer" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
           </li>
           <li class="min-h-32 rounded-sm">
-            <img class="w-full" src="<%= require('./images/sert-opory-2.png')%>" alt="">
+            <img class="popup-image-item w-full cursor-pointer" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
           </li>
         </ul>
       </div>
     </section>
     <%= require('html-loader!./insets/form-section.html').default %>
   </main>
-
+  <!--POPUPS-->
+  <%= require('html-loader!./insets/popups/popupImage.html').default %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>

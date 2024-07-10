@@ -1,0 +1,25 @@
+.cennosti {
+
+}
+
+.cennosti__list-item {
+    @apply pt-8 mt-8 text-xl;
+    position: relative;
+}
+
+
+
+.cennosti__list-item::before {
+    @apply bg-primary-lighter rounded-lg -top-2;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+
+}
+
+.cennosti__list-item:first-of-type::before {
+    content: none;
+}

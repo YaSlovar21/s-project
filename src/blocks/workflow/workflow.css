@@ -1,15 +1,18 @@
 @layer {
 
     .workflow {
-        @apply px-10 grid grid-cols-4 gap-5 h-screen;
+        @apply h-screen max-h-[800px] mobile:h-auto mobile:max-h-max;
         background-image: url(../../images/bg-filled.png);
         background-position: top left;
         background-size: cover;
-        max-height: 800px;
+    }
+
+    .workflow__list {
+        @apply h-full grid grid-cols-4 gap-4 mobile:grid-cols-1;
     }
 
     .workflow__card {
-        @apply p-5 bg-primary-lighter bg-opacity-50 flex flex-col justify-start;
+        @apply p-5 bg-primary-lighterdouble bg-opacity-50 flex flex-col justify-start hover:bg-themewhite hover:bg-opacity-90;
     }
 
     .workflow__card-span {
@@ -17,11 +20,11 @@
     }
 
     .workflow__card-title {
-        @apply first-line:text-base text-secondary font-ui uppercase;
+        @apply first-line:text-base text-secondary uppercase;
     }
 
     .workflow__card-subhead {
-        @apply text-3xl text-primary-darker basis-48 mt-8;
+        @apply text-2xl font-bold text-primary-darker basis-48 mt-8;
     }
 
     .workflow__card-desc {

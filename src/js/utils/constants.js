@@ -1,86 +1,26 @@
-//import zatonUfa from '../../images/projects/ufa_zaton.png';
-//import timashevskCondit from '../../images/projects/timashevsk_condit.png';
-//import ufaUmnDom from '../../images/projects/ufa_umn_dom.png';
+export const ESC_CODE = 'Escape';
 
-
-
-export const callbackFormId = 'mdoygyzz';
-
-
-//секция, куда загружаются карточки проектов
-export const projectsContainerSelector = '.projects__items';
-
-//template карточки проекта
+//templates карточкек
 export const projectTemplateSelector = "#project-template";
 export const projectHorizontalTemplateSelector = "#project-horizontal-template";
 
-export const cardArticleConfig = {
-  cardArticleTemplateSelector: '#article-template',
-  articleCardSelector: '.infoitem',
-  articleTagsSectionSelector: '.infoitem__header',
-  articleTagClass: 'infoitem__span-button',
-  articleHeadSelector: '.infoitem__name',
-  articleDescSelector: '.infoitem__description',
-  articleLinkSelector: '.infoitem__link',
-  cardListSection: '.cards-js-rendered',
-}
-
-/*    name: item.name,
-      link: item.link,
-      to: item.model,
-      naznach: item.naznach,
-      q: item.q,
-*/
-/*
-export const initialProjects = [
-    {
-      name: "Котельная в квартале 34, г. Уфа, жилой район «Затон-Восточный»",
-      link: zatonUfa,
-      to: "ТИ82-201",
-      naznach: "Отопление, ГВС",
-      q: "17500 кВт",
-      animateClass: 'animate__fadeIn',
-    },
-];
-*/
-
-const blogPath = 'blog-proizvodstva'
-
-export const tagsAliases = {
-  'gkh' : 'ЖКХ',
-  'project': 'Проект',
-  'btp': 'БТП',
-  'food': 'Пищевые',
-  'example': 'Пример расчёта',
-  'prod': 'Продукция',
-}
-
-
-
-
-
-export const ESC_CODE = 'Escape';
-
-//секция, куда загружаются карточки проектов
+//секции, куда рендерятся карточки
 export const cardsContainerSelector = '.projects__items';
 
-//template карточки проекта
-export const cardTemplateSelector = "#project-template";
-
-export const partnersSectionConfig = {
-  containerSelector: '.map__list',
-  itemTemplateSelelector: '#partner-item-template',
-  activeClass: 'map__list-item_active',
-}
-
 //селекторы модальных окон
-export const popupImageSelector = '.popup-viewport';
-export const callBackPopupSelector = '.popup-callback';
-export const popupWithToSelector = '.popup-to';
-export const popupWithMenuSelector = '.popup-menu';
+export const popupImageSelector = '.popup-image';
+//export const callBackPopupSelector = '.popup-callback';
+//export const popupWithToSelector = '.popup-to';
+//export const popupWithMenuSelector = '.popup-menu';
 
 //конфиги
-// конфиг селекторов в модальном окне с картиной и подписью
+//конфиг селекторов в модальном окне с картиной и подписью
+
+//попап с картинкой
+export const popupImageSelectorsCongig = {
+  popupImageSelector: '.popup__image',
+  popupImageDescSelector: '.popup__image-description'
+}
 
 export const dgPopupConfig = {
   imageSchemeSelector: '.dg__popup-image',
@@ -88,12 +28,8 @@ export const dgPopupConfig = {
   titleSelector: '.dg__popup-info-title',
   introSelector: '.dg__popup-info-text',
   listSelector: '.dg__popup-list',
-
   clickedItemSelector: '.dg__list-item',
 }
-
-
-
 
 export const popupToConfig = {
   popupImageToSelector: '.popup__to-img',

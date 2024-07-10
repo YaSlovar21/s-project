@@ -40,7 +40,7 @@ function generateCategoriesHtmlPlugins(oporyData) {
       title: category.title,
       template: './src/category-page.html', // путь к файлу index.html
       filename: category.filename,
-      chunks: ['index', 'form'],
+      chunks: ['index', 'form', 'popupWithImage'],
     })
   })
 };
@@ -140,6 +140,7 @@ function generateConfig(oporyData, newsData) {
       form: './src/pages/form.js',
       blogpage: './src/pages/blog-page.js',
       slider: './src/pages/mainPageSlider.js',
+      popupWithImage: './src/pages/popupImage.js',
     },
     output: {
       path: path.resolve(__dirname, 'dist'),

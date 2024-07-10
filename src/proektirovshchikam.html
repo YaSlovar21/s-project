@@ -15,21 +15,20 @@
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Проектировщикам</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
     </ul>
   </div>
   <main class="py-14 content">
-
-    <div class="w-3/4 ml-auto">
-        <h1 class="text-6xl font-bold uppercase text-primary-darker">Проектировщикам</h1>
+    <div class="w-3/4 ml-auto mobile:w-full">
+        <h1 class="text-6xl font-bold uppercase text-primary-darker mobile:text-3xl mobilesm:text-2xl">Проектировщикам</h1>
         <p class="mt-5 mb-6 max-w-[57%] text-primary-darker text-lg">Опоры металлические для стационарного наружного электрического освещения и подвески кабелей электрической сети наружного освещения</p>
         <div class="flex items-end h-auto">
-            <img class="min-w-0 basis-[calc(66%-80px)] object-left-top object-cover mr-5" src="<%= require('./images/machta-tech.png')%>" alt="мачта со стационарной короной">
-            <img class="h-60 min-w-0 basis-[calc(43%-10px)] object-left-top object-cover" src="<%= require('./images/about-view-test.png')%>"  alt="сск">
+            <img class="min-w-0 basis-[calc(66%-80px)] object-left-top object-cover mr-5 mobile:basis-4/6 mobile:mr-1" src="<%= require('./images/machta-tech.png')%>" alt="мачта со стационарной короной">
+            <img class="h-60 min-w-0 basis-[calc(43%-10px)] object-left-top object-cover mobile:basis-2/6 mobile:h-28" src="<%= require('./images/about-view-test.png')%>"  alt="сск">
         </div>
     </div>
-    <h2 class="text-2xl uppercase relative mt-20 max-w-[25%]">Документы для проектировщиков</h2>
+    <h2 class="text-2xl uppercase relative mt-20 max-w-[25%] mobile:text-xl mobilesm:max-w-full">Документы для проектировщиков</h2>
     <ul class="mt-5">
       <li>
         <a href="/f/sto_stankostalkonstrukciya_akt.pdf" class="flex w-full text-xl justify-between border-b border-primary-darker pt-7 pb-4" download>
