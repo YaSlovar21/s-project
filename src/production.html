@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-primary-white">
+    <%= require('html-loader!./inner-metrika.html').default %>
+    <header class="border-b border-primary-lighterdouble">
+        <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+    </header>
+    <div class="relative flex ">
+        <ul class="breadcrumbs flex items-center p-10">
+            <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+            <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
+        </ul>
+    </div>
+    <main class="content">
+        <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl">Наша продукция</h1>
+    <!--new-->
+    <div class="py-[78px]">
+        <h2 class=" text-4xl uppercase text-primary-darker mt-14 mb-8">Опоры освещения</h2>
+        <ul class="lpopory-grid content *:border *:border-white *:h-full">
+            <li class="relative flex flex-col items-center group">
+                <img class="min-h-0" src="<%= require('./images/lpopory/sfg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые фланцевые граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры СФГ</p>
+                    <a class="w-10 h-10 text-primary-white text-xl uppercase mobile:text-sm" href="<%= ROUTES.sfg %>">
+                        <span class="absolute inset-0"></span>
+                        <svg class="fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>    
+                </div>
+            </li>
+            <li class="relative flex flex-col items-center group">
+                <img class="min-h-0" src="<%= require('./images/lpopory/nfg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые фланцевые граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры НФГ</p>
+                    <a class="w-10 h-10 text-primary-white text-xl uppercase mobile:text-sm" href="<%= ROUTES.nfg %>">
+                        <span class="absolute inset-0"></span>
+                        <svg class="fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>    
+                </div>
+            </li>
+            <li class="relative flex flex-col items-center group">
+                <img class="min-h-0" src="<%= require('./images/lpopory/spg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые прямостоячные граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры СПГ</p>
+                    <a class="w-10 h-10 text-primary-white text-xl uppercase mobile:text-sm" href="<%= ROUTES.spg %>">
+                        <span class="absolute inset-0"></span>
+                        <svg class="fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>    
+                </div>
+            </li>
+            <li class="relative flex flex-col items-center group">
+                <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоячные граненые</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Опоры НПГ</p>
+                    <a class="w-10 h-10 text-primary-white text-xl uppercase mobile:text-sm" href="<%= ROUTES.npg %>">
+                        <span class="absolute inset-0"></span>
+                        <svg class="fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>    
+                </div>
+            </li>
+        </ul>
+        <h2 class="text-4xl uppercase text-primary-darker mt-14 mb-8">Высокомачтовые опоры</h2>
+        <ul class="lpopory-grid content *:border *:border-white *:h-full">
+     
+            <li class="relative flex flex-col items-center group">
+                <img class="min-h-0" src="<%= require('./images/vmo-stat-1.png')%>" alt="силовая фланцевая граненая опора сфг">
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры ВМО, ВМОН</h2>
+                <div class="flex w-full justify-between items-center pl-4 pt-4">
+                    <p class="text-base uppercase">Со стационарной или мобильной короной</p>
+                    <a class="w-10 h-10 text-primary-white text-xl uppercase mobile:text-sm" href="<%= ROUTES.nfg %>">
+                        <span class="absolute inset-0"></span>
+                        <svg class="fill-primary-lighter group-hover:fill-primary-darker"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                    </a>    
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <!--   -->
+
+
+  
+    
+    
+  </main>
+    <%= require('html-loader!./insets/form-section.html').default %>
+   
+    <!--FOOTER-->
+    <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
+</html>

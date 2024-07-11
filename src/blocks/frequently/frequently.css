@@ -1,16 +1,18 @@
-/*.frequently__item_active .frequently__question::after {
-  content: url(../../images/2024content/minus.svg);
-  color: rgb(71, 86, 255);
-}*/
+
+
 .frequently__question::after {
     font-weight: 200;
     width: 30px;
     flex-shrink: 0;
     height: 30px;
-    /*content: url(../../images/2024content/plus.svg);*/
-    color: tomato;
+    content: url(../../images/svg/plus.svg);
   }
   
+
+  .frequently__item_active .frequently__question::after {
+    content: url(../../images/svg/minus.svg);
+  }
+
   .frequently__answer {
     display: none;
     visibility: hidden;

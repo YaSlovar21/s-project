@@ -21,18 +21,18 @@
 </div>
   <main class="px-10 my-10 mobile:px-5">
     <h1 class="section-title text-primary-darker">Новости производства</h1>
-    <ul class="grid grid-cols-3 gap-x-5 olpc:grid-cols-2 laptop:grid-cols-1">
+    <ul class="grid grid-cols-3 gap-x-5 content-stretch olpc:grid-cols-2 laptop:grid-cols-1">
       <% newsData.map((i) => { %>
-        <li class="p-10  mb-5 relative rounded-sm flex flex-col bg-primary-white hover:bg-secondary-light group mobile:p-5">
-          <span class="block font-sm mb-2"><%= i.formattedDate %></span>
+        <li class="p-10  mb-5 relative rounded-sm flex flex-col justify-stretch bg-themewhite transition-all duration-300 border  border-primary-lighterdouble hover:bg-primary-white group mobile:p-5">
+          <span class="block text-sm text-primary mb-4"><%= i.formattedDate %></span>
           <figure class="basis-80 h-full shrink-0 overflow-hidden group-hover:opacity-80">
-            <img class="w-full h-full object-cover object-center group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
+            <img class="w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
           </figure>
-          <div class="flex flex-col justify-between">
+          <div class="flex flex-col basis-full justify-between">
            
-            <h3 class="text-xl mt-2 mb-auto max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
+            <h3 class="text-xl mt-4 mb-2 max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
             <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
-            <a href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
+            <a class="mt-auto pt-10 bem__link bem__link_left bem__link_newwindow" href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
           </div>
         </li>
       <% }) %>

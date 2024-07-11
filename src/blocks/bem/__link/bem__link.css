@@ -1,12 +1,16 @@
 .bem__link {
   text-decoration: none;
-  position: relative;
+  
   z-index: 2;
 
   display: flex;
   align-items: center;
   justify-content: center;
   
+}
+
+.bem__link_left {
+  justify-content: flex-start;
 }
 
 .bem__link:hover {

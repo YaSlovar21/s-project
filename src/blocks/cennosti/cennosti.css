@@ -3,7 +3,7 @@
 }
 
 .cennosti__list-item {
-    @apply pt-8 mt-8 text-xl;
+    @apply pt-8 mt-8 text-3xl;
     position: relative;
 }
 

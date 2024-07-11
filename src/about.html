@@ -32,7 +32,7 @@
             <p class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</p>
             <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
           </li>
-          <li class="workflow__card ">
+          <li class="workflow__card">
             <span class="workflow__card-span">02/</span>
             <h3 class="workflow__card-title">Листогиб</h3>
             <p class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</p>
@@ -54,46 +54,37 @@
       </div>
     </section>
     <section class="content py-20">
-      <h2 class="ml-[50%] font-bold uppercase text-primary-darker text-[32px] max-w-[380px]">Мы - производитель <span class="block text-2xl font-normal uppercase">гранёных опор освещения</span></h2>
-      <p class="w-[50%] mx-auto mt-6 text-xl indent-[25%] leading-snug">
+      <h2 class="ml-[50%] font-bold uppercase text-primary-darker text-[32px] max-w-[380px] laptop:ml-0">Мы - производитель <span class="block text-2xl font-normal uppercase">гранёных опор освещения</span></h2>
+      <p class="w-[50%] mx-auto mt-6 text-xl indent-[25%] leading-snug laptop:w-full">
         Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники. 
       </p>
-      <p class="w-[50%] mx-auto text-xl indent-[25%] leading-snug">
+      <p class="w-[50%] mx-auto text-xl indent-[25%] leading-snug laptop:w-full">
         Станкостальконструкция создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания «Барнаульский
         Станкостроительный Завод». Наше предприятие специализируется на производстве строительных металлоконструкций.
       </p>
     </section>
-    <h2 class="max-w-[760px] mx-auto font-bold uppercase text-primary-darker text-[32px]">Наши ценности</h2>
-    <ul class="cennosti max-w-[760px] mx-auto flex flex-col items-center">
-      <li class="cennosti__list-item">Уважение Сотрудников</li>
-      <li class="cennosti__list-item">Уважение Партнёров</li>
-      <li class="cennosti__list-item">Стремление к совершенствованию и созданию нового</li>
-      <li class="cennosti__list-item">Любовь к своему делу</li>
-    </ul>
-    <section class="bg-primary-dark mt-20 grid grid-cols-12 gap-x-5 py-8 relative px-10">
+    
+    <section class="bg-primary-dark mt-20 py-8 relative">
       <figure class="absolute top-0 left-0">
-        <img src="<%= require('./images/svg/dec-left-top-dark.svg')%>" alt="Декор">
+        <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
       </figure>
-      <span class="flex col-start-2 col-span-2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 mr-2 fill-primary-darker">
-          <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
-        </svg>        
-        <span class="up-title text-themewhite  text-base ">Наша команда</span>
-      </span>
-      <!-- pl-[calc(8.34%+20px)]-->
-      <div class="col-start-5 col-span-4 flex flex-col justify-between">
-        <h2 class="section-title text-themewhite mb-8">Стремимся к цели вместе</h2>
-        <div>
-          <p class="text-lg text-themewhite max-w-[524px] mt-32">
-            ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания
-            «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
-            металлоконструкций.
-          </p>
-          
+      <div class="content content_right-orient pr-10 flex mobile:flex-col">
+        <span class="basis-[380px] up-title text-themewhite text-base">Наша команда</span>
+        <!-- pl-[calc(8.34%+20px)]-->
+        <div class="flex flex-col justify-between">
+          <h2 class="section-title text-themewhite mb-8">Стремимся к цели вместе</h2>
+          <div>
+            <p class="text-lg text-themewhite max-w-[524px] mt-32">
+              ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания
+              «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
+              металлоконструкций.
+            </p>
+            
+          </div>
+          <a class="mt-4 text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center w-full" href="/about/">Наши ценности</a>
         </div>
-        <a class="mt-4 text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center w-full" href="/about/">Наши ценности</a>
+        <img class="ml-auto" src="<%= require('./images/comt.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
       </div>
-      <img class="col-start-9 col-span-4" src="<%= require('./images/comt.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
     </section>
   </main>
 

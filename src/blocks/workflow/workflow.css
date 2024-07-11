@@ -1,14 +1,14 @@
 @layer {
 
     .workflow {
-        @apply h-screen max-h-[800px] mobile:h-auto mobile:max-h-max;
+        @apply h-screen max-h-[800px] laptop:h-auto laptop:max-h-max;
         background-image: url(../../images/bg-filled.png);
         background-position: top left;
         background-size: cover;
     }
 
     .workflow__list {
-        @apply h-full grid grid-cols-4 gap-4 mobile:grid-cols-1;
+        @apply h-full grid grid-cols-4 gap-4 laptop:grid-cols-2 mobile:grid-cols-1;
     }
 
     .workflow__card {

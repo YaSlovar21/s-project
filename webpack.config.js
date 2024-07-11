@@ -141,6 +141,7 @@ function generateConfig(oporyData, newsData) {
       blogpage: './src/pages/blog-page.js',
       slider: './src/pages/mainPageSlider.js',
       popupWithImage: './src/pages/popupImage.js',
+      frequently: './src/pages/frequently.js',
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -235,10 +236,21 @@ function generateConfig(oporyData, newsData) {
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
         },
+        title: "Продукция",
+        template: './src/production.html', // путь к файлу index.html
+        filename: 'production/index.html',
+        chunks: ['index', 'form' ]
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
         title: "Опоры освещения",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
-        chunks: ['index'],
+        chunks: ['index', 'form', 'popupWithImage'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
@@ -249,6 +261,17 @@ function generateConfig(oporyData, newsData) {
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
         filename: 'novosti-proizvodstva/index.html',
+        chunks: ['index', 'form'],
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
+        title: "Наши ценности",
+        template: './src/cennosti.html', // путь к файлу index.html
+        filename: 'about/nashi-cennosti/index.html',
         chunks: ['index', 'form'],
       }),
       

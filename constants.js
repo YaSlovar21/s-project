@@ -17,6 +17,9 @@ const ROUTES = {
     fundamenty: '/fundamenty-pod-opory/',
   
     about: '/about/',
+    ourValues: '/about/nashi-cennosti/',
+    ourDocs: '/about/documents/',
+    
     news: '/novosti-proizvodstva/',
     contacts: '/contacts/',
     techDocs: '/proektirovshchikam/',

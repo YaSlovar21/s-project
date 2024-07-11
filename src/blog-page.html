@@ -19,25 +19,27 @@
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link"><%= h1Title %></a></li>
     </ul>
   </div>
-  <main class="content mobile:px-5">
-    <article class="ml-[25%] mobile:ml-0 prose prose-lg prose-ssk olpc:prose-lg pc:prose-xl">
-      
-      <h1 class="section-title text-primary-black normal-case not-prose"><%= h1Title %></h1>
-      <img src="<%=canonicalURL%>/api-images/<%=textArticleId%>/poster.png" alt="">
-      <%= require(`html-loader!./articles/${textArticleId}.html`).default %>
-    </article>
-    <h2 class="text-2xl text-primary-lighterdouble mt-20 mb-8">Читайте также</h2>
-    <ul class="grid grid-cols-3 gap-x-5 olpc:grid-cols-2 laptop:grid-cols-1">
+  <main class=" mobile:px-5">
+    <div class="content">
+      <article class="ml-[25%] mobile:ml-0 prose prose-lg prose-ssk olpc:prose-lg pc:prose-xl">
+        <h1 class="section-title text-primary-black normal-case not-prose"><%= h1Title %></h1>
+        <img src="<%=canonicalURL%>/api-images/<%=textArticleId%>/poster.png" alt="">
+        <%= require(`html-loader!./articles/${textArticleId}.html`).default %>
+      </article>
+    </div>
+    <h2 class="text-2xl text-primary-lighterdouble mt-20 mb-8 ml-10 mobile:ml-2">Читайте также</h2>
+    <ul class="grid grid-cols-3 gap-x-5 olpc:grid-cols-2 px-10 mobile:px-2 laptop:grid-cols-1">
       <% newsData.filter(i => i.id !== staticData.id).map((i) => { %>
-        <li class="p-10  mb-5 relative rounded-sm flex flex-col bg-primary-white hover:bg-secondary-lighter group mobile:p-5">
-          <span class="block font-sm mb-2"><%= i.formattedDate %></span>
-          <figure class="basis-80 mr-10 h-full shrink-0 overflow-hidden mobile:mr-0 group-hover:opacity-80">
-            <img class="w-full h-full object-cover object-center group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
+        <li class="p-10  mb-5 relative rounded-sm flex flex-col justify-stretch bg-themewhite transition-all duration-300 border  border-primary-lighterdouble hover:bg-primary-white group mobile:p-5">
+          <span class="block text-sm text-primary mb-4"><%= i.formattedDate %></span>
+          <figure class="basis-80 h-full shrink-0 overflow-hidden group-hover:opacity-80">
+            <img class="w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
           </figure>
-          <div class="flex flex-col justify-between">
-            <h3 class="text-xl mt-2 max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
+          <div class="flex flex-col basis-full justify-between">
+           
+            <h3 class="text-xl mt-4 mb-2 max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
             <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
-            <a href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
+            <a class="mt-auto pt-10 bem__link bem__link_left bem__link_newwindow" href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
           </div>
         </li>
       <% }) %>

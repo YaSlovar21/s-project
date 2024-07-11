@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-themewhite">
+    <%= require('html-loader!./inner-metrika.html').default %>
+    <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+    </header>
+    <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
+    </ul>
+    </div>
+    <main class="py-14 content">
+    <div class="w-1/2 mx-auto mobile:w-full">
+        <h1 class="text-6xl text-center font-bold uppercase text-primary-darker mobile:text-3xl mobilesm:text-2xl">Наши ценности</h1>
+        <ul class="cennosti max-w-[760px] flex flex-col items-center">
+            <li class="cennosti__list-item">Уважение Сотрудников</li>
+            <li class="cennosti__list-item">Уважение Партнёров</li>
+            <li class="cennosti__list-item">Стремление к совершенствованию и созданию нового</li>
+            <li class="cennosti__list-item">Любовь к своему делу</li>
+        </ul>
+    </div>
+    
+    </main>
+    
+    <!--FOOTER-->
+    <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
+</html>
