@@ -18,14 +18,14 @@
           <img src="<%= require('././images/svg/bg-header-page-main.svg')%>" alt="Декор">
         </figure>
       </div>
-      <div class="content mobile:px-5 mobilesm:px-1">
-        <span class="block text-[90px] mt-72 uppercase font-bold text-white mvpc:text-7xl mvpc:*:text-8xl mobile:mt-32 mobile:*:text-2xl mobile:text-xl mobilesm:*:text-xl mobilesm:text-lg"><span class="text-8xl">С</span>танко<span class="text-8xl">С</span>таль<span class="text-8xl">К</span>онструкция</span>
-        <h1 class="w-1/2 ml-[50%] mb-40 mt-5 text-4xl lowercase text-primary-white max-w-xs mvpc:text-3xl mobile:w-full mobile:ml-0 mobile:text-2xl">Завод по производству опор освещения</h1>
-        <ul class="flex w-1/2 mobile:w-full mobile:flex-col mobile:*:basis-auto">
-          <li class="basis-1/2 w-full">
+      <div class="content flex flex-col pb-20 h-[90%] mobile:px-5 mobilesm:px-1">
+        <span class="block text-[90px] mt-72 uppercase font-bold text-white pc:text-[70px] pc:text-center pc:*:text-[80px] mvpc:text-7xl mvpc:*:text-8xl mobile:mt-32 mobile:*:text-2xl mobile:text-xl mobilesm:*:text-xl mobilesm:text-lg"><span class="text-8xl">С</span>танко<span class="text-8xl">С</span>таль<span class="text-8xl">К</span>онструкция</span>
+        <h1 class="w-1/2 ml-[50%]  mt-5 text-4xl lowercase text-primary-white max-w-xs pc:text-3xl pc:max-w-[290px] mvpc:text-3xl mobile:w-full mobile:ml-0 mobile:text-2xl">Завод по производству опор освещения</h1>
+        <ul class="flex w-1/2 basis-full mobile:w-full mobile:flex-col mobile:*:basis-auto">
+          <li class="basis-1/2 mt-auto w-full">
             <a class="bem__link bem__link_download block text-center text-lg py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Скачать прайс</a>
           </li>
-          <li class="basis-1/2 w-full ml-5 mobile:ml-0 mobile:mt-4">
+          <li class="basis-1/2  mt-auto w-full ml-5 mobile:ml-0 mobile:mt-4">
             <a class="bem__link bem__link_newwindow block text-center text-lg py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Смотреть каталог</a>
           </li>
         </ul>
@@ -77,7 +77,7 @@
           </li>
           <li class="row-start-3 col-start-2 border-b  border-r">
             <a class="main-product-link" href="<%= ROUTES.nfg %>">
-              <h3 class="main-product-link__title">Опоры граненые ОГКС</h3>
+              <h3 class="main-product-link__title">Опоры ОГКС</h3>
               <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Силовая модификация опоры ОГК</p>
               <figure class="absolute top-5 right-5">
                   <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
@@ -168,13 +168,13 @@
       </ul>
     </div>
     </section>
-    <section class="bg-primary-darker relative pl-10 mobile:px-5 mobile:py-10">
-      <figure class="absolute top-0 left-0">
+    <section class="bg-primary-darker relative  mobile:px-5 mobile:py-10">
+      <figure class="absolute top-0 left-0 pc:-translate-y-[50%]">
         <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
       </figure>
       <div class="content content_right-orient flex mobile:flex-col mobile:max-w-full mobile:*:basis-auto ">
-        <span class="block up-title text-themewhite basis-[380px] shrink-0 mt-20">О компании</span>
-        <div class="basis-[582px]  pt-20 pb-16 flex flex-col justify-between">
+        <span class="block up-title text-themewhite basis-[calc(var(--content-width)/4)] shrink-0 mt-20">О компании</span>
+        <div class="basis-[582px] pc:basis-full  pt-20 pb-16 flex flex-col justify-between">
           <h2 class="section-title text-themewhite mb-8">Завод по производству металлических опор</h2>
           <div>
             <p class="text-lg text-themewhite max-w-[524px]">
@@ -182,18 +182,18 @@
               «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
               металлоконструкций.
             </p>
-            <p class="text-lg text-themewhite mt-5 max-w-[524px]">
+            <p class="text-lg text-themewhite mt-5 max-w-[524px] pc:hidden">
               Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также,
               комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
             </p>
           </div>
           <a class="mt-12 text-themewhite border border-themewhite uppercase p-5 max-w-[380px] w-full text-center" href="<%= ROUTES.about %>">Узнать больше</a>
         </div>
-        <img class="basis-[689px] ml-auto" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+        <img class="basis-[689px] pc:basis-full  min-w-0 ml-auto" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
       </div>
     </section>
     <section class="relative content content_right-orient flex my-20 pr-10 mobile:flex-col mobile:px-5 mobile:*:basis-auto mobile:overflow-hidden">
-      <span class="block up-title text-primary-darker basis-[380px] shrink-0">События</span>
+      <span class="block up-title text-primary-darker basis-[calc(var(--content-width)/4)] shrink-0">События</span>
       <div class="basis-full">
         <h2 class="section-title text-primary-darker">Новости производства</h2>
         <ul class="news-section-mainpage">
@@ -226,7 +226,7 @@
       </nav>  
     </section>
     <section class="relative bg-primary-darker">
-      <figure class="absolute top-0 left-0">
+      <figure class="absolute top-0 left-0  pc:-translate-y-[50%]">
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
       <div class="content flex py-24 justify-end mobile:px-5">
@@ -245,7 +245,7 @@
         <img class="news-card__image w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-110" src="" alt="участие в конкурсе лучший по профессии">
       </figure>
       <div class="pr-24 relative mt-3  h-32">
-        <h3 class="news-card__title text-primary-black max-w-[400px] group-hover:text-secondary-darker">title</h3>
+        <h3 class="news-card__title pc:text-[9px]  text-primary-black max-w-[400px] group-hover:text-secondary-darker">title</h3>
         <p class="news-card__intro text-base mt-1">intro</p>
         <p class="news-card__date text-base absolute top-0 right-0">formattedDate</p>
       </div>

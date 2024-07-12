@@ -250,7 +250,7 @@ function generateConfig(oporyData, newsData) {
         title: "Опоры освещения",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
-        chunks: ['index', 'form', 'popupWithImage'],
+        chunks: ['index', 'form', 'popupWithImage', 'frequently'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
