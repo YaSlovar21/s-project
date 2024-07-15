@@ -3,7 +3,7 @@
 }
 
 .breadcrumbs__link {
-    @apply text-gray-800 text-lg font-bold mobile:text-sm mobile:font-normal;
+    @apply text-gray-800 text-lg underline underline-offset-2 mobile:text-sm mobile:font-normal;
 }
 
 .breadcrumbs__list-item {
@@ -25,4 +25,8 @@
 
 .breadcrumbs__list-item:last-of-type::after {
     content: '';
+}
+
+.breadcrumbs__list-item:last-of-type .breadcrumbs__link{
+    @apply no-underline;
 }

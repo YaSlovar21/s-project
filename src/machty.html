@@ -16,8 +16,7 @@
   <div class="relative flex ">
     <ul class="breadcrumbs">
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"><%= h1Title %></a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/">Высокомачтовые опоры</a></li>
     </ul>
   </div>
 
@@ -25,8 +24,8 @@
 
   <div class="content">
     <div class="py-[78px]">
-      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl"><%= h1Title %></h1>
-      <p class="mx-auto max-w-[836px] text-center text-xl mt-6">Общепринятые обозначения: опоры сфг, опоры огк, опоры огкс</p>
+      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl">Высокомачтовые опоры</h1>
+      <p class="mx-auto max-w-[836px] text-center text-xl mt-6">Общепринятые обозначения: мачты ВМО, мачты ВМОН</p>
     </div>
   </div>
 
@@ -34,17 +33,12 @@
   <main class="product-container">
     <div class="content flex py-10 justify-between mobile:flex-col mobile:*:basis-auto">
       <div class="shrink-0 basis-auto relative">
-          <img src="<%= require(`./images/cat-${categoryType}.png`)%>" alt="опора освещения">
-          <ul class="absolute py-28 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-xl *:font-bold  *:text-primary-darkerdouble">
-            <li class="max-w-[140px]">Возможность подвески СИП</li>
-            <li class="">Повышенная толщина металла</li>
-            <li class="max-w-[230px]">Усиленный фланец для крепления к фундаменту</li>
-          </ul>
+          <img src="<%= require(`./images/machta-korona-stat.png`)%>" alt="опора освещения">
+         
       </div>
       <div class="basis-1/2">
-        <%= require(`html-loader!./insets/cats/${categoryType}.html`).default %>
         
-        <button class="ui-button mt-12  transition-all duration-300 hover:bg-primary-white">Запросить КП на изготовление опоры</button>
+        <button class="ui-button mt-12  transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
         <!--<ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
           <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
           <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>
@@ -69,33 +63,6 @@
       </div>
     </div>
 
-    <section class="p-10 pb-20">
-      <h2 class="section-title section-title_cat text-center text-primary-darker">Производимая номенклатура</h2>
-      <ul class="grid grid-cols-2 bg-primary-white gap-[2px] content mobile:grid-cols-1">
-        <% tableData.map((oporaData) => { %>
-          <li class="relative py-3 px-6 bg-themewhite transition-all duration-300 hover:bg-primary-white group">
-            <h3 class="basis-full max-w-[420px] text-lg text-primary-black mb-3"><%= itemAlias %> <span class="whitespace-nowrap text-2xl font-bold"><%= oporaData["Name"].split('**').join('') %></span></h3>
-            <ul class="pl-3 text-primary-darker">
-            <% Object.keys(tableData[0]).map((i)=> { if (oporaData[i] && i!== 'Name' && i!== 'A' && i!== 'B' && i!== 'd' && i!== 'n' && i!== 'id' && i!== 'Massa' && i!== 'type') {%>
-              <li class="flex items-end">
-                <h4 class="text-base mr-2 flex basis-1/2"><span class="whitespace-nowrap"><%= techNames[i] %>:</span> <span class="border-b border-dotted block border-primary-lighterdouble basis-full"></span></h4>
-                <p class="text-base basis-1/2"><%= oporaData[i] %></p>
-              </li>
-            <%}}) %>
-              <li>
-                <p class="font-bold my-4"><%= `${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}` %></p>
-              </li>
-            </ul>
-            <a href="<%= `${ROUTES[categoryType]}${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}`%>.html">
-              <span class="absolute inset-0"></span>
-            </a>
-            <svg class=" absolute top-3 right-6 w-8 h-8 fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
-            </svg>
-          </li>
-        <% }); %>
-      </ul>
-    </section>
    
     <section class="relative bg-primary-darker">
       <figure class="absolute top-0 left-0">
@@ -116,7 +83,7 @@
             </li>
             <li class="flex flex-col justify-between min-h-32 rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Срок изготовления</h3>
-              <p class="text-lg">Опоры <%= categoryType === 'sfg' ? 'сфг, окгс' : '' %> в наличии и под заказ</p>
+              <p class="text-lg">Опоры в наличии и под заказ</p>
             </li>
             <li class="flex flex-col justify-between min-h-32 rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Цена завода</h3>
@@ -124,7 +91,7 @@
             </li>
             <li class="flex flex-col justify-between min-h-32 rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Изготовление по ГОСТ</h3>
-              <p class="text-lg">Без экономии на материалах с точным расчётом <%= categoryType === 'sfg' ? 'силовой флацневой' : '' %> опоры под Ваши потребности</p>
+              <p class="text-lg">Без экономии на материалах с точным расчётом опоры под Ваши потребности</p>
             </li>
           </ul>
         </div>

@@ -1,13 +1,13 @@
 .form__field {
-    @apply  mr-4 basis-full rounded-sm relative mobile:mr-0 mobile:mb-4;
+    @apply  rounded-sm relative mobile:mr-0 mobile:mb-4;
 }
 
 .form__field:last-child {
-    @apply mr-0;
+    
 }
 
 .form__field_type_textarea {
-    @apply flex flex-col h-40 mr-0;
+    @apply flex flex-col h-48 mr-0;
 }
 
 .form__label-title {
@@ -15,7 +15,11 @@
 }
 
 .form__input {
-    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2] border border-primary-lighter text-gray-800 outline-none mobile:text-base mobile:p-3;
+    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2] bg-primary-lighterdouble border border-primary-lighterdouble text-gray-800 outline-none mobile:text-base mobile:p-3;
+}
+
+.form__input::placeholder {
+    @apply text-primary-lighter
 }
 
 .form__input_type_textarea {
@@ -23,7 +27,7 @@
 }
 
 .form__submit-button {
-    @apply bg-primary hover:bg-primary-dark p-5 uppercase font-extrabold text-themewhite mt-8;
+    @apply bg-primary hover:bg-primary-dark transition-all duration-300 p-5 uppercase font-extrabold text-themewhite mt-8;
 }
 
 .form__submit-button_disabled {

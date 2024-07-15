@@ -168,7 +168,7 @@
         </ul>
       </div>
     </section>
-    <%= require('html-loader!./insets/form-section.html').default %>
+    <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   </main>
     <!--POPUPS-->
     <%= require('html-loader!./insets/popups/popupImage.html').default %>

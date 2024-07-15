@@ -1,38 +1,39 @@
-<section class="bg-primary-darker py-10">
-    <div class="py-24 relative bg-themewhite max-w-[calc(100%-80px)] pc:max-w-[calc(100%-20px)] pc:pb-28 mvpc:pb-32  mx-auto mb-4 rounded-lg mobile:max-w-[calc(100%-20px)] mobile:px-3 mobile:pb-40 mobile:rounded-sm">
+<section class="bg-primary-darker py-10 overflow-hidden">
+    <div class="py-24 pb-32 relative bg-themewhite max-w-[calc(100%-80px)] pc:max-w-[calc(100%-20px)] pc:pb-28 mvpc:pb-32  mx-auto mb-4 rounded-sm mobile:max-w-[calc(100%-20px)] mobile:px-3 mobile:pb-40 mobile:rounded-sm">
       <div class="content flex">
         <div class="basis-1/4 pt-[147px] olpc:hidden">
           <p class="text-lg text-primary-darker max-w-[210px]">Заполните форму или отправьте Вашу заявку на почту:</p>
           <a class="text-2xl font-bold text-primary-darker block mt-6" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
         </div>
         <div class="basis-3/4 olpc:basis-full">
-          <h2 class="content section-title mb-28 font-bold text-primary-darker mobile:text-2xl mobile:ml-0 mobile:mb-6">Остались вопросы? Свяжитесь с нами!</h2>
-          <p class="text-lg text-primary-darker mb-8 hidden mobile:block">Заполните форму или отправьте Вашу заявку на почту: <a class="text-2xl font-bold text-primary-darker" href="mailto:info@ssk22.ru">info@termoblok.ru</a></p>
+          <h2 class="content section-title mb-16 font-bold text-primary-darker mobile:text-2xl mobile:ml-0 mobile:mb-6"><%= title ? title : 'Остались вопросы? Напишите нам!' %></h2>
+          <p class="text-base text-primary-dark mb-8 hidden mobile:block">Заполните форму или отправьте Вашу заявку на почту: <a class="text-2xl font-bold text-primary-darker" href="mailto:info@ssk22.ru">info@termoblok.ru</a></p>
           
-          <form class="max-w-[975px]"  method="post" action="#" id="formFreePopup" name="upFooterForm" novalidate>
-            <div class="flex mobile:flex-col ">
-              <label class="form__field">
+          <form class="max-w-[66%] olpc:max-w-full"  method="post" action="#" id="formFreePopup" name="upFooterForm" novalidate>
+            <span class="block text-primary-darker mb-5">Ваши контактные данные</span>
+            <div class="flex flex-wrap justify-between mobile:flex-col ">
+              <label class="form__field basis-full mb-4">
                 <!--<span class="form__label-title block mobile:hidden">Как к Вам обращаться?</span>
                 <span class="form__label-title hidden mobile:block">Как к Вам обращаться?</span>-->
                 <input class="form__input raschet-bem__input_type_flex" placeholder="Ваше имя или организация" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
                 <span class="form__input-error name-input-error"></span>
               </label>
-              <label class="form__field">
+              <label class="form__field basis-[calc(50%-16px)]">
                 <!--<span class="form__label-title block mobile:hidden">Ваш телефон</span>
                 <span class="form__label-title hidden mobile:block">Телефон</span>-->
                 <input data-alias="Телефон" placeholder="Телефон" type="tel" name="telof" id="tel-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
                 <span class="form__input-error tel-input-error"></span>
               </label>
-              <label class="form__field">
+              <label class="form__field basis-1/2">
                 <!--<span class="form__label-title block mobile:hidden">Email, куда отправить расчёт</span>
                 <span class="form__label-title hidden mobile:block">Email</span>-->
                 <input data-alias="Email"  placeholder="E-mail" type="email" name="emailof" id="email-input" class="form__input raschet-bem__input_type_flex" required minlength="1">
                 <span class="form__input-error email-input-error"></span>
               </label>
             </div>
-            <div class="mt-8 w-4/6 olpc:w-full">
+            <div class="mt-8 w-full">
               <label class="form__field form__field_type_textarea">
-                <span class="block font-bold mb-5">Опишите Вашу задачу</span>
+                <span class="block text-primary-darker mb-5">Опишите Вашу задачу</span>
                 <textarea class="form__input form__input_type_textarea" data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"   novalidate></textarea>
                 <span class="form__input-error comment-pto-free-input-error"></span>
               </label>
@@ -41,7 +42,7 @@
           </form>
         </div>
       </div>
-      <figure class="absolute right-0 bottom-0 translate-y-[8px] pc:translate-y-[50%]">
+      <figure class="absolute right-0 bottom-0 translate-y-[28px] translate-x-[128px] pc:translate-y-[50%]">
         <img class="mobile:w-8/12 ml-auto" src="../images/svg/form-feedback-right-bottom-dec.svg" alt="декоративный элемент">
       </figure>
     </div>

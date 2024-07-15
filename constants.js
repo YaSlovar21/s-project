@@ -1,5 +1,5 @@
 const ROUTES = {
-    brackets: '/kronshtejny-pod-svetilniki/',
+    catalog: '/catalog/',
   
     oporyMain: '/opory-osveshcheniya/',
     sfg: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/',
@@ -13,9 +13,9 @@ const ROUTES = {
     npg: '/opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/',
   
     machty: '/vysokomachtovye-opory/',
-  
-    fundamenty: '/fundamenty-pod-opory/',
-  
+    fundamenty: '/catalog/fundamenty-pod-opory/',
+    brackets: '/catalog/kronshtejny-pod-svetilniki/',
+
     about: '/about/',
     ourValues: '/about/nashi-cennosti/',
     ourDocs: '/about/documents/',

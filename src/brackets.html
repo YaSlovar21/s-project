@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+</head>
+
+<body class="page bg-themewhite">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+  </header>
+  <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
+    </ul>
+  </div>
+  <main class="py-14 content flex mobile:flex-col mobile:*:basis-auto">
+    <figure class="basis-1/4 flex justify-center items-start">
+        <img src="<%= require('./images/bracket.png')%>" alt="кронштейн под светильник к опоре освещения">
+    </figure>
+    <div class="basis-3/4">
+        <h1 class="text-5xl font-bold uppercase text-primary-darker">Кронштейны под светильники</h1>
+        
+        <p class="text-primary-darker text-xl max-w-[66.6%] laptop:max-w-full mt-3">
+            Наша компания изготовит любой вид кронштейна под консольный светильник.
+            Кронштейны изготавливаются как на железобетонные опоры, так и на многогранные и круглые металлические. Изделия
+            нашего производства отличаются высокими эксплуатационными характеристиками, с длительным сроком службы.
+        </p>
+        <p class="text-primary-darker text-xl max-w-[66.6%] laptop:max-w-full mt-3">
+            На всю свою продукцию предоставляем гарантию 60 месяцев.
+        </p>
+    </div>
+  </main>
+  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: 'Рассчитать стоимость кронштейнов?'}) %>
+  <!--FOOTER-->
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
+</html>

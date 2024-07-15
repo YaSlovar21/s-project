@@ -21,7 +21,7 @@
     @apply bg-primary-lighterdouble border border-primary-lighter;
 
     position: absolute;
-    top: calc(100%+21px);
+    top: calc(100%+28px);
     left: 0;
     width: 380px;
     z-index: 10;
@@ -29,6 +29,8 @@
     transition: all .4s ease-in;
     visibility: hidden;
     opacity: 0;
+    /*visibility: visible;
+    opacity: 1;*/
 }
 
 @media screen and (max-width:768px) {
@@ -76,7 +78,7 @@
 }
 
 .nav__sub-link_subb {
-  font-size: 16px;
+  @apply py-6 pb-4 pr-2 text-primary-dark transition-all hover:text-secondary border border-transparent hover:border-primary-light;
 }
 
 .nav__ul-item_sub:hover::after {

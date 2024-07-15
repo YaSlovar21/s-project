@@ -7,7 +7,7 @@
     </div>
     <ul class="nav__menu-links <%= theme === 'dark' ? 'nav__menu-links_theme_dark' : '' %> col-start-8 col-span-8 ">
       <li class="nav__ul-item">
-        <a class="nav__link" href="/production/">Продукция</a>
+        <a class="nav__link" href="<%= ROUTES.catalog %>">Продукция</a>
         <ul class="nav__submenu">
           <li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group">
             <a class="nav__sub-link transition-all group-hover:text-secondary" href="<%= ROUTES.brackets %>">
@@ -26,27 +26,27 @@
                 </svg>
               </span>
             </a>
-            <ul class="absolute left-full top-0  bg-primary-white w-full group-hover/subb:block">
+            <ul class="absolute left-full top-0  bg-primary-white w-full hidden group-hover/subb:block">
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb pl-4 pt-4 pb-2 pr-2 transition-all hover:text-secondary hover:border hover:border-primary-light" href="<%= ROUTES.sfg %>">
+                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.sfg %>">
                   <span class="absolute inset-0"></span>
                   Опоры силовые фланцевые граненые
                 </a>
               </li>
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb pl-4 pt-4 pb-2 pr-2 transition-all hover:text-secondary hover:border hover:border-primary-light" href="<%= ROUTES.spg %>">
+                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.spg %>">
                   <span class="absolute inset-0"></span>
                   Опоры силовые прямостоячные граненые
                 </a>
               </li>
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb pl-4 pt-4 pb-2 pr-2 transition-all hover:text-secondary hover:border hover:border-primary-light" href="<%= ROUTES.nfg %>">
+                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.nfg %>">
                   <span class="absolute inset-0"></span>
                   Опоры несиловые фланцевые граненые
                 </a>
               </li>
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb pl-4 pt-4 pb-2 pr-2 transition-all hover:text-secondary hover:border hover:border-primary-light" href="<%= ROUTES.npg %>">
+                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.npg %>">
                   <span class="absolute inset-0"></span>
                   Опоры несиловые прямостоячные граненые
                 </a>

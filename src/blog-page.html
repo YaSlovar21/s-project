@@ -15,7 +15,7 @@
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Новости производства</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.news %>">Новости производства</a></li>
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link"><%= h1Title %></a></li>
     </ul>
   </div>
@@ -47,7 +47,7 @@
       </div>
   </main>
   
-  <%= require('html-loader!./insets/form-section.html').default %>
+  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>

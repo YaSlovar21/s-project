@@ -12,7 +12,7 @@
   <%= require('html-loader!./inner-metrika.html').default %>
   <main>
     <div class="bg-[url('../images/hero-bg.png')] bg-top relative h-screen border-themewhite border-8">
-      <div class="relative">
+      <div class="relative mvpc:bg-themewhite">
         <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent' , page: 'main'}) %>
         <figure class="absolute -top-3 right-0 left-[50%] pc:w-[810px] mvpc:hidden -translate-x-1/2 mx-auto">
           <img src="<%= require('././images/svg/bg-header-page-main.svg')%>" alt="Декор">
@@ -23,10 +23,10 @@
         <h1 class="w-1/2 ml-[50%]  mt-5 text-4xl lowercase text-primary-white max-w-xs pc:text-3xl pc:max-w-[290px] mvpc:text-3xl mobile:w-full mobile:ml-0 mobile:text-2xl">Завод по производству опор освещения</h1>
         <ul class="flex w-1/2 basis-full mobile:w-full mobile:flex-col mobile:*:basis-auto">
           <li class="basis-1/2 mt-auto w-full">
-            <a class="bem__link bem__link_download block text-center text-lg py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Скачать прайс</a>
+            <a class="bem__link bem__link_download block text-center text-base font-bold text-primary-darkerdouble uppercase py-5 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Скачать прайс</a>
           </li>
           <li class="basis-1/2  mt-auto w-full ml-5 mobile:ml-0 mobile:mt-4">
-            <a class="bem__link bem__link_newwindow block text-center text-lg py-6 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Смотреть каталог</a>
+            <a class="bem__link bem__link_newwindow block text-center text-base font-bold text-primary-darkerdouble uppercase py-5 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="#">Смотреть каталог</a>
           </li>
         </ul>
       </div>
@@ -189,7 +189,27 @@
           </div>
           <a class="mt-12 text-themewhite border border-themewhite uppercase p-5 max-w-[380px] w-full text-center" href="<%= ROUTES.about %>">Узнать больше</a>
         </div>
-        <img class="basis-[689px] pc:basis-full  min-w-0 ml-auto" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+        <figure class="basis-[689px] pc:basis-full  min-w-0 ml-auto relative">
+          <img class="w-full h-full object-cover object-center" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+          <div class="absolute top-1/2 left-1/2 group flex items-center">
+            <svg class="fill-primary-white stroke-primary-darker stroke-[.5px] w-14 h-14 transition-all group-hover:-rotate-45 group-hover:fill-primary-light group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm w-36 p-3 bg-primary-white rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          </div>
+          <div class="absolute bottom-1/4 right-1/4 group flex items-center">
+            <svg class="fill-primary-white stroke-primary-darker stroke-[.5px] w-14 h-14 transition-all group-hover:-rotate-45 group-hover:fill-primary-light group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm w-36 p-3 bg-primary-white rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          </div>
+          <div class="absolute top-1/4 right-1/4 group flex items-center">
+            <svg class="fill-primary-white stroke-primary-darker stroke-[.5px] w-14 h-14 transition-all group-hover:-rotate-45 group-hover:fill-primary-light group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm w-36 p-3 bg-primary-white rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          </div>
+        </figure>
       </div>
     </section>
     <section class="relative content content_right-orient flex my-20 pr-10 mobile:flex-col mobile:px-5 mobile:*:basis-auto mobile:overflow-hidden">
@@ -236,7 +256,7 @@
         </div>
       </div>
     </section>
-    <%= require('html-loader!./insets/form-section.html').default %>
+    <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   </main>
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
   <template id="news-template">

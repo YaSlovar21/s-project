@@ -44,7 +44,7 @@ module.exports.categories = [
     title: "Опоры несиловые прямостоячные граненые НПГ",
     h1: "Опоры несиловые прямостоячные граненые",
     itemName: "Силовая прямостоячная грененая опора",
-    gost1: "mso-pg",
+    gost1: "mno-pg",
     
     staticData: {
       crumbName: "Опоры нпг",

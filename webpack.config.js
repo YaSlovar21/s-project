@@ -236,9 +236,42 @@ function generateConfig(oporyData, newsData) {
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
         },
-        title: "Продукция",
+        title: "Каталог",
         template: './src/production.html', // путь к файлу index.html
-        filename: 'production/index.html',
+        filename: 'catalog/index.html',
+        chunks: ['index', 'form' ]
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
+        title: "Фудаменты под граненые конические опоры",
+        template: './src/funds.html', // путь к файлу index.html
+        filename: `${ROUTES.fundamenty.slice(1,)}index.html`,
+        chunks: ['index', 'form' ]
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
+        title: "Кронштейны под светильники для опор освещения",
+        template: './src/brackets.html', // путь к файлу index.html
+        filename: `${ROUTES.brackets.slice(1,)}index.html`,
+        chunks: ['index', 'form' ]
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+        },
+        title: "Высокомачтовые опоры",
+        template: './src/machty.html', // путь к файлу index.html
+        filename: `${ROUTES.machty.slice(1,)}index.html`,
         chunks: ['index', 'form' ]
       }),
       new HtmlWebpackPlugin({

@@ -38,7 +38,7 @@
       <% }) %>
     </ul>
   </main>
-  <%= require('html-loader!./insets/form-section.html').default %>
+  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>
