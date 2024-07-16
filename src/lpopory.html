@@ -8,7 +8,7 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
 </head>
 
-<body class="page bg-primary-white">
+<body class="page bg-themewhite">
     <%= require('html-loader!./inner-metrika.html').default %>
     <header class="border-b border-primary-lighterdouble">
         <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
@@ -49,7 +49,7 @@
             </li>
             <li class="relative flex flex-col items-center">
                 <img class="min-h-0" src="<%= require('./images/lpopory/spg.png')%>" alt="силовая фланцевая граненая опора сфг">
-                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые прямостоячные граненые</h2>
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые прямостоечные граненые</h2>
                 <div class="flex w-full justify-between items-center pl-4 pt-4">
                     <p class="text-base uppercase">Опоры СПГ</p>
                     <a class="bg-primary-dark text-primary-white text-xl uppercase p-4 mobile:text-sm" href="<%= ROUTES.spg %>">
@@ -60,7 +60,7 @@
             </li>
             <li class="relative flex flex-col items-center">
                 <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="силовая фланцевая граненая опора сфг">
-                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоячные граненые</h2>
+                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоечные граненые</h2>
                 <div class="flex w-full justify-between items-center pl-4 pt-4">
                     <p class="text-base uppercase">Опоры НПГ</p>
                     <a class="bg-primary-dark text-primary-white text-xl uppercase p-4 mobile:text-sm" href="<%= ROUTES.npg %>">
@@ -72,7 +72,7 @@
         </ul>
     </div>
     <!--   -->
-    <section class="content flex justify-between mt-24">
+    <section class="content flex justify-between mt-24 olpc:flex-col olpc:px-2">
         <h2 class="text-4xl uppercase font-bold text-primary-darker">Собственное производство</h2>
         <div class="basis-1/2 text-primary-black text-xl divide-y-8 divide-transparent">
             <p>
@@ -96,25 +96,20 @@
             </p>
         </div>
     </section>
-    <section class=" bg-themewhite pt-10">
-        <div class="content flex mt-44">
-            <h2 class="basis-1/4 w-full up-title text-primary-darker">Цикл производства</h2>
-            <ol class="basis-[686px] pr-5">
-                <li class="pb-7">
-                    <h3 class="text-primary-darker text-xl mb-6 uppercase font-bold">Поступление материалов</h3>
-                    <p class="text-xl max-w-[492px]">Поступление материалов: листовая сталь или готовые трубы с идеальным круглымпоперечным сечением.</p>
-                </li>
-                <li class="py-7">
-                    <h3 class="text-primary-darker text-xl mb-6 uppercase font-bold">Cоздание выкройки</h3>
-                    <p class="text-xl max-w-[492px]">Вырезание заготовок на станке лазерной резки под контролем оператора.</p>
-                </li>
-                <li class="py-7">
-                    <h3 class="text-primary-darker text-xl mb-6 uppercase font-bold">Формовка заготовок</h3>
-                    <p class="text-xl max-w-[492px]">Использование листогибочного оборудования для придания заготовкам нужной формы</p>
-                </li>
-            </ol>
-            <div class="basis-[calc(75%-686px)]">
-                <img class="min-w-0" src="<%= require('./images/test-cycle.png')%>">
+    <section class="py-4 olpc:px-2">
+        <div class="content flex mt-12 items-start mobile:flex-col">
+            <h2 class="basis-1/4 w-full up-title text-primary-darker mb-4">Цикл производства</h2>
+            <div class="basis-1/4 grid grid-cols-2 grid-rows-3 gap-2">
+                <% [1,2,3,4,5].map((i) => { %>
+                    <figure class="overflow-hidden rounded-md border border-primary">
+                        <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/${i}.png`) %>" alt="">
+                    </figure>
+                <% }) %>
+            </div>
+            <div class="basis-1/2 ml-2 shrink-0 ">
+                <figure class="w-full pt-[100%] relative">
+                    <img class="absolute w-full h-full inset-0" src="<%= require('./images/cycle/1.png') %>">
+                </figure>
             </div>
         </div>
     </section>
@@ -158,12 +153,12 @@
       </div>
       <div class="content flex pb-32">
         <h2 class="basis-1/4 up-title text-themewhite text-base">Сертификаты</h2>
-        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite">
-          <li class="min-h-40 rounded-sm">
-            <img class="w-full popup-image-item cursor-pointer" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
+        <ul class="basis-3/4 sert-grid">
+          <li class="sert-grid__list-item <%= popupImageClass %>">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
           </li>
-          <li class="min-h-40 rounded-sm">
-            <img class="w-full popup-image-item cursor-pointer" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
+          <li class="sert-grid__list-item <%= popupImageClass %>">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
           </li>
         </ul>
       </div>

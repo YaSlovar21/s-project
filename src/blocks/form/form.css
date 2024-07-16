@@ -15,7 +15,7 @@
 }
 
 .form__input {
-    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2] bg-primary-lighterdouble border border-primary-lighterdouble text-gray-800 outline-none mobile:text-base mobile:p-3;
+    @apply w-full px-5 py-5 text-xl bg-[#D7E6F2]  border border-primary-dark rounded-md text-gray-800 outline-none mobile:text-base mobile:p-3;
 }
 
 .form__input::placeholder {
@@ -27,7 +27,7 @@
 }
 
 .form__submit-button {
-    @apply bg-primary hover:bg-primary-dark transition-all duration-300 p-5 uppercase font-extrabold text-themewhite mt-8;
+    @apply bg-primary text-lg hover:bg-primary-dark transition-all duration-300 p-5 uppercase font-bold text-themewhite mt-8;
 }
 
 .form__submit-button_disabled {

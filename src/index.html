@@ -12,7 +12,7 @@
   <%= require('html-loader!./inner-metrika.html').default %>
   <main>
     <div class="bg-[url('../images/hero-bg.png')] bg-top relative h-screen border-themewhite border-8">
-      <div class="relative mvpc:bg-themewhite">
+      <div class="relative mvpc:bg-themewhite mobile:bg-transparent">
         <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent' , page: 'main'}) %>
         <figure class="absolute -top-3 right-0 left-[50%] pc:w-[810px] mvpc:hidden -translate-x-1/2 mx-auto">
           <img src="<%= require('././images/svg/bg-header-page-main.svg')%>" alt="Декор">
@@ -69,7 +69,7 @@
           <li class="row-start-2 col-start-3 border-b">
             <a class="main-product-link" href="<%= ROUTES.spg %>">
               <h3 class="main-product-link__title">Опоры СПГ</h3>
-              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры силовые прямостоячные граненые без закладного фундамента</p>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры силовые прямостоечные граненые без закладного фундамента</p>
               <figure class="absolute top-5 right-5">
                   <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
               </figure> 
@@ -105,7 +105,7 @@
           <li class="row-start-4 border-b">
             <a class="main-product-link" href="<%= ROUTES.nfg %>">
               <h3 class="main-product-link__title">Опоры НПГ</h3>
-              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые прямостоячные граненые</p>
+              <p class="mt-6 text-base text-secondary-darker  max-w-[300px]">Опоры несиловые прямостоечные граненые</p>
               <figure class="absolute top-5 right-5">
                   <img src="<%=require('./images/svg/page-main-arrow-product.svg')%>" alt="подробнее">
               </figure> 
@@ -187,27 +187,27 @@
               комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
             </p>
           </div>
-          <a class="mt-12 text-themewhite border border-themewhite uppercase p-5 max-w-[380px] w-full text-center" href="<%= ROUTES.about %>">Узнать больше</a>
+          <a class="mt-12 text-themewhite border border-themewhite uppercase p-5 max-w-[380px] w-full text-center transition-all duration-300 hover:bg-primary-white hover:bg-opacity-20" href="<%= ROUTES.about %>">Узнать больше</a>
         </div>
-        <figure class="basis-[689px] pc:basis-full  min-w-0 ml-auto relative">
+        <figure class="basis-[689px] pc:basis-full  min-w-0 ml-auto relative after:transition-all after:absolute after:inset-0 after:bg-primary-dark after:bg-opacity-35 after:z-[1] hover:after:bg-opacity-20">
           <img class="w-full h-full object-cover object-center" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
-          <div class="absolute top-1/2 left-1/2 group flex items-center">
-            <svg class="fill-primary-white stroke-primary-darker stroke-[.5px] w-14 h-14 transition-all group-hover:-rotate-45 group-hover:fill-primary-light group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-            </svg>
-            <p class="text-sm w-36 p-3 bg-primary-white rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          <div class="svg-plus-in absolute z-[2] top-1/4 left-1/4 group flex items-center">
+            <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>            
+            <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
           </div>
-          <div class="absolute bottom-1/4 right-1/4 group flex items-center">
-            <svg class="fill-primary-white stroke-primary-darker stroke-[.5px] w-14 h-14 transition-all group-hover:-rotate-45 group-hover:fill-primary-light group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-            </svg>
-            <p class="text-sm w-36 p-3 bg-primary-white rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          <div class="svg-plus-in absolute z-[2] bottom-1/2 right-1/4 group flex items-center flex-row-reverse">
+            <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>            
+            <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible relative translate-x-[50%] group-hover:visible group-hover:translate-x-[0]">Автоматическая сварка шва</p>              
           </div>
-          <div class="absolute top-1/4 right-1/4 group flex items-center">
-            <svg class="fill-primary-white stroke-primary-darker stroke-[.5px] w-14 h-14 transition-all group-hover:-rotate-45 group-hover:fill-primary-light group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
-            </svg>
-            <p class="text-sm w-36 p-3 bg-primary-white rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          <div class="svg-plus-in absolute z-[2] bottom-1/4 right-1/4 group flex items-center">
+            <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>            
+            <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible group-hover:visible">Заготовки готовой продукции</p>              
           </div>
         </figure>
       </div>
@@ -234,12 +234,12 @@
       </div>
       <nav class="absolute bottom-7 right-10">
         <button class="mr-2 news-section__button-left">
-          <svg class="w-9 h-9 stroke-secondary-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <svg class="w-9 h-9 transition-all stroke-secondary-dark hover:stroke-secondary-lighter" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>          
         </button>
         <button class="news-section__button-right">
-          <svg class="w-9 h-9 stroke-secondary-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <svg class="w-9 h-9 transition-all stroke-secondary-dark hover:stroke-secondary-lighter" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>          
         </button>
@@ -249,25 +249,39 @@
       <figure class="absolute top-0 left-0  pc:-translate-y-[50%]">
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
-      <div class="content flex py-24 justify-end mobile:px-5">
+      <div class="content flex py-24 justify-end mobile:px-5 mobile:pb-12">
         <div class="basis-3/4 mobile:basis-full">
-            <h2 class="section-title mb-16">Наши преимущества</h2>
-            <img class="col-start-5 col-span-8" src="<%= require('./images/test-pluses.png')%>">
+            <h2 class="section-title mb-16">Сертификаты</h2>
+            <ul class="sert-grid">
+              <li class="sert-grid__list-item <%= popupImageClass %>">
+                <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-vmo.png')%>" alt="Сертификат на производство высокомачтовых опор освещения">
+              </li>
+              <li class="sert-grid__list-item <%= popupImageClass %>">
+                <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
+              </li>
+              <li class="sert-grid__list-item <%= popupImageClass %>">
+                <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
+              </li>
+            </ul>
         </div>
       </div>
     </section>
+    
     <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   </main>
+  <!--POPUPS-->
+  <%= require('html-loader!./insets/popups/popupImage.html').default %>
+  <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
   <template id="news-template">
     <li class="news-card news-section-mainpage__list-item group ">
       <figure class="news-section-mainpage__image overflow-hidden group-hover:opacity-95">
-        <img class="news-card__image w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-110" src="" alt="участие в конкурсе лучший по профессии">
+        <img class="news-card__image w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105" src="" alt="участие в конкурсе лучший по профессии">
       </figure>
       <div class="pr-24 relative mt-3  h-32">
-        <h3 class="news-card__title pc:text-[9px]  text-primary-black max-w-[400px] group-hover:text-secondary-darker">title</h3>
+        <h3 class="news-card__title pc:text-base  text-primary-black max-w-[400px] group-hover:text-secondary-darker">title</h3>
         <p class="news-card__intro text-base mt-1">intro</p>
-        <p class="news-card__date text-base absolute top-0 right-0">formattedDate</p>
+        <p class="news-card__date text-base text-primary-dark absolute top-0 right-0">formattedDate</p>
       </div>
       <a class="news-card__link" href="#"><span class="absolute inset-0"></span></a>
     </li>

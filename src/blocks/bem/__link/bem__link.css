@@ -17,9 +17,18 @@
   @apply text-secondary;
 }
 
+
 .bem__link::before {
   transition: all .3s ease-in;
 }
 .bem__link:hover::before {
   transform: translateY(-3px);
+}
+
+.bem__link_default:hover {
+  @apply text-inherit;
+}
+
+.bem__link_default:hover::before {
+  transform: none;
 }

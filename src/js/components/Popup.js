@@ -15,7 +15,7 @@ export default class Popup {
                 this.close();
             }
         }
-        this._modal.querySelector('.popup__button-close').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>'
+        this._modal.querySelector('.popup__button-close').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="#f2f2f2" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f2f2f2" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>'
     }
 
     open() {

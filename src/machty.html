@@ -24,7 +24,7 @@
 
   <div class="content">
     <div class="py-[78px]">
-      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl">Высокомачтовые опоры</h1>
+      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[780px] mx-auto mobile:text-4xl">Высокомачтовые опоры</h1>
       <p class="mx-auto max-w-[836px] text-center text-xl mt-6">Общепринятые обозначения: мачты ВМО, мачты ВМОН</p>
     </div>
   </div>
@@ -36,30 +36,32 @@
           <img src="<%= require(`./images/machta-korona-stat.png`)%>" alt="опора освещения">
          
       </div>
-      <div class="basis-1/2">
-        
-        <button class="ui-button mt-12  transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
-        <!--<ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
-          <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Вид опоры</h3>  <span class="bg-themewhite relative top-2">силовая</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <span class="bg-themewhite relative top-2">150 мм</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <span class="bg-themewhite relative top-2">250 мм</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <span class="bg-themewhite relative top-2">да</span></li>
+      <div class="basis-3/4 flex flex-col pb-10">
+        <p class="text-2xl max-w-[66%] text-primary-darker">
+          Мы изготавливаем многогранные мачты освещения. Изготавливаются составные части мачты, каждая из которых проходит
+          горячее цинкование.Высокомачтовые опоры можно разделить на две категории.
+        </p>
+        <ul class="text-xl max-w-[66%] mt-10 mb-14 text-primary-darker">
+          <li>
+            <h3 class="font-bold uppercase mb-2">Высокомачтовые опоры с мобильной короной</h3>
+            <p>Корона мачты имеет возможность динамически опускаться и подниматься для проведения ремонтных и сервисных работ.</p>
+          </li>
+          <li class="mt-5">
+            <h3 class="font-bold uppercase mb-2">Высокомачтовые опоры со стационарной короной</h3>
+            <p>В такой конфигурации корона статична и для проведения ремонтных и сервисных работ необходимо подниматься на нее по лестнице.</p>
+          </li>
         </ul>
-        <button class="text-xl mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-full" href="/about/">Оставить заявку на С-ФГ-400 Ц</button>
-        <div class="mt-20">
-          <h2 class="text-3xl font-ui font-semibold text-primary-darker">Дополнительные характеристики</h2>
-          <ul class="max-w-[445px] mt-5 text-xl w-full *:mb-5 *:pb-5 *:border-b *:border-primary-lighter *:w-full *:flex *:justify-between">
-            <li>Размер фланца: <span>495мм</span></li>
-            <li>Межцентровое расстояние: <span>425мм</span></li>
-            <li>Количество отверстий: <span>6шт</span></li>
-            <li>Диаметр отверстий: <span>35мм</span></li>
-            <li>Возможность покраски: <span>да</span></li>
-            <li>Покрытие: <span>горячее цинкование</span></li>
-            <li>Срок службы: <span>30 лет</span></li>
-          </ul>
-        </div>-->
+        <h2 class="section-title my-8 text-primary-darker">Как изготавливаются мачты</h2>
+        <div class="grid grid-cols-3 gap-5 mvpc:grid-cols-2 mobile:grid-cols-1">
+          <% [1,2,3,4,5].map((i) => { %>
+            <figure class="<%= popupImageClass %> cursor-pointer relative after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+              <img class="w-full h-full object-cover object-center" src="<%= require(`./images/vmo/${i}.png`)%>" alt="">
+            </figure>
+          <% }) %>
+          <a class="self-end uppercase text-base font-bold text-primary-darker bem__link bem__link_newwindow" href="<%= ROUTES.about %>">Подробнее о производстве</a>
+        </div>
+        <button class="ui-button mt-auto transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
+
       </div>
     </div>
 
@@ -99,12 +101,15 @@
       </div>
       <div class="content flex pb-32  laptop:flex-col laptop:*:basis-auto laptop:px-10">
         <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
-        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite  mobile:grid-cols-2">
-          <li class="min-h-32 rounded-sm">
-            <img class="popup-image-item w-full cursor-pointer" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
+        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-6 text-themewhite  mobile:grid-cols-2">
+          <li class="min-h-32 rounded-sm relative block <%= popupImageClass %> cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-vmo.png')%>" alt="Сертификат на производство высокомачтовых опор освещения">
           </li>
-          <li class="min-h-32 rounded-sm">
-            <img class="popup-image-item w-full cursor-pointer" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
+          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
+          </li>
+          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
           </li>
         </ul>
       </div>

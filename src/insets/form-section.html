@@ -1,13 +1,13 @@
-<section class="bg-primary-darker py-10 overflow-hidden">
-    <div class="py-24 pb-32 relative bg-themewhite max-w-[calc(100%-80px)] pc:max-w-[calc(100%-20px)] pc:pb-28 mvpc:pb-32  mx-auto mb-4 rounded-sm mobile:max-w-[calc(100%-20px)] mobile:px-3 mobile:pb-40 mobile:rounded-sm">
+<section class="bg-primary-darker py-10 overflow-hidden upf">
+    <div class="py-24 pb-32 relative bg-themewhite max-w-[calc(100%-80px)] pc:max-w-[calc(100%-20px)] pc:pb-28 mvpc:pb-32  mx-auto mb-4 rounded-md mobile:max-w-[calc(100%-20px)] mobile:px-3 mobile:pb-40 mobile:rounded-sm">
       <div class="content flex">
-        <div class="basis-1/4 pt-[147px] olpc:hidden">
-          <p class="text-lg text-primary-darker max-w-[210px]">Заполните форму или отправьте Вашу заявку на почту:</p>
-          <a class="text-2xl font-bold text-primary-darker block mt-6" href="mailto:info@ssk22.ru">info@termoblok.ru</a>
+        <div class="basis-1/4 pt-[147px] flex flex-col justify-end olpc:hidden">
+          <p class="text-lg text-primary-darker max-w-[230px]">Заполните форму или отправьте Вашу заявку на почту: <a class="text-xl font-bold text-primary-darker mt-6" href="mailto:ssk@sskbsz.ru">ssk@sskbsz.ru</a></p>
+          
         </div>
         <div class="basis-3/4 olpc:basis-full">
-          <h2 class="content section-title mb-16 font-bold text-primary-darker mobile:text-2xl mobile:ml-0 mobile:mb-6"><%= title ? title : 'Остались вопросы? Напишите нам!' %></h2>
-          <p class="text-base text-primary-dark mb-8 hidden mobile:block">Заполните форму или отправьте Вашу заявку на почту: <a class="text-2xl font-bold text-primary-darker" href="mailto:info@ssk22.ru">info@termoblok.ru</a></p>
+          <h2 class="content section-title text-5xl normal-case mb-16 font-bold text-primary-darker mobile:text-2xl mobile:ml-0 mobile:mb-6"><%= title ? title : 'Остались вопросы? Напишите нам!' %></h2>
+          <p class="text-base text-primary-dark mb-8 hidden mobile:block">Заполните форму или отправьте Вашу заявку на почту: <a class="text-2xl font-bold text-primary-darker" href="mailto:ssk@sskbsz.ru">ssk@sskbsz.ru</a></p>
           
           <form class="max-w-[66%] olpc:max-w-full"  method="post" action="#" id="formFreePopup" name="upFooterForm" novalidate>
             <span class="block text-primary-darker mb-5">Ваши контактные данные</span>
@@ -37,7 +37,7 @@
                 <textarea class="form__input form__input_type_textarea" data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"   novalidate></textarea>
                 <span class="form__input-error comment-pto-free-input-error"></span>
               </label>
-              <button class="form__submit-button w-full" type="submit">Отправить</button>
+              <button class="form__submit-button rounded-md w-full" type="submit">Отправить</button>
             </div>
           </form>
         </div>

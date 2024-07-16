@@ -15,7 +15,7 @@
 }
 
 .news-card__title {
-    @apply text-lg pc:text-sm;
+    @apply text-lg pc:text-base;
 }
 
 

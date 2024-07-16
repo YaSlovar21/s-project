@@ -7,14 +7,18 @@ const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const {categories} = require('./categories')
 
 //const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
-const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net'
+//const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net';
+
+const canonicalURL = 'https://станкостальконструкция.рф'
 
 const HttpsProxyAgent = require('https-proxy-agent');
 const fetch1 = require('node-fetch');
 
 const {
   ROUTES,
-  techNames
+  techNames,
+  standartClasses,
+  featuresForCats
 } = require('./constants');
 const { paths } = require('./sitemap');
 
@@ -35,12 +39,15 @@ function generateCategoriesHtmlPlugins(oporyData) {
         categoryType: category.type,
 
         itemAlias: category.itemName,
-        gost1: category.gost1
+        gost1: category.gost1,
+        featsArr: featuresForCats[category.type],
+
+        ...standartClasses
       },
       title: category.title,
       template: './src/category-page.html', // путь к файлу index.html
       filename: category.filename,
-      chunks: ['index', 'form', 'popupWithImage'],
+      chunks: ['index', 'form', 'popupWithImage','ctaReactions'],
     })
   })
 };
@@ -48,35 +55,43 @@ function generateCategoriesHtmlPlugins(oporyData) {
 const dateNow = (new Date()).toString();
 let generatedPaths = [];
 
+
+
+
 function generateProductsHtmlPlugins(oporyData) {
   return oporyData.map((item) => {
     let itemRoute;
     let itemTitle;
     let type;
     let desc;
+    let catForCrumbs;
     switch (item.type) {
       case 'sfg':
         itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
         itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100} | СФГ-${item['H']} (${item['Db']})`;
         type = 'силовая';
         desc = `Опора силовая фланцевая граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
+        catForCrumbs = 'Опоры силовые фланцевые граненые';
         break;
       case 'spg':
         itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
         itemTitle = `Опора МСО-ПГ-${Number(item['P'])/100} | СПГ-${item['H']} (${item['Db']})`;
         type = 'силовая';
         desc = `Опора силовая прямостоечная граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм.`
+        catForCrumbs = 'Опоры силовые прямостоечные граненые';
         break;
       case 'nfg':
         itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
         itemTitle = `Опора МНО-ФГ-${item['H']} НФГ-${item['H']} (${item['Db']})`
         type = 'несиловая';
-        desc = `Опора несиловая фланцевая граненая без возможностиподвески СИП. Крепление к поверхности через фланец.`
+        desc = `Опора несиловая фланцевая граненая без возможностиподвески СИП. Крепление к поверхности через фланец.`;
+        catForCrumbs = 'Опоры несиловые фланцевые граненые';
         break;
       case 'npg':
         itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}.html`;
         itemTitle = `Опора МНО-ПГ-${item['H']} НФГ-${item['H']} (${item['Db']})`;
-        desc = `Опора несиловая прямостоечная граненая без возможностиподвески СИП.`
+        desc = `Опора несиловая прямостоечная граненая без возможностиподвески СИП.`;
+        catForCrumbs = 'Опоры несиловые прямостоечные граненые';
         type = 'несиловая';
         break;
     }
@@ -95,12 +110,14 @@ function generateProductsHtmlPlugins(oporyData) {
         ROUTES,
         oporaData: item,
         type,
-        desc
+        desc,
+        catForCrumbs,
+        ...standartClasses
       },
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
       filename: itemRoute,
-      chunks: ['index'],
+      chunks: ['index','ctaReactions'],
     })
   })
 }
@@ -119,11 +136,12 @@ function generateArticlesHtmlPlugins(newsData) {
           ...post
         },
         newsData,
+        ...standartClasses
       },
       title: post.title,
       template: './src/blog-page.html', // путь к файлу index.html
       filename: post.isStaticPage.substr(1),
-      chunks: ['index', 'form'],
+      chunks: ['index', 'form','ctaReactions'],
     })
   })
 };
@@ -142,6 +160,7 @@ function generateConfig(oporyData, newsData) {
       slider: './src/pages/mainPageSlider.js',
       popupWithImage: './src/pages/popupImage.js',
       frequently: './src/pages/frequently.js',
+      ctaReactions: './src/pages/cta-reaction.js'
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -204,10 +223,11 @@ function generateConfig(oporyData, newsData) {
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses //классы: контейнер, при клике на который открывается попап с картинкой
         },
         title: "СтанкоСтальКонструкция | Производство гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
-        chunks: ['index', 'form', 'slider'],
+        chunks: ['index', 'form','ctaReactions', 'slider', 'popupWithImage'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
@@ -223,7 +243,7 @@ function generateConfig(oporyData, newsData) {
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          
         },
         title: "Проектировщикам",
         template: './src/proektirovshchikam.html', // путь к файлу index.html
@@ -234,85 +254,87 @@ function generateConfig(oporyData, newsData) {
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Каталог",
         template: './src/production.html', // путь к файлу index.html
         filename: 'catalog/index.html',
-        chunks: ['index', 'form' ]
+        chunks: ['index', 'form','ctaReactions' ]
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Фудаменты под граненые конические опоры",
         template: './src/funds.html', // путь к файлу index.html
         filename: `${ROUTES.fundamenty.slice(1,)}index.html`,
-        chunks: ['index', 'form' ]
+        chunks: ['index', 'form','ctaReactions' ]
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Кронштейны под светильники для опор освещения",
         template: './src/brackets.html', // путь к файлу index.html
         filename: `${ROUTES.brackets.slice(1,)}index.html`,
-        chunks: ['index', 'form' ]
+        chunks: ['index', 'form','ctaReactions' ]
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Высокомачтовые опоры",
         template: './src/machty.html', // путь к файлу index.html
         filename: `${ROUTES.machty.slice(1,)}index.html`,
-        chunks: ['index', 'form' ]
+        chunks: ['index', 'form' , 'popupWithImage','ctaReactions']
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Опоры освещения",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
-        chunks: ['index', 'form', 'popupWithImage', 'frequently'],
+        chunks: ['index', 'form', 'popupWithImage', 'frequently','ctaReactions'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
         filename: 'novosti-proizvodstva/index.html',
-        chunks: ['index', 'form'],
+        chunks: ['index', 'form','ctaReactions'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
         },
         title: "Наши ценности",
         template: './src/cennosti.html', // путь к файлу index.html
         filename: 'about/nashi-cennosti/index.html',
-        chunks: ['index', 'form'],
+        chunks: ['index', 'form','ctaReactions'],
       }),
       
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
           ROUTES,
-          newsData: newsData.sort((a,b) => b.id - a.id),
+          
         },
         title: "Контакты ООО «Станкостальконструкция»",
         template: './src/contacts.html', // путь к файлу index.html

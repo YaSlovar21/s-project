@@ -35,16 +35,16 @@
     <div class="content flex py-10 justify-between mobile:flex-col mobile:*:basis-auto">
       <div class="shrink-0 basis-auto relative">
           <img src="<%= require(`./images/cat-${categoryType}.png`)%>" alt="опора освещения">
-          <ul class="absolute py-28 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-xl *:font-bold  *:text-primary-darkerdouble">
-            <li class="max-w-[140px]">Возможность подвески СИП</li>
-            <li class="">Повышенная толщина металла</li>
-            <li class="max-w-[230px]">Усиленный фланец для крепления к фундаменту</li>
+          <ul class="absolute py-8 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-xl *:font-bold  *:text-primary-darkerdouble">
+            <li class="max-w-[140px]"><%= featsArr[0] %></li>
+            <li class="max-w-[200px]"><%= featsArr[1] %></li>
+            <li class="max-w-[230px]"><%= featsArr[2] %></li>
           </ul>
       </div>
       <div class="basis-1/2">
         <%= require(`html-loader!./insets/cats/${categoryType}.html`).default %>
         
-        <button class="ui-button mt-12  transition-all duration-300 hover:bg-primary-white">Запросить КП на изготовление опоры</button>
+        <button class="ui-button <%= ctaButtonClass %> mt-12  transition-all duration-300 hover:bg-primary-white">Запросить КП на изготовление опоры</button>
         <!--<ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
           <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
           <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>
@@ -130,14 +130,14 @@
         </div>
         
       </div>
-      <div class="content flex pb-32  laptop:flex-col laptop:*:basis-auto laptop:px-10">
+      <div class="content flex pb-32 laptop:flex-col laptop:*:basis-auto laptop:px-10">
         <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
-        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite  mobile:grid-cols-2">
-          <li class="min-h-32 rounded-sm">
-            <img class="popup-image-item w-full cursor-pointer" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
+        <ul class="basis-3/4 sert-grid">
+          <li class="sert-grid__list-item <%= popupImageClass %>">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
           </li>
-          <li class="min-h-32 rounded-sm">
-            <img class="popup-image-item w-full cursor-pointer" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
+          <li class="sert-grid__list-item <%= popupImageClass %>">
+            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
           </li>
         </ul>
       </div>

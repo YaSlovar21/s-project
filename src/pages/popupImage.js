@@ -10,9 +10,11 @@ popupImage.setEventListeners();
 
 document.querySelectorAll('.popup-image-item').forEach((item) => {
     item.addEventListener("mousedown", (evt) => {
+      evt.stopPropagation();
+      console.log(evt.target);
       popupImage.open({
-        link: evt.target.src,
-        desc: evt.target.alt,
+        link: evt.target.querySelector('img').src,
+        desc: evt.target.querySelector('img').alt,
       });
     });
   });

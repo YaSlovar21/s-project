@@ -1,5 +1,5 @@
 //const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
-const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net'
+const canonicalURL = 'https://станкостальконструкция.рф'
 
 import Api from '../js/components/Api';
 //забрать по API новости
@@ -101,6 +101,7 @@ async function getInitialNews() {
     step = 0; //2
     lastIndex = newsCards.lenght - 1;
     initialCards = newsCards;
+    initialCards.sort((a,b) => b.id - a.id);
     updateSlidesAndPags();
 
     /*setInterval(()=>{

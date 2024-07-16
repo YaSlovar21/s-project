@@ -21,7 +21,7 @@
     @apply bg-primary-lighterdouble border border-primary-lighter;
 
     position: absolute;
-    top: calc(100%+28px);
+    top: calc(100%+21px);
     left: 0;
     width: 380px;
     z-index: 10;
@@ -69,7 +69,7 @@
 
 
 .nav__sub-link {
-  @apply text-base text-themewhite font-medium no-underline text-left olpc:text-sm;
+  @apply text-base text-primary-darkerdouble font-medium no-underline text-left olpc:text-sm;
 
   width: 100%;
   height: 100%;

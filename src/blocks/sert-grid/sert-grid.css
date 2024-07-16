@@ -1,0 +1,7 @@
+.sert-grid {
+    @apply grid grid-cols-3 gap-4 text-themewhite laptop:grid-cols-2 mobile:grid-cols-1;
+}
+
+.sert-grid__list-item {
+    @apply min-h-32 rounded-sm relative block cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40;
+}
