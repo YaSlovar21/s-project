@@ -41,7 +41,13 @@ function addCard({textId, title, intro, dateTime, isStaticPage}, index) {
     const dateString = `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`
     cardElement.querySelector('.news-card__date').textContent = dateString;
 
-    cardElement.querySelector('.news-card__link').href = `${canonicalURL}${isStaticPage}`;
+    cardElement.querySelector('.news-card__link').href = isStaticPage ? `${canonicalURL}${isStaticPage}` : '#';
+    if (!isStaticPage) {
+        cardElement.querySelector('.news-card__link').addEventListener('click', (evt)=> {
+            evt.preventDefault();
+            console.log('prevented', evt)
+        })
+    }
     cardElement.querySelector('.news-card__image').src = `${canonicalURL}/api-images/${textId}/poster.png`;
 
     if (index === 0) {

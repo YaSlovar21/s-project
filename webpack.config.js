@@ -124,7 +124,7 @@ function generateProductsHtmlPlugins(oporyData) {
 
 function generateArticlesHtmlPlugins(newsData) {
   console.log(newsData);
-  return newsData.sort((a,b) => b.id - a.id).map(post => {
+  return newsData.filter(i => i.isStaticPage).sort((a,b) => b.id - a.id).map(post => {
     console.log(post.isStaticPage.substr(1));
     return new HtmlWebpackPlugin({
       templateParameters: {
