@@ -1,26 +1,17 @@
 const ROUTES = {
     catalog: '/catalog/',
-  
     oporyMain: '/opory-osveshcheniya/',
     sfg: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/',
-    sfg400: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-4-sfg-400-c/',
-    sfg700: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-7-sfg-700-c/',
-    sfg1000: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-10-sfg-1000-c/',
-    sfg1300: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-13-sfg-1300-c/',
-  
     spg: '/opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/',
     nfg: '/opory-osveshcheniya/opory-nesilovye-flancevye-granenye/',
     npg: '/opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/',
-  
     machty: '/vysokomachtovye-opory/',
     fundamenty: '/catalog/fundamenty-pod-opory/',
     brackets: '/catalog/kronshtejny-pod-svetilniki/',
-
     about: '/about/',
     ourValues: '/about/nashi-cennosti/',
-    ourDocs: '/about/documents/',
-    
-    news: '/novosti-proizvodstva/',
+    //ourDocs: '/about/documents/',
+    news: '/news/',
     contacts: '/contacts/',
     techDocs: '/proektirovshchikam/',
 };

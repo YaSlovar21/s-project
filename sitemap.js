@@ -1,15 +1,16 @@
+const { ROUTES } = require("./constants");
+
 const dateNow = (new Date()).toString();
 
 
-
-
-/*
-/kronshtejny-pod-svetilniki/
-/opory-osveshcheniya/
-/opory-osveshcheniya/opory-silovye-flancevye-granenye/
-/opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/
-/opory-osveshcheniya/opory-nesilovye-flancevye-granenye/
-*/
+const staticPages = Object.keys(ROUTES).map((route)=> {
+  return {
+    path: ROUTES[route],
+    lastmod: dateNow,
+    priority: 1,
+    changefreq: 'monthly'
+  }
+})
 
 module.exports.paths = [
     {
@@ -18,4 +19,4 @@ module.exports.paths = [
       priority: 1,
       changefreq: 'monthly'
     },
-];
+].concat(staticPages);

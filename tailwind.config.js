@@ -44,7 +44,11 @@ module.exports = {
             '--tw-prose-invert-pre-code' : '#d4d4d4',
             '--tw-prose-invert-pre-bg' : 'rgba(0,0,0,.5)',
             '--tw-prose-invert-th-borders' : '#525252',
-            '--tw-prose-invert-td-borders' : '#404040'
+            '--tw-prose-invert-td-borders' : '#404040',
+            figure: {
+              'margin-top': '.5em!important',
+              'margin-bottom': '.5em!important'
+            },
           },
         },
       }),

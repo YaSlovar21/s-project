@@ -24,11 +24,11 @@
       <article class="ml-[25%] mobile:ml-0 prose prose-lg prose-ssk olpc:prose-lg pc:prose-xl">
         <h1 class="section-title text-primary-black normal-case not-prose"><%= h1Title %></h1>
         <img src="<%=canonicalURL%>/api-images/<%=textArticleId%>/poster.png" alt="">
-        <%= require(`html-loader!./articles/${textArticleId}.html`).default %>
+        <%= _.template(require(`html-loader!./articles/${textArticleId}.html`).default)({popupImageClass}) %>
       </article>
     </div>
-    <h2 class="text-2xl text-primary-lighterdouble p-10 mobile:ml-2">Читайте также</h2>
-    <div class="grid grid-cols-3 gap-x-5 olpc:grid-cols-2 px-10 mobile:px-2 laptop:grid-cols-1">
+    <h2 class="text-2xl mt-32 mb-16 inline-flex pl-10 pr-4 bg-themewhite text-primary-lighter relative after:-z-[1] after:w-[calc(100vw-40px)] after:h-[1px] after:bg-primary-lighterdouble after:absolute after:top-1/2 after:left-0 mobile:ml-2">Читайте также</h2>
+    <div class="grid grid-cols-3 gap-x-5 olpc:grid-cols-2 px-10 pb-20 mobile:px-2 laptop:grid-cols-1">
       
       <% newsData.filter(i => i.id !== staticData.id).map((i) => { %>
         <li class="p-10  mb-5 relative rounded-sm flex flex-col justify-stretch bg-themewhite transition-all duration-300 border  border-primary-lighterdouble hover:bg-primary-white group mobile:p-5">
@@ -40,15 +40,17 @@
            
             <h3 class="text-xl mt-4 mb-2 max-w-[400px] group-hover:text-secondary-darker"><%= i.title %></h3>
             <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
-            <a class="mt-auto pt-10 bem__link bem__link_left bem__link_newwindow" href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute inset-0"></span></a>
+            <a class="mt-auto pt-10 bem__link bem__link_left bem__link_newwindow" href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute top-0 left-0 w-full h-full"></span></a>
           </div>
         </li>
       <% }) %>
       </div>
   </main>
-  
+      
   <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+  <!--POPUPS-->
+  <%= require('html-loader!./insets/popups/popupImage.html').default %>
 </body>
 </html>

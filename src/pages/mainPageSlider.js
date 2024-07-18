@@ -18,11 +18,12 @@ let lastIndex;
 let windowSize = window.innerWidth;
 
 function upStep(step) {
-    return step + 1 > 3 ? 0 : step + 1;
+    console.log(lastIndex);
+    return step + 1 > lastIndex ? 0 : step + 1;
 }
 
 function downStep(step) {
-    return step - 1 < 0 ? 3 : step - 1;
+    return step - 1 < 0 ? lastIndex : step - 1;
 }
 
 const newsContainer = document.querySelector('.news-section-mainpage');
@@ -41,7 +42,7 @@ function addCard({textId, title, intro, dateTime, isStaticPage}, index) {
     const dateString = `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`
     cardElement.querySelector('.news-card__date').textContent = dateString;
 
-    cardElement.querySelector('.news-card__link').href = isStaticPage ? `${canonicalURL}${isStaticPage}` : '#';
+    cardElement.querySelector('.news-card__link').href = isStaticPage ? `/news/${isStaticPage}` : '#';
     if (!isStaticPage) {
         cardElement.querySelector('.news-card__link').addEventListener('click', (evt)=> {
             evt.preventDefault();
@@ -105,9 +106,12 @@ async function getInitialNews() {
     };
     
     step = 0; //2
-    lastIndex = newsCards.lenght - 1;
+    
+    console.log(lastIndex)
     initialCards = newsCards;
     initialCards.sort((a,b) => b.id - a.id);
+    lastIndex = initialCards.length - 1;
+    console.log(lastIndex, initialCards.length - 1);
     updateSlidesAndPags();
 
     /*setInterval(()=>{

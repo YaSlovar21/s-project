@@ -54,7 +54,7 @@
         <h2 class="section-title my-8 text-primary-darker">Как изготавливаются мачты</h2>
         <div class="grid grid-cols-3 gap-5 mvpc:grid-cols-2 mobile:grid-cols-1">
           <% [1,2,3,4,5].map((i) => { %>
-            <figure class="<%= popupImageClass %> cursor-pointer relative after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+            <figure class="<%= popupImageClass %> cursor-pointer relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
               <img class="w-full h-full object-cover object-center" src="<%= require(`./images/vmo/${i}.png`)%>" alt="">
             </figure>
           <% }) %>
@@ -102,13 +102,13 @@
       <div class="content flex pb-32  laptop:flex-col laptop:*:basis-auto laptop:px-10">
         <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
         <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-6 text-themewhite  mobile:grid-cols-2">
-          <li class="min-h-32 rounded-sm relative block <%= popupImageClass %> cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+          <li class="min-h-32 rounded-sm relative block <%= popupImageClass %> cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
             <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-vmo.png')%>" alt="Сертификат на производство высокомачтовых опор освещения">
           </li>
-          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
             <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
           </li>
-          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:inset-0 after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
+          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
             <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
           </li>
         </ul>

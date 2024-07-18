@@ -4,6 +4,8 @@ import './popup.css';
 
 import '../images/favicon.svg';
 
+import '../userfiles/oprosnii-opory.pdf';
+import '../userfiles/price-stankosteelconstr.pdf';
 
 import './tw.css';
 import './index.css';

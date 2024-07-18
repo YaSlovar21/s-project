@@ -56,7 +56,7 @@ const dateNow = (new Date()).toString();
 let generatedPaths = [];
 
 
-
+/* -------------- СТРАНИЦЫ ПРОДУКТОВ ------------------------------------ */
 
 function generateProductsHtmlPlugins(oporyData) {
   return oporyData.map((item) => {
@@ -117,15 +117,25 @@ function generateProductsHtmlPlugins(oporyData) {
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
       filename: itemRoute,
-      chunks: ['index','ctaReactions'],
+      chunks: ['index', 'form', 'ctaReactions', 'popupWithImage'],
     })
   })
 }
 
+/* -------------------------СТАТЬИ---------------------*/
+
 function generateArticlesHtmlPlugins(newsData) {
   console.log(newsData);
   return newsData.filter(i => i.isStaticPage).sort((a,b) => b.id - a.id).map(post => {
-    console.log(post.isStaticPage.substr(1));
+    
+    generatedPaths.push(
+      {
+        path: `${ROUTES.news}${post.isStaticPage}`,
+        lastmod: dateNow,
+        priority: 0.8,
+        changefreq: 'monthly'
+      }
+    )
     return new HtmlWebpackPlugin({
       templateParameters: {
         canonicalURL,
@@ -140,8 +150,8 @@ function generateArticlesHtmlPlugins(newsData) {
       },
       title: post.title,
       template: './src/blog-page.html', // путь к файлу index.html
-      filename: post.isStaticPage.substr(1),
-      chunks: ['index', 'form','ctaReactions'],
+      filename: `${ROUTES.news.substr(1)}${post.isStaticPage}`,
+      chunks: ['index', 'form','ctaReactions', 'popupWithImage'],
     })
   })
 };
@@ -151,7 +161,7 @@ function generateConfig(oporyData, newsData) {
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
   const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
-  console.log(htmlArticlesPlugins.length + htmlCategoriesPlugins.length + htmlProductsPlugins.length)
+  console.log(paths.length + generatedPaths.length)
   return {
     entry: { 
       index: './src/pages/index.js', 
@@ -200,6 +210,19 @@ function generateConfig(oporyData, newsData) {
           type: 'asset/resource',
           exclude: [
             path.resolve(__dirname, "./src/images/favicon.svg"),
+          ],
+        },
+        {
+          // загрузка документов в documents/
+          test: /\.(doc|docx|pdf)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "docs",
+              },
+            },
           ],
         },
         {
@@ -314,7 +337,7 @@ function generateConfig(oporyData, newsData) {
         },
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
-        filename: 'novosti-proizvodstva/index.html',
+        filename: 'news/index.html',
         chunks: ['index', 'form','ctaReactions'],
       }),
       new HtmlWebpackPlugin({

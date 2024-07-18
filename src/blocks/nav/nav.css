@@ -21,10 +21,11 @@
     @apply bg-primary-lighterdouble border border-primary-lighter;
 
     position: absolute;
+    
     top: calc(100%+21px);
     left: 0;
     width: 380px;
-    z-index: 10;
+    z-index: 11;
     transition: opacity 0.5s ease-in-out, color .2s ease-in;
     transition: all .4s ease-in;
     visibility: hidden;
