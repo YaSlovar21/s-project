@@ -167,6 +167,7 @@ function generateConfig(oporyData, newsData) {
       index: './src/pages/index.js', 
       form: './src/pages/form.js',
       blogpage: './src/pages/blog-page.js',
+      lpopory: './src/pages/lpopory.js',
       slider: './src/pages/mainPageSlider.js',
       popupWithImage: './src/pages/popupImage.js',
       frequently: './src/pages/frequently.js',
@@ -326,7 +327,7 @@ function generateConfig(oporyData, newsData) {
         title: "Опоры освещения",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
-        chunks: ['index', 'form', 'popupWithImage', 'frequently','ctaReactions'],
+        chunks: ['index', 'lpopory', 'form', 'popupWithImage', 'frequently','ctaReactions'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

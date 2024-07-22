@@ -1,6 +1,9 @@
 .breadcrumbs {
     @apply flex items-center p-10 mobile:px-5;
 }
+.breadcrumbs-no-padding {
+    @apply flex items-center;
+}
 
 .breadcrumbs__link {
     @apply text-gray-800 text-lg underline underline-offset-2 mobile:text-sm mobile:font-normal;

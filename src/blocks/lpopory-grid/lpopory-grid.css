@@ -1,14 +1,14 @@
 .lpopory-grid {
-    @apply grid grid-cols-4 gap-6;
-    grid-template-rows: 1000px;
+    @apply grid grid-cols-7 gap-4;
+    grid-template-rows: 750px;
     align-items: flex-end;
-
+    grid-template-columns: repeat(7, calc(25%-12px));
 }
 
 @media screen and (max-width: 638px) {
         .lpopory-grid {
             gap: 12px;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 500px 500px;
+            grid-template-rows: 500px 500px 500px;
         }
 }

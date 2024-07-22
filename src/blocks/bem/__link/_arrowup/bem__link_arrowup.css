@@ -5,28 +5,13 @@
 }
 
 .bem__link_arrowup::after {
-  content: ' \2197';
-  margin-left: .3em;
-  transition: all .5s linear;
-}
-
-.bem__link_arrowup:hover::after {
-  color: var(--theme-main-color);
-  opacity: .9;
-}
-
-.bem__link_arrowup_img::after {
   content: '';
   margin-left: 4px;
-  width: 0.85em;
-  height: 0.85em;
-  background-image: url(../../../../../images/svg-elems/arrow-right-top.svg);
+  width: 1em;
+  height: 1em;
+  background-image: url(../../../../images/svg/page-main-arrow-product.svg);
   background-repeat: no-repeat;
   flex-shrink: 0;
   background-position: center;
   background-size: contain;
-}
-
-.bem__link_arrowup_img-orange::after {
-  background-image: url(../../../../../images/svg-elems/arrow-right-top-orange.svg);
 }

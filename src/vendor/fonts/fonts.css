@@ -100,3 +100,115 @@
 	font-weight: 800;
 	font-style: normal;
 }
+/*
+@font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url("Manrope-ExtraLight.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("Manrope-Light.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("Manrope-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("Manrope-Medium.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("Manrope-SemiBold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("Manrope-Bold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style:  normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("Manrope-ExtraBold.woff2") format("woff2");
+  }
+  */
+
+  @font-face {
+	font-family: 'TFont';
+	src: 
+		url('Tilda-Sans_Light.woff2') format('woff2'),
+		url('Tilda-Sans_Light.woff') format('woff');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TFont';
+	src: 
+		url('Tilda-Sans_Regular.woff2') format('woff2'),
+		url('Tilda-Sans_Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TFont';
+	src: 
+		url('Tilda-Sans_Semibold.woff2') format('woff2'),
+		url('Tilda-Sans_Semibold.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'TFont';
+	src: 
+		url('Tilda-Sans_Bold.woff2') format('woff2'),
+		url('Tilda-Sans_Bold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TFont';
+	src: 
+		url('Tilda-Sans_Extra-Bold.woff2') format('woff2'),
+		url('Tilda-Sans_Extra-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TFont';
+	src: 
+		url('Tilda-Sans_Black.woff2') format('woff2'),
+		url('Tilda-Sans_Black.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+}

@@ -61,10 +61,43 @@
 }
 
 @layer components {
-  
-  .up-title {
-    @apply text-lg font-semibold uppercase mobile:text-base;
+  .scroll-factory::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+    background: #D1E2F1;
+    position: relative;
+    right: 10px;
+    
   }
+  
+  .scroll-factory::-webkit-scrollbar-thumb {
+    
+    background: #2D5F8B;
+    width: 8px;
+    height: 4px;
+    position: relative;
+    right: 40px;
+    cursor: pointer;
+  }
+  .up-title {
+    @apply text-lg font-semibold uppercase leading-none mobile:text-base;
+  }
+  .up-title_svg {
+    @apply flex items-center;
+  }
+  .up-title_svg::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
+    background-image: url(../images/svg/ssk-up-title.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .up-title_svg-white::before {
+    background-image: url(../images/svg/ssk-up-title-white.svg);
+  }
+
   .section-title {
     @apply text-4xl font-bold uppercase text-primary-white mb-16 pc:text-3xl mobile:text-2xl;
   }
@@ -72,7 +105,7 @@
     @apply text-[2.5rem] mobile:text-2xl;
   }
   .ui-button {
-    @apply text-primary-darker p-5 uppercase text-lg border border-primary-darker;
+    @apply text-primary-darker p-5 uppercase text-lg border border-primary-darker transition-all duration-300;
   }
   .ui-button-white {
     @apply transition-all duration-300 hover:bg-primary-white hover:bg-opacity-20;
@@ -82,7 +115,6 @@
   }
   .main-product-link {
     @apply block h-full p-5 relative pr-14 transition-all duration-300 hover:bg-primary-white;
-    
   } 
   .main-product-link__title {
     @apply h-24 font-medium text-primary-darker text-2xl pc:h-16 mobile:h-auto;
@@ -90,6 +122,10 @@
   .main-product-link__title_category {
     @apply font-bold; 
   }
+  .inset0 {
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+
 
   .main-product-grid {
     display: grid;
@@ -122,6 +158,17 @@
       max-width: calc(760px + 50%);
       margin-left: auto;
       margin-right: 0;
+  }
+
+  .content-50 {
+    max-width: calc(var(--content-width)/2);
+  }
+
+  .content-33 {
+    max-width: calc(var(--content-width)/3);
+  }
+  .content-75 {
+    max-width: calc(var(--content-width)*0.75);
   }
 
   @media screen and (max-width: 1537px) {

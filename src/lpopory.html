@@ -13,92 +13,122 @@
     <header class="border-b border-primary-lighterdouble">
         <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
     </header>
-    <div class="relative flex ">
-        <ul class="breadcrumbs flex items-center p-10">
+    <div class="relative content">
+        <ul class="breadcrumbs-no-padding flex items-center py-10">
             <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
             <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
         </ul>
     </div>
   
     <!--new-->
-    <div class="py-[78px]">
-        <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl">Опоры освещения</h1>
-        <p class="mt-6 mb-[78px] text-xl text-center w-[calc(50%-12px)] flex ml-auto  mobile:text-base">от завода производителя</p>
-        <ul class="lpopory-grid content *:border *:border-white *:h-full">
-            <li class="relative flex flex-col items-center">
-                <img class="min-h-0" src="<%= require('./images/lpopory/sfg.png')%>" alt="силовая фланцевая граненая опора сфг">
-                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые фланцевые граненые</h2>
-                <div class="flex w-full justify-between items-center pl-4 pt-4">
-                    <p class="text-base uppercase">Опоры СФГ</p>
-                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4 mobile:text-sm" href="<%= ROUTES.sfg %>">
-                        <span class="absolute top-0 left-0 w-full h-full"></span>
-                        Перейти
-                    </a>    
-                </div>
-            </li>
-            <li class="relative flex flex-col items-center">
-                <img class="min-h-0" src="<%= require('./images/lpopory/nfg.png')%>" alt="силовая фланцевая граненая опора сфг">
-                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые фланцевые граненые</h2>
-                <div class="flex w-full justify-between items-center pl-4 pt-4">
-                    <p class="text-base uppercase">Опоры НФГ</p>
-                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4 mobile:text-sm" href="<%= ROUTES.nfg %>">
-                        <span class="absolute top-0 left-0 w-full h-full"></span>
-                        Перейти
-                    </a>    
-                </div>
-            </li>
-            <li class="relative flex flex-col items-center">
-                <img class="min-h-0" src="<%= require('./images/lpopory/spg.png')%>" alt="силовая фланцевая граненая опора сфг">
-                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые прямостоечные граненые</h2>
-                <div class="flex w-full justify-between items-center pl-4 pt-4">
-                    <p class="text-base uppercase">Опоры СПГ</p>
-                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4 mobile:text-sm" href="<%= ROUTES.spg %>">
-                        <span class="absolute top-0 left-0 w-full h-full"></span>
-                        Перейти
-                    </a>    
-                </div>
-            </li>
-            <li class="relative flex flex-col items-center">
-                <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="силовая фланцевая граненая опора сфг">
-                <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоечные граненые</h2>
-                <div class="flex w-full justify-between items-center pl-4 pt-4">
-                    <p class="text-base uppercase">Опоры НПГ</p>
-                    <a class="bg-primary-dark text-primary-white text-xl uppercase p-4 mobile:text-sm" href="<%= ROUTES.npg %>">
-                        <span class="absolute top-0 left-0 w-full h-full"></span>
-                        Перейти
-                    </a>    
-                </div>
-            </li>
-        </ul>
+    <div class="content relative">
+        <h1 class="absolute bottom-10 left-10 text-[70px]  uppercase text-left text-themewhite font-bold max-w-3xl mobile:text-2xl mobile:bottom-2 mobile:left-2">Производство опор освещения</h1>
+        <img class="max-w-full" src="<%= require('./images/lpopory-cover.jpg')%>" alt="производство опор осещения">
+        <!--<p class="mt-6 mb-[78px] text-xl text-center w-[calc(50%-12px)] flex ml-auto  mobile:text-base">от завода производителя</p>-->
     </div>
-    <!--   -->
-    <section class="content flex justify-between mt-24 olpc:flex-col olpc:px-2">
-        <h2 class="text-4xl uppercase font-bold text-primary-darker">Собственное производство</h2>
-        <div class="basis-1/2 text-primary-black text-xl divide-y-8 divide-transparent">
+    <section class="content py-20">
+        <div class="flex items-start mobile:flex-col">
+            <h2 class="up-title up-title_svg text-primary-darker mb-8">Основные типы опор</h2>
+            <div class="scroll-factory pb-5 content-75 ml-auto overflow-y-auto">
+                <ul class=" scroll-factory__inner lpopory-grid  *:border *:border-primary-darker *:rounded *:overflow-hidden *:h-full">
+                    <li class="relative ">
+                        <a class="flex flex-col items-center h-full" href="<%= ROUTES.sfg %>">
+                            <img class="min-h-0" src="<%= require('./images/lpopory/sfg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                            <h2 class="text-xl font-medium text-primary-darker mx-4 mt-8  mobile:text-xl">Опоры силовые фланцевые граненые</h2>
+                            <div class="flex w-full justify-between items-center pl-4 pt-4">
+                                <p class="text-base uppercase">Опоры СФГ</p>    
+                            </div>
+                            <span class="rounded-full p-2 absolute top-0 right-0" ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#6F97BA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>    
+                        </a>
+                    </li>
+                    <li class="relative ">
+                        <a class="flex flex-col items-center h-full" href="<%= ROUTES.nfg %>">
+                            <img class="min-h-0" src="<%= require('./images/lpopory/nfg.png')%>" alt="несиловая фланцевая граненая опора нфг">
+                            <h2 class="text-xl font-medium text-primary-darker mx-4 mt-8  mobile:text-xl">Опоры несиловые фланцевые граненые</h2>
+                            <div class="flex w-full justify-between items-center pl-4 pt-4">
+                                <p class="text-base uppercase">Опоры СФГ</p>    
+                            </div>
+                            <span class="rounded-full p-2 absolute top-0 right-0" ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#6F97BA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>    
+                        </a>
+                    </li>
+                    <li class="relative ">
+                        <a class="flex flex-col items-center h-full" href="<%= ROUTES.spg %>">
+                            <img class="min-h-0" src="<%= require('./images/lpopory/spg.png')%>" alt="силовая прямостоечная граненая опора спг">
+                            <h2 class="text-xl font-medium text-primary-darker mx-4 mt-8  mobile:text-xl">Опоры силовые прямостоечные граненые</h2>
+                            <div class="flex w-full justify-between items-center pl-4 pt-4">
+                                <p class="text-base uppercase">Опоры СФГ</p>    
+                            </div>
+                            <span class="rounded-full p-2 absolute top-0 right-0" ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#6F97BA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>    
+                        </a>
+                    </li>
+                    <li class="relative ">
+                        <a class="flex flex-col items-center h-full" href="<%= ROUTES.npg %>">
+                            <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="несиловая прямостоечная граненая опора нпг">
+                            <h2 class="text-xl font-medium text-primary-darker mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоечные граненые</h2>
+                            <div class="flex w-full justify-between items-center pl-4 pt-4">
+                                <p class="text-base uppercase">Опоры СФГ</p>    
+                            </div>
+                            <span class="rounded-full p-2 absolute top-0 right-0" ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#6F97BA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>    
+                        </a>
+                    </li>
+                    <li class="relative ">
+                        <a class="flex flex-col items-center h-full" href="<%= ROUTES.npg %>">
+                            <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="несиловая прямостоечная граненая опора нпг">
+                            <h2 class="text-xl font-medium text-primary-darker mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоечные граненые</h2>
+                            <div class="flex w-full justify-between items-center pl-4 pt-4">
+                                <p class="text-base uppercase">Опоры СФГ</p>    
+                            </div>
+                            <span class="rounded-full p-2 absolute top-0 right-0" ">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 19.5L19.5 4.5M19.5 4.5H8.25M19.5 4.5V15.75" stroke="#6F97BA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>    
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--   
+    <section class=" mt-24 olpc:flex-col olpc:px-2">-->
+        <section>
+        <!--<h2 class="text-4xl uppercase font-bold text-primary-darker">Собственное производство</h2>-->
+        <div class="content-50 mx-auto text-primary-black text-xl mobile:text-base">
             <p>
                 Наша компания изготавливает многогранные опоры освещения, многогранные опоры ЛЭП, гранёные опоры контактных сетей
                 электрифицированного транспорта и мачты освещения.
             </p>
-            <p>
+            <p class="mt-8">
                 С учетом производственных возможностей граненые опоры могут быть <span class="font-extrabold">до 12 метров высотой</span> и 1200 мм в диаметре.
             </p>
-            <p>
+            <p class="mt-8">
                 Для изготовления продукции используется качественное сертифицированное сырье, <span class="font-extrabold">толщина
                     металла – от 4 до 12 мм</span>. Цена на металлические опоры наружного освещения, предложенная нашей компанией -
                 наиболее выгодная в своем сегменте рынка.
             </p>
-            <p>
-                Наша компания изготавливает многогранные опоры освещения. Уточнить стоимость и вариант доставки можно, позвонив по
-                номерам телефонов, указанным на сайте, или заполнив форму обратной связи.
-            </p>
-            <p>
-                У нас есть собственный автопарк для доставки, в том числе железнодорожный тупик.
-            </p>
+            <a class="ui-button hover:bg-primary-darker hover:text-themewhite font-medium block bem__link_arrowup w-1/2 mobile:w-full justify-center mt-8" href="<%= ROUTES.catalog %>">Перейти в каталог</a>
         </div>
     </section>
-    <section class="py-4 olpc:px-2">
+    <section class="py-4 mt-10 olpc:px-2">
         <div class="content flex mt-12 items-start mobile:flex-col">
-            <h2 class="basis-1/4 w-full up-title text-primary-darker mb-4">Цикл производства</h2>
+            <h2 class="basis-1/4 up-title_svg w-full up-title text-primary-darker mb-4">Цикл производства</h2>
             <div class="basis-1/4 grid grid-cols-2 grid-rows-3 gap-2">
                 <% [1,2,3,4,5].map((i) => { %>
                     <figure class="overflow-hidden rounded-md border border-primary">
@@ -119,8 +149,8 @@
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
       <div class="content flex pt-32 mb-24 justify-end">
-        <div class="basis-3/4">
-            <h2 class="text-4xl uppercase text-primary-white mb-16">Как мы работаем?</h2>
+        <div class="basis-3/4 mobile:basis-full">
+            <h2 class="section-title">Как мы работаем?</h2>
             <ul class="frequently__questions">
                 <li class="group frequently__item relative border-b border-b-primary-lighter">
                     <h3 class="frequently__question py-6 flex justify-between font-bold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Материалы</h3>
@@ -151,8 +181,8 @@
 
         </div>
       </div>
-      <div class="content flex pb-32">
-        <h2 class="basis-1/4 up-title text-themewhite text-base">Сертификаты</h2>
+      <div class="content flex pb-32 mobile:flex-col mobile:*:basis-auto">
+        <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
         <ul class="basis-3/4 sert-grid">
           <li class="sert-grid__list-item <%= popupImageClass %>">
             <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">

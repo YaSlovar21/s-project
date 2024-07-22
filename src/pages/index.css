@@ -11,7 +11,7 @@
 @import url(../blocks/animatecss/fading_entrances/fadeIn.css);
 @import url(../blocks/animatecss/fading_entrances/fadeInLeft.css);
 @import url(../blocks/animatecss/attention_seekers/pulse.css);
-
+@import url(../blocks/link-beauty/link-beauty.css);
 
 @import url(../blocks/burton/burton.css);
 @import url(../blocks/sert-grid/sert-grid.css);
@@ -24,6 +24,7 @@
 
 @import url(../blocks/bem/__link/bem__link.css);
 @import url(../blocks/bem/__link/_email/bem__link_email.css);
+@import url(../blocks/bem/__link/_arrowup/bem__link_arrowup.css);
 @import url(../blocks/bem/__link/_download/bem__link_download.css);
 @import url(../blocks/bem/__link/_newwindow/bem__link_newwindow.css);
 
