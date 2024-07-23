@@ -1,0 +1,16 @@
+.span-geo {
+    display: flex;
+    align-items: center;
+}
+
+.span-geo::before {
+    content: '';
+    width: .75em;
+    height: .75em;
+    margin-right: 4px;
+    background-image: url(../../images/svg/i-geo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+

@@ -1,7 +1,7 @@
 .nav__link {
   @apply text-base uppercase no-underline py-1 block px-1 text-primary-black hover:text-primary-darker pc:text-[15px]; 
 
-  transition: .5s linear;
+
   position: relative;
   z-index: 1;
 }
@@ -9,3 +9,7 @@
 .nav__menu-links_theme_dark .nav__link {
   @apply text-themewhite;
 }
+/*
+.nav:hover .nav__link {
+  @apply text-themewhite;
+}*/

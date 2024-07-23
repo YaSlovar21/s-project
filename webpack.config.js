@@ -156,7 +156,7 @@ function generateArticlesHtmlPlugins(newsData) {
   })
 };
 
-function generateConfig(oporyData, newsData) {
+function generateConfig(oporyData, newsData, objectsData) {
 
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
@@ -256,7 +256,8 @@ function generateConfig(oporyData, newsData) {
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
-          ROUTES
+          ROUTES,
+          objectsData
         },
         title: "О производстве",
         template: './src/about.html', // путь к файлу index.html
@@ -397,9 +398,10 @@ module.exports = () => {
       Promise.all([
           fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4', { agent: proxyAgent}).then(res => res.json()), 
           fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=news', { agent: proxyAgent}).then(res => res.json()), 
+          fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=objects', { agent: proxyAgent}).then(res => res.json()), 
         ])
         .then((data) => {
-          resolve(generateConfig(data[0], articleDateMapper(data[1])));
+          resolve(generateConfig(data[0], articleDateMapper(data[1]), data[2]));
         })
      
   });

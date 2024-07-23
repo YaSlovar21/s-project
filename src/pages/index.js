@@ -6,6 +6,7 @@ import '../images/favicon.svg';
 
 import '../userfiles/oprosnii-opory.pdf';
 import '../userfiles/price-stankosteelconstr.pdf';
+import '../userfiles/sto_stankostalkonstrukciya_akt.pdf';
 
 import './tw.css';
 import './index.css';

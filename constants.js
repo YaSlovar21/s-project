@@ -14,6 +14,11 @@ const ROUTES = {
     news: '/news/',
     contacts: '/contacts/',
     techDocs: '/proektirovshchikam/',
+
+    //FILES
+    priceFile: '/docs/price-stankosteelconstr.pdf',
+    oprosniiFile: '/docs/oprosnii-opory.pdf',
+    stoFile: '/docs/sto_stankostalkonstrukciya_akt.pdf',
 };
 
 const techNames = {

@@ -14,7 +14,7 @@
 }
 
 .workflow__card-span {
-    @apply block basis-1/3 text-2xl;
+    @apply block basis-1/3 text-xl mobile:text-sm;
 }
 
 .workflow__card-title {
@@ -22,10 +22,10 @@
 }
 
 .workflow__card-subhead {
-    @apply text-2xl font-bold text-primary-darker basis-48 mt-8;
+    @apply text-2xl font-bold text-primary-darker basis-48 mt-8 mobile:text-lg;
 }
 
 .workflow__card-desc {
-    @apply text-lg text-gray-700 mt-8;
+    @apply text-lg text-gray-700 mt-8 mobile:text-sm;
 }
 
