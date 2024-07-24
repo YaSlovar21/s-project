@@ -279,6 +279,9 @@ function generateConfig(oporyData, newsData, objectsData) {
         templateParameters: {
           canonicalURL,
           ROUTES,
+          tableData: oporyData,
+          techNames,
+          categories,
           ...standartClasses
         },
         title: "Каталог",
