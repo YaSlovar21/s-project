@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title><%= `${htmlWebpackPlugin.options.title} ${type} ${sposobUstanovki} гранёная` %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename%>"  rel="canonical" />
 </head>
-
 <body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
@@ -15,11 +14,11 @@
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещение</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES[oporaData['type']] %>"><%= catForCrumbs %></a></li>
     </ul>
   </div>
-  <main class="">
+  <main>
       <div class="content">
         <div class="flex w-full bg-themewhite py-10 mobile:flex-col mobile:*:basis-auto">
           <div class="basis-1/4 mobile:h-3/6 overflow-hidden">
@@ -27,7 +26,7 @@
           </div>
           <div class="basis-3/4 mobile:mt-10">
             <h1 class="text-primary-darker font-bold text-5xl uppercase max-w-[906px] mobile:text-3xl"><%= htmlWebpackPlugin.options.title %></h1>
-            <p class="my-8 text-xl max-w-2xl"><%= desc %></p>
+            <p class="my-8 text-xl max-w-2xl"><%= desc %><%= gostName ? ` Обозначение по ГОСТ 32947-2014: ${gostName}` : '' %></p>
             <ul class="max-w-[445px] mt-20 text-2xl mobile:text-lg w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
               <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2"><%= Number(oporaData['H'])/1000 %> метров</span></li>
               <% if (type === 'силовая') {%>
@@ -42,10 +41,12 @@
             <div class="mt-20">
               <h2 class="text-2xl font-bold text-primary-darker">Дополнительные характеристики</h2>
               <ul class="max-w-[445px] mt-7 text-xl mobile:text-base w-full *:mb-5 *:pb-5 *:border-b *:border-primary-white *:w-full *:flex *:justify-between">
-                <li>Размер фланца: <span><%= oporaData['A']%>мм</span></li>
+              <% if (sposobUstanovki === 'фланцевая') {%>
+                <li>Размер фланца: <span><%= oporaData['A']%> мм</span></li>
                 <li>Межцентровое расстояние: <span><%= oporaData['B']%> мм</span></li>
                 <li>Количество отверстий: <span><%= oporaData['n']%> шт</span></li>
                 <li>Диаметр отверстий: <span><%= oporaData['d']%></span></li>
+              <% } %>
                 <li>Возможность покраски: <span>да</span></li>
                 <li>Покрытие: <span>горячее цинкование</span></li>
                 <li>Срок службы: <span>25-30 лет</span></li>
@@ -61,6 +62,7 @@
       <div class="content py-12 mobile:pt-40">
         <div class="w-3/4 ml-auto mobile:w-full">
         <h2 class="section-title normal-case">Документация и чертеж</h2>
+        <p class="text-primary-white text-xl mb-10 max-w-[66%] laptop:max-w-full">Станкостальконструкция является производителем опоры <%= htmlWebpackPlugin.options.title.split(' ')[1] %>. <%= catForCrumbs %> изготавливаются строго согласно ГОСТ, также возможно индивидуальное изменение конструкции под Ваши потребности. На базе данной опоры <%= `${type[0].toUpperCase()}${sposobUstanovki[0].toUpperCase()}Г` %> изготавливаются множество специализированных опор высотой <%= Number(oporaData['H'])/1000 %> метров<%= type === 'силовая' ? ` и боковой нагрузкой ${oporaData['P']} кг.` : '.' %></p>
          <!--<div class="flex mobile:flex-col-reverse mobile:*:basis-auto">
          <img class="basis-[444px] min-w-0 w-full" src="<%= require('./images/test-drawing.png')%>" alt="Чертёж опоры сфг">
           <div class="flex flex-col justify-between ml-5 max-w-[600px] mobile:ml-0">

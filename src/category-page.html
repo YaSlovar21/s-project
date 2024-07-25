@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
 <body class="page bg-themewhite">
@@ -13,65 +13,45 @@
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
   </header>
-  <div class="relative flex ">
-    <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"><%= h1Title %></a></li>
-    </ul>
-  </div>
-
+  
   <!--new-->
 
-  <div class="content">
-    <div class="py-[78px]">
-      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl"><%= h1Title %></h1>
-      <p class="mx-auto max-w-[836px] text-center text-xl mt-6">Общепринятые обозначения: опоры сфг, опоры огк, опоры огкс</p>
+  <div class="content mt-24 bg-primary-white">
+    <div class="pb-10 px-10 flex items-start flex-wrap laptop:flex-col laptop:*:basis-auto laptop:px-4">
+      <div class="relative flex basis-full mb-20">
+        <ul class="breadcrumbs-no-padding py-10">
+            <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
+            <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"><%= h1Title %></a></li>
+        </ul>
+      </div>    
+      <span class="mt-3 up-title up-title_svg basis-[calc(25%-40px)] text-primary-darker mb-20">Опоры освещения</span>
+      <h1 class="text-5xl basis-3/4  uppercase text-primary-darker leading-tight font-semibold max-w-[636px] mobile:text-3xl"><%= h1Title %></h1>
+      <!--<h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[836px] mx-auto mobile:text-4xl"><%= h1Title %></h1>
+        
+      <p class="mx-auto max-w-[836px] text-center text-xl mt-6">Общепринятые обозначения: опоры сфг, опоры огк, опоры огкс</p>-->
     </div>
   </div>
 
   <!--   -->
-  <main class="product-container">
-    <div class="content flex py-10 justify-between mobile:flex-col mobile:*:basis-auto">
-      <div class="shrink-0 basis-auto relative">
-          <img src="<%= require(`./images/cat-${categoryType}.png`)%>" alt="опора освещения">
-          <ul class="absolute py-8 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-xl *:font-bold  *:text-primary-darkerdouble">
+  <main class="product-container mt-10">
+    <div class="content flex justify-center py-10  mobile:flex-col mobile:*:basis-auto">
+      <div class="shrink-0 basis-[calc(25%-8px)] h-screen relative">
+          <img class="h-full w-3/4" src="<%= require(`./images/cat-${categoryType}.png`)%>" alt="опора освещения">
+          <ul class="absolute py-4 pb-8 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-lg *:font-medium *:bg-themewhite  *:text-primary-darkerdouble">
             <li class="max-w-[140px]"><%= featsArr[0] %></li>
             <li class="max-w-[200px]"><%= featsArr[1] %></li>
             <li class="max-w-[230px]"><%= featsArr[2] %></li>
           </ul>
       </div>
-      <div class="basis-1/2">
+      <div class="basis-2/4 flex flex-col">
         <%= require(`html-loader!./insets/cats/${categoryType}.html`).default %>
-        
-        <button class="ui-button <%= ctaButtonClass %> mt-12  transition-all duration-300 hover:bg-primary-white">Запросить КП на изготовление опоры</button>
-        <!--<ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
-          <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Вид опоры</h3>  <span class="bg-themewhite relative top-2">силовая</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <span class="bg-themewhite relative top-2">150 мм</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <span class="bg-themewhite relative top-2">250 мм</span></li>
-          <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <span class="bg-themewhite relative top-2">да</span></li>
-        </ul>
-        <button class="text-xl mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-full" href="/about/">Оставить заявку на С-ФГ-400 Ц</button>
-        <div class="mt-20">
-          <h2 class="text-3xl font-ui font-semibold text-primary-darker">Дополнительные характеристики</h2>
-          <ul class="max-w-[445px] mt-5 text-xl w-full *:mb-5 *:pb-5 *:border-b *:border-primary-lighter *:w-full *:flex *:justify-between">
-            <li>Размер фланца: <span>495мм</span></li>
-            <li>Межцентровое расстояние: <span>425мм</span></li>
-            <li>Количество отверстий: <span>6шт</span></li>
-            <li>Диаметр отверстий: <span>35мм</span></li>
-            <li>Возможность покраски: <span>да</span></li>
-            <li>Покрытие: <span>горячее цинкование</span></li>
-            <li>Срок службы: <span>30 лет</span></li>
-          </ul>
-        </div>-->
+        <button class="ui-button text-base font-medium <%= ctaButtonClass %> mt-auto self-start transition-all duration-300 hover:bg-primary-white">Запросить КП на изготовление опоры</button>
       </div>
     </div>
 
-    <section class="p-10 pb-20">
-      <h2 class="section-title section-title_cat text-center text-primary-darker">Производимая номенклатура</h2>
-      <ul class="grid grid-cols-2 bg-primary-white gap-[2px] content mobile:grid-cols-1">
+    <section class="p-10 mb-10 content mt-20 bg-primary-white">
+      <h2 class="up-title mb-20 text-primary-darker">Производимая номенклатура</h2>
+      <ul class="grid grid-cols-2 bg-primary-white gap-2 content mobile:grid-cols-1">
         <% tableData.map((oporaData) => { %>
           <li class="relative py-3 px-6 bg-themewhite transition-all duration-300 hover:bg-primary-white group">
             <h3 class="basis-full max-w-[420px] text-lg text-primary-black mb-3"><%= itemAlias %> <span class="whitespace-nowrap text-2xl font-bold"><%= oporaData["Name"].split('**').join('') %></span></h3>
@@ -82,9 +62,9 @@
                 <p class="text-base basis-1/2"><%= oporaData[i] %></p>
               </li>
             <%}}) %>
-              <li>
+              <!--<li>
                 <p class="font-bold my-4"><%= `${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}` %></p>
-              </li>
+              </li>-->
             </ul>
             <a href="<%= `${ROUTES[categoryType]}${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}`%>.html">
               <span class="absolute top-0 left-0 w-full h-full"></span>
@@ -101,28 +81,28 @@
       <figure class="absolute top-0 left-0">
         <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
       </figure>
-      <div class="content flex pt-36 mb-24 laptop:flex-col laptop:*:basis-auto laptop:px-10">
+      <div class="content flex pt-36 mb-24 laptop:flex-col laptop:*:basis-auto laptop:px-2">
         <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Наши преимущества</h2>
         <div class="basis-3/4 ">
           <h3 class="section-title">Как мы работаем?</h3>
-          <ul class="grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite mobile:grid-cols-2 ">
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
+          <ul class="*:min-h-32 grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite laptop:grid-cols-2 laptop:*:min-h-0 laptop:gap-x-2 mobile:grid-cols-1 ">
+            <li class="flex flex-col justify-between rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Выгодные условия для дилеров</h3>
               <p class="text-lg">Гибкая система % скидок</p>
             </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
+            <li class="flex flex-col justify-between rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Предоставим КП на изготовление</h3>
               <p class="text-lg">В течение 1-2 дней</p>
             </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
+            <li class="flex flex-col justify-between rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Срок изготовления</h3>
               <p class="text-lg">Опоры <%= categoryType === 'sfg' ? 'сфг, окгс' : '' %> в наличии и под заказ</p>
             </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
+            <li class="flex flex-col justify-between rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Цена завода</h3>
               <p class="text-lg">Мы - производитель и рады работать напрямую с заказчиками и дилерами</p>
             </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
+            <li class="flex flex-col justify-between rounded-sm">
               <h3 class="text-2xl font-bold max-w-xs">Изготовление по ГОСТ</h3>
               <p class="text-lg">Без экономии на материалах с точным расчётом <%= categoryType === 'sfg' ? 'силовой флацневой' : '' %> опоры под Ваши потребности</p>
             </li>
@@ -130,9 +110,9 @@
         </div>
         
       </div>
-      <div class="content flex pb-32 laptop:flex-col laptop:*:basis-auto laptop:px-10">
+      <div class="content flex pb-32 laptop:flex-col laptop:*:basis-auto laptop:px-2">
         <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
-        <ul class="basis-3/4 sert-grid">
+        <ul class="basis-3/4 sert-grid ">
           <li class="sert-grid__list-item <%= popupImageClass %>">
             <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
           </li>

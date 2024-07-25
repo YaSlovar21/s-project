@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
 <body class="page bg-themewhite">
@@ -22,7 +22,7 @@
   
     <!--new-->
     <div class="content relative">
-        <h1 class="absolute bottom-10 left-10 text-[70px]  uppercase text-left text-themewhite font-bold max-w-3xl mobile:text-2xl mobile:bottom-2 mobile:left-2">Производство опор освещения</h1>
+        <h1 class="absolute bottom-10 left-10 text-7xl uppercase text-left text-themewhite font-bold max-w-3xl mobile:text-2xl mobile:bottom-2 mobile:left-2">Производство опор освещения</h1>
         <img class="max-w-full" src="<%= require('./images/lpopory-cover.jpg')%>" alt="производство опор осещения">
         <!--<p class="mt-6 mb-[78px] text-xl text-center w-[calc(50%-12px)] flex ml-auto  mobile:text-base">от завода производителя</p>-->
     </div>
@@ -87,7 +87,7 @@
                             </span>    
                         </a>
                     </li>
-                    <li class="relative ">
+                    <!--<li class="relative ">
                         <a class="flex flex-col items-center h-full" href="<%= ROUTES.npg %>">
                             <img class="min-h-0" src="<%= require('./images/lpopory/npg.png')%>" alt="несиловая прямостоечная граненая опора нпг">
                             <h2 class="text-xl font-medium text-primary-darker mx-4 mt-8  mobile:text-xl">Опоры несиловые прямостоечные граненые</h2>
@@ -100,7 +100,7 @@
                                 </svg>
                             </span>    
                         </a>
-                    </li>
+                    </li>-->
 
                 </ul>
             </div>

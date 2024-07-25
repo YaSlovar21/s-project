@@ -62,37 +62,47 @@ function generateProductsHtmlPlugins(oporyData) {
   return oporyData.map((item) => {
     let itemRoute;
     let itemTitle;
+    let gostName;
+    let sposobUstanovki;
     let type;
     let desc;
     let catForCrumbs;
     switch (item.type) {
       case 'sfg':
         itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
-        itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100} | СФГ-${item['H']} (${item['Db']})`;
+        itemTitle = `Опора СФГ-${item['P']}-${Number(item['H'])/1000}-01-Ц`;
+        gostName = `МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
         type = 'силовая';
+        sposobUstanovki = 'фланцевая';
         desc = `Опора силовая фланцевая граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
         catForCrumbs = 'Опоры силовые фланцевые граненые';
         break;
+      case 'nfg':
+        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
+        itemTitle = `Опора ${item['Name'].split('**').join('').split(',0').join('')}`
+        gostName = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`;
+        type = 'несиловая';
+        sposobUstanovki = 'фланцевая';
+        desc = `Опора несиловая фланцевая граненая без возможности подвески СИП. Крепление к поверхности через фланец.`;
+        catForCrumbs = 'Опоры несиловые фланцевые граненые';
+        break;
       case 'spg':
         itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
-        itemTitle = `Опора МСО-ПГ-${Number(item['P'])/100} | СПГ-${item['H']} (${item['Db']})`;
+        itemTitle = `Опора ${item['Name'].split('**').join('')}`;
+        gostName = null;
         type = 'силовая';
+        sposobUstanovki = 'прямостоечная';
         desc = `Опора силовая прямостоечная граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм.`
         catForCrumbs = 'Опоры силовые прямостоечные граненые';
         break;
-      case 'nfg':
-        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
-        itemTitle = `Опора МНО-ФГ-${item['H']} НФГ-${item['H']} (${item['Db']})`
-        type = 'несиловая';
-        desc = `Опора несиловая фланцевая граненая без возможностиподвески СИП. Крепление к поверхности через фланец.`;
-        catForCrumbs = 'Опоры несиловые фланцевые граненые';
-        break;
       case 'npg':
         itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}.html`;
-        itemTitle = `Опора МНО-ПГ-${item['H']} НФГ-${item['H']} (${item['Db']})`;
-        desc = `Опора несиловая прямостоечная граненая без возможностиподвески СИП.`;
+        itemTitle = `Опора ${item['Name'].split('**').join('')}`;
+        gostName = null;
+        desc = `Опора несиловая прямостоечная граненая без возможности подвески СИП.`;
         catForCrumbs = 'Опоры несиловые прямостоечные граненые';
         type = 'несиловая';
+        sposobUstanovki = 'прямостоечная';
         break;
     }
     console.log(itemRoute);
@@ -112,12 +122,14 @@ function generateProductsHtmlPlugins(oporyData) {
         type,
         desc,
         catForCrumbs,
-        ...standartClasses
+        ...standartClasses,
+        gostName,
+        sposobUstanovki
       },
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
       filename: itemRoute,
-      chunks: ['index', 'form', 'ctaReactions', 'popupWithImage'],
+      chunks: ['index', 'form', 'ctaReactions'],
     })
   })
 }
@@ -262,7 +274,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         title: "О производстве",
         template: './src/about.html', // путь к файлу index.html
         filename: 'about/index.html',
-        chunks: ['index'],
+        chunks: ['index', 'form'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

@@ -41,6 +41,15 @@
         <%= require(`html-loader!./insets/cats/${categoryType}.html`).default %>
         
         <button class="ui-button">Запросить КП на изготовление опоры</button>
+<!--
+        <script> 
+          function goalCallback () {
+                  console.log('запрос в Метрику успешно отправлен');
+           }
+          document.addEventListener('copy', (evt)=> {
+           ym(88973338,'reachGoal','copied', {path: evt.target.baseURI, el: evt.target.innerText}, goalCallback );
+          })
+          </script>-->
         <!--<ul class="max-w-[445px] mt-20 text-2xl w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
           <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2">10 метров</span></li>
           <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2">700 kH</span></li>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>"  rel="canonical" />
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
 <body class="page bg-themewhite">
@@ -16,7 +16,7 @@
   <div class="relative flex ">
     <ul class="breadcrumbs">
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.brackets %>">Кронштейны</a></li>
     </ul>
   </div>
   <main class="py-14 content flex mobile:flex-col mobile:*:basis-auto">
@@ -24,14 +24,14 @@
         <img src="<%= require('./images/bracket.png')%>" alt="кронштейн под светильник к опоре освещения">
     </figure>
     <div class="basis-3/4">
-        <h1 class="text-5xl font-bold uppercase text-primary-darker">Кронштейны под светильники</h1>
+        <h1 class="text-5xl font-bold uppercase  max-w-[66.6%] text-primary-darker">Кронштейны под светильники</h1>
         
-        <p class="text-primary-darker text-xl max-w-[66.6%] laptop:max-w-full mt-3">
+        <p class="text-primary-darker text-xl max-w-[66.6%] laptop:max-w-full mt-24">
             Наша компания изготовит любой вид кронштейна под консольный светильник.
             Кронштейны изготавливаются как на железобетонные опоры, так и на многогранные и круглые металлические. Изделия
             нашего производства отличаются высокими эксплуатационными характеристиками, с длительным сроком службы.
         </p>
-        <p class="text-primary-darker text-xl max-w-[66.6%] laptop:max-w-full mt-3">
+        <p class="text-primary-darker text-xl max-w-[66.6%] laptop:max-w-full mt-6">
             На всю свою продукцию предоставляем гарантию 60 месяцев.
         </p>
     </div>

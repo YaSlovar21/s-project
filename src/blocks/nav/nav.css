@@ -18,7 +18,7 @@
 }
 
 .nav__submenu {
-    @apply bg-primary-lighterdouble border border-primary-lighter;
+    @apply bg-themewhite border border-primary-lighter;
 
     position: absolute;
     
