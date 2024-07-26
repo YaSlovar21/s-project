@@ -261,7 +261,7 @@ function generateConfig(oporyData, newsData, objectsData) {
           newsData: newsData.sort((a,b) => b.id - a.id),
           ...standartClasses //классы: контейнер, при клике на который открывается попап с картинкой
         },
-        title: "СтанкоСтальКонструкция | Производство гранёных опор освещения",
+        title: "СтанкоСтальКонструкция | Завод гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
         chunks: ['index', 'form','ctaReactions', 'slider', 'popupWithImage'],
       }),
@@ -271,7 +271,7 @@ function generateConfig(oporyData, newsData, objectsData) {
           ROUTES,
           objectsData
         },
-        title: "О производстве",
+        title: "О производстве опор и география поставок",
         template: './src/about.html', // путь к файлу index.html
         filename: 'about/index.html',
         chunks: ['index', 'form'],
@@ -282,7 +282,7 @@ function generateConfig(oporyData, newsData, objectsData) {
           ROUTES,
           
         },
-        title: "Проектировщикам",
+        title: "Проектировщикам дорог и дорожного освещения",
         template: './src/proektirovshchikam.html', // путь к файлу index.html
         filename: 'proektirovshchikam/index.html',
         chunks: ['index'],
@@ -296,7 +296,7 @@ function generateConfig(oporyData, newsData, objectsData) {
           categories,
           ...standartClasses
         },
-        title: "Каталог",
+        title: "Каталог опор освещения",
         template: './src/production.html', // путь к файлу index.html
         filename: 'catalog/index.html',
         chunks: ['index', 'form','ctaReactions' ]
@@ -340,7 +340,8 @@ function generateConfig(oporyData, newsData, objectsData) {
           ROUTES,
           ...standartClasses
         },
-        title: "Опоры освещения",
+        title: "Опоры освещения конические многогранные ГОСТ 32947-2014",
+        desc: "Производство опор освещения гранёных опор освещения: силовых фланцевых , несиловых фланцевых, силовых и несиловых прямостоечных опор освещения. Полный цикл производства.",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
         chunks: ['index', 'lpopory', 'form', 'popupWithImage', 'frequently','ctaReactions'],

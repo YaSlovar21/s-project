@@ -26,7 +26,7 @@
             <h2 class="up-title up-title_svg basis-1/4 mb-20">Опоры сфг</h2>
             <a class="block basis-3/4 mb-20 text-3xl max-w-xl" href="<%= ROUTES.sfg%>">Силовые фланцевые граненые опоры</a>
             <div class="flex justify-between basis-full laptop:flex-col laptop:*:basis-auto">
-                <div class="h-[650px] bg-primary-light sticky top-2 basis-[calc(25%-8px)] flex flex-col items-center group">
+                <div class="h-[650px] bg-primary-light sticky z-0 top-2 basis-[calc(25%-8px)] flex flex-col items-center group">
                     <img class="min-h-0" src="<%= require('./images/lpopory/sfg.png')%>" alt="силовая фланцевая граненая опора сфг">
                     <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые фланцевые граненые</h2>
                     <div class="flex w-full justify-between items-center pl-4 pt-4">
@@ -39,7 +39,7 @@
                         </a>    
                     </div>
                 </div>
-                <ul class="basis-3/4 grid grid-cols-3 gap-2 laptop:grid-cols-2  mobile:grid-cols-1">
+                <ul class="basis-3/4 grid grid-cols-3 relative z-[1] gap-2 laptop:grid-cols-2  mobile:grid-cols-1">
                     <% tableData.filter(i=> i.type === 'sfg').map((oporaData) => { %>
                         <li class="relative py-5 px-3 bg-themewhite transition-all duration-300 hover:bg-primary-white group">
                         <h3 class="basis-full max-w-[420px] text-lg text-primary-black mb-8"><span class="whitespace-nowrap font-bold"><%= oporaData["Name"].split('**').join('').split(',0').join('').split('(90)').join('') %></span></h3>
@@ -71,7 +71,7 @@
             <h2 class="up-title up-title_svg basis-1/4 mb-20">Опоры нфг</h2>
             <a class="block basis-3/4 mb-20 text-3xl max-w-xl" href="<%= ROUTES.nfg %>">Несиловые фланцевые граненые опоры</a>
             <div class="flex justify-between basis-full laptop:flex-col laptop:*:basis-auto">
-                <div class="h-[650px] bg-primary-light sticky top-2 basis-[calc(25%-8px)] flex flex-col items-center group">
+                <div class="h-[650px] bg-primary-light sticky z-0 top-2 basis-[calc(25%-8px)] flex flex-col items-center group">
                     <img class="min-h-0" src="<%= require('./images/lpopory/nfg.png')%>" alt="силовая фланцевая граненая опора сфг">
                     <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры несиловые фланцевые граненые</h2>
                     <div class="flex w-full justify-between items-center pl-4 pt-4">
@@ -84,7 +84,7 @@
                         </a>    
                     </div>
                 </div>
-                <ul class="basis-3/4 grid grid-cols-3 gap-2 laptop:grid-cols-2 mobile:grid-cols-1">
+                <ul class="basis-3/4 grid grid-cols-3 relative z-[1] gap-2 laptop:grid-cols-2 mobile:grid-cols-1">
                     <% tableData.filter(i=> i.type === 'nfg').map((oporaData) => { %>
                         <li class="relative py-5 px-3 bg-themewhite transition-all duration-300 hover:bg-primary-white group">
                             <h3 class="basis-full max-w-[420px] text-lg text-primary-black mb-8"><span class="whitespace-nowrap font-bold"><%= oporaData["Name"].split('**').join('').split(',0').join('').split('(90)').join('') %></span></h3>
