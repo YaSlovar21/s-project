@@ -19,20 +19,21 @@
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Новости производства</a></li>
     </ul>
 </div>
-  <main class="px-10 my-10 mobile:px-5">
-    <h1 class="section-title text-primary-darker">Новости производства</h1>
-    <ul class="grid grid-cols-3 gap-x-5 content-stretch pc:grid-cols-3 olpc:grid-cols-2 laptop:grid-cols-1">
-      <% newsData.map((i) => { %>
-        <li class="p-10  mb-5 relative rounded-sm flex flex-col justify-stretch bg-themewhite transition-all duration-300 border  border-primary-lighterdouble hover:bg-primary-white group mobile:p-5">
-          <span class="block text-sm text-primary mb-4"><%= i.formattedDate %></span>
-          <figure class="basis-80 h-full shrink-0 overflow-hidden group-hover:opacity-80">
+  <main class=" content my-10">
+    <h1 class="section-title  text-6xl mb-44 text-primary-darker text-center  mobile:text-3xl mobilesm:text-2xl">Новости компании</h1>
+    <ul class="grid grid-cols-4 gap-x-10 gap-y-14 content-start items-start pc:grid-cols-3 olpc:grid-cols-2 laptop:grid-cols-1">
+      <% newsData.map((i, index) => { %>
+        <li class=" <%= index===0 ? 'col-span-2' : '' %> p-0 mb-5 relative rounded-sm flex flex-col justify-start bg-themewhite transition-all duration-300  hover:bg-primary-white group mobile:col-span-1">
+          
+          <figure class="basis-80  h-full shrink-0 overflow-hidden relative shading shading_static">
+            <span class="block text-base font-extrabold  text-white mb-4 absolute bottom-2 left-4 z-[3]"><%= i.formattedDate %></span>
             <img class="w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-105" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
           </figure>
-          <div class="flex flex-col basis-full justify-between">
+          <div class="py-2 px-4 flex flex-col basis-full">
            
             <h3 class="text-xl font-semibold text-primary-black mt-4 mb-2 max-w-[400px] group-hover:text-primary"><%= i.title %></h3>
             <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
-            <a class="mt-auto pt-10 bem__link bem__link_left bem__link_newwindow" href="<%= i.isStaticPage %>">Читать подробнее<span class="absolute top-0 left-0 w-full h-full"></span></a>
+            <a class="" href="<%= i.isStaticPage %>"><span class="absolute top-0 left-0 w-full h-full z-[4]"></span></a>
           </div>
         </li>
       <% }) %>

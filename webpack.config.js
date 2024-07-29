@@ -183,7 +183,8 @@ function generateConfig(oporyData, newsData, objectsData) {
       slider: './src/pages/mainPageSlider.js',
       popupWithImage: './src/pages/popupImage.js',
       frequently: './src/pages/frequently.js',
-      ctaReactions: './src/pages/cta-reaction.js'
+      ctaReactions: './src/pages/cta-reaction.js',
+      hoverToImage: './src/pages/hover-to-main.js'
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -344,7 +345,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         desc: "Производство опор освещения гранёных опор освещения: силовых фланцевых , несиловых фланцевых, силовых и несиловых прямостоечных опор освещения. Полный цикл производства.",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
-        chunks: ['index', 'lpopory', 'form', 'popupWithImage', 'frequently','ctaReactions'],
+        chunks: ['index', 'lpopory', 'form', 'popupWithImage', 'frequently','ctaReactions', 'hoverToImage'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

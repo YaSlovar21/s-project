@@ -125,7 +125,16 @@
   .inset0 {
     @apply absolute top-0 left-0 w-full h-full;
   }
+  .shading {
+    @apply relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-dark after:transition-all after:bg-opacity-15 after:z-[1] hover:after:bg-opacity-40;
+  }
+  .shading_static {
+    @apply after:bg-opacity-30 hover:after:bg-opacity-30;
+  }
 
+  .corner-cropped {
+    @apply relative overflow-hidden before:w-1/4 before:h-1/4 before:bg-themewhite before:z-[3] before:absolute before:-left-24 before:-bottom-24 before:rotate-45;
+  }
 
   .main-product-grid {
     display: grid;

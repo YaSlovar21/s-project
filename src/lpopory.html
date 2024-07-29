@@ -109,7 +109,7 @@
     </section>
     <!--   
     <section class=" mt-24 olpc:flex-col olpc:px-2">-->
-        <section>
+        <section class="mobile:px-2">
         <!--<h2 class="text-4xl uppercase font-bold text-primary-darker">Собственное производство</h2>-->
         <div class="content-50 mx-auto text-primary-black text-xl mobile:text-base">
             <p>
@@ -124,29 +124,43 @@
                     металла – от 4 до 12 мм</span>. Цена на металлические опоры наружного освещения, предложенная нашей компанией -
                 наиболее выгодная в своем сегменте рынка.
             </p>
-            <a class="ui-button hover:bg-primary-darker hover:text-themewhite font-medium block bem__link_arrowup w-1/2 mobile:w-full justify-center mt-8" href="<%= ROUTES.catalog %>">Перейти в каталог</a>
+            <a class="ui-button bg-primary-darker text-primary-white hover:bg-themewhite hover:text-primary-darker font-medium block bem__link_arrowup w-full mobile:w-full justify-center my-12" href="<%= ROUTES.catalog %>">Перейти в каталог</a>
         </div>
     </section>
-    <section class="py-4 mt-10 olpc:px-2">
-        <div class="content flex mt-12 items-start mobile:flex-col">
-            <h2 class="basis-1/4 up-title_svg w-full up-title text-primary-darker mb-4">Цикл производства</h2>
-            <div class="basis-1/4 grid grid-cols-2 grid-rows-3 gap-2">
-                <% [1,2,3,4,5].map((i) => { %>
-                    <figure class="overflow-hidden rounded-md border border-primary">
-                        <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/${i}.png`) %>" alt="">
-                    </figure>
-                <% }) %>
+    <section class="py-4 my-32 content olpc:px-2">
+        <h2 class=" up-title_svg w-full up-title text-primary-darker mb-4">Цикл производства</h2>
+        <h2 class="section-title font-semibold normal-case text-primary-darker">Производство опор ГОСТ 32947-2014</h2>
+        <div class="flex justify-end items-center mt-12 items-start mobile:flex-col">
+            <div class="basis-1/3 grid grid-cols-3 grid-rows-3 gap-2 mr-8 mobile:mr-0">
+                <figure class="hov-icon shading overflow-hidden rounded-sm border border-primary">
+                    <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/1.png`) %>" alt="Заготовка, вырезанная на плазменной резке поступает на листогибочный пресс">
+                </figure>
+                <figure class="hov-icon shading overflow-hidden rounded-sm border border-primary">
+                    <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/2.png`) %>" alt="Происходит процесс формирования граней опоры освещения">
+                </figure>
+                <figure class="hov-icon shading overflow-hidden rounded-sm border border-primary">
+                    <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/3.png`) %>" alt="Сформирована коническая многогранная форма опоры">
+                </figure>
+                <figure class="hov-icon shading overflow-hidden rounded-sm border border-primary">
+                    <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/4.png`) %>" alt="Данное изделие переходит на сварочный участок">
+                </figure>
+                <figure class="hov-icon shading overflow-hidden rounded-sm border border-primary">
+                    <img class="w-full h-full object-cover object-center" src="<%= require(`./images/cycle/5.png`) %>" alt="После сварки гранёная опора проходит процедуру выправки и горячего цинкования">
+                </figure>
+                <div class="col-span-3 self-end relative before:absolute before:w-1/4 before:h-[1px] before:bg-primary-lighterdouble before:left-0 before:top-[0.87rem]">
+                    <p class="hov-desc text-xl indent-[33%] mobile:text-base">Изготовление опоры на гидравлическом тандемном прессе</p>
+                </div>
             </div>
-            <div class="basis-1/2 ml-2 shrink-0 ">
-                <figure class="w-full pt-[100%] relative">
-                    <img class="absolute w-full h-full top-0 left-0 w-full h-full" src="<%= require('./images/cycle/1.png') %>">
+            <div class="basis-1/2 ml-2 shrink-0">
+                <figure class="w-full pt-[100%] relative shading shading_static corner-cropped">
+                    <img class="target-hov-img absolute w-full h-full top-0 left-0" src="<%= require('./images/cycle/1.png') %>" alt="Заготовка опоры, вырезанная на плазменной резке поступает на листогибочный пресс">
                 </figure>
             </div>
         </div>
     </section>
   <main class="product-container">
     <section class="relative bg-primary-darker">
-      <figure class="absolute top-0 left-0">
+      <figure class="absolute top-0 left-0 pc:-translate-y-[50%]">
         <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
       </figure>
       <div class="content flex pt-32 mb-24 justify-end">
@@ -154,26 +168,26 @@
             <h2 class="section-title">Как мы работаем?</h2>
             <ul class="frequently__questions">
                 <li class="group frequently__item relative border-b border-b-primary-lighter">
-                    <h3 class="frequently__question py-6 flex justify-between font-bold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Материалы</h3>
+                    <h3 class="frequently__question py-6 flex justify-between font-semibold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Материалы</h3>
                     <p class="frequently__answer pb-6 max-w-2xl text-lg olpc:text-lg text-primary-lighter">
                         Изготавливаем опоры освещения из стали проверенных марок и производителей. Наличие лаборатории дает возможность нам
                         контролировать поступающую сталь на соответствие заданной марки.
                     </p>
                 </li>
                 <li class="group frequently__item relative border-b border-b-primary-lighter">
-                    <h3 class="frequently__question py-6 flex justify-between font-bold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Срок изготовления</h3>
+                    <h3 class="frequently__question py-6 flex justify-between font-semibold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Срок изготовления</h3>
                     <p class="frequently__answer pb-6 max-w-2xl text-lg olpc:text-lg text-primary-lighter">
                         Основные позиции всегда в наличии (опоры ОКГ, СФГ высотой 8, 9, 10 метров). Срок изготовления под заказ - 3 недели.
                     </p>
                 </li>
                 <li class="group frequently__item relative border-b border-b-primary-lighter">
-                    <h3 class="frequently__question py-6 flex justify-between font-bold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">География работы</h3>
+                    <h3 class="frequently__question py-6 flex justify-between font-semibold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">География работы</h3>
                     <p class="frequently__answer pb-6 max-w-2xl text-lg olpc:text-lg text-primary-lighter">
                         Работаем во всей России.
                     </p>
                 </li>
                 <li class="group frequently__item relative border-b border-b-primary-lighter">
-                    <h3 class="frequently__question py-6 flex justify-between font-bold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Оперативный расчёт</h3>
+                    <h3 class="frequently__question py-6 flex justify-between font-semibold text-xl uppercase text-primary-lighter transition-all duration-300 hover:text-primary-white cursor-pointer">Оперативный расчёт</h3>
                     <p class="frequently__answer pb-6 max-w-2xl text-lg olpc:text-lg text-primary-lighter">
                         Менеджер рассчитает стоимость опор и предоставит коммерческое предложение в течение 1-2 дней исходя из объема заказа. 
                     </p>
