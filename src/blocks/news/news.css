@@ -50,7 +50,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    @apply bg-primary-lighter bg-opacity-20;
+    @apply bg-primary-lighter bg-opacity-20 ;
     z-index: 3;
 }
 
@@ -60,4 +60,9 @@
 
 .news-section-mainpage__list-item:nth-child(1) .news-section-mainpage__image {
     @apply w-full h-[444px]  mobile:h-[333px];
+}
+
+/*НА странице новости*/
+.news-grid li:nth-child(6n) {
+    @apply col-start-4 pc:col-start-auto;
 }

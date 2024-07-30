@@ -134,6 +134,64 @@ function generateProductsHtmlPlugins(oporyData) {
   })
 }
 
+function generateGOSTProductsHtmlPlugins(oporyData) {
+  return oporyData.filter(item => item.type === 'sfg' || item.type === 'nfg').map((item) => {
+    let itemRoute;
+    let itemTitle;
+    let gostName = null;
+    let sposobUstanovki;
+    let type;
+    let desc;
+    let catForCrumbs;
+    switch (item.type) {
+      case 'sfg':
+        itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/gost-mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
+        //gostName = ``;
+        type = 'силовая';
+        sposobUstanovki = 'фланцевая';
+        desc = `Опора силовая фланцевая граненая ГОСТ с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
+        catForCrumbs = 'Опоры силовые фланцевые граненые ГОСТ';
+        break;
+      case 'nfg':
+        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/gost-mno-fg-${item['H']}-${item['Db']}.html`;
+        itemTitle = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`
+        //gostName = `Опора `;
+        type = 'несиловая';
+        sposobUstanovki = 'фланцевая';
+        desc = `Опора несиловая фланцевая граненая ГОСТ без возможности подвески СИП. Крепление к поверхности через фланец.`;
+        catForCrumbs = 'Опоры несиловые фланцевые граненые';
+        break;
+    }
+    console.log(itemRoute);
+    generatedPaths.push(
+      {
+        path: `/${itemRoute}`,
+        lastmod: dateNow,
+        priority: 1,
+        changefreq: 'monthly'
+      }
+    )
+    return new HtmlWebpackPlugin({
+      templateParameters: {
+        canonicalURL,
+        ROUTES,
+        oporaData: item,
+        type,
+        desc,
+        catForCrumbs,
+        ...standartClasses,
+        gostName,
+        sposobUstanovki
+      },
+      title: itemTitle,
+      template: './src/product-page.html', // путь к файлу index.html
+      filename: itemRoute,
+      chunks: ['index', 'form', 'ctaReactions'],
+    })
+  })
+}
+
 /* -------------------------СТАТЬИ---------------------*/
 
 function generateArticlesHtmlPlugins(newsData) {
@@ -173,6 +231,8 @@ function generateConfig(oporyData, newsData, objectsData) {
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
   const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
+  const htmlProductsGOSTPlugins = generateGOSTProductsHtmlPlugins(oporyData);
+
   console.log(paths.length + generatedPaths.length)
   return {
     entry: { 
@@ -388,7 +448,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         filename: '[name].css'
       }),
       new SitemapPlugin({ base: canonicalURL, paths: paths.concat(generatedPaths) }),
-    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins), 
+    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins, htmlProductsGOSTPlugins), 
   }
 }
 const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
