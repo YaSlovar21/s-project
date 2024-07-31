@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:site_name" content="СтанкоСтальКонструкция"/>
+  <meta property="og:title" content="<%= h1Title.split('»').join(' ').split('«').join(' ').split("\"").join(' ').split("\"").join(' ').trim() %>"/>
+  <meta property="og:image" content="<%= canonicalURL %>/api-images/<%=textArticleId%>/poster.png"/>
+
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename %>"  rel="canonical" />
@@ -24,7 +29,7 @@
     <div class="content">
       <article class="ml-[25%] mobile:ml-0 prose prose-lg prose-ssk olpc:prose-lg pc:prose-xl">
         <h1 class="section-title text-primary-black normal-case not-prose"><%= h1Title %></h1>
-        <img src="<%=canonicalURL%>/api-images/<%=textArticleId%>/poster.png" alt="">
+        <img src="<%=canonicalURL%>/api-images/<%=textArticleId%>/poster.png" alt="<%= h1Title.split('»').join(' ').split('«').join(' ').split("\"").join(' ').split("\"").join(' ').trim() %>">
         <%= _.template(require(`html-loader!./articles/${textArticleId}.html`).default)({popupImageClass}) %>
       </article>
     </div>
