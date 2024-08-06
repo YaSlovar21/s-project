@@ -56,7 +56,52 @@
                             <p class="font-bold my-4"><%= `mso-fg-${oporaData['H']}-${oporaData['Db']}-${oporaData['P']}kg` %></p>
                             </li>-->
                         </ul>
-                        <a href="<%= `${ROUTES.sfg}mso-fg-${oporaData['H']}-${oporaData['Db']}-${oporaData['P']}kg`%>.html">
+                        <a href="<%= `/catalog/opory-sfg/sfg-${oporaData['P']}-${Number(oporaData['H'])/1000}-${oporaData['Db']}.html` %>">
+                            <span class="absolute top-0 left-0 w-full h-full"></span>
+                        </a>
+                        <svg class=" absolute top-5 right-3 w-6 h-6 fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                        </svg>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </section>
+        <section class="flex flex-wrap laptop:flex-col laptop:*:basis-auto">
+            <h2 class="up-title up-title_svg basis-1/4 mb-20">Опоры МСО-ФГ</h2>
+            <a class="block basis-3/4 mb-20 text-3xl max-w-xl" href="<%= ROUTES.sfg%>">Силовые фланцевые граненые опоры</a>
+            <div class="flex justify-between basis-full laptop:flex-col laptop:*:basis-auto">
+                <div class="h-[650px] bg-primary-light sticky z-0 top-2 basis-[calc(25%-48px)] flex flex-col items-center group">
+                    <img class="min-h-0" src="<%= require('./images/lpopory/sfg.png')%>" alt="силовая фланцевая граненая опора сфг">
+                    <h2 class="text-2xl mx-4 mt-8  mobile:text-xl">Опоры силовые фланцевые граненые ГОСТ</h2>
+                    <div class="flex w-full justify-between items-center pl-4 pt-4">
+                        <p class="text-base uppercase">Опоры СФГ</p>
+                        <a class="w-10 h-10 text-primary-white text-xl uppercase mobile:text-sm" href="<%= ROUTES.sfg %>">
+                            <span class="absolute top-0 left-0 w-full h-full"></span>
+                            <svg class="fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                            </svg>
+                        </a>    
+                    </div>
+                </div>
+                <ul class="basis-3/4 grid grid-cols-3 relative z-[1] gap-x-4 gap-y-6 laptop:grid-cols-2  mobile:grid-cols-1">
+                    <% tableData.filter(i=> i.type === 'sfg').map((oporaData) => { %>
+                        <li class="relative py-5 px-3 bg-themewhite transition-all duration-300 hover:bg-primary-white group">
+                        <h3 class="basis-full max-w-[420px] text-xl text-primary-black mb-12"><span class="whitespace-nowrap font-bold"><%= `Опора МСО-ФГ-${Number(oporaData['P'])/100}-${Number(oporaData['H'])/1000}` %></span></h3>
+                        <ul class="text-primary-darker">
+                            <li class="flex items-end">
+                                <h4 class="text-lg flex basis-full"><span class="whitespace-nowrap">Высота опоры:</span> <span class="border-b border-dotted block border-primary-lighterdouble basis-full"></span></h4>
+                                <p class="text-lg font-bold basis-auto whitespace-nowrap"><%= Number(oporaData['H'])/1000 %> метров</p>
+                            </li>
+                            <li class="flex items-end">
+                                <h4 class="text-lg flex basis-full"><span class="whitespace-nowrap">Боковая нагрузка:</span> <span class="border-b border-dotted block border-primary-lighterdouble basis-full"></span></h4>
+                                <p class="text-lg basis-auto whitespace-nowrap"><%= Number(oporaData['P'])/100 %> kH</p>
+                            </li>
+                            <!--<li>
+                            <p class="font-bold my-4"><%= `mso-fg-${oporaData['H']}-${oporaData['Db']}-${oporaData['P']}kg` %></p>
+                            </li>-->
+                        </ul>
+                        <a href="<%= `/catalog/opory-sfg/mso-fg-${Number(oporaData['P'])/100}-${Number(oporaData['H'])/1000}-${oporaData['Db']}.html` %>">
                             <span class="absolute top-0 left-0 w-full h-full"></span>
                         </a>
                         <svg class=" absolute top-5 right-3 w-6 h-6 fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
@@ -95,7 +140,7 @@
                             </li>
                     
                             </ul>
-                            <a href="<%= `${ROUTES.nfg}mno-fg-${oporaData['H']}-${oporaData['Db']}`%>.html">
+                            <a href="<%= `/catalog/opory-nfg/nfg-${Number(oporaData['H'])/1000}-${oporaData['Db']}.html`%>">
                             <span class="absolute top-0 left-0 w-full h-full"></span>
                             </a>
                             <svg class=" absolute top-5 right-3 w-5 h-5 fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >

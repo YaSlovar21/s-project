@@ -69,7 +69,8 @@ function generateProductsHtmlPlugins(oporyData) {
     let catForCrumbs;
     switch (item.type) {
       case 'sfg':
-        itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        //itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        itemRoute =  `catalog/opory-sfg/sfg-${item['P']}-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора СФГ-${item['P']}-${Number(item['H'])/1000}-01-Ц`;
         gostName = `МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
         type = 'силовая';
@@ -78,7 +79,8 @@ function generateProductsHtmlPlugins(oporyData) {
         catForCrumbs = 'Опоры силовые фланцевые граненые';
         break;
       case 'nfg':
-        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
+        // itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
+        itemRoute =  `catalog/opory-nfg/nfg-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора ${item['Name'].split('**').join('').split(',0').join('')}`
         gostName = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`;
         type = 'несиловая';
@@ -87,7 +89,8 @@ function generateProductsHtmlPlugins(oporyData) {
         catForCrumbs = 'Опоры несиловые фланцевые граненые';
         break;
       case 'spg':
-        itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+       // itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        itemRoute =  `catalog/opory-spg/spg-${item['P']}-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора ${item['Name'].split('**').join('')}`;
         gostName = null;
         type = 'силовая';
@@ -96,7 +99,8 @@ function generateProductsHtmlPlugins(oporyData) {
         catForCrumbs = 'Опоры силовые прямостоечные граненые';
         break;
       case 'npg':
-        itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}.html`;
+        //itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}.html`;
+        itemRoute =  `catalog/opory-npg/npg-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора ${item['Name'].split('**').join('')}`;
         gostName = null;
         desc = `Опора несиловая прямостоечная граненая без возможности подвески СИП.`;
@@ -145,7 +149,7 @@ function generateGOSTProductsHtmlPlugins(oporyData) {
     let catForCrumbs;
     switch (item.type) {
       case 'sfg':
-        itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/gost-mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        itemRoute =  `catalog/opory-sfg/mso-fg-${Number(item['P'])/100}-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
         //gostName = ``;
         type = 'силовая';
@@ -154,7 +158,7 @@ function generateGOSTProductsHtmlPlugins(oporyData) {
         catForCrumbs = 'Опоры силовые фланцевые граненые ГОСТ';
         break;
       case 'nfg':
-        itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/gost-mno-fg-${item['H']}-${item['Db']}.html`;
+        itemRoute = `catalog/opory-nfg/mno-fg-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`
         //gostName = `Опора `;
         type = 'несиловая';
