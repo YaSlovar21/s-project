@@ -1,0 +1,50 @@
+.products-list {
+    overflow: hidden;
+}
+
+.products-list__item {
+    @apply bg-primary-white;
+}
+
+.products-list__item::before {
+    @apply bg-primary-white;
+    content: '';
+    height: 32px;
+    width: calc(100% + 32px);
+    overflow: hidden;
+    transform: skewX(-45deg);
+    
+    position: absolute;
+    top: -16px;
+    left: 0;
+}
+
+.products-list__item:nth-child(2n+1) /*1,3,5*/ {
+    @apply bg-primary-lighterdouble;
+}
+
+.products-list__item:nth-child(2n+1)::before {
+    @apply bg-primary-lighterdouble;
+}
+
+.products-list__item:last-child::after {
+    
+    content: '';
+    height: 32px;
+    width: calc(100% + 32px);
+    overflow: hidden;
+    transform: skewX(-45deg);
+    
+    position: absolute;
+    bottom: -16px;
+    right:0;
+}
+
+.products-list__item::after {
+    @apply bg-primary-white;
+}
+
+.products-list__item:nth-child(2n+1)::after {
+    @apply bg-primary-lighterdouble;
+
+}

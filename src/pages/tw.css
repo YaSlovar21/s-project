@@ -97,6 +97,10 @@
   .up-title_svg-white::before {
     background-image: url(../images/svg/ssk-up-title-white.svg);
   }
+  .up-title_svg-primary::before {
+    background-image: url(../images/svg/ssk-up-title-primary.svg);
+  }
+  
 
   .section-title {
     @apply text-4xl font-bold uppercase text-primary-white mb-16 pc:text-3xl mobile:text-2xl;
