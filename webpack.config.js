@@ -30,6 +30,7 @@ function generateCategoriesHtmlPlugins(oporyData) {
   return categories.map(category => {
     return new HtmlWebpackPlugin({
       templateParameters: {
+        pathGenerator: category.pathGenerator,
         canonicalURL,
         ROUTES,
         tableData: oporyData.filter(i => i.type === category.type),
@@ -42,7 +43,11 @@ function generateCategoriesHtmlPlugins(oporyData) {
         gost1: category.gost1,
         featsArr: featuresForCats[category.type],
 
-        ...standartClasses
+        ...standartClasses,
+
+        //все категории для рекомендательной ленты
+        allCats: categories.filter(item=> item.filename !== category.filename),
+        nameGenerator: category.nameGenerator,
       },
       title: category.title,
       template: './src/category-page.html', // путь к файлу index.html
@@ -67,6 +72,7 @@ function generateProductsHtmlPlugins(oporyData) {
     let type;
     let desc;
     let catForCrumbs;
+    let categoryID;
     switch (item.type) {
       case 'sfg':
         //itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
@@ -74,6 +80,7 @@ function generateProductsHtmlPlugins(oporyData) {
         itemTitle = `Опора СФГ-${item['P']}-${Number(item['H'])/1000}-01-Ц`;
         gostName = `МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
         type = 'силовая';
+        categoryID = 'sfg';
         sposobUstanovki = 'фланцевая';
         desc = `Опора силовая фланцевая граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
         catForCrumbs = 'Опоры силовые фланцевые граненые';
@@ -84,6 +91,7 @@ function generateProductsHtmlPlugins(oporyData) {
         itemTitle = `Опора ${item['Name'].split('**').join('').split(',0').join('')}`
         gostName = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`;
         type = 'несиловая';
+        categoryID = 'nfg';
         sposobUstanovki = 'фланцевая';
         desc = `Опора несиловая фланцевая граненая без возможности подвески СИП. Крепление к поверхности через фланец.`;
         catForCrumbs = 'Опоры несиловые фланцевые граненые';
@@ -94,6 +102,7 @@ function generateProductsHtmlPlugins(oporyData) {
         itemTitle = `Опора ${item['Name'].split('**').join('')}`;
         gostName = null;
         type = 'силовая';
+        categoryID = 'spg';
         sposobUstanovki = 'прямостоечная';
         desc = `Опора силовая прямостоечная граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм.`
         catForCrumbs = 'Опоры силовые прямостоечные граненые';
@@ -103,6 +112,7 @@ function generateProductsHtmlPlugins(oporyData) {
         itemRoute =  `catalog/opory-npg/npg-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора ${item['Name'].split('**').join('')}`;
         gostName = null;
+        categoryID = 'npg';
         desc = `Опора несиловая прямостоечная граненая без возможности подвески СИП.`;
         catForCrumbs = 'Опоры несиловые прямостоечные граненые';
         type = 'несиловая';
@@ -128,7 +138,8 @@ function generateProductsHtmlPlugins(oporyData) {
         catForCrumbs,
         ...standartClasses,
         gostName,
-        sposobUstanovki
+        sposobUstanovki,
+        categoryID
       },
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
@@ -136,6 +147,10 @@ function generateProductsHtmlPlugins(oporyData) {
       chunks: ['index', 'form', 'ctaReactions'],
     })
   })
+}
+
+function sfdsdd(a,b)  {
+  return a+b;
 }
 
 function generateGOSTProductsHtmlPlugins(oporyData) {
@@ -147,21 +162,24 @@ function generateGOSTProductsHtmlPlugins(oporyData) {
     let type;
     let desc;
     let catForCrumbs;
+    let categoryID;
     switch (item.type) {
       case 'sfg':
-        itemRoute =  `catalog/opory-sfg/mso-fg-${Number(item['P'])/100}-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemRoute =  `catalog/opory-mso-fg/mso-fg-${Number(item['P'])/100}-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
         //gostName = ``;
         type = 'силовая';
+        categoryID = 'msofg';
         sposobUstanovki = 'фланцевая';
         desc = `Опора силовая фланцевая граненая ГОСТ с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
         catForCrumbs = 'Опоры силовые фланцевые граненые ГОСТ';
         break;
       case 'nfg':
-        itemRoute = `catalog/opory-nfg/mno-fg-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemRoute = `catalog/opory-mno-fg/mno-fg-${Number(item['H'])/1000}-${item['Db']}.html`;
         itemTitle = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`
         //gostName = `Опора `;
         type = 'несиловая';
+        categoryID = 'mnofg';
         sposobUstanovki = 'фланцевая';
         desc = `Опора несиловая фланцевая граненая ГОСТ без возможности подвески СИП. Крепление к поверхности через фланец.`;
         catForCrumbs = 'Опоры несиловые фланцевые граненые';
@@ -186,7 +204,8 @@ function generateGOSTProductsHtmlPlugins(oporyData) {
         catForCrumbs,
         ...standartClasses,
         gostName,
-        sposobUstanovki
+        sposobUstanovki,
+        categoryID
       },
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
@@ -321,6 +340,7 @@ function generateConfig(oporyData, newsData, objectsData) {
     plugins: [
       new HtmlWebpackPlugin({
         templateParameters: {
+          sfdsdd,
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),

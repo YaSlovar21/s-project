@@ -1,10 +1,18 @@
 const ROUTES = {
     catalog: '/catalog/',
     oporyMain: '/opory-osveshcheniya/',
-    sfg: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/',
+    /*sfg: '/opory-osveshcheniya/opory-silovye-flancevye-granenye/',
     spg: '/opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/',
     nfg: '/opory-osveshcheniya/opory-nesilovye-flancevye-granenye/',
-    npg: '/opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/',
+    npg: '/opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/',*/
+    sfg: '/catalog/opory-sfg/',
+    spg: '/catalog/opory-spg/',
+    nfg: '/catalog/opory-nfg/',
+    npg: '/catalog/opory-npg/',
+
+    msofg: '/catalog/opory-mso-fg/',
+    mnofg: '/catalog/opory-mno-fg/',
+
     machty: '/vysokomachtovye-opory/',
     fundamenty: '/opory-osveshcheniya/fundamenty-pod-opory/',
     brackets: '/opory-osveshcheniya/kronshtejny-pod-svetilniki/',

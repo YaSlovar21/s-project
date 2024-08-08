@@ -66,13 +66,13 @@
     <section class="content mt-20 flex items-start">
       <span class="basis-1/4 mb-20 text-primary-darker"></span>
       <div class="mb-8 basis-1/2">
-        <h2 class="up-title up-title_svg mb-6">Опоры нашего производства</h2>
+        <h2 class="up-title up-title_svg mb-6"><%= h1Title %> нашего производства</h2>
         <ul class="gap-2 py-5 products-list">
           <% tableData.map((oporaData, i) => { %>
             <li class="relative products-list__item py-3 px-6 transition-all duration-300 h-24 hover:h-min group" >
               <h3 class="basis-full max-w-[360px] text-sm text-primary-black mb-3">
                 <%= itemAlias %> 
-                <span class="whitespace-nowrap text-2xl font-bold"><%= oporaData["Name"].split('**').join('') %></span>
+                <span class="whitespace-nowrap text-2xl font-bold"><%= nameGenerator ? nameGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) : oporaData["Name"].split('**').join('') %></span>
               </h3>
               <ul class="pl-3 pb-4 pt-3 text-primary-darker">
               <% Object.keys(tableData[0]).map((i)=> { if (oporaData[i] && i!== 'Name' && i!== 'A' && i!== 'B' && i!== 'd' && i!== 'n' && i!== 'id' && i!== 'Massa' && i!== 'type'   &&  i!== 'H'  && i!== 'P') {%>
@@ -85,7 +85,7 @@
                   <p class="font-bold my-4"><%= `${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}` %></p>
                 </li>-->
               </ul>
-              <a href="<%= `${ROUTES[categoryType]}${gost1}-${oporaData['H']}-${oporaData['Db']}${categoryType === 'sfg' || categoryType === 'spg' ? `-${oporaData['P']}kg` : ''}`%>.html">
+              <a href="<%= pathGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) %>">
                 <span class="absolute top-0 left-0 w-full h-full"></span>
               </a>
               <svg class=" absolute top-3 right-6 w-8 h-8 fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -96,7 +96,20 @@
         </ul>
       </div>
     </section>
-   
+    <section class="content">
+      <h2 class="up-title up-title_svg mb-6  w-3/4 ml-auto">Другие опоры в каталоге</h2>
+      <ul class="w-3/4 ml-auto grid grid-cols-4 gap-6">
+      <% allCats.map((category) => { %>
+        <li class="p-5 mb-3 relative rounded-sm flex flex-col justify-stretch transition-all duration-300 border border-primary-lighterdouble hover:bg-primary-white group mobile:p-2">
+          <h3 class="font-semibold text-xl mt-4 mb-2 text-primary-darker mobile:text-base"><%= category.h1 %></h3>
+          <a class="" href="<%= category.route %>">
+            <span class="inset0"></span>
+            Перейти
+          </a>
+        </li>
+      <% }) %>
+      </ul>
+    </section>
     <section class="content my-20">
       <h2 class="section-title w-3/4 ml-auto text-primary-darker">Как мы работаем</h2>
       <ul class="w-3/4 ml-auto grid grid-cols-4 gap-6 ">
