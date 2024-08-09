@@ -42,7 +42,7 @@
                 <ul class="basis-3/4 grid grid-cols-3 relative z-[1] gap-x-4 gap-y-6 laptop:grid-cols-2  mobile:grid-cols-1">
                     <% tableData.filter(i=> i.type === 'sfg').map((oporaData) => { %>
                         <li class="relative py-5 px-3 bg-themewhite transition-all duration-300 hover:bg-primary-white group">
-                        <h3 class="basis-full max-w-[420px] text-xl text-primary-black mb-12"><span class="whitespace-nowrap font-bold"><%= oporaData["Name"].split('**').join('').split(',0').join('').split('(90)').join('') %></span></h3>
+                        <h3 class="basis-full max-w-[420px] text-xl text-primary-black mb-12"><span class="whitespace-nowrap font-bold"><%= oporaData["Name"].split('**').join('').split(',0').join('').split('(90)').join('').split(' ').join('') %></span></h3>
                         <ul class="text-primary-darker">
                             <li class="flex items-end">
                                 <h4 class="text-lg flex basis-full"><span class="whitespace-nowrap">Высота опоры:</span> <span class="border-b border-dotted block border-primary-lighterdouble basis-full"></span></h4>

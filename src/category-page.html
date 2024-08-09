@@ -72,7 +72,7 @@
             <li class="relative products-list__item py-3 px-6 transition-all duration-300 h-24 hover:h-min group" >
               <h3 class="basis-full max-w-[360px] text-sm text-primary-black mb-3">
                 <%= itemAlias %> 
-                <span class="whitespace-nowrap text-2xl font-bold"><%= nameGenerator ? nameGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) : oporaData["Name"].split('**').join('') %></span>
+                <span class="whitespace-nowrap text-2xl font-bold"><%= nameGenerator ? nameGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) : oporaData["Name"].split('**').join('').split(' ').join('') %></span>
               </h3>
               <ul class="pl-3 pb-4 pt-3 text-primary-darker">
               <% Object.keys(tableData[0]).map((i)=> { if (oporaData[i] && i!== 'Name' && i!== 'A' && i!== 'B' && i!== 'd' && i!== 'n' && i!== 'id' && i!== 'Massa' && i!== 'type'   &&  i!== 'H'  && i!== 'P') {%>
