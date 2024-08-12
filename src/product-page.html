@@ -28,14 +28,15 @@
             <h1 class="text-primary-darker font-bold text-5xl uppercase max-w-[906px] mobile:text-3xl"><%= htmlWebpackPlugin.options.title %></h1>
             <p class="my-8 text-xl max-w-2xl"><%= desc %><%= gostName ? ` Обозначение по ГОСТ 32947-2014: ${gostName}` : '' %></p>
             <ul class="max-w-[445px] mt-20 text-2xl mobile:text-lg w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
-              <li><h3 class="bg-themewhite relative top-2">Высота</h3> <span class="bg-themewhite relative top-2"><%= Number(oporaData['H'])/1000 %> метров</span></li>
+              <li><h3 class="bg-themewhite relative top-2">Высота</h3> <p class="bg-themewhite relative top-2"><%= Number(oporaData['H'])/1000 %> метров</p></li>
               <% if (type === 'силовая') {%>
-                <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <span class="bg-themewhite relative top-2"><%= Number(oporaData['P'])/100 %> kH (<%= oporaData['P'] %> кг)</span></li>
+                <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <p class="bg-themewhite relative top-2"><%= Number(oporaData['P'])/100 %> kH (<%= oporaData['P'] %> кг)</p></li>
               <% } %>
-              <li><h3 class="bg-themewhite relative top-2">Тип опоры</h3>  <span class="bg-themewhite relative top-2"><%= type %></span></li>
-              <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <span class="bg-themewhite relative top-2"><%= oporaData['Db'] %></span></li>
-              <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <span class="bg-themewhite relative top-2"><%= oporaData['Dh']%></span></li>
-              <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <span class="bg-themewhite relative top-2"><%= type === 'силовая' ? 'да' : 'нет' %></span></li>
+              <li><h3 class="bg-themewhite relative top-2">Тип опоры</h3>  <p class="bg-themewhite relative top-2"><%= type %></p></li>
+              <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <p class="bg-themewhite relative top-2"><%= oporaData['Db'] %></p></li>
+              <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <p class="bg-themewhite relative top-2"><%= oporaData['Dh']%></p></li>
+              <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <p class="bg-themewhite relative top-2"><%= type === 'силовая' ? 'да' : 'нет' %></p></li>
+              <li><h3 class="bg-themewhite relative top-2">Вес опоры</h3> <p class="bg-themewhite relative top-2"><%= oporaData['Massa']%> кг</p></li>
             </ul>
             <button class="<%= ctaButtonClass %> text-xl mobile:text-base mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-1/2 mobile:w-full transition-all duration-300 hover:bg-primary-white" href="/about/" data-additional="опору <%= htmlWebpackPlugin.options.title %>">Оставить заявку на опору</button>
             <div class="mt-20">
