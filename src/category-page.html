@@ -30,8 +30,8 @@
   <div class="py-0  overflow-hidden">
     <div class="content flex">
       <span class="mt-3 up-title  basis-1/4 text-primary-darker mb-20"></span>
-      <div class="basis-1/2 w-full shrink-0 relative ">
-        <figure class="pt-[100%] bg-primary overflow-hidden rounded-lg">
+      <div class="w-full shrink-0 relative ">
+        <figure class="pt-[45%] bg-primary overflow-hidden rounded-lg">
           <svg class="absolute top-0 left-0 fill-themewhite"  width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0H120L0 120V0Z" />
           </svg>  
@@ -40,7 +40,7 @@
           </svg>       
                
         </figure>
-        <div class="h-[calc(100%-60px)] absolute bottom-0 right-7">
+        <div class="h-[calc(100%-60px)] absolute bottom-2 right-[calc(25%)]">
           <img class="h-full w-auto" src="<%= require(`./images/cat-${categoryType}.png`)%>" alt="опора освещения">  
           <ul class="absolute py-2 pb-6 w-full h-full flex flex-col justify-between z-10 top-0 left-0 *:text-sm *:font-medium  *:text-primary-lighterdouble">
             <li class="max-w-[140px]"><%= featsArr[0] %></li>
@@ -64,21 +64,31 @@
     </div>
 
     <section class="content mt-20 flex items-start">
-      <span class="basis-1/4 mb-20 text-primary-darker"></span>
-      <div class="mb-8 basis-1/2">
-        <h2 class="up-title up-title_svg mb-6"><%= h1Title %> нашего производства</h2>
+      <span class="basis-1/4  mb-20 text-primary-darker"></span>
+      <div class="mb-8 basis-[calc(50%)]">
+        <h2 class="up-title up-title_svg mb-8 font-medium text-primary-darkerdouble"><%= h1Title %> нашего производства</h2>
         <ul class="gap-2 py-5 products-list">
           <% tableData.map((oporaData, i) => { %>
-            <li class="relative products-list__item py-3 px-6 transition-all duration-300 h-24 hover:h-min group" >
-              <h3 class="basis-full max-w-[360px] text-sm text-primary-black mb-3">
+            <li class="relative products-list__item flex  flex-wrap py-3 px-6 pr-6 transition-all duration-300 h-24 hover:h-min group" >
+              <h3 class="basis-1/2 max-w-[360px] text-sm text-primary-black mb-3">
                 <%= itemAlias %> 
                 <span class="whitespace-nowrap text-2xl font-bold"><%= nameGenerator ? nameGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) : oporaData["Name"].split('**').join('').split(' ').join('') %></span>
               </h3>
-              <ul class="pl-3 pb-4 pt-3 text-primary-darker">
+              <p class="basis-1/4 flex flex-col text-xs text-primary-darkerdouble">
+                Высота
+                <span class="whitespace-nowrap text-xl font-medium"><%= Number(oporaData['H'])/1000 %> метров</span>
+              </p>
+              <% if (oporaData['P']) { %>
+              <p class="basis-1/4 flex flex-col text-xs text-primary-darkerdouble">
+                Боковая нагрузка
+                <span class="whitespace-nowrap text-xl font-medium"><%= oporaData['P'] %> кг</span>
+              </p>
+              <% } %>
+              <ul class="pl-3 pb-4 pt-3 flex flex-col w-3/4 text-primary-darker">
               <% Object.keys(tableData[0]).map((i)=> { if (oporaData[i] && i!== 'Name' && i!== 'A' && i!== 'B' && i!== 'd' && i!== 'n' && i!== 'id' && i!== 'Massa' && i!== 'type'   &&  i!== 'H'  && i!== 'P') {%>
-                <li class="flex items-end">
-                  <h4 class="text-base mr-2 flex basis-1/2"><span class="whitespace-nowrap"><%= techNames[i] %>:</span> <span class="border-b border-dotted block border-primary-lighterdouble basis-full"></span></h4>
-                  <p class="text-base basis-1/2"><%= oporaData[i] %></p>
+                <li class="flex items-end border-b border-primary-lighterdouble border-dashed">
+                  <h4 class="text-base mr-2 flex basis-2/3 shrink-0"><%= techNames[i] %>:</h4>
+                  <p class="text-base basis-1/3"><%= oporaData[i] %> мм</p>
                 </li>
               <%}}) %>
                 <!--<li>
@@ -96,11 +106,11 @@
         </ul>
       </div>
     </section>
-    <section class="content">
-      <h2 class="up-title up-title_svg mb-6  w-3/4 ml-auto">Другие опоры в каталоге</h2>
-      <ul class="w-3/4 ml-auto grid grid-cols-4 gap-6">
+    <section class="content mt-20">
+      <h2 class="up-title up-title_svg mb-6  w-1/2 mx-auto">Другие опоры в каталоге</h2>
+      <ul class="w-1/2 mx-auto grid grid-cols-3 gap-3 *:border *:border-primary-lighterdouble">
       <% allCats.map((category) => { %>
-        <li class="p-5 mb-3 relative rounded-sm flex flex-col justify-stretch transition-all duration-300 border border-primary-lighterdouble hover:bg-primary-white group mobile:p-2">
+        <li class="p-5  relative rounded-sm flex flex-col justify-stretch transition-all duration-300   hover:bg-primary-white group mobile:p-2">
           <h3 class="font-semibold text-xl mt-4 mb-2 text-primary-darker mobile:text-base"><%= category.h1 %></h3>
           <a class="" href="<%= category.route %>">
             <span class="inset0"></span>
@@ -111,7 +121,7 @@
       </ul>
     </section>
     <section class="content my-20">
-      <h2 class="section-title w-3/4 ml-auto text-primary-darker">Как мы работаем</h2>
+      <h2 class="section-title normal-case w-3/4 ml-auto text-primary-darker">Как мы работаем</h2>
       <ul class="w-3/4 ml-auto grid grid-cols-4 gap-6 ">
         <li class="flex flex-col rounded-sm">
           <h3 class="up-title up-title_svg items-start leading-snug basis-14 text-primary-darker up-title_svg-primary">Срок изготовления</h3>
@@ -137,7 +147,7 @@
       </figure>
       <div class="content flex pb-28 pt-14 justify-end laptop:flex-col laptop:*:basis-auto laptop:px-2">
         <div class="basis-3/4">
-          <h2 class="up-title up-title_svg up-title_svg-white text-themewhite mb-8">Сертификаты на производство опор</h2>
+          <h2 class="section-title   text-themewhite mb-8">Сертификаты</h2>
           <ul class="basis-3/4 sert-grid sert-grid_page_main">
             <li class="sert-grid__list-item <%= popupImageClass %>">
               <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">

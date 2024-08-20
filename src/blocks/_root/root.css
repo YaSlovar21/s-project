@@ -42,6 +42,9 @@ html, body, main {
     font-family: 'Inter', Arial, sans-serif;*/
     
 }
+h1,h2,h3,h4 {
+  /*font-family: 'OS';*/
+}
 /*
 .swiper-container {
     width: 100%;
