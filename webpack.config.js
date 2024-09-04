@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
-const {categories} = require('./categories')
+const {categories, categoriesPageOpory} = require('./categories')
 
 //const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
 //const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net';
@@ -422,6 +422,7 @@ function generateConfig(oporyData, newsData, objectsData) {
       new HtmlWebpackPlugin({
         templateParameters: {
           canonicalURL,
+          categoriesPageOpory,
           ROUTES,
           ...standartClasses
         },

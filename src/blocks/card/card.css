@@ -1,0 +1,76 @@
+.card {
+    border: 1px solid #AEC0CF;
+    flex-basis: 100%;
+    @apply flex flex-col rounded-lg;
+}
+
+.card_how-we-work {
+    border: 1px solid #010C5C;
+    padding: 30px;
+    max-width: 444px;
+    @apply flex flex-col items-start;
+}
+.card_big {
+    flex-basis: calc(50%-10px);
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+    @apply flex flex-row;
+}
+
+.card__link {
+    position: relative;
+    padding: 30px;
+    @apply  flex flex-col ;
+}
+
+
+.card__svg {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    @apply size-9 stroke-primary-darker;
+}
+
+.card__number {
+    @apply w-10 h-10 flex items-center justify-center rounded-md bg-[#010C5C] p-1 text-white text-lg font-medium mt-auto justify-self-end;
+}
+
+.card__text {
+    line-height: 1.2;
+    max-width: 320px;
+    @apply text-lg text-primary-darker mt-3 mb-12;
+}
+
+.card__text_big {
+    margin-bottom: 8px;
+
+}
+
+.card__title {
+
+    flex-basis: 62px;
+    max-width: 242px; 
+    line-height: 1.1;
+    font-weight: 600;
+    
+    @apply  text-primary-darker text-2xl mobile:text-base;
+}
+
+.card__image-cont {
+    border: 1px solid #AEC0CF;
+    background-color: #F4FAFF;
+    flex-basis: 441px;
+    margin-top: 50px;
+    overflow: hidden;
+    max-height: 441px;
+    padding-bottom: 40px;
+    @apply rounded-lg flex items-end justify-center;
+}
+
+.card__image {
+    min-height: 0;
+    max-width: 100px;
+    object-fit: contain;
+    object-position: bottom;
+}

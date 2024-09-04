@@ -18,6 +18,8 @@
     @apply w-full px-5 py-5 text-xl bg-[#D7E6F2]  border border-primary-dark rounded-md text-gray-800 outline-none mobile:text-base mobile:p-3;
 }
 
+
+
 .form__input::placeholder {
     @apply text-primary-lighter
 }
@@ -28,6 +30,11 @@
 
 .form__submit-button {
     @apply bg-primary text-lg hover:bg-primary-dark transition-all duration-300 p-5 uppercase font-bold text-themewhite mt-8;
+}
+
+.form__input_up {
+    border: 1px solid #1B70BB;
+    @apply bg-transparent p-4;
 }
 
 .form__submit-button_disabled {
@@ -48,4 +55,10 @@
   
   .form__input-error_visible {
     opacity: 1;
+  }
+
+
+  /**/
+  .form-section__bg {
+    background-image: url(../../images/bg-form.png);
   }

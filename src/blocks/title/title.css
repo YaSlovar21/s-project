@@ -1,0 +1,9 @@
+.title {
+    font-size: 83px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+
+    @apply text-primary-darker olpc:text-6xl mobile:text-2xl;
+}
+

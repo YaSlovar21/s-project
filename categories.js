@@ -1,7 +1,7 @@
 const { ROUTES } = require("./constants");
 
 
-module.exports.categories = [
+const categories = [
   {
     title: "Опоры силовые фланцевые граненые СФГ",
     h1: "Опоры СФГ",
@@ -133,3 +133,28 @@ module.exports.categories = [
     modClass: 'col-span-2 border-r-2 border-b-2'
   },*/
 ];
+
+
+const categoriesPageOpory = [
+  {
+    title: "Опоры силовые фланцевые граненые",
+    type: 'sfg',
+  },
+  {
+    title: "Опоры несиловые фланцевые граненые",
+    type: 'nfg',
+  },
+  {
+    title: "Опоры силовые прямостоечные граненые",
+    type: 'spg',
+  },
+  {
+    title: "Опоры несиловые прямостоечные граненые",
+    type: 'npg',
+  }
+];
+
+module.exports = {
+  categoriesPageOpory,
+  categories
+}

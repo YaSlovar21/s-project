@@ -2,10 +2,18 @@
     @apply grid grid-cols-3 gap-4 text-themewhite laptop:grid-cols-2 mobile:grid-cols-1;
 }
 
+.sert-grid_lpopory {
+    @apply gap-3 grid-cols-2;
+}
+
 .sert-grid_page_main {
     @apply grid-cols-4 laptop:grid-cols-2 laptop:gap-2;
 }
 
 .sert-grid__list-item {
     @apply min-h-32 rounded-sm relative block cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40;
+}
+
+.sert-grid__list-item_lpopory {
+    @apply rounded-md;
 }
