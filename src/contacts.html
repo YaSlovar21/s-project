@@ -8,7 +8,7 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
-<body class="page bg-themewhite">
+<body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
@@ -19,45 +19,126 @@
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.contacts %>" >Контакты</a></li>
     </ul>
   </div>
-  <main class="content pb-28">
-    <div class="py-14 content items-start flex justify-between  mobile:flex-col mobile:*:basis-auto">
-        <!--h1 class="text-5xl font-bold text-primary-darker basis-1/4  laptop:text-3xl">Контакты</h1>-->
-        <h1 class="up-title up-title_svg text-primary-darker basis-1/4 shrink-0 mb-20">Контакты</h1>
-        <div class="basis-3/4">
-            <h2 class="text-4xl uppercase text-primary-darker laptop:text-2xl mobile:text-xl mobilesm:text-sm">ООО «СтанкоСтальКонструкция»</h2>
-            <div class="flex flex-col max-w-[143px] mt-14 mb-20">
-                <h3 class="contacts__subtitle w-full">E-mail</h3>
-                <a class="contacts__numb contacts__numb_email self-start" href="mailto:ssk@sskbsz.ru">ssk@sskbsz.ru</a> 
-            </div>
+  <main class="content">
+    
         
-            <ul class="grid grid-cols-3 gap-x-5 gap-y-14 justify-items-start mvpc:grid-cols-2 mobilesm:grid-cols-1 mobile:gap-y-7">
-                <li class="flex flex-col">
-                    <h3 class="contacts__subtitle">Отдел продаж</h3>
-                    <a class="contacts__numb" href="tel:+79339330014">+7 (933) 933-00-14</a>
-                </li>
-                <li class=" flex flex-col">
-                    <h3 class="contacts__subtitle">Управляющий директор</h3>
-                    <a class="contacts__numb" href="tel:+79095079529">+7 (909) 507-95-29</a>
-                </li>
-                <li class="flex flex-col">
-                    <h3 class="contacts__subtitle">Заместитель директора</h3>
-                    <a class="contacts__numb" href="tel:+79339334774">+7 (933) 933-47-74</a>
-                </li>
-                <li class="flex flex-col">
-                    <h3 class="contacts__subtitle">Городской телефон</h3>
-                    <a class="contacts__numb" href="tel:+73852361050">+7 (3852) 36-10-50</a>
-                </li>
-                <li class="flex flex-col">
-                    <h3 class="contacts__subtitle">Адрес</h3>
-                    <p class="contacts__numb max-w-xs" href="tel:+73852361050">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
-                </li>
-            </ul>
+        <!--<h1 class="up-title up-title_svg text-primary-darker basis-1/4 shrink-0 mb-20">Контакты</h1>
+        <div class="basis-3/4">-->
+        <h1 class="title title_contact">ООО «СтанкоСтальКонструкция»</h1>
+        <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
+            <li class="card card_contact">
+                <div class="card_cont-inner flex flex-col justify-between">
+                    <span class="card__title-cont">Расположение</span>
+                    <div class="basis-36">
+                        <h3 class="card__subtitle mb-[10px] mt-auto">Адрес</h3>
+                        <p class="card__cont-text text-primary-accent" href="tel:+73852361050">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
+                    </div>
+                </div>
+                <span class="card__number absolute top-[30px] right-[30px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>   
+                </span>
+            </li>
+            <li class="card card_contact">
+                <div class="card_cont-inner flex flex-col justify-between">
+                    <span class="card__title-cont">Телефоны</span>
+                    <div class="basis-36">
+                        <h3 class="card__subtitle mb-[10px] mt-auto">Отдел продаж</h3>
+                        <a class="card__cont-text text-primary-accent" href="tel:+79339330014">+7 (933) 933-00-14</a>
+                    </div>
+                </div>
+                <span class="card__number absolute top-[30px] right-[30px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                      </svg>
+                      
+                </span>
+            </li>
+            <li class="card card_contact">
+                <div class="card_cont-inner flex flex-col justify-between">
+                    <span class="card__title-cont">Дирекция</span>
+                    <div class="basis-36">
+                        <h3 class="card__subtitle mb-[10px] mt-auto">Управляющий директор</h3>
+                        <a class="card__cont-text text-primary-accent" href="tel:+79095079529">+7 (909) 507-95-29</a>
+                        <h3 class="card__subtitle mb-[10px] mt-4">Управляющий директор</h3>
+                        <a class="card__cont-text text-primary-accent" href="tel:+79095079529">+7 (909) 507-95-29</a>
+                    </div>
+                </div>
+                <span class="card__number absolute top-[30px] right-[30px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                      </svg>
+                       
+                </span>
+            </li>
+            <li class="card card_contact card_accent">
+                <div class="card_cont-inner flex flex-col justify-between items-start">
+                    <span class="card__title-cont">Почта</span>
+                    <div class="basis-36">
+                        <h3 class="card__subtitle mb-[10px] mt-auto">E-mail</h3>
+                        <a class="text-2xl text-white" href="mailto:ssk@sskbsz.ru">ssk@sskbsz.ru</a> 
+                    </div>
+                </div>
+                <span class="card__number card__number_accent absolute top-[30px] right-[30px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-primary-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                      </svg>
+                      
+                </span>
+            </li>
+            
+        </ul>   
+
+           
+        
+ 
+    </main>
+    <h2 class="text-primary-darker uppercase text-4xl text-center mt-20 mb-12 font-bold mobile:text-xl">Остались вопросы? Свяжитесь с нами!</h2>
+    <div class="max-w-[calc(100%-80px)] mx-auto bg-[#E9F5FF] py-16 rounded-t-lg olpc:max-w-full">
+        <div class="content flex justify-between gap-5 mobile:flex-col mobile:*:basis-auto">
+            <figure class="h-full max-w-full rounded-lg overflow-hidden opacity-75">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3222183f5c5e894bc245e0d95fc5caa9d3ffb110ce9ecd27c945a212be17996d&amp;width=700&amp;height=700&amp;lang=ru_RU&amp;scroll=true"></script>
+            </figure>
+            <div class="basis-1/2 pb-12">
+                <h2 class="text-4xl font-semibold text-primary-darker mb-4 laptop:text-3xl mobile:text-2xl">Менеджер готов решить Ваш вопрос</h2>
+                <p class="text-2xl text-primary-darker laptop:text-2xl mobile:text-xl">Заполните форму или отправьте Вашу заявку на почту</p>
+                <form class="w-full mt-8"  method="post" action="#" id="formFreePopup" name="upFooterForm" novalidate>
+                    <span class="block text-primary-darker mb-5">Ваши контактные данные</span>
+                    <div class="flex flex-wrap justify-between mobile:flex-col ">
+                        <label class="form__field basis-full mb-4">
+                        <!--<span class="form__label-title block mobile:hidden">Как к Вам обращаться?</span>
+                        <span class="form__label-title hidden mobile:block">Как к Вам обращаться?</span>-->
+                        <input class="form__input form__input_up raschet-bem__input_type_flex" placeholder="Ваше имя или организация" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
+                        <span class="form__input-error name-input-error"></span>
+                        </label>
+                        <label class="form__field basis-[calc(50%-16px)]">
+                        <!--<span class="form__label-title block mobile:hidden">Ваш телефон</span>
+                        <span class="form__label-title hidden mobile:block">Телефон</span>-->
+                        <input data-alias="Телефон" placeholder="Телефон" type="tel" name="telof" id="tel-input" class="form__input form__input_up raschet-bem__input_type_flex" required minlength="1">
+                        <span class="form__input-error tel-input-error"></span>
+                        </label>
+                        <label class="form__field basis-1/2">
+                        <!--<span class="form__label-title block mobile:hidden">Email, куда отправить расчёт</span>
+                        <span class="form__label-title hidden mobile:block">Email</span>-->
+                        <input data-alias="Email"  placeholder="E-mail" type="email" name="emailof" id="email-input" class="form__input form__input_up raschet-bem__input_type_flex" required minlength="1">
+                        <span class="form__input-error email-input-error"></span>
+                        </label>
+                    </div>
+                    <div class="mt-8 w-full">
+                        <label class="form__field form__field_type_textarea">
+                        <span class="block text-primary-darker mb-5">Опишите Вашу задачу</span>
+                        <textarea class="form__input form__input_up form__input_type_textarea" data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"></textarea>
+                        <span class="form__input-error comment-pto-free-input-error"></span>
+                        </label>
+                        <button class="form__submit-button w-full" type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="contacts__ya-map mt-14 w-3/4 h-48 ml-auto mobile:w-full">
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3222183f5c5e894bc245e0d95fc5caa9d3ffb110ce9ecd27c945a212be17996d&amp;width=1200&amp;height=402&amp;lang=ru_RU&amp;scroll=false"></script>
-    </div>
-  </main>
+  
 
   
   <!--FOOTER-->

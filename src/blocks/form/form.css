@@ -29,7 +29,7 @@
 }
 
 .form__submit-button {
-    @apply bg-primary text-lg hover:bg-primary-dark transition-all duration-300 p-5 uppercase font-bold text-themewhite mt-8;
+    @apply bg-primary-darker text-lg hover:bg-primary-dark transition-all duration-300 p-4 uppercase font-bold text-themewhite mt-8;
 }
 
 .form__input_up {

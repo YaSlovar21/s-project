@@ -79,7 +79,10 @@ module.exports = {
         dark: '#194A75',
         darker: '#0A365D',
         darkerdouble: '#042645',
-        black: '#01172A'
+        black: '#01172A',
+        //новые
+        accent: '#010C5C',
+        lightup: '#F3F9FF',
       },
       secondary: {
         lighter: '#7E7BC4',

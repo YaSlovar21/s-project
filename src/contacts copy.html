@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
+</head>
+
+<body class="page bg-themewhite">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+  </header>
+  <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.contacts %>" >Контакты</a></li>
+    </ul>
+  </div>
+  <main class="content pb-28">
+    <div class="py-14 content items-start flex justify-between  mobile:flex-col mobile:*:basis-auto">
+        <!--h1 class="text-5xl font-bold text-primary-darker basis-1/4  laptop:text-3xl">Контакты</h1>-->
+        <h1 class="up-title up-title_svg text-primary-darker basis-1/4 shrink-0 mb-20">Контакты</h1>
+        <div class="basis-3/4">
+            <h2 class="text-4xl uppercase text-primary-darker laptop:text-2xl mobile:text-xl mobilesm:text-sm">ООО «СтанкоСтальКонструкция»</h2>
+            <div class="flex flex-col max-w-[143px] mt-14 mb-20">
+                <h3 class="contacts__subtitle w-full">E-mail</h3>
+                <a class="contacts__numb contacts__numb_email self-start" href="mailto:ssk@sskbsz.ru">ssk@sskbsz.ru</a> 
+            </div>
+        
+            <ul class="grid grid-cols-3 gap-x-5 gap-y-14 justify-items-start mvpc:grid-cols-2 mobilesm:grid-cols-1 mobile:gap-y-7">
+                <li class="flex flex-col">
+                    <h3 class="contacts__subtitle">Отдел продаж</h3>
+                    <a class="contacts__numb" href="tel:+79339330014">+7 (933) 933-00-14</a>
+                </li>
+                <li class=" flex flex-col">
+                    <h3 class="contacts__subtitle">Управляющий директор</h3>
+                    <a class="contacts__numb" href="tel:+79095079529">+7 (909) 507-95-29</a>
+                </li>
+                <li class="flex flex-col">
+                    <h3 class="contacts__subtitle">Заместитель директора</h3>
+                    <a class="contacts__numb" href="tel:+79339334774">+7 (933) 933-47-74</a>
+                </li>
+                <li class="flex flex-col">
+                    <h3 class="contacts__subtitle">Городской телефон</h3>
+                    <a class="contacts__numb" href="tel:+73852361050">+7 (3852) 36-10-50</a>
+                </li>
+                <li class="flex flex-col">
+                    <h3 class="contacts__subtitle">Адрес</h3>
+                    <p class="contacts__numb max-w-xs" href="tel:+73852361050">656012, Россия, Алтайский край, г. Барнаул, ул. П.С. Кулагина, 28/11, офис 1</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="contacts__ya-map mt-14 w-3/4 h-48 ml-auto mobile:w-full">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3222183f5c5e894bc245e0d95fc5caa9d3ffb110ce9ecd27c945a212be17996d&amp;width=1200&amp;height=402&amp;lang=ru_RU&amp;scroll=false"></script>
+    </div>
+  </main>
+
+  
+  <!--FOOTER-->
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
+</html>

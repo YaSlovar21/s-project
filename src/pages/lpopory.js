@@ -1,4 +1,4 @@
-const scrollFactoryContainer =  document.querySelector('.scroll-factory');
+/*const scrollFactoryContainer =  document.querySelector('.scroll-factory');
 
 const isScrollingFact = (evt) => {
   let newScrollLeft = scrollFactoryContainer.scrollLeft + evt.deltaY;
@@ -17,3 +17,4 @@ scrollFactoryContainer.addEventListener("wheel", (evt) => {
   console.log(scrollFactoryContainer.scrollLeft , scrollFactoryContainer.clientWidth, scrollFactoryContainer.querySelector('.scroll-factory__inner').scrollWidth)
   isScrollingFact(evt);
 });
+*/

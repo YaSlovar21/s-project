@@ -55,7 +55,7 @@
 
 @media screen and (max-width: 1537px) {
   :root {
-    --content-width: 1366px;
+    --content-width: calc(100%-40px);
   }
   
 }
@@ -195,7 +195,7 @@
   
   @media screen and (max-width: 1441px) {
     .content {
-      max-width: 1280px;
+      max-width: calc(100%-40px);
     }
     .content_right-orient {
       max-width: calc(640px + 50%);  
@@ -204,7 +204,7 @@
 
   @media screen and (max-width: 1025px) {
     .content {
-      max-width: 768px;
+      /*max-width: 768px;*/
     }
     .content_right-orient {
       max-width: calc(384px + 50%);  
@@ -223,7 +223,7 @@
 
 
   .footer-link {
-    @apply text-lg text-themewhite hover:text-secondary-lighter transition-all duration-300 mobile:text-base mobilesm:text-sm;
+    @apply text-base text-themewhite hover:text-secondary-lighter transition-all duration-300 mobile:text-base mobilesm:text-sm;
   }
 
   .footer__down::after {
@@ -232,7 +232,7 @@
     position: absolute;
     height: 1px;
     width: 100%;
-    top: 50%;
+    top: 54%;
     left: 0;
   }
 

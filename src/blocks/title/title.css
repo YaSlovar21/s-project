@@ -4,6 +4,9 @@
     text-transform: uppercase;
     text-align: center;
 
-    @apply text-primary-darker olpc:text-6xl mobile:text-2xl;
+    @apply text-primary-darker olpc:text-6xl mobile:text-3xl;
 }
 
+.title_contact {
+    @apply mobile:text-xl;
+}

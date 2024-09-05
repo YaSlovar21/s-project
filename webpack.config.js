@@ -430,7 +430,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         desc: "Производство опор освещения гранёных опор освещения: силовых фланцевых , несиловых фланцевых, силовых и несиловых прямостоечных опор освещения. Полный цикл производства.",
         template: './src/lpopory.html', // путь к файлу index.html
         filename: 'opory-osveshcheniya/index.html',
-        chunks: ['index', 'lpopory', 'form', 'popupWithImage', 'frequently','ctaReactions', 'hoverToImage'],
+        chunks: ['index', 'lpopory', 'form', 'popupWithImage','ctaReactions', 'hoverToImage'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
