@@ -442,7 +442,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
         filename: 'news/index.html',
-        chunks: ['index', 'form','ctaReactions'],
+        chunks: ['index', ,'ctaReactions'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

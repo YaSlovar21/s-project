@@ -83,6 +83,7 @@ module.exports = {
         //новые
         accent: '#010C5C',
         lightup: '#F3F9FF',
+        strokke: '#AEC0CF',
       },
       secondary: {
         lighter: '#7E7BC4',

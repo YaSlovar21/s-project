@@ -8,38 +8,49 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
-<body class="page bg-themewhite">
+<body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
   </header>
-  <div class="relative flex ">
+  <!--<div class="relative flex ">
     <ul class="breadcrumbs">
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Новости производства</a></li>
     </ul>
-</div>
-  <main class=" content my-10">
-    <h1 class="section-title  text-6xl mb-44 text-primary-darker text-center  mobile:text-3xl mobilesm:text-2xl">Новости компании</h1>
-    <ul class="news-grid grid grid-cols-4 gap-x-10 gap-y-14 content-start items-start pc:grid-cols-3 olpc:grid-cols-2 laptop:grid-cols-1">
+</div>-->
+  <main class="content mt-14">
+    <div class="flex gap-5 items-start mobile:flex-col mobile:*:basis-auto">
+      <h1 class="basis-1/3 up-title up-title_svg">Новости</h1>
+      <p class="basis-2/3 text-4xl uppercase font-bold text-primary-darker max-w-[818px]">Оставайтесь в курсе актуальных событий нашей компании</p>
+    </div>
+    <ul class="grid grid-cols-3 gap-x-5 laptop:grid-cols-2 mobile:grid-cols-1 gap-y-10 my-14">
       <% newsData.map((i, index) => { %>
-        <li class=" <%= index===0 ? 'col-span-2' : '' %> p-0 mb-5 relative rounded-sm flex flex-col justify-start bg-themewhite transition-all duration-300  hover:bg-primary-white group mobile:col-span-1">
-          
-          <figure class="basis-80  h-full shrink-0 overflow-hidden relative shading shading_static">
-            <span class="block text-base font-extrabold  text-white mb-4 absolute bottom-2 left-4 z-[3]"><%= i.formattedDate %></span>
-            <img class="w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-105" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
+        <li class="relative group">
+          <figure class="relative rounded-lg overflow-hidden border border-primary-strokke w-full pb-[100%] after:z-2 after:w-full after:h-full after:absolute after:bg-[]">
+            <img class="absolute z-[1] w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-105" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
           </figure>
-          <div class="py-2 px-4 flex flex-col basis-full">
-           
-            <h3 class="text-xl font-semibold text-primary-black mt-4 mb-2 max-w-[400px] group-hover:text-primary"><%= i.title %></h3>
-            <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
-            <a class="" href="<%= i.isStaticPage %>"><span class="absolute top-0 left-0 w-full h-full z-[4]"></span></a>
+          <div class="pt-5 flex olpc:flex-col olpc:*:basis-auto">
+            <span class="basis-1/4 text-lg text-primary-darker mr-2 mb-1"><%= i.formattedDate %></span>
+            <div class="basis-3/4 flex flex-col">
+              <h3 class="basis-20 text-xl font-semibold text-primary-black mb-2 max-w-[400px] group-hover:text-primary"><%= i.title %></h3>
+              <!--<p class="text-base max-w-2xl my-2"><%= i.desc %></p>-->
+              <a class="flex items-center text-base text-primary-accent" href="<%= i.isStaticPage %>">
+                Подробнее
+                <svg class="size-8 ml-2 fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
+                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                </svg>
+                
+                <span class="absolute inset-3 z-[4]"></span>
+
+              </a>
+            </div>
           </div>
         </li>
       <% }) %>
     </ul>
   </main>
-  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
+  
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>

@@ -38,6 +38,9 @@
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__subtitle/card__subtitle.css);
 @import url(../blocks/card/__cont-text/card__cont-text.css);
+@import url(../blocks/newscard/newscard.css);
+
+
 
 @import url(../blocks/breadcrumbs/breadcrumbs.css);
 @import url(../blocks/nav/nav.css);

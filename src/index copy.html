@@ -8,29 +8,33 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link href="<%= canonicalURL %>"  rel="canonical" />
 </head>
-<body class="page">
+<body class="page bg-themewhite">
   <%= require('html-loader!./inner-metrika.html').default %>
-  <header class="border-b border-primary-white">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
-  </header>
   <main>
-    <div class="burton bg-top py-20 relative h-screen border-white border-8">
-      <div class="content relative z-[3] h-full flex flex-col justify-end items-start">
-        <h1 class="text-9xl pc:text-8xl mvpc:text-7xl laptop:text-5xl mobile:text-4xl mobilesm:text-2xl uppercase font-bold text-white">Производство металлических опор</h1>
-        <div>
-          <p class="text-white text-lg leading-tight mt-8 mb-6 max-w-[420px]">Предприятие крупного промышленного холдинга «Барнаульский станкостроительный завод»</p>
-          <ul class="flex gap-5 mobile:flex-col mobile:*:basis-auto">
-            <li class="basis-1/2  w-full">
-              <a class="bem__link bem__link_download text-base text-primary-accent py-[14px] bg-white rounded mobile:py-3" href="<%= ROUTES.priceFile %>" download>Скачать прайс</a>
-            </li>
-            <li class="basis-1/2 w-full">
-              <a class="bem__link bem__link_newwindow text-base text-primary-accent py-[14px] bg-white rounded mobile:py-3" href="<%= ROUTES.catalog %>">Смотреть каталог</a>
-            </li>
-          </ul>
-        </div>
+    
+    <div class="burton bg-top relative h-screen border-themewhite border-8">
+
+      <div class="relative z-[3] mvpc:bg-themewhite mobile:bg-transparent">
+        <%=  _.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, theme: 'transparent' , page: 'main'}) %>
+        <figure class="absolute -top-3 right-0 left-[50%] pc:w-[810px] mvpc:hidden -translate-x-1/2 mx-auto">
+          <img src="<%= require('././images/svg/bg-header-page-main.svg')%>" alt="Декор">
+        </figure>
+      </div>
+      <div class="content relative z-[2] flex flex-col pc:justify-end pb-20 h-[90%] mobile:px-5 mobilesm:px-1">
+        <span class="block text-[90px] text-center mt-72 uppercase font-bold text-white pc:my-0 pc:text-[70px] pc:text-center pc:*:text-[80px] mvpc:text-7xl mvpc:*:text-8xl mobile:mt-32 mobile:*:text-2xl mobile:text-xl mobilesm:*:text-xl mobilesm:text-lg"><span class="text-8xl">С</span>танко<span class="text-8xl">С</span>таль<span class="text-8xl">К</span>онструкция</span>
+        <h1 class="w-1/2 ml-[50%]  mt-5 text-4xl lowercase text-primary-white ident *:first-line:max-w-16 max-w-xs pc:text-3xl pc:max-w-[290px] mvpc:text-3xl mobile:w-full mobile:ml-0 mobile:text-2xl">Завод по производству опор освещения</h1>
+        <ul class="flex w-1/2 basis-full pc:basis-1/3 mobile:w-full mobile:flex-col mobile:*:basis-auto">
+          <li class="basis-1/2 mt-auto w-full">
+            <a class="bem__link bem__link_download block text-center text-base font-medium text-primary-darkerdouble uppercase py-5 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="<%= ROUTES.priceFile %>" download>Скачать прайс</a>
+          </li>
+          <li class="basis-1/2  mt-auto w-full ml-5 mobile:ml-0 mobile:mt-4">
+            <a class="bem__link bem__link_newwindow block text-center text-base font-medium text-primary-darkerdouble uppercase py-5 bg-[#F5F5F5] bg-opacity-85 rounded-sm border border-[#797979] mobile:py-3" href="<%= ROUTES.catalog %>">Смотреть каталог</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <section>
+    
+    <section class="bg-themewhite">
       <h2 class="section-title text-center mt-16 mb-5 text-primary-darker">Наша продукция</h2>
       <div class="flex justify-end px-10 py-24 mobile:px-5">
         <figure class="basis-1/4">
@@ -166,64 +170,50 @@
       </ul>
     </div>
     </section>
-    <section class="content">
-      <span class="mb-5 up-title up-title_svg">О компании</span>
-      <div class="grid grid-cols-4 gap-5">
-        <h2 class="col-span-2 max-w-[500px] text-4xl font-bold text-primary-darker pt-2">Завод по производству металлических опор</h2>
-        <div class="">
-          <p class="text-lg leading-tight text-primary-darker">
-            ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных металлоконструкций.
-          </p>
-          <a class="block p-5 mt-6 text-white text-lg text-center rounded-lg bg-primary-accent" href="<%= ROUTES.about %>">узнать больше</a>
-         </div>
-         <p class="text-lg leading-tight text-primary-darker">
-            Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также, комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
-         </p>
-      </div>
-      <figure class="relative my-7 after:transition-all after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-dark after:bg-opacity-35 after:z-[1] hover:after:bg-opacity-20">
-        <img class="w-full h-full object-cover object-center" src="<%= require('./images/lpopory-cover-new.jpg')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
-        <div class="svg-plus-in absolute z-[2] top-1/4 left-1/4 group flex items-center">
-          <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>            
-          <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
-        </div>
-        <div class="svg-plus-in absolute z-[2] bottom-1/2 right-1/4 group flex items-center flex-row-reverse">
-          <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>            
-          <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible relative translate-x-[50%] group-hover:visible group-hover:translate-x-[0]">Автоматическая сварка шва</p>              
-        </div>
-        <div class="svg-plus-in absolute z-[2] bottom-1/4 right-1/4 group flex items-center">
-          <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>            
-          <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible group-hover:visible">Заготовки готовой продукции</p>              
-        </div>
+    <section class="bg-primary-darker relative  mobile:px-5 mobile:py-10">
+      <figure class="absolute top-0 left-0 pc:-translate-y-[50%]">
+        <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
       </figure>
+      <div class="content  content_right-orient flex mobile:flex-col mobile:max-w-full mobile:*:basis-auto ">
+        <span class="self-start up-title up-title_svg up-title_svg-white text-themewhite basis-[calc(var(--content-width)/4)] shrink-0 mt-20">О компании</span>
+        <div class="basis-[582px] pc:basis-full  pt-20 pb-16 flex flex-col justify-between">
+          <h2 class="section-title text-themewhite mb-8">Завод по производству металлических опор</h2>
+          <div>
+            <p class="text-lg text-themewhite max-w-[524px] mobile:text-base">
+              ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания
+              «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
+              металлоконструкций.
+            </p>
+            <p class="text-lg text-themewhite mt-5 max-w-[524px] pc:hidden mobile:text-base mobile:block">
+              Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также,
+              комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
+            </p>
+          </div>
+          <a class="mt-12 text-themewhite border border-themewhite uppercase p-5 max-w-[380px] w-full text-center transition-all duration-300 hover:bg-primary-white hover:bg-opacity-20" href="<%= ROUTES.about %>">Узнать больше</a>
+        </div>
+        <figure class="basis-[689px] pc:basis-full  min-w-0 ml-auto relative after:transition-all after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-dark after:bg-opacity-35 after:z-[1] hover:after:bg-opacity-20">
+          <img class="w-full h-full object-cover object-center" src="<%= require('./images/about-view-test.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+          <div class="svg-plus-in absolute z-[2] top-1/4 left-1/4 group flex items-center">
+            <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>            
+            <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible group-hover:visible">Гидравлический тандемный пресс</p>              
+          </div>
+          <div class="svg-plus-in absolute z-[2] bottom-1/2 right-1/4 group flex items-center flex-row-reverse">
+            <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>            
+            <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible relative translate-x-[50%] group-hover:visible group-hover:translate-x-[0]">Автоматическая сварка шва</p>              
+          </div>
+          <div class="svg-plus-in absolute z-[2] bottom-1/4 right-1/4 group flex items-center">
+            <svg class="group-hover:-rotate-45 group-hover:fill-primary-dark group-hover:stroke-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.1" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>            
+            <p class="text-sm w-36 p-3 bg-themewhite rounded-sm border border-primary invisible group-hover:visible">Заготовки готовой продукции</p>              
+          </div>
+        </figure>
+      </div>
     </section>
-    
-    <section class="content mt-[100px]">
-      <h2 class="up-title up-title_svg mb-[30px]">Новости</h2>
-      <ul class="">
-        <% newsData.slice(0,4).map((i, index) => { %>
-          <li class="newscard">
-            <span class="newscard__numb">(<%= index+1 %>)</span>
-            <figure class="newscard__image-cont">
-              <img class=" object-cover object-center transition-all duration-300 group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
-            </figure>
-            <div>
-              <h3 class="newscard__title"><%= i.title %></h3>
-              <p class="newscard__desc"><%= i.intro %></p>
-            </div>
-            <span>
-
-            </span>
-          </li>
-        <% }) %>
-      </ul>
-    </section>
-
     <section class="items-start relative content content_right-orient flex my-20 pr-10 mobile:flex-col mobile:px-0 mobile:*:basis-auto">
       <span class="up-title up-title_svg text-primary-darker basis-[calc(var(--content-width)/4)] shrink-0 mobile:mb-20">События</span>
       <div class="basis-full">
@@ -309,7 +299,7 @@
       </div>
     </section>
     
-    <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
+    <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
   </main>
   <!--POPUPS-->
   <%= require('html-loader!./insets/popups/popupImage.html').default %>

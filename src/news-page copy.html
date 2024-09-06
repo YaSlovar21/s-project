@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
+</head>
+
+<body class="page bg-themewhite">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+  </header>
+  <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link">Новости производства</a></li>
+    </ul>
+</div>
+  <main class=" content my-10">
+    <h1 class="section-title  text-6xl mb-44 text-primary-darker text-center  mobile:text-3xl mobilesm:text-2xl">Новости компании</h1>
+    <ul class="news-grid grid grid-cols-4 gap-x-10 gap-y-14 content-start items-start pc:grid-cols-3 olpc:grid-cols-2 laptop:grid-cols-1">
+      <% newsData.map((i, index) => { %>
+        <li class=" <%= index===0 ? 'col-span-2' : '' %> p-0 mb-5 relative rounded-sm flex flex-col justify-start bg-themewhite transition-all duration-300  hover:bg-primary-white group mobile:col-span-1">
+          
+          <figure class="basis-80  h-full shrink-0 overflow-hidden relative shading shading_static">
+            <span class="block text-base font-extrabold  text-white mb-4 absolute bottom-2 left-4 z-[3]"><%= i.formattedDate %></span>
+            <img class="w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-105" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
+          </figure>
+          <div class="py-2 px-4 flex flex-col basis-full">
+           
+            <h3 class="text-xl font-semibold text-primary-black mt-4 mb-2 max-w-[400px] group-hover:text-primary"><%= i.title %></h3>
+            <p class="text-base max-w-2xl my-2"><%= i.desc %></p>
+            <a class="" href="<%= i.isStaticPage %>"><span class="absolute top-0 left-0 w-full h-full z-[4]"></span></a>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
+  <!--FOOTER-->
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
+</html>

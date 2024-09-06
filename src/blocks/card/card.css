@@ -4,6 +4,11 @@
     @apply flex flex-col rounded-lg;
 }
 
+.card_catalog {
+    flex-basis: 25%;
+    @apply mobile:basis-full mobile:w-full;
+}
+
 .card_how-we-work {
     border: 1px solid #010C5C;
     padding: 30px;
@@ -72,6 +77,7 @@
 .card__title {
 
     flex-basis: 62px;
+    flex-basis: 96px;
     max-width: 242px; 
     line-height: 1.1;
     font-weight: 600;
