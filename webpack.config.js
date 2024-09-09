@@ -348,7 +348,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         },
         title: "СтанкоСтальКонструкция | Завод гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
-        chunks: ['index', 'form','ctaReactions', 'slider', 'popupWithImage'],
+        chunks: ['index', 'form','ctaReactions', 'popupWithImage'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

@@ -22,10 +22,10 @@
 }
 
 .workflow__card-subhead {
-    @apply text-2xl font-bold text-primary-darker basis-48 mt-8 mobile:text-lg;
+    @apply uppercase text-xl text-primary-accent font-bold basis-[70px];
 }
 
 .workflow__card-desc {
-    @apply text-lg text-gray-700 mt-8 mobile:text-sm;
+    @apply text-lg leading-tight text-primary-dark mt-2 mb-4 mobile:text-sm;
 }
 

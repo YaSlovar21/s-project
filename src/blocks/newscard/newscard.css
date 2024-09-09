@@ -2,12 +2,26 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     column-gap: 20px;
-    padding: 30px 0;
+    padding: 30px 20px;
     border-top: 1px solid #010c5cb7;
+    border-bottom: 1px solid #010c5cb7;
+}    
+
+.newscard_active {
+    @apply bg-primary-accent;
 }
+
 
 .newscard__numb {
     @apply font-medium text-primary-accent text-xl;
+}
+
+.newscard__link {
+    @apply hidden text-lg text-center bg-white text-primary-accent rounded-lg w-[calc(25%+20px)] mt-[50px] ;
+}
+
+.newscard_active .newscard__link {
+    @apply block;
 }
 
 .newscard_active .newscard__numb {
@@ -15,8 +29,9 @@
 }
 
 .newscard__title {
-    max-width: 675px;
-    @apply text-4xl leading-tight text-primary-accent;
+    max-width: 630px;
+    
+    @apply text-4xl font-medium leading-tight text-primary-accent;
 }
 
 .newscard_active .newscard__title {
@@ -25,10 +40,30 @@
 
 .newscard__desc {
     max-width: 445px;
-    @apply text-lg text-white leading-tight;
+    @apply text-lg mt-5 hidden text-white leading-tight;
+}
+
+.newscard_active .newscard__desc {
+    @apply block;
 }
 
 .newscard__image-cont {
     padding: 0 60px 0 30px;
     width: 100%;
+}
+
+.newscard__image {
+    display: none;
+}
+
+.newscard_active .newscard__image {
+    display: block;
+}
+
+.newscard__svg {
+    @apply size-9 fill-primary-accent absolute top-[30px] right-[20px];
+}
+
+.newscard_active .newscard__svg {
+    @apply fill-white rotate-180;
 }

@@ -52,11 +52,11 @@
     position: absolute;
     top: 30px;
     right: 30px;
-    @apply size-9 stroke-primary-darker;
+    @apply size-9 ;
 }
 
 .card__number {
-    @apply w-10 h-10 flex items-center justify-center rounded-md bg-[#010C5C] p-1 text-white text-lg font-medium mt-auto justify-self-end;
+    @apply w-10 h-10 flex items-center shrink-0 justify-center rounded-md bg-[#010C5C] p-1 text-white text-lg font-medium  justify-self-end;
 }
 
 .card__number_accent {
