@@ -13,30 +13,36 @@
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
   </header>
- 
+  <div class="breadcrumbs">
+    
+  </div>
  
   <main class="content mt-14">
-    <div class="flex gap-5 items-start mobile:flex-col mobile:*:basis-auto">
-      <h1 class="basis-1/3 up-title up-title_svg">О компании</h1>
-      <div class="basis-2/3">
-        <p class="text-4xl uppercase font-bold  text-primary-darker max-w-[818px]"><span class="text-[54px]">Станкостальконструкция</span> - производитель опор и мачт освещения</p>
+    <h1 class="title title_md w-1/2 olpc:w-full">Производство опор и мачт освещения</h1>
+    <section class="flex gap-5 items-start mt-16 mb-12 olpc:flex-col olpc:*:basis-auto">
+      <h2 class="basis-1/4 up-title up-title_svg text-primary-darker mb-10">О компании</h2>
+      <div class="basis-1/2">
         <!--<p class="text-4xl uppercase font-bold text-primary-darker max-w-[818px]">Станкостальконструкция - производитель опор и мачт освещения</p>-->
-        <p class="text-xl mb-6 mt-[50px] max-w-[760px] leading-snug laptop:w-full laptop:text-base">
+        <p class="text-2xl text-primary-darker mb-6 leading-snug laptop:w-full laptop:text-base">
           Основная продукция - многогранные металлические опоры освещения всех типов, высокомачтовые опоры, а также
           комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники.
         </p>
-        <p class="text-xl max-w-[760px] leading-snug laptop:w-full laptop:text-base">
+        <p class="text-2xl text-primary-darker leading-snug laptop:w-full laptop:text-base">
           ООО «Станкостальконструкция» создано в январе 2020 года на базе <span class="whitespace-nowrap olpc:whitespace-normal">АО ХК «Барнаульский
           Станкостроительный Завод»</span>. Наше предприятие специализируется на производстве строительных металлоконструкций.
         </p>
-        <figure class="relative my-10 ">
-          <img class="w-[calc(50%-20px)] h-full object-cover object-center mb-2 absolute -top-0 -left-1/2 laptop:w-1/2 laptop:relative laptop:-left-0"  src="<%= require('./images/about-us.png')%>" alt="Цех Станкостальконструкции по производству опор">
-          <img class="w-full" src="<%= require('./images/lpopory-cover.jpg')%>" alt="производство опор освещения">
-        </figure>
+       
       </div>
-    </div>
-    <section class="max-w-[calc(33.3%-20px)] mx-auto mt-10">
-        <h2 class="text-4xl uppercase font-semibold text-primary-darker mobile:mb-8">Мы любим свою работу,<br> поэтому выполняем её качественно!</h2>
+    </section>
+    <figure class="relative mb-10 flex items-start justify-between  olpc:flex-col olpc:*:w-full olpc:gap-2">
+      <!--<img class="w-1/3 h-full object-cover object-center mb-2 absolute -top-0 -left-1/2 laptop:w-1/2 laptop:relative laptop:-left-0"  src="<%= require('./images/about-us.png')%>" alt="Цех Станкостальконструкции по производству опор">-->
+      <img class="w-[calc(25%-10px)]"  src="<%= require('./images/about-us.png')%>" alt="Цех Станкостальконструкции по производству опор">
+      <img class="w-[calc(75%-10px)]" src="<%= require('./images/lpopory-cover.jpg')%>" alt="производство опор освещения">
+    </figure>
+    <section class=" flex gap-5 items-start mt-10 olpc:flex-col olpc:*:basis-auto">
+      <span class="basis-1/4 up-title up-title_svg text-primary-darker mb-10">Наши ценности</span>
+      <div class="basis-1/2">
+        <h2 class="text-3xl uppercase font-semibold text-primary-darker mobile:mb-8">Мы любим свою работу,<br> поэтому выполняем её качественно!</h2>
         <p class="mt-3 text-xl text-primary-darker leading-snug laptop:text-base">Начав работу в 2020 году, мы сформулировали для себя ценности, которым придерживаемся и будем придерживаться:</p>
         <ul class="mt-6  flex flex-col *:flex *:items-center *:mb-5">
           <li>
@@ -56,18 +62,19 @@
             <span class="text-xl uppercase text-primary-darker font-semibold">Любовь к своему делу</span>
           </li>
         </ul>
+      </div>
     </section>
-  </main>
-  <section class="content flex items-start mt-14 mobile:flex-col mobile:*:basis-auto">
-    <span class="basis-1/3 gap-5 up-title up-title_svg text-primary-darker mb-10">География работы</span>
-    <div class="basis-2/3">
+ 
+  <section class="flex gap-5 items-start mt-14  olpc:flex-col olpc:*:basis-auto">
+    <span class="basis-1/4 up-title up-title_svg text-primary-darker mb-10">География работы</span>
+    <div class="basis-2/4">
       <h2 class="section-title text-3xl mb-7 normal-case font-medium text-primary-darker max-w-[450px]">Примеры проектов, в которых мы принимали участие:</h2>
       <ul>
           <% objectsData.slice(0,3).map((obj) => { %>
             <li class="p-5 mb-5 relative rounded-lg flex flex-col justify-stretch transition-all duration-300 border border-primary-strokke hover:bg-primary-lightup group">
               <h3 class="font-semibold uppercase max-w-[680px] text-xl text-primary-accent mobile:text-base"><%= obj.title %></h3>
               <p class="text-xl basis-14 mt-4 mb-[30px] max-w-[680px] leading-snug text-primary-darker  mobile:max-w-full  mobile:text-sm"><span class="font-semibold"></span> <%= obj.equipment %></p>
-              <p class="text-primary-accent text-xl flex items-center">
+              <p class="text-primary-accent text-xl olpc:text-base flex items-center">
                 <span class="card__number mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -79,12 +86,12 @@
             </li>
           <% }) %>
       </ul>
-      <button class="p-4 text-white text-base bg-primary-accent rounded-lg w-[23.5%] mt-[50px]">смотреть еще (<%= objectsData.length-3 %>)</button>
+      <button class="hidden p-4 text-white text-base bg-primary-accent rounded-lg w-[23.5%] mt-[50px]">смотреть еще (<%= objectsData.length-3 %>)</button>
     </div>
   </section>
-  <section class="content my-24">
+  <section class=" my-24">
     <h2 class="basis-1/4 up-title up-title_svg text-primary-darker mb-10">Парк оборудования</h2>
-    <ul class="grid grid-cols-4 gap-5">
+    <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
       <li class="card card__link">
         <!--<h3 class="workflow__card-title">Плазменная резка металла</h3>-->
         <h3 class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</h3>
@@ -110,7 +117,7 @@
     </ul>
 
   </section>
-
+</main>
     <!--
     <section class="bg-primary-dark mt-20 py-8 relative">
       <figure class="absolute top-0 left-0">

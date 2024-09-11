@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
-const {categories, categoriesPageOpory} = require('./categories')
+const {categories, categoriesPageOpory, categoriesPageMain} = require('./categories')
 
 //const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
 //const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net';
@@ -267,7 +267,8 @@ function generateConfig(oporyData, newsData, objectsData) {
       popupWithImage: './src/pages/popupImage.js',
       frequently: './src/pages/frequently.js',
       ctaReactions: './src/pages/cta-reaction.js',
-      hoverToImage: './src/pages/hover-to-main.js'
+      hoverToImage: './src/pages/hover-to-main.js',
+      accordeon: './src/pages/accord.js'
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -343,12 +344,13 @@ function generateConfig(oporyData, newsData, objectsData) {
           sfdsdd,
           canonicalURL,
           ROUTES,
+          categoriesPageMain,
           newsData: newsData.sort((a,b) => b.id - a.id),
           ...standartClasses //классы: контейнер, при клике на который открывается попап с картинкой
         },
         title: "СтанкоСтальКонструкция | Завод гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
-        chunks: ['index', 'form','ctaReactions', 'popupWithImage'],
+        chunks: ['index', 'form','ctaReactions', 'accordeon', 'popupWithImage'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

@@ -8,7 +8,7 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
-<body class="page bg-themewhite">
+<body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
@@ -19,37 +19,41 @@
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.techDocs %>">Проектировщикам</a></li>
     </ul>
   </div>
-  <main class="py-14 content">
+  <main class="my-14 content">
     <h1 class="title">Проектировщикам</h1>
-    <div class="w-3/4 ml-auto mobile:w-full">
+    <p class="w-1/3 olpc:w-2/3 mx-auto mt-7 mb-16 text-center text-primary-darker text-2xl olpc:text-base">Приглашаем к сотрудничеству проектные организации в сфере дорожного освещения.</p>
+  
         <!--<h1 class="text-6xl font-bold uppercase text-primary-darker mobile:text-3xl mobilesm:text-2xl">Проектировщикам</h1>-->
-        <p class="mt-5 mb-6 max-w-[57%] text-primary-darker text-lg">Опоры металлические для стационарного наружного электрического освещения и подвески кабелей электрической сети наружного освещения</p>
-        <div class="flex items-end h-auto">
-            <img class="min-w-0 basis-[calc(66%-80px)] object-left-top object-cover mr-5 mobile:basis-4/6 mobile:mr-1" src="<%= require('./images/machta-tech.png')%>" alt="мачта со стационарной короной">
-            <img class="h-60 min-w-0 basis-[calc(43%-10px)] object-left-top object-cover mobile:basis-2/6 mobile:h-28" src="<%= require('./images/about-view-test.png')%>"  alt="сск">
+        
+    <div class="flex gap-5 mx-auto  justify-between">
+        <img class="min-w-0 basis-1/2 object-left-top object-cover" src="<%= require('./images/tech-view.png')%>" alt="мачта со стационарной короной">
+        <div class="basis-1/2 gap-5 flex flex-col">
+          <img class="min-w-0 basis-2/3 min-h-0 object-left-top object-cover" src="<%= require('./images/hero-bg-ld.png')%>"  alt="сск">
+          <img class="min-w-0 basis-1/3 min-h-0 object-left-top object-cover" src="<%= require('./images/about-view-test.png')%>"  alt="сск">
         </div>
     </div>
-    <h2 class="up-title up-title_svg relative mt-20 mb-8 w-1/2 mx-auto mobile:text-xl mobile:w-full">Документы для проектировщиков</h2>
-    <ul class="mt-5  w-1/2 mx-auto mb-40">
+    
+    <h2 class="up-title up-title_svg font-bold text-primary-dark relative mt-48 mb-8  mobile:text-xl mobile:w-full">Документы для проектировщиков</h2>
+    <ul class="mt-7 mb-40">
       <li>
-        <a href="<%= ROUTES.oprosniiFile %>" class="link-beauty flex w-full text-xl justify-between border-b border-primary-darker pt-7 pb-4" download>
+        <a href="<%= ROUTES.oprosniiFile %>" class="link-beauty flex w-full text-2xl font-medium text-primary-accent justify-between border-b border-primary-darker pt-7 pb-4" download>
             Опросный лист для подбора опоры освещения
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 bg-primary-accent stroke-white p-2 rounded-lg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
         </a>
     </li>
       <li>
-          <a href="<%= ROUTES.stoFile %>" class="link-beauty flex w-full text-xl justify-between border-b border-primary-darker pt-7 pb-4" download>
+          <a href="<%= ROUTES.stoFile %>" class="link-beauty flex w-full text-2xl font-medium text-primary-accent  justify-between border-b border-primary-darker pt-7 pb-4" download>
               СТО для проектных организаций
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 bg-primary-accent stroke-white p-2 rounded-lg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
           </a>
       </li>
   </ul>
   </main>
-  
+  <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>

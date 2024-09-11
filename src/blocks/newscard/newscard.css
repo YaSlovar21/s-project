@@ -5,6 +5,7 @@
     padding: 30px 20px;
     border-top: 1px solid #010c5cb7;
     border-bottom: 1px solid #010c5cb7;
+    @apply mobile:flex mobile:flex-col-reverse mobile:gap-5;
 }    
 
 .newscard_active {
@@ -17,11 +18,19 @@
 }
 
 .newscard__link {
-    @apply hidden text-lg text-center bg-white text-primary-accent rounded-lg w-[calc(25%+20px)] mt-[50px] ;
+    @apply hidden text-lg text-center bg-white text-primary-accent rounded-lg w-[calc(25%+20px)] olpc:w-1/2 mt-[50px] ;
+}
+
+.newscard__link-mobile {
+    @apply mt-5 p-5  text-primary-accent bg-white hidden rounded-lg text-center;
 }
 
 .newscard_active .newscard__link {
-    @apply block;
+    @apply block mobile:hidden;
+}
+
+.newscard_active .newscard__link-mobile {
+    @apply mobile:block;
 }
 
 .newscard_active .newscard__numb {
@@ -31,7 +40,7 @@
 .newscard__title {
     max-width: 630px;
     
-    @apply text-4xl font-medium leading-tight text-primary-accent;
+    @apply text-4xl pc:text-3xl mvpc:text-2xl  font-medium leading-tight text-primary-accent;
 }
 
 .newscard_active .newscard__title {
@@ -40,7 +49,7 @@
 
 .newscard__desc {
     max-width: 445px;
-    @apply text-lg mt-5 hidden text-white leading-tight;
+    @apply text-lg mvpc:max-w-2xl mvpc:text-base mt-5 hidden text-white leading-tight;
 }
 
 .newscard_active .newscard__desc {
@@ -50,6 +59,8 @@
 .newscard__image-cont {
     padding: 0 60px 0 30px;
     width: 100%;
+
+    @apply olpc:pl-0 olpc:pr-4;
 }
 
 .newscard__image {

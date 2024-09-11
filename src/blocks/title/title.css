@@ -10,3 +10,10 @@
 .title_contact {
     @apply mobile:text-xl;
 }
+
+.title_md {
+    font-size: 74px;
+    line-height: 1.1;
+    max-width: 1200px;
+    @apply mx-auto text-primary-darker olpc:text-6xl mobile:text-3xl;
+}

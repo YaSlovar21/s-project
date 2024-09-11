@@ -85,6 +85,11 @@
     @apply  text-primary-darker text-2xl mobile:text-xl;
 }
 
+.card__title_page_main {
+    font-size: 32px;
+    @apply  text-primary-darker pc:text-[27px] olpc:text-[32px] mobile:text-xl;
+}
+
 .card__title-cont {
     @apply uppercase text-xl leading-none text-[#7A83AE] font-semibold;
 }
@@ -98,6 +103,10 @@
     max-height: 441px;
     padding-bottom: 40px;
     @apply rounded-lg flex items-end justify-center;
+}
+
+.card__image-cont_page_main {
+    margin-top: 35px;
 }
 
 .card__image {

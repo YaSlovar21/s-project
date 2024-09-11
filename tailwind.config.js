@@ -54,7 +54,7 @@ module.exports = {
       }),
     
     screens: {
-        'pc': {'max': '1537px'},
+        'pc': {'max': '1620px'},
         // => @media (max-width: 1535px) { ... }
   
         'mvpc': {'max': '1441px'},

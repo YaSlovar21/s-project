@@ -25,3 +25,4 @@ navMobileButton.addEventListener('click', () => {
     popupMenu.open();
     console.log('111');
 });
+

@@ -47,18 +47,18 @@
             <p class="basis-3/4 max-w-full text-4xl font-semibold uppercase text-primary-darker leading-[1.1] laptop:text-2xl">
                 Cтанкостальконструкция - компания по изготовлению многогранных опор освещения, опор лэп, граненых опор контактных сетей электрифицированного транспорта.
             </p>
-            <ul class="basis-1/2 w-full ml-auto mt-7 text-lg leading-tight text-primary-darker ">
-                <li class="max-w-[444px]">
+            <ul class="basis-1/2 w-full olpc:w-1/2 mobile:w-full ml-auto mt-7 text-lg leading-tight text-primary-darker ">
+                <li class="max-w-[444px] mobile:max-w-full ">
                     Для изготовления продукции используется качественное сертифицированное сырье, толщина металла – от 4 до 12 мм. Цена на металлические опоры наружного освещения, предложенная нашей компанией - наиболее выгодная в своем сегменте рынка.
                 </li>
-                <li class="max-w-[444px] mt-3">
+                <li class="max-w-[444px] mobile:max-w-full mt-3">
                     Наша компания изготавливает многогранные опоры освещения, Уточнить стоимость и вариант доставки можно, позвонив по номерам телефонов, указанным на сайте, или заполнив форму обратной связи.
                 </li>
-                <li class="max-w-[444px] mt-3">
+                <li class="max-w-[444px] mobile:max-w-full mt-3">
                     У нас есть собственный автопарк для доставки, в том числе железнодорожный тупик.
                 </li>
             </ul>
-            <figure class="mt-12 ">
+            <figure class="mt-12 basis-full">
                 <img class="hue-rotate-15 w-full mobile:h-[50vh] mobile:object-cover mobile:object-left" src="<%= require('./images/lpopory-cover-new.jpg')%>" alt="производство опор освещения"> 
             </figure>
         </section>
@@ -105,50 +105,8 @@
             </div>
         </section>
     </main>
-
-    <section class="max-w-[calc(100%-80px)] mx-auto bg-[#E9F5FF] pt-16 rounded-t-lg olpc:max-w-full">
-        <div class="content flex gap-5 mobile:flex-col mobile:*:basis-auto">
-            <figure class="basis-1/2 form-section__bg">
-                <figcaption class="basis-auto up-title font-bold text-primary-darker up-title_svg">Остались вопросы? Свяжитесь с нами!</figcaption>
-            </figure>
-            <div class="basis-1/2 pb-12 ">
-                <h2 class="text-4xl font-semibold text-primary-darker mb-4 laptop:text-3xl mobile:text-2xl">Менеджер готов решить Ваш вопрос</h2>
-                <p class="">Заполните форму или отправьте Вашу заявку на почту</p>
-                <form class="w-full mt-8"  method="post" action="#" id="formFreePopup" name="upFooterForm" novalidate>
-                    <span class="block text-primary-darker mb-5">Ваши контактные данные</span>
-                    <div class="flex flex-wrap justify-between mobile:flex-col ">
-                        <label class="form__field basis-full mb-4">
-                        <!--<span class="form__label-title block mobile:hidden">Как к Вам обращаться?</span>
-                        <span class="form__label-title hidden mobile:block">Как к Вам обращаться?</span>-->
-                        <input class="form__input form__input_up raschet-bem__input_type_flex" placeholder="Ваше имя или организация" data-alias="Как можно обращаться" type="text" name="nameof" id="name-input" required minlength="1">
-                        <span class="form__input-error name-input-error"></span>
-                        </label>
-                        <label class="form__field basis-[calc(50%-16px)]">
-                        <!--<span class="form__label-title block mobile:hidden">Ваш телефон</span>
-                        <span class="form__label-title hidden mobile:block">Телефон</span>-->
-                        <input data-alias="Телефон" placeholder="Телефон" type="tel" name="telof" id="tel-input" class="form__input form__input_up raschet-bem__input_type_flex" required minlength="1">
-                        <span class="form__input-error tel-input-error"></span>
-                        </label>
-                        <label class="form__field basis-1/2">
-                        <!--<span class="form__label-title block mobile:hidden">Email, куда отправить расчёт</span>
-                        <span class="form__label-title hidden mobile:block">Email</span>-->
-                        <input data-alias="Email"  placeholder="E-mail" type="email" name="emailof" id="email-input" class="form__input form__input_up raschet-bem__input_type_flex" required minlength="1">
-                        <span class="form__input-error email-input-error"></span>
-                        </label>
-                    </div>
-                    <div class="mt-8 w-full">
-                        <label class="form__field form__field_type_textarea">
-                        <span class="block text-primary-darker mb-5">Опишите Вашу задачу</span>
-                        <textarea class="form__input form__input_up form__input_type_textarea" data-alias="Текст заявки" placeholder="Опишите Вашу задачу" name="comment-free" id="comment-pto-free-input"></textarea>
-                        <span class="form__input-error comment-pto-free-input-error"></span>
-                        </label>
-                        <button class="form__submit-button w-full" type="submit">Отправить</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
+    <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
+    
     <!--
     <section class="py-4 my-32 content olpc:px-2">
         <span class=" up-title_svg w-full up-title text-primary-darker mb-4">Цикл производства</span>

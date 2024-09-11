@@ -61,4 +61,5 @@
   /**/
   .form-section__bg {
     background-image: url(../../images/bg-form.png);
+    background-repeat: no-repeat;
   }

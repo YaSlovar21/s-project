@@ -51,6 +51,7 @@
 
 :root {
   --content-width: 1520px;
+  --content-width: calc(100%-80px);
 }
 
 @media screen and (max-width: 1537px) {
@@ -109,7 +110,7 @@
     @apply text-[2.5rem] mobile:text-2xl;
   }
   .ui-button {
-    @apply text-primary-darker p-5 uppercase text-lg border border-primary-darker transition-all duration-300;
+    @apply text-white p-5 lowercase text-lg bg-primary-accent hover:bg-primary-lightup rounded-lg hover:text-primary-accent transition-all duration-300;
   }
   .ui-button-white {
     @apply transition-all duration-300 hover:bg-primary-white hover:bg-opacity-20;
