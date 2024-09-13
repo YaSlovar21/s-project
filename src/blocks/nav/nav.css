@@ -70,17 +70,18 @@
 
 
 .nav__sub-link {
-  @apply text-base text-primary-darkerdouble font-medium no-underline text-left olpc:text-sm;
+  @apply text-base text-primary-darkerdouble font-medium no-underline text-left border-transparent hover:border-primary-lighterdouble olpc:text-sm;
 
   width: 100%;
   height: 100%;
-  padding: 12px 10px;
+  padding: 18px 18px;
   transition: all .2s linear;
 }
 
 .nav__sub-link_subb {
-  @apply py-6 pb-4 pr-2 text-primary-dark transition-all hover:text-secondary border border-transparent hover:border-primary-light;
+  @apply py-6 pb-4 pr-2 text-primary-dark transition-all hover:text-primary-accent  border-transparent hover:border-primary-lighterdouble;
 }
+
 
 .nav__ul-item_sub:hover::after {
   opacity: 0.4;

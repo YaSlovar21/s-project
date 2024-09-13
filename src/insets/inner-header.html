@@ -9,14 +9,14 @@
       <li class="nav__ul-item">
         <a class="nav__link" href="<%= ROUTES.catalog %>">Продукция</a>
         <ul class="nav__submenu">
-          <li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group">
-            <a class="nav__sub-link transition-all group-hover:text-secondary" href="<%= ROUTES.brackets %>">
+          <li class="flex items-center relative group">
+            <a class="nav__sub-link transition-all border-b group-hover:text-primary-accent" href="<%= ROUTES.brackets %>">
               <span class="absolute top-0 left-0 w-full h-full"></span>
-              Кронштейны под светильнии
+              Кронштейны под светильники
             </a>
           </li>
-          <li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group/subb">
-            <a class="nav__sub-link transition-all relative group-hover/subb:text-secondary" href="<%= ROUTES.oporyMain %>">
+          <li class="flex items-center relative group/subb">
+            <a class="nav__sub-link border-y transition-all relative group-hover/subb:text-primary-accent" href="<%= ROUTES.oporyMain %>">
               <span class="absolute top-0 left-0 w-full h-full"></span>
               Опоры освещения
               <span class="block text-xs uppercase mt-1 text-gray-600">СФГ•СПГ•НФГ•НПГ•ОГК</span>
@@ -26,41 +26,41 @@
                 </svg>
               </span>
             </a>
-            <ul class="absolute left-full top-0  bg-themewhite border border-primary-lighterdouble w-full hidden group-hover/subb:block">
+            <ul class="absolute left-full top-0  bg-primary-lightup border border-primary-lighterdouble w-full hidden group-hover/subb:block">
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.sfg %>">
+                <a class="nav__sub-link  nav__sub-link_subb border-b" href="<%= ROUTES.sfg %>">
                   <span class="absolute top-0 left-0 w-full h-full"></span>
                   Опоры силовые фланцевые граненые
                 </a>
               </li>
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.spg %>">
+                <a class="nav__sub-link nav__sub-link_subb border-y" href="<%= ROUTES.spg %>">
                   <span class="absolute top-0 left-0 w-full h-full"></span>
                   Опоры силовые прямостоечные граненые
                 </a>
               </li>
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.nfg %>">
+                <a class="nav__sub-link nav__sub-link_subb border-y" href="<%= ROUTES.nfg %>">
                   <span class="absolute top-0 left-0 w-full h-full"></span>
                   Опоры несиловые фланцевые граненые
                 </a>
               </li>
               <li class="flex items-center relative">
-                <a class="nav__sub-link nav__sub-link_subb" href="<%= ROUTES.npg %>">
+                <a class="nav__sub-link nav__sub-link_subb border-t" href="<%= ROUTES.npg %>">
                   <span class="absolute top-0 left-0 w-full h-full"></span>
                   Опоры несиловые прямостоечные граненые
                 </a>
               </li>
             </ul>
           </li>
-          <li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group">
-            <a class="nav__sub-link transition-all group-hover:text-secondary" href="<%= ROUTES.machty %>">
+          <li class="flex items-center relative group">
+            <a class="nav__sub-link border-y transition-all group-hover:text-primary-accent" href="<%= ROUTES.machty %>">
               <span class="absolute top-0 left-0 w-full h-full"></span>
               Высокомачтовые опоры
             </a>
           </li>
-          <li class="flex items-center relative pl-4 py-2 pr-2 group">
-            <a class="nav__sub-link transition-all group-hover:text-secondary" href="<%= ROUTES.fundamenty %>">
+          <li class="flex items-center relative group">
+            <a class="nav__sub-link border-t transition-all group-hover:text-primary-accent" href="<%= ROUTES.fundamenty %>">
               <span class="absolute top-0 left-0 w-full h-full"></span>
               Фундаменты под опоры
             </a>
@@ -72,9 +72,9 @@
       <li class="nav__ul-item">
         <a class="nav__link" href="<%= ROUTES.about %>">О компании</a>
         <ul class="nav__submenu bg-primary-light">
-          <li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group"><a class="nav__sub-link group-hover:text-secondary" href="<%= ROUTES.about %>">О производстве</a></li>
-          <li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group"><a class="nav__sub-link group-hover:text-secondary" href="<%= ROUTES.ourValues %>">Наши ценности</a></li>
-          <!--<li class="flex items-center relative pl-4 pt-4 pb-2 pr-2 group"><a class="nav__sub-link group-hover:text-secondary" href="<%= ROUTES.about %>">Документация</a></li>-->
+          <li class="flex items-center relative group"><a class="nav__sub-link group-hover:text-primary-accent" href="<%= ROUTES.about %>">О производстве</a></li>
+          <li class="flex items-center relative group"><a class="nav__sub-link group-hover:text-primary-accent" href="<%= ROUTES.ourValues %>">Наши ценности</a></li>
+          <!--<li class="flex items-center relative group"><a class="nav__sub-link group-hover:text-primary-accent" href="<%= ROUTES.about %>">Документация</a></li>-->
         </ul>
       </li>
       <li class="nav__ul-item"><a class="nav__link" href="<%= ROUTES.contacts %>">Контакты</a></li>

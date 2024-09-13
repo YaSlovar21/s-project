@@ -26,3 +26,10 @@ navMobileButton.addEventListener('click', () => {
     console.log('111');
 });
 
+/* MARKETING */
+function goalCallback () {
+    console.log('запрос в Метрику успешно отправлен');
+  }
+  document.addEventListener('copy', (evt)=> {
+      ym(84773554,'reachGoal','copied', {path: evt.target.baseURI, el: evt.target.innerText}, goalCallback );
+  });

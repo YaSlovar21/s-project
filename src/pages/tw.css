@@ -149,6 +149,14 @@
   }
 
 
+/*--------------------------------*/
+  .ssk-grid {
+    @apply grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1;
+  }
+
+
+  
+
   @media screen and (max-width: 1441px) {
     .main-product-grid {
       grid-template-columns: 341px 1fr 1fr

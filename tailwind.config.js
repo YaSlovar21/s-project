@@ -81,7 +81,8 @@ module.exports = {
         darkerdouble: '#042645',
         black: '#01172A',
         //новые
-        accent: '#010C5C',
+        //accent: '#010C5C',
+        accent: '#012059',
         lightup: '#F3F9FF',
         strokke: '#AEC0CF',
       },

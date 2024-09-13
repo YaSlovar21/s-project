@@ -4,7 +4,7 @@
     text-transform: uppercase;
     text-align: center;
 
-    @apply text-primary-darker olpc:text-6xl mobile:text-3xl;
+    @apply text-primary-accent olpc:text-6xl mobile:text-3xl;
 }
 
 .title_contact {
@@ -12,8 +12,8 @@
 }
 
 .title_md {
-    font-size: 74px;
+    font-size: 82.5px;
     line-height: 1.1;
-    max-width: 1200px;
-    @apply mx-auto text-primary-darker olpc:text-6xl mobile:text-3xl;
+  
+    @apply mx-auto text-primary-accent olpc:text-6xl mobile:text-3xl;
 }

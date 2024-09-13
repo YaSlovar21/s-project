@@ -8,7 +8,7 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
-<body class="page bg-themewhite">
+<body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
@@ -22,100 +22,74 @@
 
   <!--new-->
 
-  <div class="content">
-    <div class="py-[78px]">
-      <h1 class="text-[70px] uppercase text-center text-primary-darker font-bold max-w-[780px] mx-auto mobile:text-4xl">Высокомачтовые опоры</h1>
-      <p class="mx-auto max-w-[836px] text-center text-xl mt-6">Общепринятые обозначения: мачты ВМО, мачты ВМОН</p>
-    </div>
-  </div>
-
-  <!--   -->
-  <main class="product-container">
-    <div class="content flex py-10 justify-between mobile:flex-col mobile:*:basis-auto">
-      <div class="shrink-0 basis-auto relative">
-          <img src="<%= require(`./images/machta-korona-stat.png`)%>" alt="опора освещения">
-         
-      </div>
-      <div class="basis-3/4 flex flex-col pb-10">
-        <p class="text-2xl max-w-[66%] text-primary-darker">
-          Мы изготавливаем многогранные мачты освещения. Изготавливаются составные части мачты, каждая из которых проходит
-          горячее цинкование.Высокомачтовые опоры можно разделить на две категории.
-        </p>
-        <ul class="text-xl max-w-[66%] mt-10 mb-14 text-primary-darker">
-          <li>
-            <h3 class="font-bold uppercase mb-2">Высокомачтовые опоры с мобильной короной</h3>
-            <p>Корона мачты имеет возможность динамически опускаться и подниматься для проведения ремонтных и сервисных работ.</p>
-          </li>
-          <li class="mt-5">
-            <h3 class="font-bold uppercase mb-2">Высокомачтовые опоры со стационарной короной</h3>
-            <p>В такой конфигурации корона статична и для проведения ремонтных и сервисных работ необходимо подниматься на нее по лестнице.</p>
-          </li>
-        </ul>
-        <h2 class="section-title my-8 text-primary-darker">Как изготавливаются мачты</h2>
-        <div class="grid grid-cols-3 gap-5 mvpc:grid-cols-2 mobile:grid-cols-1">
-          <% [1,2,3,4,5].map((i) => { %>
-            <figure class="<%= popupImageClass %> cursor-pointer relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
-              <img class="w-full h-full object-cover object-center" src="<%= require(`./images/vmo/${i}.png`)%>" alt="">
-            </figure>
-          <% }) %>
-          <a class="self-end uppercase text-base font-bold text-primary-darker bem__link bem__link_newwindow" href="<%= ROUTES.about %>">Подробнее о производстве</a>
-        </div>
-        <button class="ui-button <%= ctaButtonClass %> mt-auto transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
-
-      </div>
-    </div>
-
-   
-    <section class="relative bg-primary-darker">
-      <figure class="absolute top-0 left-0">
-        <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
-      </figure>
-      <div class="content flex pt-36 mb-24 laptop:flex-col laptop:*:basis-auto laptop:px-10">
-        <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Наши преимущества</h2>
-        <div class="basis-3/4 ">
-          <h3 class="section-title">Как мы работаем?</h3>
-          <ul class="grid grid-cols-3 gap-x-5 gap-y-20 text-themewhite mobile:grid-cols-2 ">
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
-              <h3 class="text-2xl font-bold max-w-xs">Выгодные условия для дилеров</h3>
-              <p class="text-lg">Гибкая система % скидок</p>
-            </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
-              <h3 class="text-2xl font-bold max-w-xs">Предоставим КП на изготовление</h3>
-              <p class="text-lg">В течение 1-2 дней</p>
-            </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
-              <h3 class="text-2xl font-bold max-w-xs">Срок изготовления</h3>
-              <p class="text-lg">Опоры в наличии и под заказ</p>
-            </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
-              <h3 class="text-2xl font-bold max-w-xs">Цена завода</h3>
-              <p class="text-lg">Мы - производитель и рады работать напрямую с заказчиками и дилерами</p>
-            </li>
-            <li class="flex flex-col justify-between min-h-32 rounded-sm">
-              <h3 class="text-2xl font-bold max-w-xs">Изготовление по ГОСТ</h3>
-              <p class="text-lg">Без экономии на материалах с точным расчётом опоры под Ваши потребности</p>
-            </li>
-          </ul>
-        </div>
+  <main class="content">
+      <h1 class="title">Высокомачтовые опоры</h1>
+      <div class="flex gap-5 mt-24 items-start">
+       
         
       </div>
-      <div class="content flex pb-32  laptop:flex-col laptop:*:basis-auto laptop:px-10">
-        <h2 class="basis-1/4 up-title text-themewhite text-base mb-8">Сертификаты</h2>
-        <ul class="basis-3/4 grid grid-cols-3 gap-x-5 gap-y-6 text-themewhite  mobile:grid-cols-2">
-          <li class="min-h-32 rounded-sm relative block <%= popupImageClass %> cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
-            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-vmo.png')%>" alt="Сертификат на производство высокомачтовых опор освещения">
-          </li>
-          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
-            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-1.png')%>" alt="Сертификат на производство опор освещения">
-          </li>
-          <li class="min-h-32 rounded-sm relative <%= popupImageClass %> cursor-pointer after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:transition-all after:bg-opacity-25 after:z-[1] hover:after:bg-opacity-40">
-            <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-opory-2.png')%>" alt="Сертификат на производство опор освещения, страница 2">
-          </li>
-        </ul>
+      <ul class="grid grid-cols-3 gap-5 mt-6 laptop:grid-cols-2">
+        <div class="laptop:col-span-2">
+        <h2 class="up-title mb-[30px] w-full up-title_svg font-bold text-primary-accent basis-1/4">О продукции</h2>
+        <p class="basis-1/2 text-2xl w-full max-w-[90%]  text-primary-darker">
+          Мы изготавливаем многогранные мачты освещения. Изготавливаются составные части мачты, каждая из которых проходит
+          горячее цинкование. Высокомачтовые опоры можно разделить на две категории
+        </p>
       </div>
-    </section>
-    <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
+        <li class="card card__link mobile:col-span-2">
+            
+                <h2 class="card__title card__title_page_main text-primary-darker">Мачты с мобильной короной</h2>
+                <p class="text-lg leading-snug mt-5 mb-[35px] text-primary-accent">
+                  Корона мачты имеет возможность динамически опускаться и подниматься для проведения ремонтных и сервисных работ
+                </p>
+                <img class="w-full mt-auto" src="<%= require(`./images/maincards/machty-mob.png`)%>" alt="мачты с мобильной короной">
+                <svg class="card__svg fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+                </svg>                  
+           
+        </li>
+        <li class="card card__link mobile:col-span-2">
+              <h2 class="card__title card__title_page_main text-primary-darker">Мачты со стационарной короной</h2>
+              <p class="text-lg leading-snug mt-5 mb-[35px] text-primary-accent">
+                В такой конфигурации корона статична и для проведения ремонтных и сервисных работ необходимо подниматься на нее по лестнице.
+              </p>
+              <img class="w-full mt-auto" src="<%= require(`./images/maincards/machty-stat.png`)%>" alt="мачты со стационарной короной">
+              <svg class="card__svg fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+              </svg>                  
+          
+      </li>
+    </ul>
+    <div class="ssk-grid grid-cols-3">
+      <button class="ui-button <%= ctaButtonClass %> col-start-2 mobile:col-span-3 transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
+    </div>
+  </div>
+  <section class="my-[130px]">
+    <span class="up-title mb-5 w-full up-title_svg font-bold text-primary-accent basis-1/4">Производство</span>
+    <div class="ssk-grid grid-cols-3 mt-0 laptop:grid-cols-2">
+      <h2 class=" olpc:col-span-1  laptop:col-span-2 max-w-[500px] text-4xl font-bold text-primary-darker pt-2">Как изготавливаются высокомачтовые опоры</h2>
+      <p class=" text-lg mobile:col-span-2 leading-tight text-primary-darker">
+        ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных металлоконструкций.
+      </p>
+       <p class=" text-lg mobile:col-span-2 leading-tight text-primary-darker">
+          Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
+       </p>
+    </div>
+    <!--<div class="grid grid-cols-3 gap-5 mt-6 laptop:grid-cols-2">
+      <a class="block col-start-2 laptop:col-start-1 p-5 text-white text-lg text-center rounded-lg bg-primary-accent" href="<%= ROUTES.about %>">узнать больше</a>
+    </div>-->
+    <div class="ssk-grid mobile:grid-cols-2 *:rounded-lg *:overflow-hidden">
+      <% [1,2,3,4,5,6,7].map((i) => { %>
+        <figure class="<%= popupImageClass %> cursor-pointer relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-accent after:transition-all after:bg-opacity-20 after:z-[1] hover:after:bg-opacity-40">
+          <img class="w-full h-full object-cover object-center" src="<%= require(`./images/vmo/${i}.png`)%>" alt="">
+        </figure>
+      <% }) %>
+    </div>
+   
+  </section>
+  
   </main>
+  <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--POPUPS-->
   <%= require('html-loader!./insets/popups/popupImage.html').default %>
   <!--FOOTER-->

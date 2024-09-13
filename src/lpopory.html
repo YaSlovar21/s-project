@@ -15,20 +15,20 @@
         <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
     </header>
     <div class="relative">
-        <ul class="breadcrumbs-no-padding flex items-center py-10">
-            <li class="text-gray-400"><a class="breadcrumbs__link" href="/">Главная</a></li>
+        <ul class="breadcrumbs breadcrumbs-no-padding flex items-center py-10">
+            <li class="text-gray-400 breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
             <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.oporyMain %>">Опоры освещения</a></li>
         </ul>
     </div>
   
     <!--new-->
     <main class="content">
-        <h1 class="title text-primary-darker">Производство опор освещения</h1>
+        <h1 class="title text-primary-accent">Производство опор освещения</h1>
         <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
             <% categoriesPageOpory.map(i => {%>
                 <li class="card">
                     <a class="card__link" href="<%= ROUTES[i.type] %>">
-                        <h2 class="card__title text-primary-darker"><%= i.title %></h2>
+                        <h2 class="card__title text-primary-accent"><%= i.title %></h2>
                         <figure class="card__image-cont">
                             <img class="card__image" src="<%= require(`./images/lpopory/${i.type}.png`)%>" alt="силовая фланцевая граненая опора сфг">
                         </figure>
@@ -43,8 +43,8 @@
             <% }) %>
         </ul>
         <section class="flex flex-wrap justify-between items-start mt-24 gap-5 mx-auto olpc:flex-col olpc:*:basis-auto">
-            <h2 class="basis-auto up-title font-bold text-primary-darker up-title_svg">О нас</h2>
-            <p class="basis-3/4 max-w-full text-4xl font-semibold uppercase text-primary-darker leading-[1.1] laptop:text-2xl">
+            <h2 class="basis-auto up-title font-bold text-primary-accent up-title_svg">О нас</h2>
+            <p class="basis-3/4 max-w-full text-4xl font-semibold uppercase text-primary-accent leading-[1.1] laptop:text-2xl">
                 Cтанкостальконструкция - компания по изготовлению многогранных опор освещения, опор лэп, граненых опор контактных сетей электрифицированного транспорта.
             </p>
             <ul class="basis-1/2 w-full olpc:w-1/2 mobile:w-full ml-auto mt-7 text-lg leading-tight text-primary-darker ">
@@ -63,25 +63,25 @@
             </figure>
         </section>
         <section class="mt-32 mb-14">
-            <h2 class="basis-auto up-title font-bold text-primary-darker up-title_svg">Как мы работаем</h2>
+            <h2 class="basis-auto up-title font-bold text-primary-accent up-title_svg">Как мы работаем</h2>
             <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
                 <li class="card card_how-we-work ">
-                    <h3 class="uppercase text-xl text-primary-darker font-bold">Материалы</h3>
+                    <h3 class="uppercase text-xl text-primary-accent font-bold">Материалы</h3>
                     <p class="basis-28 card__text text-primary-darker">Проверенные марки и производители стали. Исследуем металл в нашей лаборатории на соответствие заданной марки</p>
                     <span class="card__number mt-auto">01</span>
                 </li>
                 <li class="card card_how-we-work ">
-                    <h3 class="uppercase text-xl text-primary-darker font-bold">Срок изготовления</h3>
+                    <h3 class="uppercase text-xl text-primary-accent font-bold">Срок изготовления</h3>
                     <p class="basis-28 card__text text-primary-darker">Основные позиции всегда в наличии (опоры ОКГ, СФГ высотой 8, 9, 10 метров). Срок изготовления под заказ - 3 недели</p>
                     <span class="card__number mt-auto">02</span>
                 </li>
                 <li class="card card_how-we-work ">
-                    <h3 class="uppercase text-xl text-primary-darker font-bold">География работы</h3>
+                    <h3 class="uppercase text-xl text-primary-accent font-bold">География работы</h3>
                     <p class="basis-28 card__text text-primary-darker">Работаем во всей России</p>
                     <span class="card__number mt-auto">03</span>
                 </li>
                 <li class="card card_how-we-work ">
-                    <h3 class="uppercase text-xl text-primary-darker font-bold">Оперативный расчёт</h3>
+                    <h3 class="uppercase text-xl text-primary-accent font-bold">Оперативный расчёт</h3>
                     <p class="basis-28 card__text text-primary-darker">Менеджер рассчитает стоимость опор и предоставит коммерческое предложение в течение 1-2 дней исходя из объема заказа</p>
                     <span class="card__number mt-auto">04</span>
                 </li>
@@ -89,7 +89,7 @@
             <div class="flex gap-5 items-start justify-between mt-5">
                 <div class="card gap-2 card_how-we-work card_big basis-[calc(50%-10px)]">
                     <div class="basis-[calc(50%+10px)] flex flex-col">
-                        <h3 class="uppercase text-xl text-primary-darker font-bold">Продукция сертифицирована</h3>
+                        <h3 class="uppercase text-xl text-primary-accent font-bold">Продукция сертифицирована</h3>
                         <p class="basis-auto card__text card__text_big text-primary-darker">Вся продукция прошла сертификацию.</p>
                         <span class="card__number mt-auto">05</span>
                     </div>
