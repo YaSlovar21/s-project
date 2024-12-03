@@ -9,7 +9,7 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
-<body class="">
+<body class="page">
     <%= require('html-loader!./inner-metrika.html').default %>
     <header class="border-b border-primary-white">
         <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>

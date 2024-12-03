@@ -31,5 +31,5 @@ function goalCallback () {
     console.log('запрос в Метрику успешно отправлен');
   }
   document.addEventListener('copy', (evt)=> {
-      ym(84773554,'reachGoal','copied', {path: evt.target.baseURI, el: evt.target.innerText}, goalCallback );
+      ym(88973338,'reachGoal','copied', {path: evt.target.baseURI, el: evt.target.innerText}, goalCallback );
   });

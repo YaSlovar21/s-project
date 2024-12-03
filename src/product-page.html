@@ -7,7 +7,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename%>"  rel="canonical" />
 </head>
-<body class="page bg-themewhite">
+<body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
@@ -20,25 +20,25 @@
   </div>
   <main>
       <div class="content">
-        <div class="flex w-full bg-themewhite py-10 mobile:flex-col mobile:*:basis-auto">
+        <div class="flex w-full py-10 mobile:flex-col mobile:*:basis-auto">
           <div class="basis-1/4 mobile:h-3/6 overflow-hidden">
             <img class="w-full sticky top-0" src="<%= require(`./images/prod-${oporaData['type']}.png`)%>" alt="опора освещения"> 
           </div>
           <div class="basis-3/4 mobile:mt-10">
             <h1 class="text-primary-darker font-bold text-5xl uppercase max-w-[906px] mobile:text-3xl"><%= htmlWebpackPlugin.options.title %></h1>
             <p class="my-8 text-xl max-w-2xl"><%= desc %><%= gostName ? ` Обозначение по ГОСТ 32947-2014: ${gostName}` : '' %></p>
-            <ul class="max-w-[445px] mt-20 text-2xl mobile:text-lg w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
-              <li><h3 class="bg-themewhite relative top-2">Высота</h3> <p class="bg-themewhite relative top-2"><%= Number(oporaData['H'])/1000 %> метров</p></li>
+            <ul class="max-w-[445px] mt-20 text-xl mobile:text-lg w-full *:mb-5 *:border-b *:border-dotted *:border-primary-darker *:w-full *:flex *:justify-between">
+              <li><h3 class="bg-white relative top-2">Высота</h3> <p class="bg-white relative top-2"><%= Number(oporaData['H'])/1000 %> метров</p></li>
               <% if (type === 'силовая') {%>
-                <li><h3 class="bg-themewhite relative top-2">Максимальная нагрузка</h3>   <p class="bg-themewhite relative top-2"><%= Number(oporaData['P'])/100 %> kH (<%= oporaData['P'] %> кг)</p></li>
+                <li><h3 class="bg-white relative top-2">Максимальная нагрузка</h3>   <p class="bg-white relative top-2"><%= Number(oporaData['P'])/100 %> kH (<%= oporaData['P'] %> кг)</p></li>
               <% } %>
-              <li><h3 class="bg-themewhite relative top-2">Тип опоры</h3>  <p class="bg-themewhite relative top-2"><%= type %></p></li>
-              <li><h3 class="bg-themewhite relative top-2">Диаметр верхний</h3> <p class="bg-themewhite relative top-2"><%= oporaData['Db'] %></p></li>
-              <li><h3 class="bg-themewhite relative top-2">Диаметр нижний</h3> <p class="bg-themewhite relative top-2"><%= oporaData['Dh']%></p></li>
-              <li><h3 class="bg-themewhite relative top-2">Возможность подвески СИП</h3> <p class="bg-themewhite relative top-2"><%= type === 'силовая' ? 'да' : 'нет' %></p></li>
-              <li><h3 class="bg-themewhite relative top-2">Вес опоры</h3> <p class="bg-themewhite relative top-2"><%= oporaData['Massa']%> кг</p></li>
+              <li><h3 class="bg-white relative top-2">Тип опоры</h3>  <p class="bg-white relative top-2"><%= type %></p></li>
+              <li><h3 class="bg-white relative top-2">Диаметр верхний</h3> <p class="bg-white relative top-2"><%= oporaData['Db'] %></p></li>
+              <li><h3 class="bg-white relative top-2">Диаметр нижний</h3> <p class="bg-white relative top-2"><%= oporaData['Dh']%></p></li>
+              <li><h3 class="bg-white relative top-2">Возможность подвески СИП</h3> <p class="bg-white relative top-2"><%= type === 'силовая' ? 'да' : 'нет' %></p></li>
+              <li><h3 class="bg-white relative top-2">Вес опоры</h3> <p class="bg-white relative top-2"><%= oporaData['Massa']%> кг</p></li>
             </ul>
-            <button class="<%= ctaButtonClass %> text-xl mobile:text-base mt-16 mb-4 text-primary-darker border-2 border-primary-darker uppercase p-5 text-center w-1/2 mobile:w-full transition-all duration-300 hover:bg-primary-white" href="/about/" data-additional="опору <%= htmlWebpackPlugin.options.title %>">Оставить заявку на опору</button>
+            <button class="<%= ctaButtonClass %> ui-button" href="/about/" data-additional="опору <%= htmlWebpackPlugin.options.title %>">Оставить заявку на опору</button>
             <div class="mt-20">
               <h2 class="text-2xl font-bold text-primary-darker">Дополнительные характеристики</h2>
               <ul class="max-w-[445px] mt-7 text-xl mobile:text-base w-full *:mb-5 *:pb-5 *:border-b *:border-primary-white *:w-full *:flex *:justify-between">
@@ -56,14 +56,16 @@
         </div>
       </div>
     </div>
-    <section class="relative bg-primary-darker">
-      <figure class="absolute top-0 left-0">
-        <img src="<%= require('./images/svg/dec-left-top-white.svg')%>" alt="Декор">
-      </figure>
-      <div class="content py-12 mobile:pt-40">
-        <div class="w-3/4 ml-auto mobile:w-full">
-        <h2 class="section-title normal-case">Документация и чертеж</h2>
-        <p class="text-primary-white text-xl mb-10 max-w-[66%] laptop:max-w-full">Станкостальконструкция является производителем опоры <%= htmlWebpackPlugin.options.title.split(' ')[1] %>. <%= catForCrumbs %> изготавливаются строго согласно ГОСТ, также возможно индивидуальное изменение конструкции под Ваши потребности. На базе данной опоры <%= `${type[0].toUpperCase()}${sposobUstanovki[0].toUpperCase()}Г` %> изготавливаются множество специализированных опор высотой <%= Number(oporaData['H'])/1000 %> метров<%= type === 'силовая' ? ` и боковой нагрузкой ${oporaData['P']} кг.` : '.' %></p>
+    <section class="relative">
+      <div class="content ssk-grid items-start py-12">
+        <!--<div class="w-3/4 ml-auto mobile:w-full">-->
+        <h2 class="up-title up-title_svg uppercase text-primary-accent">Документация и чертеж</h2>
+        <% if (oporaData.drawing) { %>
+          <img src=<%= `https://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai/api-images/drawings/${oporaData['type']}/${oporaData.drawing}` %> alt="Чертеж опоры">
+        <% } %>
+
+        <div class="flex flex-col">
+          <p class="text-xl mb-10">Станкостальконструкция является производителем опоры <%= htmlWebpackPlugin.options.title.split(' ')[1] %>. <%= catForCrumbs %> изготавливаются строго согласно ГОСТ, также возможно индивидуальное изменение конструкции под Ваши потребности. На базе данной опоры <%= `${type[0].toUpperCase()}${sposobUstanovki[0].toUpperCase()}Г` %> изготавливаются множество специализированных опор высотой <%= Number(oporaData['H'])/1000 %> метров<%= type === 'силовая' ? ` и боковой нагрузкой ${oporaData['P']} кг.` : '.' %></p>
          <!--<div class="flex mobile:flex-col-reverse mobile:*:basis-auto">
          <img class="basis-[444px] min-w-0 w-full" src="<%= require('./images/test-drawing.png')%>" alt="Чертёж опоры сфг">
           <div class="flex flex-col justify-between ml-5 max-w-[600px] mobile:ml-0">
@@ -78,17 +80,18 @@
               </ul>
             </div>-->
             <div class="flex mobile:mt-10 mobile:mb-4">
-              <a class="<%= ctaButtonClass %> ui-button-white mt-4 mr-4 text-themewhite border border-themewhite uppercase p-5 w-1/2 text-center w-full" href="#" data-additional="опору <%= htmlWebpackPlugin.options.title %> и приложить чертёж">Запросить чертёж</a>
+              <a class="<%= ctaButtonClass %> ui-button" href="#" data-additional="опору <%= htmlWebpackPlugin.options.title %> и приложить чертёж">Запросить чертёж</a>
               <a class="<%= ctaButtonClass %> ui-button-white mt-4 text-themewhite  uppercase p-5 w-1/2 text-center w-full" href="#" data-additional="опору <%= htmlWebpackPlugin.options.title %> и необходима консультация со специалистом">Нужна консультация</a>
             </div>
+          </div>
           <!--</div>
-        </div>-->
         </div>
+        </div>-->
       </div>
     </section>
-    <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
+    
   </main>
-
+  <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>

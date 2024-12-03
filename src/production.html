@@ -125,7 +125,8 @@
                                 </li>
                             
                             </ul>
-                            <a href="<%= `/catalog/opory-sfg/sfg-${oporaData['P']}-${Number(oporaData['H'])/1000}-${oporaData['Db']}.html` %>">
+                            <a href="<%= categories.filter(i=>i.type==='nfg')[0].pathGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) %>">
+                        
                                 <span class="absolute top-0 left-0 w-full h-full"></span>
                             </a>
                             <!--<svg class=" absolute top-5 right-3 w-6 h-6 fill-primary-lighter group-hover:fill-primary-darker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >

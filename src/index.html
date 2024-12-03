@@ -90,7 +90,7 @@
       <h2 class="up-title up-title_svg mb-[30px]">Новости</h2>
       <ul class="">
         <% newsData.slice(0,4).map((i, index) => { %>
-          <li class="newscard relative <%= index===2 ? `newscard_active` : '' %>">
+          <li class="newscard relative <%= index===0 ? `newscard_active` : '' %>">
             <span class="newscard__numb mobile:hidden">(<%= index+1 %>)</span>
             <figure class="newscard__image-cont">
               <img class="newscard__image object-cover object-center transition-all rounded duration-300 group-hover:scale-110" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
