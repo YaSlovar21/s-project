@@ -6,7 +6,7 @@
 }
 
 .workflow__list {
-    @apply h-full grid grid-cols-4 gap-4 laptop:grid-cols-2 mobile:grid-cols-1;
+    @apply flex flex-col gap-5;
 }
 
 .workflow__card {

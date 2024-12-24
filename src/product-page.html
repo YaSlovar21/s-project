@@ -20,7 +20,7 @@
   </div>
   <main>
       <div class="content">
-        <div class="flex w-full py-10 mobile:flex-col mobile:*:basis-auto">
+        <div class="flex w-full pt-10 mobile:flex-col mobile:*:basis-auto">
           <div class="basis-1/4 mobile:h-3/6 overflow-hidden">
             <img class="w-full sticky top-0" src="<%= require(`./images/prod-${oporaData['type']}.png`)%>" alt="опора освещения"> 
           </div>
@@ -38,7 +38,7 @@
               <li><h3 class="bg-white relative top-2">Возможность подвески СИП</h3> <p class="bg-white relative top-2"><%= type === 'силовая' ? 'да' : 'нет' %></p></li>
               <li><h3 class="bg-white relative top-2">Вес опоры</h3> <p class="bg-white relative top-2"><%= oporaData['Massa']%> кг</p></li>
             </ul>
-            <button class="<%= ctaButtonClass %> ui-button" href="/about/" data-additional="опору <%= htmlWebpackPlugin.options.title %>">Оставить заявку на опору</button>
+            <button class="<%= ctaButtonClass %> ui-button mt-4" href="/about/" data-additional="опору <%= htmlWebpackPlugin.options.title %>">Оставить заявку на опору</button>
             <div class="mt-20">
               <h2 class="text-2xl font-bold text-primary-darker">Дополнительные характеристики</h2>
               <ul class="max-w-[445px] mt-7 text-xl mobile:text-base w-full *:mb-5 *:pb-5 *:border-b *:border-primary-white *:w-full *:flex *:justify-between">
@@ -57,14 +57,14 @@
       </div>
     </div>
     <section class="relative">
-      <div class="content ssk-grid items-start py-12">
+      <div class="content ssk-grid items-stretch py-32">
         <!--<div class="w-3/4 ml-auto mobile:w-full">-->
-        <h2 class="up-title up-title_svg uppercase text-primary-accent">Документация и чертеж</h2>
+        <h2 class="up-title up-title_svg uppercase mb-auto text-primary-accent">Документация и чертеж</h2>
         <% if (oporaData.drawing) { %>
-          <img src=<%= `https://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai/api-images/drawings/${oporaData['type']}/${oporaData.drawing}` %> alt="Чертеж опоры">
+          <img src=<%= `https://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai/api-images/drawings/${oporaData['type']}/${oporaData.drawing}` %> alt="Чертеж опоры <%= htmlWebpackPlugin.options.title.split(' ')[1] %>">
         <% } %>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col justify-between">
           <p class="text-xl mb-10">Станкостальконструкция является производителем опоры <%= htmlWebpackPlugin.options.title.split(' ')[1] %>. <%= catForCrumbs %> изготавливаются строго согласно ГОСТ, также возможно индивидуальное изменение конструкции под Ваши потребности. На базе данной опоры <%= `${type[0].toUpperCase()}${sposobUstanovki[0].toUpperCase()}Г` %> изготавливаются множество специализированных опор высотой <%= Number(oporaData['H'])/1000 %> метров<%= type === 'силовая' ? ` и боковой нагрузкой ${oporaData['P']} кг.` : '.' %></p>
          <!--<div class="flex mobile:flex-col-reverse mobile:*:basis-auto">
          <img class="basis-[444px] min-w-0 w-full" src="<%= require('./images/test-drawing.png')%>" alt="Чертёж опоры сфг">
@@ -79,9 +79,9 @@
                 <li>подводом к верхней части опоры или внутренним подводом с обслуживанием через боковой лючок в нижней части опоры</li>
               </ul>
             </div>-->
-            <div class="flex mobile:mt-10 mobile:mb-4">
+            <div class="flex flex-col mobile:mt-10 mobile:mb-4">
               <a class="<%= ctaButtonClass %> ui-button" href="#" data-additional="опору <%= htmlWebpackPlugin.options.title %> и приложить чертёж">Запросить чертёж</a>
-              <a class="<%= ctaButtonClass %> ui-button-white mt-4 text-themewhite  uppercase p-5 w-1/2 text-center w-full" href="#" data-additional="опору <%= htmlWebpackPlugin.options.title %> и необходима консультация со специалистом">Нужна консультация</a>
+              <a class="<%= ctaButtonClass %> ui-button mt-4" href="#" data-additional="опору <%= htmlWebpackPlugin.options.title %> и необходима консультация со специалистом">Нужна консультация</a>
             </div>
           </div>
           <!--</div>

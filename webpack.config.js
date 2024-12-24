@@ -458,6 +458,18 @@ function generateConfig(oporyData, newsData, objectsData) {
         filename: 'about/nashi-cennosti/index.html',
         chunks: ['index', 'form','ctaReactions'],
       }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
+          newsData: newsData.sort((a,b) => b.id - a.id),
+          ...standartClasses
+        },
+        title: "Парк оборудования и услуги",
+        template: './src/about-factory-equipment.html', // путь к файлу index.html
+        filename: `${ROUTES.uslugiAndEquip.slice(1,)}index.html`,
+        chunks: ['index', 'form','ctaReactions'],
+      }),
       
       new HtmlWebpackPlugin({
         templateParameters: {

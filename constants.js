@@ -17,6 +17,7 @@ const ROUTES = {
     fundamenty: '/opory-osveshcheniya/fundamenty-pod-opory/',
     brackets: '/opory-osveshcheniya/kronshtejny-pod-svetilniki/',
     about: '/about/',
+    uslugiAndEquip: '/about/factory-equipment/',
     ourValues: '/about/nashi-cennosti/',
     //ourDocs: '/about/documents/',
     news: '/news/',
@@ -40,6 +41,7 @@ const techNames = {
 
   "Massa": 'Масса',
   "Name": 'Название',
+  "metalThin": 'Толщина металла',
   
   "A": 'Размер фланца',
   "B": 'Межосевое расстояние крепёжных деталей во фланце',

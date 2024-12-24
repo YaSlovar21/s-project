@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
+</head>
+
+<body class="page">
+    <%= require('html-loader!./inner-metrika.html').default %>
+    <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+    </header>
+    <div class="relative flex ">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.about %>">О компании</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.ourValues %>">Парк оборудования и услуги</a></li>
+    </ul>
+    </div>
+    <main class="py-14 content">
+        <h1 class="up-title up-title_svg">
+            Оборудование
+        </h1>
+        <p class="text-4xl font-semibold uppercase text-primary-accent leading-[1.1] laptop:text-2xl">
+            Станкостальконструкция обладает уникальным парком оборудования, которое используется для производства граненых опор.
+        </p> 
+        <p>
+            Лист металла режется на портальной плазменной резке. Размер стола - 
+        </p>
+        <div class="">
+            <ul class="workflow__list">
+              <li class="card p-[30px]">
+                <span class="workflow__card-span">01/</span>
+                <h3 class="workflow__card-title">Плазменная резка металла</h3>
+                <p class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</p>
+                <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+              </li>
+              <li class="card  p-[30px]">
+                <span class="workflow__card-span">02/</span>
+                <h3 class="workflow__card-title">Листогиб</h3>
+                <p class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</p>
+                <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+              </li>
+              <li class="card  p-[30px]">
+                <span class="workflow__card-span">03/</span>
+                <h3 class="workflow__card-title">Сварка</h3>
+                <p class="workflow__card-subhead">Сварочные посты</p>
+                <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
+              </li>
+              <li class="card  p-[30px]">
+                <span class="workflow__card-span">04/</span>
+                <h3 class="workflow__card-title">Сварка продольного шва</h3>
+                <p class="workflow__card-subhead">Автоматизированная портальная установка</p>
+                <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
+              </li>
+            </ul>
+          </div>
+    
+    </main>
+    
+    <!--FOOTER-->
+    <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
+</html>
