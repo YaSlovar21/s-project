@@ -53,15 +53,16 @@
       <span class="mb-5 up-title up-title_svg">О компании</span>
       <div class="grid grid-cols-4 olpc:grid-cols-2 gap-5 laptop:grid-cols-1 laptop:*:col-start-1">
         <h2 class="col-span-2 olpc:col-span-1 max-w-[500px] text-4xl font-bold text-primary-darker pt-2">Завод по производству металлических опор</h2>
-        <p class="olpc:col-start-2 text-lg leading-tight text-primary-darker">
-          ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных металлоконструкций.
+        <div class="olpc:col-start-2 ">
+          <p class="text-lg leading-tight text-primary-darker">ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных металлоконструкций.</p> 
+          <p class="text-lg leading-tight mt-2 text-primary-darker">Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей.</p>
+        </div>
+        <p class=" olpc:col-start-2 text-lg leading-tight text-primary-darker">
+          Также мы <span class="font-semibold">изготавливаем нестандартные металлонструкции</span>: опалубки для заливки бетонных опор, комплектующие к дну тонара и прочие металлоизделия из габаритного листа где нужна гибка и резка. Наше конструкторское бюро поможет спроектировать решение.
         </p>
-         <p class=" olpc:col-start-2 text-lg leading-tight text-primary-darker">
-            Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
-         </p>
       </div>
       <div class="grid grid-cols-4 gap-5 mt-6 laptop:grid-cols-2">
-        <a class="block col-start-3 laptop:col-start-1 p-5 text-white text-lg text-center rounded-lg bg-primary-accent" href="<%= ROUTES.about %>">узнать больше</a>
+        <a class="block col-start-3 laptop:col-start-1 p-5 text-white text-lg text-center rounded-lg bg-primary-accent" href="<%= ROUTES.uslugiAndEquip %>">смотреть парк оборудования и услуги</a>
       </div>
       <figure class="relative my-7 after:transition-all after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-dark after:bg-opacity-35 after:z-[1] hover:after:bg-opacity-20">
         <img class="w-full h-full object-cover object-center" src="<%= require('./images/lpopory-cover-new.jpg')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">

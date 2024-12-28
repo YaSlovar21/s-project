@@ -468,7 +468,7 @@ function generateConfig(oporyData, newsData, objectsData) {
         title: "Парк оборудования и услуги",
         template: './src/about-factory-equipment.html', // путь к файлу index.html
         filename: `${ROUTES.uslugiAndEquip.slice(1,)}index.html`,
-        chunks: ['index', 'form','ctaReactions'],
+        chunks: ['index', 'form','ctaReactions','popupWithImage'],
       }),
       
       new HtmlWebpackPlugin({
@@ -490,8 +490,8 @@ function generateConfig(oporyData, newsData, objectsData) {
     ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins, htmlProductsGOSTPlugins), 
   }
 }
-const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
-
+//const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
+const proxyAgent = null;
 /*
   const date = new Date(dateTime);
   const month = date.getMonth() + 1;

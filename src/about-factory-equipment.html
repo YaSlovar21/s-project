@@ -19,47 +19,52 @@
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.ourValues %>">Парк оборудования и услуги</a></li>
     </ul>
     </div>
-    <main class="py-14 content">
+    <main class="py-14 content grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 laptop:grid-cols-1 items-start laptop:*:col-start-1 laptop:*:col-span-1">
         <h1 class="up-title up-title_svg">
             Оборудование
         </h1>
-        <p class="text-4xl font-semibold uppercase text-primary-accent leading-[1.1] laptop:text-2xl">
+        <p class="text-4xl col-span-3 font-semibold uppercase text-primary-accent leading-[1.1] laptop:text-2xl mobile:text-xl mobile:col-span-1">
             Станкостальконструкция обладает уникальным парком оборудования, которое используется для производства граненых опор.
         </p> 
-        <p>
-            Лист металла режется на портальной плазменной резке. Размер стола - 
-        </p>
-        <div class="">
+        
+        <div class="col-start-2 col-span-1 laptop:col-start-1">
+            <p class="text-lg">Мы предлагаем услуги по газо-плазменной резки металла и гибке листового металла.</p>
+            <img src="<%= require('./images/uslugi/pl2.png')%>" class="<%= popupImageClass %> cursor-zoom-in w-full mt-4 " alt="Плазменная резка фланцев">
+            <div class="flex gap-4 max-w-full">
+              <img src="<%= require('./images/uslugi/pl1.png')%>" class="<%= popupImageClass %> cursor-zoom-in w-full min-w-0 mt-4 " alt="Плазменная резка">
+              <img src="<%= require('./images/uslugi/gaz1.png')%>" class="<%= popupImageClass %> cursor-zoom-in w-full  min-w-0 mt-4 " alt="Газовая резка">
+            </div>
+        </div>
+        <div class="col-span-1">
             <ul class="workflow__list">
+              <li class="card  p-[30px]">
+                <h3 class="card__title">Гибка металла на тандемном прессе</h3>
+                <p class="workflow__card-desc">Длина 12400 мм</p>
+                <p class="workflow__card-desc">Толщина 8 мм</p>
+                <p class="workflow__card-desc">Усилие 1000 тонн и раздвижная матрица</p>
+                <button class="ui-button <%= ctaButtonClass %>" data-additional="гибку листового металла большого размера">Уточнить детали</button>
+              </li>
               <li class="card p-[30px]">
-                <span class="workflow__card-span">01/</span>
-                <h3 class="workflow__card-title">Плазменная резка металла</h3>
-                <p class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</p>
-                <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+                <h3 class="card__title">Плазменная резка металла</h3>
+                <p class="workflow__card-desc">Лист 2000 мм <b>х</b> 12000 мм</p>
+                <p class="workflow__card-desc">Техника оборудована ЧПУ-суппортом, с автоматическим отслеживанием высоты</p>
+                <button class="ui-button <%= ctaButtonClass %>" data-additional="плазменную резку крупных листов металла">Уточнить детали</button>
               </li>
               <li class="card  p-[30px]">
-                <span class="workflow__card-span">02/</span>
-                <h3 class="workflow__card-title">Листогиб</h3>
-                <p class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</p>
-                <p class="workflow__card-desc">Портальная машина термической резки металла с ЧПУ.</p>
+                <h3 class="card__title">Газовая резка металла с ЧПУ</h3>
+                <p class="workflow__card-desc">Лист 2000 мм <b>х</b> 12000 мм</p>
+                <p class="workflow__card-desc">Толщина до 150 мм</p>
+                <button class="ui-button <%= ctaButtonClass %>" data-additional="газовую резку крупных листов металла">Уточнить детали</button>
               </li>
-              <li class="card  p-[30px]">
-                <span class="workflow__card-span">03/</span>
-                <h3 class="workflow__card-title">Сварка</h3>
-                <p class="workflow__card-subhead">Сварочные посты</p>
-                <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
-              </li>
-              <li class="card  p-[30px]">
-                <span class="workflow__card-span">04/</span>
-                <h3 class="workflow__card-title">Сварка продольного шва</h3>
-                <p class="workflow__card-subhead">Автоматизированная портальная установка</p>
-                <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
-              </li>
+             
+              
             </ul>
           </div>
     
     </main>
-    
+    <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
+    <!--POPUPS-->
+    <%= require('html-loader!./insets/popups/popupImage.html').default %>
     <!--FOOTER-->
     <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>

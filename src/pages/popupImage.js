@@ -13,8 +13,8 @@ document.querySelectorAll('.popup-image-item').forEach((item) => {
       evt.stopPropagation();
       console.log(evt.target);
       popupImage.open({
-        link: evt.target.querySelector('img').src,
-        desc: evt.target.querySelector('img').alt,
+        link: evt.target.querySelector('img') ? evt.target.querySelector('img').src : evt.target.src,
+        desc: evt.target.querySelector('img') ? evt.target.querySelector('img').alt : evt.target.alt,
       });
     });
   });
