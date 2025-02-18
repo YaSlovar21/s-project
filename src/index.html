@@ -120,6 +120,7 @@
       </figure>-->
       <h2 class="up-title up-title_svg mb-[30px]">Документы на продукцию</h2>
       <ul class="grid grid-cols-4 gap-5 olpc:grid-cols-2  *:rounded-lg *:overflow-hidden">
+        
         <li class="sert-grid__list-item <%= popupImageClass %>">
           <img class="w-full h-full object-cover object-top" src="<%= require('./images/sert-vmo.png')%>" alt="Сертификат на производство высокомачтовых опор освещения">
         </li>
@@ -164,6 +165,31 @@
     <!--<div class="content grid grid-cols-4 gap-5 mt-20">
       <a class="col-start-3 text-center block text-lg text-white bg-primary-accent rounded-lg p-5" href="<%=ROUTES.news %>">смотреть больше</a>
     </div>-->
+    </section>
+
+    <section class="content grid items-start grid-cols-4 gap-5 my-14 olpc:grid-cols-2 mobile:grid-cols-1">
+      <h2 class="up-title up-title_svg mb-[46px]">Услуги завода</h2>
+      <ul class="*:cursor-pointer  col-span-3 grid grid-cols-3 gap-5 olpc:col-span-2 mobile:col-span-1 olpc:grid-cols-2 mobile:grid-cols-1">
+        <li class="hover:bg-primary-white transition-all card  p-[30px] <%= ctaButtonClass %>" data-additional="гибку листового металла большого размера">
+          <h3 class="card__title">Гибка металла на тандемном прессе</h3>
+          <img class="w-full mt-auto h-56 object-cover object-center rounded-lg" src="<%= require('./images/uslugi/pressmini.png')%>" alt="Листогиб большого размера">
+          <p class="workflow__card-desc">Длина 12400 мм <b>&</b> Толщина 8 мм</p>
+          <p class="workflow__card-desc"></p>
+          <p class="workflow__card-desc">Усилие 1000 тонн и раздвижная матрица</p>
+        </li>
+        <li class="hover:bg-primary-white transition-all card p-[30px] <%= ctaButtonClass %>" data-additional="плазменную резку крупных листов металла">
+          <h3 class="card__title">Плазменная резка металла</h3>
+          <img class="w-full mt-auto  h-56 object-cover object-center rounded-lg" src="<%= require('./images/uslugi/pl2.png')%>" alt="Плазменная резка фланцев">
+          <p class="workflow__card-desc">Лист 2000 мм <b>х</b> 12000 мм</p>
+          <p class="workflow__card-desc">Техника оборудована ЧПУ-суппортом, с автоматическим отслеживанием высоты</p>
+        </li>
+        <li class="hover:bg-primary-white transition-all card p-[30px] <%= ctaButtonClass %>" data-additional="газовую резку крупных листов металла">
+          <h3 class="card__title">Газовая резка металла с ЧПУ</h3>
+          <img class="w-full mt-auto  h-56 object-cover object-center rounded-lg" src="<%= require('./images/uslugi/gaz1.png')%>" alt="Газовая резка">
+          <p class="workflow__card-desc">Лист 2000 мм <b>х</b> 12000 мм</p>
+          <p class="workflow__card-desc">Толщина до 150 мм</p>
+        </li>    
+      </ul>
     </section>
     
     <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>

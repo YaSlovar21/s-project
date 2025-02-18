@@ -9,6 +9,7 @@
     @apply flex flex-col gap-5;
 }
 
+
 .workflow__card {
     @apply p-5 bg-primary-lighterdouble bg-opacity-50 flex flex-col justify-start hover:bg-themewhite hover:bg-opacity-90;
 }
