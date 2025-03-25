@@ -21,27 +21,7 @@ export default class FormStatic {
 
       // добавляем в этот объект значения всех полей
       this._inputList.forEach(input => {
-        if (input.dataset.alias) {
-          if (input.name==='moshnost') {
-            return this._formValues[input.dataset.alias] = input.value;// +' '+ this._formElement.t_typesr1.value;
-          }
-          if (input.name==='rashod') {
-            return this._formValues[input.dataset.alias] = input.value;// +' '+ this._formElement.t_typesr2.value;
-          }
-          this._formValues[input.dataset.alias] = input.value;
-        } else {
-
-          if (input.name === 'uzel') {
-            this._formValues['Оборудование'] = Array.from(this._formElement.elements.uzel).filter((item)=>{
-              return item.checked;
-            }).map((item)=> {
-              return item.dataset.aliasob;
-            });
-          } else {
             this._formValues[input.name] = input.value;
-          }
-
-        }
       });
 
       if (localStorage.getItem('clientId')) {

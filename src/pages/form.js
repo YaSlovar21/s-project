@@ -22,7 +22,7 @@ const upFooterFormConfig = {
   }
 
 const formApi = new Api({
-    baseUrl: 'https://functions.yandexcloud.net/d4e871hdav9f1llf6ebq',
+    baseUrl: 'https://api.ssk22.ru/forms/form',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json;charset=utf-8',
@@ -36,19 +36,23 @@ upFooterFormValidator.enableValidation();
 
 const upFooterFormStatic = new FormStatic({
     formSubmitHandler: (callBackData) => {
-      renderLoading(true, upFooterFormSubmitButton, 'Оставить заявку', 'Отправляем...');
+      renderLoading('loading', upFooterFormSubmitButton, 'Оставить заявку', 'Отправляем...', 'Отправлено успешно!');
   
       formApi.sendBigForm(callBackData)
         .then((response) => {
           console.log(response);
-          upFooterFormStatic.cleanAll();
+         // upFooterFormStatic.cleanAll(); тут что то не то!!!!!!!!!!!!!!!!
           //сделать сообщение об успешной отправке
+          renderLoading('sended', upFooterFormSubmitButton, 'Оставить заявку', 'Отправляем...', 'Отправлено успешно!');
         })
         .catch((err) => console.log(err)) //сделать сообщение об успешной ошибке
         .finally(() => {
-          upFooterFormValidator.disableSaveButton();
+          //upFooterFormValidator.disableSaveButton();
           upFooterForm.reset();
-          renderLoading(false, upFooterFormSubmitButton, 'Оставить заявку', 'Отправляем...');
+          setTimeout(()=> {
+            renderLoading('default', upFooterFormSubmitButton, 'Оставить заявку', 'Отправляем...', 'Отправлено успешно');
+          },900)
+          
         });
     },
     formCleanError: () => {},

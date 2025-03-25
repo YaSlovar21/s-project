@@ -6,6 +6,9 @@ const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
 const {categories, categoriesPageOpory, categoriesPageMain} = require('./categories')
 
+//const canonicalURL = 'http://xn--80aaygbafnegdzdefffgu5dvg6c.xn--p1ai.website.yandexcloud.net'
+//const canonicalURL = 'http://ssk22.ru.website.yandexcloud.net';
+
 const canonicalURL = 'https://станкостальконструкция.рф'
 
 const HttpsProxyAgent = require('https-proxy-agent');
@@ -62,22 +65,31 @@ let generatedPaths = [];
 
 function generateProductsHtmlPlugins(oporyData) {
   return oporyData.map((item) => {
-    let itemRoute = item.linkPath;
-    let itemTitle = `Опора ${item.name}`;
-    let gostName = item.gostName  || null;
+    let itemRoute;
+    let itemTitle;
+    let gostName;
     let sposobUstanovki;
     let type;
     let desc;
     let catForCrumbs;
-    let categoryID = item.type;
+    let categoryID;
     switch (item.type) {
       case 'sfg':
+        //itemRoute =  `opory-osveshcheniya/opory-silovye-flancevye-granenye/mso-fg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        itemRoute =  `catalog/opory-sfg/sfg-${item['P']}-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemTitle = `Опора СФГ-${item['P']}-${Number(item['H'])/1000}-01-Ц`;
+        gostName = `МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
         type = 'силовая';
+        categoryID = 'sfg';
         sposobUstanovki = 'фланцевая';
         desc = `Опора силовая фланцевая граненая с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
         catForCrumbs = 'Опоры силовые фланцевые граненые';
         break;
       case 'nfg':
+        // itemRoute = `opory-osveshcheniya/opory-nesilovye-flancevye-granenye/mno-fg-${item['H']}-${item['Db']}.html`;
+        itemRoute =  `catalog/opory-nfg/nfg-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemTitle = `Опора ${item['Name'].split('**').join('').split(',0').join('')}`
+        gostName = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`;
         type = 'несиловая';
         categoryID = 'nfg';
         sposobUstanovki = 'фланцевая';
@@ -85,6 +97,10 @@ function generateProductsHtmlPlugins(oporyData) {
         catForCrumbs = 'Опоры несиловые фланцевые граненые';
         break;
       case 'spg':
+       // itemRoute = `opory-osveshcheniya/opory-silovye-pryamostoechnye-granenye/mso-pg-${item['H']}-${item['Db']}-${item['P']}kg.html`;
+        itemRoute =  `catalog/opory-spg/spg-${item['P']}-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemTitle = `Опора ${item['Name'].split('**').join('')}`;
+        gostName = null;
         type = 'силовая';
         categoryID = 'spg';
         sposobUstanovki = 'прямостоечная';
@@ -92,25 +108,15 @@ function generateProductsHtmlPlugins(oporyData) {
         catForCrumbs = 'Опоры силовые прямостоечные граненые';
         break;
       case 'npg':
+        //itemRoute = `opory-osveshcheniya/opory-nesilovye-pryamostoechnye-granenye/mno-pg-${item['H']}-${item['Db']}.html`;
+        itemRoute =  `catalog/opory-npg/npg-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemTitle = `Опора ${item['Name'].split('**').join('')}`;
+        gostName = null;
         categoryID = 'npg';
         desc = `Опора несиловая прямостоечная граненая без возможности подвески СИП.`;
         catForCrumbs = 'Опоры несиловые прямостоечные граненые';
         type = 'несиловая';
         sposobUstanovki = 'прямостоечная';
-        break;
-      case 'msofg':
-        type = 'силовая';
-        categoryID = 'msofg';
-        sposobUstanovki = 'фланцевая';
-        desc = `Опора силовая фланцевая граненая ГОСТ с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
-        catForCrumbs = 'Опоры силовые фланцевые граненые ГОСТ';
-        break;
-      case 'mnofg':
-        type = 'несиловая';
-        categoryID = 'mnofg';
-        sposobUstanovki = 'фланцевая';
-        desc = `Опора несиловая фланцевая граненая ГОСТ без возможности подвески СИП. Крепление к поверхности через фланец.`;
-        catForCrumbs = 'Опоры несиловые фланцевые граненые';
         break;
     }
     console.log(itemRoute);
@@ -147,6 +153,67 @@ function sfdsdd(a,b)  {
   return a+b;
 }
 
+function generateGOSTProductsHtmlPlugins(oporyData) {
+  return oporyData.filter(item => item.type === 'sfg' || item.type === 'nfg').map((item) => {
+    let itemRoute;
+    let itemTitle;
+    let gostName = null;
+    let sposobUstanovki;
+    let type;
+    let desc;
+    let catForCrumbs;
+    let categoryID;
+    switch (item.type) {
+      case 'sfg':
+        itemRoute =  `catalog/opory-mso-fg/mso-fg-${Number(item['P'])/100}-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemTitle = `Опора МСО-ФГ-${Number(item['P'])/100}-${Number(item['H'])/1000}`;
+        //gostName = ``;
+        type = 'силовая';
+        categoryID = 'msofg';
+        sposobUstanovki = 'фланцевая';
+        desc = `Опора силовая фланцевая граненая ГОСТ с возможностью подвески СИП с боковой нагрузкой ${item['P']} кг на высоте ${item['H1']} мм. Крепление к поверхности через фланец.`
+        catForCrumbs = 'Опоры силовые фланцевые граненые ГОСТ';
+        break;
+      case 'nfg':
+        itemRoute = `catalog/opory-mno-fg/mno-fg-${Number(item['H'])/1000}-${item['Db']}.html`;
+        itemTitle = `Опора МНО-ФГ-${Number(item['H'])/1000}-02(05)-Ц`
+        //gostName = `Опора `;
+        type = 'несиловая';
+        categoryID = 'mnofg';
+        sposobUstanovki = 'фланцевая';
+        desc = `Опора несиловая фланцевая граненая ГОСТ без возможности подвески СИП. Крепление к поверхности через фланец.`;
+        catForCrumbs = 'Опоры несиловые фланцевые граненые';
+        break;
+    }
+    console.log(itemRoute);
+    generatedPaths.push(
+      {
+        path: `/${itemRoute}`,
+        lastmod: dateNow,
+        priority: 1,
+        changefreq: 'monthly'
+      }
+    )
+    return new HtmlWebpackPlugin({
+      templateParameters: {
+        canonicalURL,
+        ROUTES,
+        oporaData: item,
+        type,
+        desc,
+        catForCrumbs,
+        ...standartClasses,
+        gostName,
+        sposobUstanovki,
+        categoryID
+      },
+      title: itemTitle,
+      template: './src/product-page.html', // путь к файлу index.html
+      filename: itemRoute,
+      chunks: ['index', 'form', 'ctaReactions'],
+    })
+  })
+}
 
 /* -------------------------СТАТЬИ---------------------*/
 
@@ -187,6 +254,7 @@ function generateConfig(oporyData, newsData, objectsData) {
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
   const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
+  const htmlProductsGOSTPlugins = generateGOSTProductsHtmlPlugins(oporyData);
 
   console.log(paths.length + generatedPaths.length)
   return {
@@ -419,9 +487,16 @@ function generateConfig(oporyData, newsData, objectsData) {
         filename: '[name].css'
       }),
       new SitemapPlugin({ base: canonicalURL, paths: paths.concat(generatedPaths) }),
-    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins), 
+    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins, htmlProductsGOSTPlugins), 
   }
 }
+//const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
+const proxyAgent = null;
+/*
+  const date = new Date(dateTime);
+  const month = date.getMonth() + 1;
+  this._dateString = `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`
+*/
 
 function articleDateMapper(newsArr) {
   return newsArr.map((item) => {
@@ -437,9 +512,9 @@ function articleDateMapper(newsArr) {
 module.exports = () => {
   return new Promise((resolve, reject) => {
       Promise.all([
-          fetch1('https://api.ssk22.ru/data/techdata').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/news').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/data/objects').then(res => res.json()), 
+          fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4', { agent: proxyAgent}).then(res => res.json()), 
+          fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=news', { agent: proxyAgent}).then(res => res.json()), 
+          fetch1('https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=objects', { agent: proxyAgent}).then(res => res.json()), 
         ])
         .then((data) => {
           resolve(generateConfig(data[0], articleDateMapper(data[1]), data[2]));

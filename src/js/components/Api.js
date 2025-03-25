@@ -13,7 +13,7 @@ export default class Api {
     }
 
     getInitialNews() {
-        return fetch(`https://functions.yandexcloud.net/d4e9aq1evmfdb0cc7uo4?base=news`, {
+        return fetch(`https://api.ssk22.ru/news`, {
               headers: this._headers,
           })
           .then((response) => {
@@ -36,18 +36,4 @@ export default class Api {
         })
     }
 
-    sendBigForm(formDataJson) {
-      return fetch(`${this._baseUrl}`, {
-        method : 'POST',
-        headers: {
-
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formDataJson),
-        //isBase64Encoded: false
-    })
-    .then((response) => {
-        return this._isResponseOk(response);
-    })
-  }
 }

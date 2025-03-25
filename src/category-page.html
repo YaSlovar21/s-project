@@ -69,7 +69,7 @@
             <li class="relative products-list__item flex  flex-wrap py-3 px-6 pr-6 transition-all duration-300 h-24 laptop:h-auto laptop:justify-between items-end hover:h-min group" >
               <h3 class="basis-1/2 laptop:basis-full laptop:mb-5 max-w-[360px] text-sm text-primary-darkerdouble ">
                 <%= itemAlias %> 
-                <span class="whitespace-nowrap text-2xl font-semibold"><%= nameGenerator ? nameGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) : oporaData["Name"].split('**').join('').split(' ').join('') %></span>
+                <span class="whitespace-nowrap text-2xl font-semibold"><%= nameGenerator ? nameGenerator(oporaData['P'], oporaData['H'], oporaData['Db']) : oporaData["name"] %></span>
               </h3>
               <p class="basis-1/4 laptop:basis-1/2 flex flex-col text-xs text-primary-darkerdouble">
                 Высота
@@ -82,7 +82,7 @@
               </p>
               <% } %>
               <ul class="pl-3 mt-3 pb-4 pt-3 flex flex-col w-3/4 text-primary-darkerdouble laptop:hidden">
-              <% Object.keys(tableData[0]).map((i)=> { if (oporaData[i] && i!== 'Name' && i!== 'drawing' && i!== 'A' && i!== 'B' && i!== 'd' && i!== 'n' && i!== 'id' && i!== 'Massa' && i!== 'type'   &&  i!== 'H'  && i!== 'P') {%>
+              <% Object.keys(tableData[0]).map((i)=> { if (oporaData[i] && i!== 'name' && i!='gostName' && i!='linkPath' && i!== 'drawing' && i!== 'A' && i!== 'B' && i!== 'd' && i!== 'n' && i!== 'id' && i!== 'massa' && i!== 'type'   &&  i!== 'H'  && i!== 'P') {%>
                 <li class="flex items-end border-b border-primary-darkerdouble border-dashed">
                   <h4 class="text-base mr-2 flex basis-2/3 shrink-0"><%= techNames[i] %>:</h4>
                   <p class="text-base basis-1/3"><%= oporaData[i] %> мм</p>
