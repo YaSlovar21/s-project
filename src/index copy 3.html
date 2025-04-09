@@ -10,9 +10,12 @@
 </head>
 <body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="border-b border-primary-white">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+  </header>
   <main>
     <div class="burton bg-top pb-20 pt-4 relative h-screen">
-      <header class="content z-10 relative border-b border-primary-white">
+      <header class="border-b border-primary-white">
         <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'main'}) %>
       </header>
       <div class="content relative z-[3] h-full flex flex-col justify-end items-start">

@@ -19,51 +19,48 @@
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/">Высокомачтовые опоры</a></li>
     </ul>
   </div>
-
-  <!--new-->
-
   <main class="content">
-      <h1 class="title">Высокомачтовые опоры</h1>
-      <div class="flex gap-5 mt-24 items-start">
-       
-        
-      </div>
-      <ul class="grid grid-cols-3 gap-5 mt-6 laptop:grid-cols-2">
-        <div class="laptop:col-span-2">
+    <h1 class="title">Высокомачтовые опоры</h1>
+    <section class="grid grid-cols-3 gap-5 mt-20 laptop:grid-cols-2">
+      <div class="laptop:col-span-2">
         <h2 class="up-title mb-[30px] w-full up-title_svg font-bold text-primary-accent basis-1/4">О продукции</h2>
         <p class="basis-1/2 text-2xl w-full max-w-[90%]  text-primary-darker">
           Мы изготавливаем многогранные мачты освещения. Изготавливаются составные части мачты, каждая из которых проходит
           горячее цинкование. Высокомачтовые опоры можно разделить на две категории
         </p>
       </div>
-        <li class="card card__link mobile:col-span-2">
-            
-                <h2 class="card__title card__title_page_main text-primary-darker">Мачты с мобильной короной</h2>
-                <p class="text-lg leading-snug mt-5 mb-[35px] text-primary-accent">
-                  Корона мачты имеет возможность динамически опускаться и подниматься для проведения ремонтных и сервисных работ
-                </p>
-                <img class="w-full mt-auto" src="<%= require(`./images/maincards/machty-mob.png`)%>" alt="мачты с мобильной короной">
-                <svg class="card__svg fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
-                </svg>                  
-           
+      <ul class="grid grid-cols-2 col-span-2 gap-5 mobile:grid-cols-1">
+        <li class="card card__link">
+            <h2 class="card__title card__title_page_main text-primary-darker">Мачты с мобильной короной</h2>
+            <p class="text-lg leading-snug mt-5 mb-[35px] text-primary-accent">
+              Корона мачты имеет возможность динамически опускаться и подниматься для проведения ремонтных и сервисных работ
+            </p>
+            <img class="w-full mt-auto" src="<%= require(`./images/maincards/machty-mob.png`)%>" alt="мачты с мобильной короной">
+            <svg class="card__svg fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+            </svg>                  
         </li>
-        <li class="card card__link mobile:col-span-2">
-              <h2 class="card__title card__title_page_main text-primary-darker">Мачты со стационарной короной</h2>
-              <p class="text-lg leading-snug mt-5 mb-[35px] text-primary-accent">
-                В такой конфигурации корона статична и для проведения ремонтных и сервисных работ необходимо подниматься на нее по лестнице.
-              </p>
-              <img class="w-full mt-auto" src="<%= require(`./images/maincards/machty-stat.png`)%>" alt="мачты со стационарной короной">
-              <svg class="card__svg fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
-              </svg>                  
-          
-      </li>
-    </ul>
-    <div class="ssk-grid grid-cols-3">
-      <button class="ui-button <%= ctaButtonClass %> col-start-2 mobile:col-span-3 transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
-    </div>
+        <li class="card card__link">
+            <h2 class="card__title card__title_page_main text-primary-darker">Мачты со стационарной короной</h2>
+            <p class="text-lg leading-snug mt-5 mb-[35px] text-primary-accent">
+              В такой конфигурации корона статична и для проведения ремонтных и сервисных работ необходимо подниматься на нее по лестнице.
+            </p>
+            <img class="w-full mt-auto" src="<%= require(`./images/maincards/machty-stat.png`)%>" alt="мачты со стационарной короной">
+            <svg class="card__svg fill-primary-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clip-rule="evenodd" />
+            </svg>                  
+        </li>
+      </ul>
+  </section>
+  <div class="ssk-grid grid-cols-3">
+    <button class="ui-button <%= ctaButtonClass %> col-start-2 mobile:col-span-3 transition-all duration-300 hover:bg-primary-white">Запросить КП на высокомачтовые опоры</button>
   </div>
+  <section class="mb-10 mt-20">
+    <h2 class="up-title mb-5 w-full up-title_svg">Номенклатура высокомачтовых опор</h2>
+    <div class="overflow-x-auto">
+      <%= _.template(require('html-loader!./templates/table.html').default)({tableData: machtyData, d:dictDataObj}) %>
+    </div>
+  </section>
   <section class="my-[130px]">
     <span class="up-title mb-5 w-full up-title_svg font-bold text-primary-accent basis-1/4">Производство</span>
     <div class="ssk-grid grid-cols-3 mt-0 laptop:grid-cols-2">
@@ -75,19 +72,15 @@
           Основная продукция - многогранные металлические опоры освещения всех типов, опоры ЛЭП и контактных сетей, а также комплектующие: фундаменты и закладные элементы под опоры всех типов, кронштейны под светильники, металлооснастка.
        </p>
     </div>
-    <!--<div class="grid grid-cols-3 gap-5 mt-6 laptop:grid-cols-2">
-      <a class="block col-start-2 laptop:col-start-1 p-5 text-white text-lg text-center rounded-lg bg-primary-accent" href="<%= ROUTES.about %>">узнать больше</a>
-    </div>-->
-    <div class="ssk-grid mobile:grid-cols-2 *:rounded-lg *:overflow-hidden">
-      <% [1,2,3,4,5,6,7].map((i) => { %>
+    <div id="vmo-proc" class="ssk-grid mobile:grid-cols-2 gap-y-14 *:rounded-lg ">
+      <% galleryData.filter(i => i.consumersIds.includes("vmo-proc")).map((photo) => { %>
         <figure class="<%= popupImageClass %> cursor-pointer relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-accent after:transition-all after:bg-opacity-20 after:z-[1] hover:after:bg-opacity-40">
-          <img class="w-full h-full object-cover object-center" src="<%= require(`./images/vmo/${i}.png`)%>" alt="">
+          <img class="w-full h-full object-cover object-center" src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName %>" alt="<%= photo.title %>" >
+          <figcaption class="my-1"><%= photo.title %></figcaption>
         </figure>
       <% }) %>
     </div>
-   
   </section>
-  
   </main>
   <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--POPUPS-->

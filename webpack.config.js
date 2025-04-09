@@ -182,13 +182,14 @@ function generateArticlesHtmlPlugins(newsData) {
   })
 };
 
-function generateConfig(oporyData, newsData, objectsData) {
+function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyData, dictData, galleryData) {
 
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
   const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
   const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
 
-  console.log(paths.length + generatedPaths.length)
+  console.log(paths.length + generatedPaths.length);
+  console.log(dictData.filter(i => i.tableName === "machty")[0]);
   return {
     entry: { 
       index: './src/pages/index.js', 
@@ -204,7 +205,7 @@ function generateConfig(oporyData, newsData, objectsData) {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'js/[name].js',
+      filename: 'js/[name][hash].js',
       assetModuleFilename: 'images/[hash][ext]',
       //publicPath: ''
     },
@@ -346,6 +347,11 @@ function generateConfig(oporyData, newsData, objectsData) {
         templateParameters: {
           canonicalURL,
           ROUTES,
+          isDevServer,
+          /* из апи */
+          machtyData,
+          dictDataObj: dictData.filter(i => i.tableName === "machty")[0],
+          galleryData,
           ...standartClasses
         },
         title: "Высокомачтовые опоры",
@@ -418,7 +424,7 @@ function generateConfig(oporyData, newsData, objectsData) {
       new MiniCssExtractPlugin({
         filename: '[name].css'
       }),
-      new SitemapPlugin({ base: canonicalURL, paths: paths.concat(generatedPaths) }),
+      new SitemapPlugin({ base: canonicalURL , paths: paths.concat(generatedPaths) }),
     ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins), 
   }
 }
@@ -434,15 +440,36 @@ function articleDateMapper(newsArr) {
   })
 }
 
+function dictMapper(dictData) {
+  return dictData.map(item => ({
+      ...item,
+     sequence: JSON.parse(item.sequence),
+     dict: JSON.parse(item.dict)
+  }))
+}
+
+function galleryMapper(galleryArr) {
+  return galleryArr.map(item => ({
+      ...item,
+     tags: JSON.parse(item.tags),
+     consumersIds: JSON.parse(item.consumersIds)
+  }))
+}
+
 module.exports = () => {
+  const isDevServer = process.env.WEBPACK_SERVE;
+  console.log(isDevServer);
   return new Promise((resolve, reject) => {
       Promise.all([
           fetch1('https://api.ssk22.ru/data/techdata').then(res => res.json()), 
           fetch1('https://api.ssk22.ru/news').then(res => res.json()), 
           fetch1('https://api.ssk22.ru/data/objects').then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/data/machty').then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/data/dict').then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/gallery').then(res => res.json()), 
         ])
         .then((data) => {
-          resolve(generateConfig(data[0], articleDateMapper(data[1]), data[2]));
+          resolve(generateConfig(isDevServer, data[0], articleDateMapper(data[1]), data[2], data[3], dictMapper(data[4]), galleryMapper(data[5])));
         })
      
   });

@@ -10,11 +10,11 @@ popupImage.setEventListeners();
 
 document.querySelectorAll('.popup-image-item').forEach((item) => {
     item.addEventListener("mousedown", (evt) => {
-      evt.stopPropagation();
-      console.log(evt.target);
+
+      const block = evt.target.closest('.popup-image-item');
       popupImage.open({
-        link: evt.target.querySelector('img') ? evt.target.querySelector('img').src : evt.target.src,
-        desc: evt.target.querySelector('img') ? evt.target.querySelector('img').alt : evt.target.alt,
+        link: block.querySelector('img') ? block.querySelector('img').src : block.src,
+        desc: block.querySelector('img') ? block.querySelector('img').alt : block.alt,
       });
     });
   });
