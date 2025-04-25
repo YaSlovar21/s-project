@@ -12,6 +12,15 @@ export default class Api {
         }
     }
 
+    getSskObjects() {
+        return fetch(`https://api.ssk22.ru/data/objects`, {
+              headers: this._headers,
+          })
+          .then((response) => {
+              return this._isResponseOk(response);
+          })
+    }
+
     getInitialNews() {
         return fetch(`https://api.ssk22.ru/news`, {
               headers: this._headers,

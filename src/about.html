@@ -67,86 +67,52 @@
         </ul>
       </div>
     </section>
- 
-  <section class="flex gap-5 items-start mt-14  olpc:flex-col olpc:*:basis-auto">
-    <span class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-10">География работы</span>
-    <div class="basis-2/4">
-      <h2 class="section-title text-3xl mb-7 normal-case font-medium text-primary-darker max-w-[450px]">Примеры проектов, в которых мы принимали участие:</h2>
-      <ul>
-          <% objectsData.slice(0,3).map((obj) => { %>
-            <li class="p-5 mb-5 relative rounded-lg flex flex-col justify-stretch transition-all duration-300 border border-primary-strokke hover:bg-primary-lightup group">
-              <h3 class="font-semibold uppercase max-w-[680px] text-xl text-primary-accent mobile:text-base"><%= obj.title %></h3>
-              <p class="text-xl basis-14 mt-4 mb-[30px] max-w-[680px] leading-snug text-primary-darker  mobile:max-w-full  mobile:text-sm"><span class="font-semibold"></span> <%= obj.equipment %></p>
-              <p class="text-primary-accent text-xl olpc:text-base flex items-center">
-                <span class="card__number mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                  </svg>
-                </span>
-                <%= obj.region %><%= obj.location ? `(${obj.location})` : '' %>
-              </p>
-            </li>
-          <% }) %>
-      </ul>
-      <button class="hidden p-4 text-white text-base bg-primary-accent rounded-lg w-[23.5%] mt-[50px]">смотреть еще (<%= objectsData.length-3 %>)</button>
-    </div>
-  </section>
-  <section class=" my-24">
-    <h2 class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-10">Парк оборудования</h2>
-    <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
-      <li class="card card__link">
-        <!--<h3 class="workflow__card-title">Плазменная резка металла</h3>-->
-        <h3 class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</h3>
-        <span class="card__number mt-auto">01</span>
-      </li>
-      <li class="card card__link">
-        <!--<h3 class="workflow__card-title">Листогиб</h3>-->
-        <h3 class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</h3>
-        <span class="card__number mt-auto">02</span>
-      </li>
-      <li class="card card__link">
-        <!--<h3 class="workflow__card-title">Сварка</h3>-->
-        <h3 class="workflow__card-subhead">Сварочные посты</h3>
-        <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
-        <span class="card__number mt-auto">03</span>
-      </li>
-      <li class="card card__link">
-        <!--<h3 class="workflow__card-title">Сварка продольного шва</h3>-->
-        <h3 class="workflow__card-subhead">Автоматизированная портальная установка</h3>
-        <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
-        <span class="card__number mt-auto">04</span>
-      </li>
-    </ul>
-
-  </section>
-</main>
-    <!--
-    <section class="bg-primary-dark mt-20 py-8 relative">
-      <figure class="absolute top-0 left-0">
-        <img src="<%= require('./images/svg/dec-left-top-white-old.svg')%>" alt="Декор">
-      </figure>
-      <div class="content content_right-orient pr-10 flex mobile:flex-col">
-        <span class="basis-[380px] up-title text-themewhite text-base">Наша команда</span>
-        <div class="flex flex-col justify-between">
-          <h2 class="section-title text-themewhite mb-8">Стремимся к цели вместе</h2>
-          <div>
-            <p class="text-lg text-themewhite max-w-[524px] mt-32">
-              ООО «Станкостальконструкция» создано в январе 2020 года на базе Акционерного Общества «Холдинговая Компания
-              «Барнаульский Станкостроительный Завод». Наше предприятие специализируется на производстве строительных
-              металлоконструкций.
-            </p>
-            
-          </div>
-          <a class="mt-4 text-themewhite border-2 border-themewhite uppercase p-5 w-1/2 text-center w-full" href="/about/">Наши ценности</a>
-        </div>
-        <img class="ml-auto" src="<%= require('./images/comt.png')%>" alt="цех по производству металлических граненых конических опор освещения в барнауле">
+    <section class="object-section flex gap-5 items-start mt-14  olpc:flex-col olpc:*:basis-auto">
+      <span class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-10">География работы</span>
+      <div class="basis-2/4">
+        <h2 class="section-title text-3xl mb-7 normal-case font-medium text-primary-darker max-w-[450px]">Примеры проектов, в которых мы принимали участие:</h2>
+        <ul class="object-list">
+            <% objectsData.slice(0,3).map((obj) => { %>
+              <%= _.template(require('html-loader!./templates/card-object-page-about.html').default)({obj: obj}) %>
+            <% }) %>
+        </ul>
+        <button class="ui-button objects-more-button p-4 mt-8 mb-10 w-[23.5%]">смотреть еще (<%= objectsData.length-3 %>)</button>
       </div>
     </section>
-    -->
+    <section class="my-24">
+      <h2 class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-10">Парк оборудования</h2>
+      <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
+        <li class="card card__link">
+          <!--<h3 class="workflow__card-title">Плазменная резка металла</h3>-->
+          <h3 class="workflow__card-subhead">Портальная машина термической резки металла с ЧПУ</h3>
+          <span class="card__number mt-auto">01</span>
+        </li>
+        <li class="card card__link">
+          <!--<h3 class="workflow__card-title">Листогиб</h3>-->
+          <h3 class="workflow__card-subhead">Гидравлический листогибочный тандемный пресс с ЧПУ</h3>
+          <span class="card__number mt-auto">02</span>
+        </li>
+        <li class="card card__link">
+          <!--<h3 class="workflow__card-title">Сварка</h3>-->
+          <h3 class="workflow__card-subhead">Сварочные посты</h3>
+          <p class="workflow__card-desc">с возможностью выполнения электросварочных работ и сварки в среде защитных газов (СО2, Ar).</p>
+          <span class="card__number mt-auto">03</span>
+        </li>
+        <li class="card card__link">
+          <!--<h3 class="workflow__card-title">Сварка продольного шва</h3>-->
+          <h3 class="workflow__card-subhead">Автоматизированная портальная установка</h3>
+          <p class="workflow__card-desc">Автоматизированная портальная установка для сварки (продольный шов) под слоем флюса многогранных опор, круглых и профильных труб диаметром от 60 мм до 550 мм и длиной до 12000 мм.</p>
+          <span class="card__number mt-auto">04</span>
+        </li>
+      </ul>
 
+    </section>
+  </main>
   <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
 </body>
+<template id="card-object-template">
+  <%= _.template(require('html-loader!./templates/card-object-page-about.html').default)({obj: {region: '', title: '', equipment: ''}}) %>
+</template>
 </html>

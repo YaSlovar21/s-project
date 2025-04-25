@@ -1,0 +1,7 @@
+.nav__ic {
+    @apply stroke-primary-accent;
+}
+
+.nav__ic_theme_dark {
+    @apply stroke-slate-50;
+}

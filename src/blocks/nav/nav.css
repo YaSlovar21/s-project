@@ -1,5 +1,6 @@
 @import url(./__link/nav__link.css);
 @import url(./__mobile-icon/nav__mobile-icon.css);
+@import url(./__ic/nav__ic.css);
 
 .nav {
   @apply px-10 flex justify-between items-center py-4 mobile:px-5;

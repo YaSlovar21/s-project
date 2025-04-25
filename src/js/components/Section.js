@@ -1,12 +1,16 @@
 export default class Section {
 
     constructor({data, renderer}, cardlistSelector, delayTime=200) {
-        this._renderedItems = data;
+        this._renderedItems = data ? data : [];
         this._container = document.querySelector(cardlistSelector);
         this._renderer = renderer;
         this._delay = 0;
         this._delayTime = delayTime;
     }
+
+    setData(arrayData) {
+      this._renderedItems = arrayData;
+    } 
 
     setItem(element) {
         this._container.prepend(element);

@@ -193,6 +193,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
   return {
     entry: { 
       index: './src/pages/index.js', 
+      about: './src/pages/about.js',
       form: './src/pages/form.js',
       blogpage: './src/pages/blog-page.js',
       lpopory: './src/pages/lpopory.js',
@@ -294,7 +295,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         title: "О производстве опор и география поставок",
         template: './src/about.html', // путь к файлу index.html
         filename: 'about/index.html',
-        chunks: ['index', 'form'],
+        chunks: ['index', 'form', 'about'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
