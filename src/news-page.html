@@ -28,7 +28,7 @@
       <% newsData.map((i, index) => { %>
         <li class="relative group">
           <figure class="relative rounded-lg overflow-hidden border border-primary-strokke w-full pb-[100%] after:z-2 after:w-full after:h-full after:absolute after:bg-[]">
-            <img class="absolute z-[1] w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-105" src="<%=canonicalURL%>/api-images/<%= i.textId %>/poster.png" alt="участие в конкурсе лучший по профессии">
+            <img class="absolute z-[1] w-full h-full object-cover transition-all duration-300 object-center group-hover:scale-105" src="<%=canonicalURL%>/api-images/<%= i.textId %>/<%= i.poster %>" alt="участие в конкурсе лучший по профессии">
           </figure>
           <div class="pt-5 flex olpc:flex-col olpc:*:basis-auto">
             <span class="basis-1/4 text-lg text-primary-darker mr-2 mb-1"><%= i.formattedDate %></span>

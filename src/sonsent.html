@@ -1,32 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
 <body class="page">
-  <%= require('html-loader!./inner-metrika.html').default %>
-  <header class="border-b border-primary-lighterdouble">
+    <%= require('html-loader!./inner-metrika.html').default %>
+    <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
-  </header>
-  <div class="relative flex ">
+    </header>
+    <div class="relative flex ">
     <ul class="breadcrumbs">
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/">Главная</a></li>
-        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.contacts %>" >Контакты</a></li>
+        <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="/sonsent/"> Согласие на обработку персональных данных</a></li>
     </ul>
-  </div>
-    <main class="content">
-      <div class="text-xl text-white max-w-6xl">
-        <div class="text-2xl my-4">
-           Согласие на обработку персональных данных ООО «Термоблок»
+    </div>
+    <main>
+      <div class="text-xl text-primary-black  content my-5">
+        <div class="text-3xl my-4 font-bold">
+           Согласие на обработку персональных данных ООО «Станкостальконструкция»
         </div>
-        <div class="flex flex-col gap-5">
+        <div class="flex flex-col gap-5 max-w-6xl">
             <p>
-               Настоящим даю согласие ООО «Термоблок» (ИНН 2224044880, ОГРН 1022201529195) (далее – Оператор) на обработку своих персональных данных.&nbsp;
+               Настоящим даю согласие ООО «Станкостальконструкция» (ИНН 2224201613, ОГРН 1202200001420) (далее – Оператор) на обработку своих персональных данных.&nbsp;
             </p>
             <p>
                Перечень персональных данных пользователя, на обработку которых даётся согласие:фамилия, имя, email, организация, город.&nbsp;
@@ -53,7 +53,7 @@
               Настоящее согласие на обработку персональных данных действует с момента его представления оператору в течение неопределенного срока.&nbsp;
             </p>
             <p>
-              Пользователь всегда может отказаться от получения информационных сообщений, направив Оператору письмо на адрес office@termoblok.ru.&nbsp;
+              Пользователь всегда может отказаться от получения информационных сообщений, направив Оператору письмо на адрес ssk@sskbsz.ru.&nbsp;
             </p>
             <p>
               Персональные данные субъекта подлежат хранению в течение сроков, установленных законодательством Российской Федерации. Персональные данные уничтожаются: по достижению целей обработки персональных данных; при ликвидации или реорганизации Оператора; на основании письменного обращения субъекта персональных данных с требованием о прекращении обработки его персональных данных Оператор прекратит обработку таких персональных данных в течение 30 дней с даты подачи отзыва, о чем будет направлено письменное уведомление субъекту.&nbsp;
@@ -61,7 +61,13 @@
 
             </div>
           </div>
-    </main>
+          <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
 
-  </body>
+    </main>
+    
+    <!--FOOTER-->
+    <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+</body>
 </html>
+
+     

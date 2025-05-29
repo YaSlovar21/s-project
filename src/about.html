@@ -9,6 +9,8 @@
 </head>
 
 <body class="page">
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
     <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
@@ -111,6 +113,8 @@
   <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+    </div>
+    </div>
 </body>
 <template id="card-object-template">
   <%= _.template(require('html-loader!./templates/card-object-page-about.html').default)({obj: {region: '', title: '', equipment: ''}}) %>

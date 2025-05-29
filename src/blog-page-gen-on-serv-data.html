@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename %>"  rel="canonical" />
+</head>
+
+<body class="page">
+  <%= require('html-loader!./inner-metrika.html').default %>
+  <header class="border-b border-primary-lighterdouble">
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+  </header>
+  <div class="content mb-10 mt-20 mobile:mb-10">
+    <a class="link-beauty ml-[25%] text-primary-darkerdouble text-2xl mobile:text-base mobile:ml-0" href="<%= ROUTES.news %>">&larr; Новости производства</a>
+  </div>
+  <main class="content mt-14">
+    <article class="ml-[25%] mobile:ml-0 prose prose-lg prose-ssk olpc:prose-lg pc:prose-xl">
+      <h1 class="section-title text-primary-black normal-case not-prose"><%= article.title %></h1>
+      <img src="<%=canonicalURL%>/api-images/<%=article.textId%>/<%= article.poster %>" alt="<%= article.posterAlt %>">
+
+      <p class="my-10"><%= article.desc %></p>
+      <% if (article.images.length) { %>
+        <div class="grid grid-cols-3 gap-2 mt-10 mb-20">
+          <% galleryData.map((i) => { %> 
+            <figure class="<%= popupImageClass %> basis-full"> 
+              <img src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= i.fileName %>" alt="<%= i.title %>">
+            </figure>
+          <% }) %>
+        </div>  
+      <% } %>
+      
+    </article>
+    <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
+  </main>
+      
+  
+  <!--FOOTER-->
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+  <!--POPUPS-->
+  <%= require('html-loader!./insets/popups/popupImage.html').default %>
+</body>
+</html>

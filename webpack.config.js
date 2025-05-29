@@ -149,10 +149,10 @@ function sfdsdd(a,b)  {
 
 
 /* -------------------------СТАТЬИ---------------------*/
-
-function generateArticlesHtmlPlugins(newsData) {
+/* -------------------------С ЛОКАЛЬНОЙ ВЕРСИЕЙ BODY------------------ */
+function generateArticlesWishStaticBodyHtmlPlugins(newsData) {
   console.log(newsData);
-  return newsData.filter(i => i.isStaticPage).sort((a,b) => b.id - a.id).map(post => {
+  return newsData.filter(i => i.isStaticPage && i.isOnlyServVersion===false).sort((a,b) => b.id - a.id).map(post => {
     
     generatedPaths.push(
       {
@@ -182,10 +182,49 @@ function generateArticlesHtmlPlugins(newsData) {
   })
 };
 
+/* -------------------------БЕЗ ЛОКАЛЬНОЙ ВЕРСИИ BODY------------------ */
+function generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServer) {
+  console.log(newsData);
+  const filteredNewsWithoutBody = newsData.filter(i => i.isStaticPage && i.isOnlyServVersion===true).sort((a,b) => b.id - a.id);
+  return filteredNewsWithoutBody.map(post => {
+    
+    generatedPaths.push(
+      {
+        path: `${ROUTES.news}${post.isStaticPage}`,
+        lastmod: dateNow,
+        priority: 0.8,
+        changefreq: 'monthly'
+      }
+    )
+    console.log('post.images.map(id => galleryData.find(i=>i.id===id)),',post.images.map(id => galleryData.find(i=>i.id===id)));
+    return new HtmlWebpackPlugin({
+      templateParameters: {
+        canonicalURL,
+        ROUTES,
+        isDevServer,
+        article: {
+          ...post,
+          posterAlt: post.title.split('»').join(' ').split('«').join(' ').split("\"").join(' ').split("\"").join(' ').trim()
+        },
+        galleryData: post.images.map(id => galleryData.find(i => i.id===id)),
+        ...standartClasses
+      },
+      title: post.title,
+      template: './src/blog-page-gen-on-serv-data.html', // путь к файлу index.html
+      filename: `${ROUTES.news.substr(1)}${post.isStaticPage}`,
+      chunks: ['index', 'form','ctaReactions', 'popupWithImage'],
+    })
+  })
+};
+
+
+
+
 function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyData, dictData, galleryData) {
 
   const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
-  const htmlArticlesPlugins = generateArticlesHtmlPlugins(newsData);
+  const htmlArticlesWithStaticBodyPlugins = generateArticlesWishStaticBodyHtmlPlugins(newsData);
+  const htmlArticlesWithoutBodyPlugins = generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServer);
   const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
 
   console.log(paths.length + generatedPaths.length);
@@ -202,7 +241,9 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
       frequently: './src/pages/frequently.js',
       ctaReactions: './src/pages/cta-reaction.js',
       hoverToImage: './src/pages/hover-to-main.js',
-      accordeon: './src/pages/accord.js'
+      accordeon: './src/pages/accord.js',
+      gsIndex: './src/pages/gs-trigger-index.js',
+      gsAll: './src/pages/gs-all.js'
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -284,7 +325,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         },
         title: "СтанкоСтальКонструкция | Завод гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
-        chunks: ['index', 'form','ctaReactions', 'accordeon', 'popupWithImage'],
+        chunks: ['index', 'form','ctaReactions', 'accordeon', 'popupWithImage', 'gsIndex'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
@@ -295,7 +336,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         title: "О производстве опор и география поставок",
         template: './src/about.html', // путь к файлу index.html
         filename: 'about/index.html',
-        chunks: ['index', 'form', 'about'],
+        chunks: ['index', 'form', 'about', 'gsAll'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {
@@ -401,6 +442,17 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
+          ...standartClasses
+        },
+        title: "Согласие на обработку персональных данных",
+        template: './src/sonsent.html', // путь к файлу index.html
+        filename: 'sonsent/index.html',
+        chunks: ['index', 'form','ctaReactions'],
+      }),
+      new HtmlWebpackPlugin({
+        templateParameters: {
+          canonicalURL,
+          ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
           ...standartClasses
         },
@@ -426,17 +478,18 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         filename: '[name].css'
       }),
       new SitemapPlugin({ base: canonicalURL , paths: paths.concat(generatedPaths) }),
-    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesPlugins), 
+    ].concat(htmlCategoriesPlugins, htmlProductsPlugins, htmlArticlesWithStaticBodyPlugins, htmlArticlesWithoutBodyPlugins), 
   }
 }
 
 function articleDateMapper(newsArr) {
   return newsArr.map((item) => {
-    const date = new Date(item.dateTime);
+    const date = new Date(item.date);
     const month = date.getMonth() + 1;
     return {
       ...item,
-      formattedDate: `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`
+      formattedDate: `${date.getDate()}.${month < 10 ? '0' : ''}${month}.${date.getFullYear()}`,
+      images: JSON.parse(item.images)
     }
   })
 }
