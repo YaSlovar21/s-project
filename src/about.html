@@ -22,8 +22,8 @@
     </ul>
 </div>
  
-  <main class="content mt-14">
-    <h1 class="title title_md">Производство опор и мачт освещения</h1>
+  <main class="content mt-6">
+    <h1 class="title title_md title_about">Производство опор и мачт освещения</h1>
     <section class="flex gap-5 items-start mt-16 mb-12 olpc:flex-col olpc:*:basis-auto">
       <h2 class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-10">О компании</h2>
       <div class="basis-1/2">
@@ -82,6 +82,20 @@
       </div>
     </section>
     <section class="my-24">
+      <span class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-3">Документация</span>
+      <h2 class="max-w-[500px] text-4xl font-bold text-primary-darker pt-2 mb-4">Сертификаты</h2>
+      <ul class="grid grid-cols-6 gap-x-4 gap-y-6 mvpc:gap-y-6 olpc:grid-cols-4 laptop:grid-cols-3 mobile:grid-cols-2">
+        <% galleryData.filter(i => i.consumersIds.includes("certificate")).sort((a,b)=> a.idSort - b.idSort).map((photo) => { %>
+          <li class="<%= popupImageClass %> cursor-pointer flex flex-col relative group">
+            <figure class="basis-96 pc:basis-80 min-h-0 relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-accent after:transition-all after:bg-opacity-20 after:z-[1] hover:after:bg-opacity-40">
+              <img class="w-full h-full object-cover object-center group-hover:opacity-80" src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName %>" alt="<%= photo.title %>" >
+            </figure>
+            <p class="my-1"><%= photo.title %></p>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+    <section class="my-24">
       <h2 class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-10">Парк оборудования</h2>
       <ul class="grid grid-cols-4 gap-5 mt-14 olpc:grid-cols-2 mobile:grid-cols-1">
         <li class="card card__link">
@@ -111,10 +125,13 @@
     </section>
   </main>
   <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
+  
   <!--FOOTER-->
   <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
     </div>
     </div>
+    <!--POPUPS-->
+  <%= require('html-loader!./insets/popups/popupImage.html').default %>
 </body>
 <template id="card-object-template">
   <%= _.template(require('html-loader!./templates/card-object-page-about.html').default)({obj: {region: '', title: '', equipment: ''}}) %>

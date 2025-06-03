@@ -331,12 +331,15 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
-          objectsData
+          isDevServer,
+          objectsData,
+          galleryData,
+          ...standartClasses //классы: контейнер, при клике на который открывается попап с картинкой
         },
         title: "О производстве опор и география поставок",
         template: './src/about.html', // путь к файлу index.html
         filename: 'about/index.html',
-        chunks: ['index', 'form', 'about', 'gsAll'],
+        chunks: ['index', 'form', 'about', 'gsAll', 'popupWithImage','ctaReactions'],
       }),
       new HtmlWebpackPlugin({
         templateParameters: {

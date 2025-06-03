@@ -11,6 +11,12 @@
     @apply mobile:text-xl;
 }
 
+
+.title_about {
+    text-align: left;
+    margin-top: 0;
+}
+
 .title_md {
     font-size: 82.5px;
     line-height: 1.1;
