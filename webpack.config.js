@@ -249,7 +249,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name][hash].js',
       assetModuleFilename: 'images/[hash][ext]',
-      //publicPath: ''
+      publicPath: '/'
     },
       // добавили режим разработчика
     mode: 'development',
