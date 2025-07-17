@@ -13,7 +13,7 @@
     <div id="smooth-content">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, contacts: contactsData, 'theme': 'transparent', page: 'default'}) %>
   </header>
   <div class="relative">
     <ul class="breadcrumbs breadcrumbs-no-padding flex items-center py-10">
@@ -88,7 +88,21 @@
         <% galleryData.filter(i => i.consumersIds.includes("certificate")).sort((a,b)=> a.idSort - b.idSort).map((photo) => { %>
           <li class="<%= popupImageClass %> cursor-pointer flex flex-col relative group">
             <figure class="basis-96 pc:basis-80 min-h-0 relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-accent after:transition-all after:bg-opacity-20 after:z-[1] hover:after:bg-opacity-40">
-              <img class="w-full h-full object-cover object-center group-hover:opacity-80" src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName %>" alt="<%= photo.title %>" >
+              <img class="w-full h-full object-cover object-center group-hover:opacity-80" src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName_mini %>" data-src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName %>" alt="<%= photo.title %>" >
+            </figure>
+            <p class="my-1"><%= photo.title %></p>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+    <section class="my-24">
+      <span class="basis-1/4 up-title up-title_svg text-primary-accent font-bold mb-3">Галерея</span>
+      <h2 class="max-w-[700px] text-4xl font-bold text-primary-darker pt-2 mb-4">Фото производства и продукции</h2>
+      <ul class="grid grid-cols-6 gap-x-4 gap-y-6 mvpc:gap-y-6 olpc:grid-cols-4 laptop:grid-cols-3 mobile:grid-cols-2">
+        <% galleryData.filter(i => i.consumersIds.includes("about-gallery")).sort((a,b)=> a.idSort - b.idSort).map((photo) => { %>
+          <li class="<%= popupImageClass %> cursor-pointer flex flex-col relative group">
+            <figure class="basis-96 pc:basis-80 min-h-0 relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary-accent after:transition-all after:bg-opacity-20 after:z-[1] hover:after:bg-opacity-40">
+              <img class="w-full h-full object-cover object-center group-hover:opacity-80" src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName_mini %>" data-src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= photo.fileName %>" alt="<%= photo.title %>" >
             </figure>
             <p class="my-1"><%= photo.title %></p>
           </li>
@@ -127,7 +141,7 @@
   <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   
   <!--FOOTER-->
-  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES, contacts: contactsData}) %>
     </div>
     </div>
     <!--POPUPS-->

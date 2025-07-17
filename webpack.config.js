@@ -22,7 +22,7 @@ const { paths } = require('./sitemap');
 console.log(ROUTES);
 
 
-function generateCategoriesHtmlPlugins(oporyData) {
+function generateCategoriesHtmlPlugins(oporyData, contactsData) {
   console.log(oporyData);
   return categories.map(category => {
     return new HtmlWebpackPlugin({
@@ -41,6 +41,7 @@ function generateCategoriesHtmlPlugins(oporyData) {
         featsArr: featuresForCats[category.type],
 
         ...standartClasses,
+        contactsData,
 
         //все категории для рекомендательной ленты
         allCats: categories.filter(item=> item.filename !== category.filename),
@@ -60,7 +61,7 @@ let generatedPaths = [];
 
 /* -------------- СТРАНИЦЫ ПРОДУКТОВ ------------------------------------ */
 
-function generateProductsHtmlPlugins(oporyData) {
+function generateProductsHtmlPlugins(oporyData, contactsData) {
   return oporyData.map((item) => {
     let itemRoute = item.linkPath;
     let itemTitle = `Опора ${item.name}`;
@@ -133,7 +134,8 @@ function generateProductsHtmlPlugins(oporyData) {
         ...standartClasses,
         gostName,
         sposobUstanovki,
-        categoryID
+        categoryID,
+        contactsData
       },
       title: itemTitle,
       template: './src/product-page.html', // путь к файлу index.html
@@ -150,7 +152,7 @@ function sfdsdd(a,b)  {
 
 /* -------------------------СТАТЬИ---------------------*/
 /* -------------------------С ЛОКАЛЬНОЙ ВЕРСИЕЙ BODY------------------ */
-function generateArticlesWishStaticBodyHtmlPlugins(newsData) {
+function generateArticlesWishStaticBodyHtmlPlugins(newsData, contactsData) {
   console.log(newsData);
   return newsData.filter(i => i.isStaticPage && i.isOnlyServVersion===false).sort((a,b) => b.id - a.id).map(post => {
     
@@ -172,7 +174,8 @@ function generateArticlesWishStaticBodyHtmlPlugins(newsData) {
           ...post
         },
         newsData,
-        ...standartClasses
+        ...standartClasses,
+        contactsData
       },
       title: post.title,
       template: './src/blog-page.html', // путь к файлу index.html
@@ -183,7 +186,7 @@ function generateArticlesWishStaticBodyHtmlPlugins(newsData) {
 };
 
 /* -------------------------БЕЗ ЛОКАЛЬНОЙ ВЕРСИИ BODY------------------ */
-function generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServer) {
+function generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServer, contactsData) {
   console.log(newsData);
   const filteredNewsWithoutBody = newsData.filter(i => i.isStaticPage && i.isOnlyServVersion===true).sort((a,b) => b.id - a.id);
   return filteredNewsWithoutBody.map(post => {
@@ -207,7 +210,8 @@ function generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServ
           posterAlt: post.title.split('»').join(' ').split('«').join(' ').split("\"").join(' ').split("\"").join(' ').trim()
         },
         galleryData: post.images.map(id => galleryData.find(i => i.id===id)),
-        ...standartClasses
+        ...standartClasses,
+        contactsData
       },
       title: post.title,
       template: './src/blog-page-gen-on-serv-data.html', // путь к файлу index.html
@@ -220,12 +224,15 @@ function generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServ
 
 
 
-function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyData, dictData, galleryData) {
+function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyData, dictData, galleryData, contacts) {
 
-  const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData);
-  const htmlArticlesWithStaticBodyPlugins = generateArticlesWishStaticBodyHtmlPlugins(newsData);
-  const htmlArticlesWithoutBodyPlugins = generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServer);
-  const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData);
+  const contactsData = contacts.reduce((res, curr)=> ({...res, [curr.id]: curr}), {});
+  console.log(contactsData);
+
+  const htmlCategoriesPlugins = generateCategoriesHtmlPlugins(oporyData, contactsData);
+  const htmlArticlesWithStaticBodyPlugins = generateArticlesWishStaticBodyHtmlPlugins(newsData, contactsData);
+  const htmlArticlesWithoutBodyPlugins = generateArticlesWithoutBodyHtmlPlugins(newsData, galleryData, isDevServer, contactsData);
+  const htmlProductsPlugins = generateProductsHtmlPlugins(oporyData, contactsData);
 
   console.log(paths.length + generatedPaths.length);
   console.log(dictData.filter(i => i.tableName === "machty")[0]);
@@ -321,7 +328,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           ROUTES,
           categoriesPageMain,
           newsData: newsData.sort((a,b) => b.id - a.id),
-          ...standartClasses //классы: контейнер, при клике на который открывается попап с картинкой
+          ...standartClasses,
+          contactsData //классы: контейнер, при клике на который открывается попап с картинкой
         },
         title: "СтанкоСтальКонструкция | Завод гранёных опор освещения",
         template: './src/index.html', // путь к файлу index.html
@@ -334,7 +342,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           isDevServer,
           objectsData,
           galleryData,
-          ...standartClasses //классы: контейнер, при клике на который открывается попап с картинкой
+          ...standartClasses ,
+          contactsData//классы: контейнер, при клике на который открывается попап с картинкой
         },
         title: "О производстве опор и география поставок",
         template: './src/about.html', // путь к файлу index.html
@@ -345,7 +354,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
-          
+          contactsData
         },
         title: "Проектировщикам дорог и дорожного освещения",
         template: './src/proektirovshchikam.html', // путь к файлу index.html
@@ -359,7 +368,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           tableData: oporyData,
           techNames,
           categories,
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Каталог опор освещения",
         template: './src/production.html', // путь к файлу index.html
@@ -370,7 +380,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Фудаменты под граненые конические опоры",
         template: './src/funds.html', // путь к файлу index.html
@@ -381,7 +392,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Кронштейны под светильники для опор освещения",
         template: './src/brackets.html', // путь к файлу index.html
@@ -397,7 +409,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           machtyData,
           dictDataObj: dictData.filter(i => i.tableName === "machty")[0],
           galleryData,
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Высокомачтовые опоры",
         template: './src/machty.html', // путь к файлу index.html
@@ -409,7 +422,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           canonicalURL,
           categoriesPageOpory,
           ROUTES,
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Опоры освещения конические многогранные ГОСТ 32947-2014",
         desc: "Производство опор освещения гранёных опор освещения: силовых фланцевых , несиловых фланцевых, силовых и несиловых прямостоечных опор освещения. Полный цикл производства.",
@@ -422,7 +436,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Новости производства",
         template: './src/news-page.html', // путь к файлу index.html
@@ -434,7 +449,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Наши ценности",
         template: './src/cennosti.html', // путь к файлу index.html
@@ -445,7 +461,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Согласие на обработку персональных данных",
         template: './src/sonsent.html', // путь к файлу index.html
@@ -457,7 +474,8 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
           canonicalURL,
           ROUTES,
           newsData: newsData.sort((a,b) => b.id - a.id),
-          ...standartClasses
+          ...standartClasses,
+          contactsData
         },
         title: "Парк оборудования и услуги",
         template: './src/about-factory-equipment.html', // путь к файлу index.html
@@ -469,7 +487,7 @@ function generateConfig(isDevServer, oporyData, newsData, objectsData, machtyDat
         templateParameters: {
           canonicalURL,
           ROUTES,
-          
+          contactsData
         },
         title: "Контакты ООО «Станкостальконструкция»",
         template: './src/contacts.html', // путь к файлу index.html
@@ -513,6 +531,13 @@ function galleryMapper(galleryArr) {
   }))
 }
 
+function contactsMapper(contactsArr) {
+  return contactsArr.map(item => ({
+    ...item,
+    additional_data: item.additional_data
+})) 
+}
+
 module.exports = () => {
   const isDevServer = process.env.WEBPACK_SERVE;
   console.log(isDevServer);
@@ -524,9 +549,10 @@ module.exports = () => {
           fetch1('https://api.ssk22.ru/data/machty').then(res => res.json()), 
           fetch1('https://api.ssk22.ru/data/dict').then(res => res.json()), 
           fetch1('https://api.ssk22.ru/gallery').then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/contacts').then(res => res.json()),  // data[6]
         ])
         .then((data) => {
-          resolve(generateConfig(isDevServer, data[0], articleDateMapper(data[1]), data[2], data[3], dictMapper(data[4]), galleryMapper(data[5])));
+          resolve(generateConfig(isDevServer, data[0], articleDateMapper(data[1]), data[2], data[3], dictMapper(data[4]), galleryMapper(data[5]), contactsMapper(data[6])));
         })
      
   });

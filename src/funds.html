@@ -8,10 +8,10 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename.split('/index.html')[0] %>/"  rel="canonical" />
 </head>
 
-<body class="page bg-themewhite">
+<body class="page">
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, contacts: contactsData, 'theme': 'transparent', page: 'default'}) %>
   </header>
   <div class="relative flex ">
     <ul class="breadcrumbs">
@@ -46,8 +46,8 @@
         </p>
     </div>
   </main>
-  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: 'Рассчитать стоимость фундамента под опору?'}) %>
+  <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--FOOTER-->
-  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES, contacts: contactsData}) %>
 </body>
 </html>

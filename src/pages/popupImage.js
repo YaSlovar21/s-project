@@ -13,7 +13,9 @@ document.querySelectorAll('.popup-image-item').forEach((item) => {
 
       const block = evt.target.closest('.popup-image-item');
       popupImage.open({
-        link: block.querySelector('img') ? block.querySelector('img').src : block.src,
+        link: block.querySelector('img') ?
+          block.querySelector('img').dataset.src ?  block.querySelector('img').dataset.src:  block.querySelector('img').src
+        : block.dataset.src ? block.dataset.src : block.src,
         desc: block.querySelector('img') ? block.querySelector('img').alt : block.alt,
       });
     });

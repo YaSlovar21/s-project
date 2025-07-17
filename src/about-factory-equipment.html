@@ -11,7 +11,7 @@
 <body class="page">
     <%= require('html-loader!./inner-metrika.html').default %>
     <header class="border-b border-primary-lighterdouble">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+        <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, contacts: contactsData, 'theme': 'transparent', page: 'default'}) %>
     </header>
     <div class="relative flex ">
     <ul class="breadcrumbs">
@@ -66,6 +66,6 @@
     <!--POPUPS-->
     <%= require('html-loader!./insets/popups/popupImage.html').default %>
     <!--FOOTER-->
-    <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+    <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES, contacts: contactsData}) %>
 </body>
 </html>

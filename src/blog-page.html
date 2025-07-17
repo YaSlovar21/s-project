@@ -13,11 +13,11 @@
   <link href="<%= canonicalURL %>/<%= htmlWebpackPlugin.options.filename %>"  rel="canonical" />
 </head>
 
-<body class="page bg-themewhite">
+<body class="page ">
   <%= require('html-loader!./inner-metrika.html').default %>
   <%= require('html-loader!./inner-metrika.html').default %>
   <header class="border-b border-primary-lighterdouble">
-    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, 'theme': 'transparent', page: 'default'}) %>
+    <%=_.template(require('html-loader!./insets/inner-header.html').default)({ROUTES: ROUTES, contacts: contactsData, 'theme': 'transparent', page: 'default'}) %>
   </header>
     <!--<ul class="breadcrumbs">
         <li class="breadcrumbs__list-item"><a class="breadcrumbs__link" href="<%= ROUTES.news %>">Новости производства</a></li>
@@ -54,9 +54,9 @@
       </div>
   </main>
       
-  <%= _.template(require('html-loader!./insets/form-section.html').default)({title: false}) %>
+  <%= _.template(require('html-loader!./insets/form-section-test.html').default)({title: false}) %>
   <!--FOOTER-->
-  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES}) %>
+  <%= _.template(require('html-loader!./insets/inner-footer.html').default)({ROUTES: ROUTES, contacts: contactsData}) %>
   <!--POPUPS-->
   <%= require('html-loader!./insets/popups/popupImage.html').default %>
 </body>
