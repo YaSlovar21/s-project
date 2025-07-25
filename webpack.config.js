@@ -538,18 +538,28 @@ function contactsMapper(contactsArr) {
 })) 
 }
 
+const proxyAgent = new HttpsProxyAgent.HttpsProxyAgent('http://10.10.14.14:3128');
+
+const initFetchObj = {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8',
+  },
+  agent: proxyAgent
+}
+
 module.exports = () => {
   const isDevServer = process.env.WEBPACK_SERVE;
   console.log(isDevServer);
   return new Promise((resolve, reject) => {
       Promise.all([
-          fetch1('https://api.ssk22.ru/data/techdata').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/news').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/data/objects').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/data/machty').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/data/dict').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/gallery').then(res => res.json()), 
-          fetch1('https://api.ssk22.ru/contacts').then(res => res.json()),  // data[6]
+          fetch1('https://api.ssk22.ru/data/techdata', initFetchObj).then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/news', initFetchObj).then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/data/objects', initFetchObj).then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/data/machty', initFetchObj).then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/data/dict', initFetchObj).then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/gallery', initFetchObj).then(res => res.json()), 
+          fetch1('https://api.ssk22.ru/contacts', initFetchObj).then(res => res.json()),  // data[6]
         ])
         .then((data) => {
           resolve(generateConfig(isDevServer, data[0], articleDateMapper(data[1]), data[2], data[3], dictMapper(data[4]), galleryMapper(data[5]), contactsMapper(data[6])));
