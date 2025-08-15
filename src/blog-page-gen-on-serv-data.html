@@ -26,7 +26,7 @@
         <div class="grid grid-cols-3 gap-2 mt-10 mb-20">
           <% galleryData.map((i) => { %> 
             <figure class="<%= popupImageClass %> basis-full"> 
-              <img src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= i.fileName %>" alt="<%= i.title %>">
+              <img class="object-cover object-center" src="<%= isDevServer ? 'https://станкостальконструкция.рф' : '' %>/api-images/gallery/<%= i.fileName %>" alt="<%= i.title %>">
             </figure>
           <% }) %>
         </div>  
